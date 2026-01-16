@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Alejandro Moral Aranda - CV</title>
+  <title>Alejandro Moral Aranda - Fund Accountant</title>
   <!-- ...existing code... -->
 <meta name="viewport" content="width=1200, initial-scale=0.4, maximum-scale=1.0, user-scalable=yes">
 
@@ -14,6 +14,26 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+// Auto-load specific version on page load
+(function() {
+  const targetVersion = 'fund-accounting';
+  
+  window.addEventListener('DOMContentLoaded', function() {
+    if (window.CVVersionController) {
+      if (window.CVVersionController.setVersion) {
+        window.CVVersionController.setVersion(targetVersion);
+      }
+    }
+    
+    setTimeout(function() {
+      if (window.cvController && window.cvController.switchVersion) {
+        window.cvController.switchVersion(targetVersion);
+      }
+    }, 200);
+  });
+})();
+</script>
 </head>
 <body>
 
@@ -31,17 +51,7 @@
 
   </nav>
 
-  <!-- Auto-load neutral-finance version -->
-  <script>
-    // Set default version to neutral-finance without showing selector
-    if (typeof window.CVVersionController !== 'undefined') {
-      document.addEventListener('DOMContentLoaded', function() {
-        if (window.CVVersionController && window.CVVersionController.setVersion) {
-          window.CVVersionController.setVersion('neutral-finance');
-        }
-      });
-    }
-  </script>
+  
 
 
   <div id="particles-background" class="vertical-centered-box"></div>
@@ -80,9 +90,9 @@
       </div>
       
       <div class="website-link">
-        <a href="https://alemxral.github.io/cv/" target="_blank">
+        <a href="https://alemxral.github.io/cv/fund-accounting/" target="_blank">
           <i class="fas fa-globe"></i>
-          <span class="website-text">(CV) https://alemxral.github.io/cv/</span>
+          <span class="website-text">(CV) https://alemxral.github.io/cv/fund-accounting/</span>
         </a>
       </div>
       
@@ -210,7 +220,7 @@
         <div class="skill" data-percent="80" data-years="4" data-tags="Backend,Data Science">
           <div class="skill-info">
             <div class="skill-name">Python</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Backend · Data Science</span><span class="skill-years">4 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Backend Â· Data Science</span><span class="skill-years">4 yrs</span></div> -->
           </div>
           <div class="skill-meter" aria-hidden="true"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">80%</div>
@@ -219,7 +229,7 @@
         <div class="skill" data-percent="30" data-years="2" data-tags="Scripting,Automation">
           <div class="skill-info">
             <div class="skill-name">PowerShell</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Scripting · Automation</span><span class="skill-years">2 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Scripting Â· Automation</span><span class="skill-years">2 yrs</span></div> -->
           </div>
           <div class="skill-meter"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">30%</div>
@@ -228,7 +238,7 @@
         <div class="skill" data-percent="75" data-years="3" data-tags="Stats,Analysis">
           <div class="skill-info">
             <div class="skill-name">R</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Stats · Analysis</span><span class="skill-years">3 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Stats Â· Analysis</span><span class="skill-years">3 yrs</span></div> -->
           </div>
           <div class="skill-meter"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">75%</div>
@@ -237,7 +247,7 @@
         <div class="skill" data-percent="70" data-years="2" data-tags="Frontend,Node">
           <div class="skill-info">
             <div class="skill-name">JavaScript</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Frontend · Backend</span><span class="skill-years">2 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Frontend Â· Backend</span><span class="skill-years">2 yrs</span></div> -->
           </div>
           <div class="skill-meter"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">70%</div>
@@ -255,7 +265,7 @@
         <div class="skill" data-percent="70" data-years="3" data-tags="Markup,Styling">
           <div class="skill-info">
             <div class="skill-name">HTML &amp; CSS</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Markup · Styling</span><span class="skill-years">3 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Markup Â· Styling</span><span class="skill-years">3 yrs</span></div> -->
           </div>
           <div class="skill-meter"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">70%</div>
@@ -264,7 +274,7 @@
         <div class="skill" data-percent="85" data-years="4" data-tags="Databases,SQL">
           <div class="skill-info">
             <div class="skill-name">SQL</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Databases · SQL</span><span class="skill-years">4 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Databases Â· SQL</span><span class="skill-years">4 yrs</span></div> -->
           </div>
           <div class="skill-meter"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">85%</div>
@@ -273,7 +283,7 @@
         <div class="skill" data-percent="90" data-years="5" data-tags="Macros,Reporting">
           <div class="skill-info">
             <div class="skill-name">VBA</div>
-            <!-- <div class="skill-meta"><span class="skill-tags">Macros · Reporting</span><span class="skill-years">5 yrs</span></div> -->
+            <!-- <div class="skill-meta"><span class="skill-tags">Macros Â· Reporting</span><span class="skill-years">5 yrs</span></div> -->
           </div>
           <div class="skill-meter"><div class="skill-fill" style="width:0%"></div></div>
           <div class="skill-percent">90%</div>
@@ -560,7 +570,7 @@
         <a href="https://github.com/alemxral/TareaFlow/tree/main/Internal" target="_blank">TareaFlow</a>
       </h3>
       <p class="project-description">
-        A web-based solution with a simple internal PowerShell server that includes a Team Task Tracker, Team Holidays, and Work From Home management tool—all running locally on your localhost with no installation required.
+        A web-based solution with a simple internal PowerShell server that includes a Team Task Tracker, Team Holidays, and Work From Home management toolâ€”all running locally on your localhost with no installation required.
       </p>
       <a href="https://github.com/alemxral/TareaFlow/tree/main/Internal" class="project-link" target="_blank">View Project</a>
       <p class="project-category">Powershell/JavaScript</p>
@@ -623,13 +633,6 @@
   </div>
 </div>
 <!-- partial -->
-<!-- Firebase SDK (Optional - for loading from database) -->
-<!--
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-<script src="./firebase-config.js"></script>
-<script src="./cv-data-loader.js"></script>
--->
 <!-- html2pdf library for PDF generation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <!-- pdf-lib for merging PDFs -->
@@ -644,3 +647,4 @@
 
 </body>
 </html>
+

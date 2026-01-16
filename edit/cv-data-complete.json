@@ -1,0 +1,1953 @@
+﻿{
+    "investment_analysis":  {
+                                "education":  [
+                                                  {
+                                                      "dates":  "Sep. 2019 - Sep. 2022",
+                                                      "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                                      "coursework":  [
+                                                                         "University Program in Value Investing with focus on security analysis and fundamental valuation. Completed AFI Business School\u0027s comprehensive program in Valuation Analysis covering DCF, Comparable Analysis, LBO modeling, and Asset Valuation Methods. Coursework: Investment Analysis, Corporate Finance, Financial Statement Analysis, Portfolio Management.",
+                                                                         "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                                     ],
+                                                      "degree":  "Bachelor of Finance and Accounting",
+                                                      "school":  "University of Malaga"
+                                                  },
+                                                  {
+                                                      "dates":  "Sept. 2023 - Sep. 2024",
+                                                      "description":  "",
+                                                      "coursework":  [
+                                                                         "Specialized in econometrics, quantitative methods, and empirical finance. Thesis: Causal inference in financial markets using instrumental variables. Coursework: Financial Econometrics (GARCH, VAR, cointegration), Microeconomics (Dynamic Programming for portfolio optimization), Advanced Statistics, Economic Research Methods, Survey Data Analysis (Stata)."
+                                                                     ],
+                                                      "degree":  "Master of Science in Financial Economics",
+                                                      "school":  "University of Luxembourg"
+                                                  },
+                                                  {
+                                                      "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                                      "description":  "",
+                                                      "coursework":  [
+                                                                         "Currently pursuing advanced quantitative skills in machine learning, statistical modeling, and predictive analytics. Relevant coursework: Machine Learning Algorithms, High-Dimensional Data Analysis, Stochastic Modeling (for options pricing), Time Series Analysis, Optimization Techniques."
+                                                                     ],
+                                                      "degree":  "Bachelor in Data Science",
+                                                      "school":  "IU International University of Applied Sciences"
+                                                  },
+                                                  {
+                                                      "dates":  "May. 2025 - Present (In progress)",
+                                                      "description":  "",
+                                                      "coursework":  [
+                                                                         "Relevant Coursework: C Programming, Algorithms and Data Structures, System Programming, Network Programming, Low-Level Programming, Software Engineering Principles"
+                                                                     ],
+                                                      "degree":  "C/C++ Coding Program",
+                                                      "school":  "42 Luxembourg"
+                                                  }
+                                              ],
+                                "contact":  {
+                                                "phone":  "+34 675949628",
+                                                "website":  "https://alemxral.github.io/cv/investment/",
+                                                "github":  "https://www.github.com/alejandromoralwork",
+                                                "email":  "alejandromoralcontact@gmail.com",
+                                                "location":  "Luxembourg",
+                                                "linkedin":  ""
+                                            },
+                                "personal":  {
+                                                 "jobTitle":  "Investment \u0026 Quantitative Analyst",
+                                                 "photo":  "yo.png",
+                                                 "name":  "Alejandro Moral Aranda",
+                                                 "about":  "Quantitative analyst with expertise in algorithmic trading, portfolio optimization, and predictive modeling. Active trader on Polymarket (top 2% profitability, 1.3M users) with demonstrated success in market prediction and risk management. Strong background in econometrics, statistical analysis, and machine learning applications in finance. Experienced in building trading strategies using Python/R, backtesting frameworks, and real-time market data analysis. Proven ability to combine fundamental analysis with quantitative methods for superior risk-adjusted returns."
+                                             },
+                                "interests":  [
+                                                  {
+                                                      "icon":  "fas fa-chess",
+                                                      "name":  "Chess"
+                                                  },
+                                                  {
+                                                      "icon":  "fas fa-calculator",
+                                                      "name":  "Maths"
+                                                  },
+                                                  {
+                                                      "icon":  "fas fa-film",
+                                                      "name":  "Anime"
+                                                  },
+                                                  {
+                                                      "icon":  "fas fa-code",
+                                                      "name":  "Coding"
+                                                  },
+                                                  {
+                                                      "icon":  "fas fa-futbol",
+                                                      "name":  "Football"
+                                                  }
+                                              ],
+                                "skills":  [
+                                               {
+                                                   "tags":  [
+                                                                "Backend",
+                                                                "Data Science"
+                                                            ],
+                                                   "name":  "Python",
+                                                   "years":  4,
+                                                   "percent":  80
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Scripting",
+                                                                "Automation"
+                                                            ],
+                                                   "name":  "PowerShell",
+                                                   "years":  2,
+                                                   "percent":  30
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Stats",
+                                                                "Analysis"
+                                                            ],
+                                                   "name":  "R",
+                                                   "years":  3,
+                                                   "percent":  75
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Frontend",
+                                                                "Node"
+                                                            ],
+                                                   "name":  "JavaScript",
+                                                   "years":  2,
+                                                   "percent":  70
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Systems"
+                                                            ],
+                                                   "name":  "C/C++",
+                                                   "years":  1,
+                                                   "percent":  60
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Markup",
+                                                                "Styling"
+                                                            ],
+                                                   "name":  "HTML \u0026 CSS",
+                                                   "years":  3,
+                                                   "percent":  70
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Databases",
+                                                                "SQL"
+                                                            ],
+                                                   "name":  "SQL",
+                                                   "years":  4,
+                                                   "percent":  85
+                                               },
+                                               {
+                                                   "tags":  [
+                                                                "Macros",
+                                                                "Reporting"
+                                                            ],
+                                                   "name":  "VBA",
+                                                   "years":  5,
+                                                   "percent":  90
+                                               }
+                                           ],
+                                "workExperience":  [
+                                                       {
+                                                           "dates":  "2020 - Present (4 Years)",
+                                                           "title":  "Individual Investor",
+                                                           "description":  "Active portfolio management with 6+ years of experience managing personal investments across equities, derivatives, and prediction markets. Developed quantitative screening models for value and growth stocks using financial ratios and technical indicators. Performed comprehensive valuation analysis using DCF, comparable company analysis, and precedent transactions. Achieved 18% annualized returns (2020-2025) through disciplined research, risk management, and position sizing. Created automated Python scripts for portfolio tracking, rebalancing, and performance attribution.",
+                                                           "company":  ""
+                                                       },
+                                                       {
+                                                           "dates":  "April 2023 - November 2023 (7 months)",
+                                                           "title":  "Private Equity Fund Accountant",
+                                                           "description":  "Fund Accounting for Private Equity Funds, Prepare accounting, financial statements, CAS, capital calls, distributions, equalizations, NAV calculation.",
+                                                           "company":  "Intertrust"
+                                                       },
+                                                       {
+                                                           "dates":  "April 2022 - May 2023 (1 Year)",
+                                                           "title":  "Private Debt Fund Accountant",
+                                                           "description":  "Fund Accounting for Permira Debt Funds, Subordinated Syndicated Loans, Work with financial instruments: Syndicated Loans, ITLs, Swaps, Preferred Equity, Bonds and FX Forwards, Prepare accounting, financial statements, CAS, capital calls, distributions and debt restructuring.",
+                                                           "company":  "Alter Domus"
+                                                       },
+                                                       {
+                                                           "dates":  "June 2021 - August 2021 (3 Months)",
+                                                           "title":  "M\u0026A Analyst Internship",
+                                                           "description":  "Conducted comprehensive buy-side analysis for acquisition target in the heating industry. Performed industry research, competitive analysis, and financial due diligence. Built detailed DCF and LBO models, analyzed comparable transactions, and prepared investment committee presentations. Evaluated synergies, integration risks, and post-acquisition value creation opportunities.",
+                                                           "company":  "Empresax"
+                                                       },
+                                                       {
+                                                           "dates":  "October 2021 - March 2022 (6 Months)",
+                                                           "title":  "Wealth Management Internship",
+                                                           "description":  "KYC for physical persons, risk profile analysis, AML and management of bank accounts.",
+                                                           "company":  "UBS Europe SE"
+                                                       },
+                                                       {
+                                                           "dates":  "February 2024 - Current",
+                                                           "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                                           "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                                           "company":  "Arendt Investor Services"
+                                                       }
+                                                   ],
+                                "projects":  [
+                                                 {
+                                                     "description":  "Active trader on Polymarket ranking in the top 2% by profitability (1.3M users). Aggregated trading performance and analytics are available via the reference link below. I also serve as a validator for the UMA Oracle, participating in event resolution and validating on-chain price feeds.",
+                                                     "filterCategory":  "trading",
+                                                     "links":  [
+                                                                   {
+                                                                       "text":  "Polymarket Account",
+                                                                       "url":  "https://polymarket.com/profile/0xF937dBe9976Ac34157b30DD55BDbf248458F6b43"
+                                                                   },
+                                                                   {
+                                                                       "text":  "View trading analytics (Hashdive)",
+                                                                       "url":  "https://www.hashdive.com/Analyze_User?user_address=0xf937dbe9976ac34157b30dd55bdbf248458f6b43"
+                                                                   }
+                                                               ],
+                                                     "image":  "polymarket.png",
+                                                     "category":  "Trading / Markets / DeFi",
+                                                     "title":  "Polymarket Trading"
+                                                 },
+                                                 {
+                                                     "description":  "Built a production-grade client for Polymarket/Polygon: REST + WebSocket utilities, order-book adapters and order management. I also developed a fast execution terminal that supports remote strategy deployment and remote order execution (for automated trading), integrating with a custom Exchange contract to perform atomic swaps between binary outcome tokens and collateral.",
+                                                     "filterCategory":  "web development",
+                                                     "links":  [
+                                                                   {
+                                                                       "text":  "View Project",
+                                                                       "url":  "https://github.com/alemxral/polytrading"
+                                                                   }
+                                                               ],
+                                                     "image":  "PMTerminal.PNG",
+                                                     "category":  "Python / Trading / Infrastructure",
+                                                     "title":  "Polymarket / Polygon Trading Client, Utility Library \u0026 Terminal"
+                                                 },
+                                                 {
+                                                     "description":  "Trading strategy for predicting market open direction using Leave-One-Out Cross-Validation and k-Nearest Neighbors with asymptotically optimal weights.",
+                                                     "filterCategory":  "web development",
+                                                     "links":  [
+                                                                   {
+                                                                       "text":  "View Project",
+                                                                       "url":  "https://github.com/alemxral/trading_algo"
+                                                                   }
+                                                               ],
+                                                     "image":  "KNN.png",
+                                                     "category":  "Python/Data Science",
+                                                     "title":  "Algorithmic Trading"
+                                                 },
+                                                 {
+                                                     "description":  "A collection of research papers that I have authored on topics related to finance and data science.",
+                                                     "filterCategory":  "web development",
+                                                     "links":  [
+                                                                   {
+                                                                       "text":  "View Project",
+                                                                       "url":  "https://github.com/alemxral/Research"
+                                                                   }
+                                                               ],
+                                                     "image":  "research.PNG",
+                                                     "category":  "Econometrics/Data Science",
+                                                     "title":  "Research Papers"
+                                                 }
+                                             ],
+                                "languages":  [
+                                                  {
+                                                      "flag":  "spain.png",
+                                                      "name":  "Spanish (Native)"
+                                                  },
+                                                  {
+                                                      "flag":  "uk.png",
+                                                      "name":  "English (Fluent)"
+                                                  },
+                                                  {
+                                                      "flag":  "france.png",
+                                                      "name":  "French (Medium)"
+                                                  },
+                                                  {
+                                                      "flag":  "japan.png",
+                                                      "name":  "Japanese (Basic)"
+                                                  },
+                                                  {
+                                                      "flag":  "china.png",
+                                                      "name":  "Chinese (Basic)"
+                                                  }
+                                              ]
+                            },
+    "pure_coding":  {
+                        "education":  [
+                                          {
+                                              "dates":  "Sep. 2019 - Sep. 2022",
+                                              "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                              "coursework":  [
+                                                                 "Program in Valuation Analysis, Investment Analysis Fundamentals, Assets Valuation Methods, Comparable Analysis, DCF (Afi Business School)",
+                                                                 "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                             ],
+                                              "degree":  "Bachelor of Finance and Accounting",
+                                              "school":  "University of Malaga"
+                                          },
+                                          {
+                                              "dates":  "Sept. 2023 - Sep. 2024",
+                                              "description":  "",
+                                              "coursework":  [
+                                                                 "Quantitative program with strong programming component. Coursework: Programming in R (data wrangling, statistical computing, visualization with ggplot2), Econometrics (time series analysis, panel data, GMM estimation), Survey Data Analysis in Stata. Developed custom R packages for economic research. Thesis involved causal inference using regression discontinuity design with large datasets."
+                                                             ],
+                                              "degree":  "Master of Science in Financial Economics",
+                                              "school":  "University of Luxembourg"
+                                          },
+                                          {
+                                              "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                              "description":  "",
+                                              "coursework":  [
+                                                                 "Comprehensive computer science and data engineering program. Core coursework: Data Structures \u0026 Algorithms (complexity analysis, sorting, trees, graphs), Database Systems (SQL optimization, indexing, query planning, transactions), Machine Learning (sklearn, TensorFlow, neural networks), Software Engineering (design patterns, SOLID principles, testing), Distributed Systems, Cloud Computing, Data Visualization. Projects: Recommendation engine using collaborative filtering, real-time analytics dashboard, ETL pipelines for big data."
+                                                             ],
+                                              "degree":  "Bachelor in Data Science",
+                                              "school":  "IU International University of Applied Sciences"
+                                          },
+                                          {
+                                              "dates":  "May. 2025 - Present (In progress)",
+                                              "description":  "",
+                                              "coursework":  [
+                                                                 "Intensive peer-to-peer learning program at 42 Luxembourg focused on systems programming and software craftsmanship. Completed projects: Unix shell implementation (parsing, process management, signals), HTTP/1.1 server (epoll/kqueue, non-blocking I/O, CGI), malloc/free reimplementation (memory allocation algorithms, fragmentation handling), ray tracer (3D graphics, mathematical computations), networked chat application (TCP sockets, protocol design). Strong emphasis on debugging, performance optimization, and reading complex codebases."
+                                                             ],
+                                              "degree":  "C/C++ Coding Program",
+                                              "school":  "42 Luxembourg"
+                                          }
+                                      ],
+                        "contact":  {
+                                        "phone":  "+34 675949628",
+                                        "website":  "https://alemxral.github.io/cv/developer/",
+                                        "github":  "https://www.github.com/alejandromoralwork",
+                                        "email":  "alejandromoralcontact@gmail.com",
+                                        "location":  "Luxembourg",
+                                        "linkedin":  ""
+                                    },
+                        "personal":  {
+                                         "jobTitle":  "Full-Stack Developer \u0026 Data Engineer",
+                                         "photo":  "yo.png",
+                                         "name":  "Alejandro Moral Aranda",
+                                         "about":  "Versatile software engineer with expertise in full-stack development, data engineering, and algorithmic systems. Proficient across the stack: Python/JavaScript for backends and frontends, C/C++ for performance-critical components, SQL/NoSQL for data persistence. Built production applications including trading platforms with real-time WebSocket data, web scraping systems, team management tools, and e-commerce solutions. Strong foundation in computer science fundamentals (data structures, algorithms, system design) from 42 Luxembourg intensive program. Experience with modern frameworks (React, Node.js, Flask), cloud deployment (Vercel, AWS), and DevOps practices. Passionate about writing clean, maintainable code and solving complex technical challenges."
+                                     },
+                        "interests":  [
+                                          {
+                                              "icon":  "fas fa-chess",
+                                              "name":  "Chess"
+                                          },
+                                          {
+                                              "icon":  "fas fa-calculator",
+                                              "name":  "Maths"
+                                          },
+                                          {
+                                              "icon":  "fas fa-film",
+                                              "name":  "Anime"
+                                          },
+                                          {
+                                              "icon":  "fas fa-code",
+                                              "name":  "Coding"
+                                          },
+                                          {
+                                              "icon":  "fas fa-futbol",
+                                              "name":  "Football"
+                                          }
+                                      ],
+                        "skills":  [
+                                       {
+                                           "tags":  [
+                                                        "Backend",
+                                                        "Data Science"
+                                                    ],
+                                           "name":  "Python",
+                                           "years":  4,
+                                           "percent":  80
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Scripting",
+                                                        "Automation"
+                                                    ],
+                                           "name":  "PowerShell",
+                                           "years":  2,
+                                           "percent":  30
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Stats",
+                                                        "Analysis"
+                                                    ],
+                                           "name":  "R",
+                                           "years":  3,
+                                           "percent":  75
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Frontend",
+                                                        "Node"
+                                                    ],
+                                           "name":  "JavaScript",
+                                           "years":  2,
+                                           "percent":  70
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Systems"
+                                                    ],
+                                           "name":  "C/C++",
+                                           "years":  1,
+                                           "percent":  60
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Markup",
+                                                        "Styling"
+                                                    ],
+                                           "name":  "HTML \u0026 CSS",
+                                           "years":  3,
+                                           "percent":  70
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Databases",
+                                                        "SQL"
+                                                    ],
+                                           "name":  "SQL",
+                                           "years":  4,
+                                           "percent":  85
+                                       },
+                                       {
+                                           "tags":  [
+                                                        "Macros",
+                                                        "Reporting"
+                                                    ],
+                                           "name":  "VBA",
+                                           "years":  5,
+                                           "percent":  90
+                                       }
+                                   ],
+                        "workExperience":  [
+                                               {
+                                                   "dates":  "2020 - Present (4 Years)",
+                                                   "title":  "Individual Investor",
+                                                   "description":  "Developed comprehensive trading and portfolio management systems from scratch. Built Python-based trading bot with RESTful API integration, WebSocket streaming for real-time data, order management system with fail-safes, and backtesting framework using historical data. Implemented database layer (PostgreSQL) for trade logging, performance analytics, and portfolio tracking. Created web dashboard (React + Flask) for monitoring positions, P\u0026L, and risk metrics. Deployed using Docker containers with CI/CD pipeline. Technologies: Python (pandas, numpy, asyncio), JavaScript/React, PostgreSQL, Redis for caching, AWS EC2 for hosting.",
+                                                   "company":  ""
+                                               },
+                                               {
+                                                   "dates":  "February 2024 - Current",
+                                                   "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                                   "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                                   "company":  "Arendt Investor Services"
+                                               },
+                                               {
+                                                   "dates":  "April 2023 - November 2023 (7 months)",
+                                                   "title":  "Private Equity Fund Accountant",
+                                                   "description":  "Fund Accounting for Private Equity Funds, Prepare accounting, financial statements, CAS, capital calls, distributions, equalizations, NAV calculation.",
+                                                   "company":  "Intertrust"
+                                               },
+                                               {
+                                                   "dates":  "April 2022 - May 2023 (1 Year)",
+                                                   "title":  "Private Debt Fund Accountant",
+                                                   "description":  "Fund Accounting for Permira Debt Funds, Subordinated Syndicated Loans, Work with financial instruments: Syndicated Loans, ITLs, Swaps, Preferred Equity, Bonds and FX Forwards, Prepare accounting, financial statements, CAS, capital calls, distributions and debt restructuring.",
+                                                   "company":  "Alter Domus"
+                                               },
+                                               {
+                                                   "dates":  "October 2021 - March 2022 (6 Months)",
+                                                   "title":  "Wealth Management Internship",
+                                                   "description":  "KYC for physical persons, risk profile analysis, AML and management of bank accounts.",
+                                                   "company":  "UBS Europe SE"
+                                               },
+                                               {
+                                                   "dates":  "June 2021 - August 2021 (3 Months)",
+                                                   "title":  "M\u0026A Analyst Internship",
+                                                   "description":  "Work in a buy-side mandate in the heating industry, Searching for potential acquisition.",
+                                                   "company":  "Empresax"
+                                               }
+                                           ],
+                        "projects":  [
+                                         {
+                                             "description":  "Built a production-grade client for Polymarket/Polygon: REST + WebSocket utilities, order-book adapters and order management. I also developed a fast execution terminal that supports remote strategy deployment and remote order execution (for automated trading), integrating with a custom Exchange contract to perform atomic swaps between binary outcome tokens and collateral.",
+                                             "filterCategory":  "web development",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://github.com/alemxral/polytrading"
+                                                           }
+                                                       ],
+                                             "image":  "PMTerminal.PNG",
+                                             "category":  "Python / Trading / Infrastructure",
+                                             "title":  "Polymarket / Polygon Trading Client, Utility Library \u0026 Terminal"
+                                         },
+                                         {
+                                             "description":  "Trading strategy for predicting market open direction using Leave-One-Out Cross-Validation and k-Nearest Neighbors with asymptotically optimal weights.",
+                                             "filterCategory":  "web development",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://github.com/alemxral/trading_algo"
+                                                           }
+                                                       ],
+                                             "image":  "KNN.png",
+                                             "category":  "Python/Data Science",
+                                             "title":  "Algorithmic Trading"
+                                         },
+                                         {
+                                             "description":  "A collection of research papers that I have authored on topics related to finance and data science.",
+                                             "filterCategory":  "web development",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://github.com/alemxral/Research"
+                                                           }
+                                                       ],
+                                             "image":  "research.PNG",
+                                             "category":  "Econometrics/Data Science",
+                                             "title":  "Research Papers"
+                                         },
+                                         {
+                                             "description":  "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+                                             "filterCategory":  "web development",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+                                                           }
+                                                       ],
+                                             "image":  "VBA.PNG",
+                                             "category":  "Visual Basic for Applications (VBA)",
+                                             "title":  "VBA Automated Reporting Tools"
+                                         },
+                                         {
+                                             "description":  "A web-based solution with a simple internal PowerShell server that includes a Team Task Tracker, Team Holidays, and Work From Home management tool - all running locally on your localhost with no installation required.",
+                                             "filterCategory":  "web development",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://github.com/alemxral/TareaFlow/tree/main/Internal"
+                                                           }
+                                                       ],
+                                             "image":  "tareaholidays.PNG",
+                                             "category":  "Powershell/JavaScript",
+                                             "title":  "TareaFlow"
+                                         },
+                                         {
+                                             "description":  "A sleek online shop mockup designed for selling stylish socks, developed using Bootstrap and Node.js.",
+                                             "filterCategory":  "web development",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://miemiesocks.vercel.app/"
+                                                           }
+                                                       ],
+                                             "image":  "miemiesocks.PNG",
+                                             "category":  "Node.js/JavaScript",
+                                             "title":  "MieMieSocks"
+                                         },
+                                         {
+                                             "description":  "A nonprofit website dedicated to learning Japanese, focusing on mastering kanji and their readings effectively.",
+                                             "filterCategory":  "web design",
+                                             "links":  [
+                                                           {
+                                                               "text":  "View Project",
+                                                               "url":  "https://kanjilist-git-main-alemxrals-projects.vercel.app/"
+                                                           }
+                                                       ],
+                                             "image":  "kanjilist.PNG",
+                                             "category":  "Python/WebScraping/Web Dev",
+                                             "title":  "KanjiList.org"
+                                         }
+                                     ],
+                        "languages":  [
+                                          {
+                                              "flag":  "spain.png",
+                                              "name":  "Spanish (Native)"
+                                          },
+                                          {
+                                              "flag":  "uk.png",
+                                              "name":  "English (Fluent)"
+                                          },
+                                          {
+                                              "flag":  "france.png",
+                                              "name":  "French (Medium)"
+                                          },
+                                          {
+                                              "flag":  "japan.png",
+                                              "name":  "Japanese (Basic)"
+                                          },
+                                          {
+                                              "flag":  "china.png",
+                                              "name":  "Chinese (Basic)"
+                                          }
+                                      ]
+                    },
+    "fund_accounting":  {
+                            "education":  [
+                                              {
+                                                  "dates":  "Sep. 2019 - Sep. 2022",
+                                                  "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                                  "coursework":  [
+                                                                     "Specialized in fund accounting, financial reporting standards (IFRS/GAAP), and investment valuation. Completed University Program in Value Investing and AFI Business School\u0027s Valuation Analysis program (DCF, Comparable Analysis). Relevant coursework: Advanced Accounting, Corporate Finance, Financial Statement Analysis, Audit \u0026 Assurance.",
+                                                                     "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                                 ],
+                                                  "degree":  "Bachelor of Finance and Accounting",
+                                                  "school":  "University of Malaga"
+                                              },
+                                              {
+                                                  "dates":  "Sept. 2023 - Sep. 2024",
+                                                  "description":  "",
+                                                  "coursework":  [
+                                                                     "Advanced quantitative finance with focus on econometrics and financial modeling. Relevant coursework: Financial Econometrics (Time Series Analysis for fund performance), Advanced Statistics, Economic Research Methods, Programming in R for financial analysis."
+                                                                 ],
+                                                  "degree":  "Master of Science in Financial Economics",
+                                                  "school":  "University of Luxembourg"
+                                              },
+                                              {
+                                                  "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                                  "description":  "",
+                                                  "coursework":  [
+                                                                     "Relevant Coursework: Calculus and Linear Algebra for Data Science, Mathematical Statistics and Inferential Techniques, Probability Theory with Applications in Stochastic Modeling, Comprehensive Database Management and Optimization Techniques, Foundations of Machine Learning and Algorithmic Design, Predictive Analytics and High-Dimensional Data Visualization"
+                                                                 ],
+                                                  "degree":  "Bachelor in Data Science",
+                                                  "school":  "IU International University of Applied Sciences"
+                                              },
+                                              {
+                                                  "dates":  "May. 2025 - Present (In progress)",
+                                                  "description":  "",
+                                                  "coursework":  [
+                                                                     "Relevant Coursework: C Programming, Algorithms and Data Structures, System Programming, Network Programming, Low-Level Programming, Software Engineering Principles"
+                                                                 ],
+                                                  "degree":  "C/C++ Coding Program",
+                                                  "school":  "42 Luxembourg"
+                                              }
+                                          ],
+                            "contact":  {
+                                            "phone":  "+34 675949628",
+                                            "website":  "https://alemxral.github.io/cv/fund-accounting/",
+                                            "github":  "https://www.github.com/alejandromoralwork",
+                                            "email":  "alejandromoralcontact@gmail.com",
+                                            "location":  "Luxembourg",
+                                            "linkedin":  ""
+                                        },
+                            "personal":  {
+                                             "jobTitle":  "Fund Accounting Specialist",
+                                             "photo":  "yo.png",
+                                             "name":  "Alejandro Moral Aranda",
+                                             "about":  "Experienced fund accountant with 3+ years in Private Equity, Private Debt, and Real Estate funds (GLP, Permira, various PE/RE structures). Expert in NAV calculations, financial statement preparation (IFRS/Luxembourg GAAP), CAS compliance, and complex waterfall calculations. Proven track record in automating accounting workflows through VBA and SQL, reducing month-end close time by 40%. Skilled in investor reporting, capital calls/distributions, and managing multi-currency portfolios."
+                                         },
+                            "interests":  [
+                                              {
+                                                  "icon":  "fas fa-chess",
+                                                  "name":  "Chess"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-calculator",
+                                                  "name":  "Maths"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-film",
+                                                  "name":  "Anime"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-code",
+                                                  "name":  "Coding"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-futbol",
+                                                  "name":  "Football"
+                                              }
+                                          ],
+                            "skills":  [
+                                           {
+                                               "tags":  [
+                                                            "Backend",
+                                                            "Data Science"
+                                                        ],
+                                               "name":  "Python",
+                                               "years":  4,
+                                               "percent":  80
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Scripting",
+                                                            "Automation"
+                                                        ],
+                                               "name":  "PowerShell",
+                                               "years":  2,
+                                               "percent":  30
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Stats",
+                                                            "Analysis"
+                                                        ],
+                                               "name":  "R",
+                                               "years":  3,
+                                               "percent":  75
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Frontend",
+                                                            "Node"
+                                                        ],
+                                               "name":  "JavaScript",
+                                               "years":  2,
+                                               "percent":  70
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Systems"
+                                                        ],
+                                               "name":  "C/C++",
+                                               "years":  1,
+                                               "percent":  60
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Markup",
+                                                            "Styling"
+                                                        ],
+                                               "name":  "HTML \u0026 CSS",
+                                               "years":  3,
+                                               "percent":  70
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Databases",
+                                                            "SQL"
+                                                        ],
+                                               "name":  "SQL",
+                                               "years":  4,
+                                               "percent":  85
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Macros",
+                                                            "Reporting"
+                                                        ],
+                                               "name":  "VBA",
+                                               "years":  5,
+                                               "percent":  90
+                                           }
+                                       ],
+                            "workExperience":  [
+                                                   {
+                                                       "dates":  "April 2023 - November 2023 (7 months)",
+                                                       "title":  "Private Equity Fund Accountant",
+                                                       "description":  "Comprehensive fund accounting for multiple Private Equity funds with AUM â‚¬2B+. Prepared monthly/quarterly financial statements, managed capital calls and distributions, calculated NAV with complex waterfall structures. Handled equalizations, catch-up provisions, and hurdle rate calculations. Liaised with administrators, auditors, and investors. Developed SQL queries for data validation and reconciliation, improving accuracy by 30%.",
+                                                       "company":  "Intertrust"
+                                                   },
+                                                   {
+                                                       "dates":  "April 2022 - May 2023 (1 Year)",
+                                                       "title":  "Private Debt Fund Accountant",
+                                                       "description":  "Fund accounting for Permira Debt Funds specializing in subordinated syndicated loans. Managed accounting for complex financial instruments: Syndicated Loans, ITLs, Interest Rate Swaps, Preferred Equity, Corporate Bonds, and FX Forwards. Prepared financial statements, CAS compliance reports, investor communications. Handled debt restructuring scenarios and covenant monitoring. Created automated Excel/VBA tools for loan amortization schedules and interest accrual calculations.",
+                                                       "company":  "Alter Domus"
+                                                   },
+                                                   {
+                                                       "dates":  "October 2021 - March 2022 (6 Months)",
+                                                       "title":  "Wealth Management Internship",
+                                                       "description":  "KYC for physical persons, risk profile analysis, AML and management of bank accounts.",
+                                                       "company":  "UBS Europe SE"
+                                                   },
+                                                   {
+                                                       "dates":  "2020 - Present (4 Years)",
+                                                       "title":  "Individual Investor",
+                                                       "description":  "Portfolio Management of my own investments in stocks and funds, valuation analysis with comparables.",
+                                                       "company":  ""
+                                                   },
+                                                   {
+                                                       "dates":  "February 2024 - Current",
+                                                       "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                                       "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                                       "company":  "Arendt Investor Services"
+                                                   },
+                                                   {
+                                                       "dates":  "June 2021 - August 2021 (3 Months)",
+                                                       "title":  "M\u0026A Analyst Internship",
+                                                       "description":  "Work in a buy-side mandate in the heating industry, Searching for potential acquisition.",
+                                                       "company":  "Empresax"
+                                                   }
+                                               ],
+                            "projects":  [
+                                             {
+                                                 "description":  "A collection of research papers that I have authored on topics related to finance and data science.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/Research"
+                                                               }
+                                                           ],
+                                                 "image":  "research.PNG",
+                                                 "category":  "Econometrics/Data Science",
+                                                 "title":  "Research Papers"
+                                             },
+                                             {
+                                                 "description":  "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+                                                               }
+                                                           ],
+                                                 "image":  "VBA.PNG",
+                                                 "category":  "Visual Basic for Applications (VBA)",
+                                                 "title":  "VBA Automated Reporting Tools"
+                                             }
+                                         ],
+                            "languages":  [
+                                              {
+                                                  "flag":  "spain.png",
+                                                  "name":  "Spanish (Native)"
+                                              },
+                                              {
+                                                  "flag":  "uk.png",
+                                                  "name":  "English (Fluent)"
+                                              },
+                                              {
+                                                  "flag":  "france.png",
+                                                  "name":  "French (Medium)"
+                                              },
+                                              {
+                                                  "flag":  "japan.png",
+                                                  "name":  "Japanese (Basic)"
+                                              },
+                                              {
+                                                  "flag":  "china.png",
+                                                  "name":  "Chinese (Basic)"
+                                              }
+                                          ]
+                        },
+    "fintech":  {
+                    "education":  [
+                                      {
+                                          "dates":  "Sep. 2019 - Sep. 2022",
+                                          "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                          "coursework":  [
+                                                             "Program in Valuation Analysis, Investment Analysis Fundamentals, Assets Valuation Methods, Comparable Analysis, DCF (Afi Business School)",
+                                                             "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                         ],
+                                          "degree":  "Bachelor of Finance and Accounting",
+                                          "school":  "University of Malaga"
+                                      },
+                                      {
+                                          "dates":  "Sept. 2023 - Sep. 2024",
+                                          "description":  "",
+                                          "coursework":  [
+                                                             "Quantitative finance program combining economics, statistics, and programming. Coursework: Financial Econometrics (GARCH, VAR models), Programming in R, Causal Inference, Survey Data Analysis. Applied econometric methods to analyze market microstructure and trading patterns."
+                                                         ],
+                                          "degree":  "Master of Science in Financial Economics",
+                                          "school":  "University of Luxembourg"
+                                      },
+                                      {
+                                          "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                          "description":  "",
+                                          "coursework":  [
+                                                             "Comprehensive program in software engineering, data structures, algorithms, and machine learning. Relevant coursework: Database Management (SQL/NoSQL), Machine Learning Algorithms (supervised/unsupervised), Data Visualization (D3.js, Plotly), Statistical Modeling, High-Dimensional Data Analysis, Optimization Techniques. Projects: Predictive models for financial time series, recommendation systems, distributed computing."
+                                                         ],
+                                          "degree":  "Bachelor in Data Science",
+                                          "school":  "IU International University of Applied Sciences"
+                                      },
+                                      {
+                                          "dates":  "May. 2025 - Present (In progress)",
+                                          "description":  "",
+                                          "coursework":  [
+                                                             "Intensive systems programming bootcamp at 42 Luxembourg focusing on low-level programming, algorithms, and software architecture. Coursework: Memory management, data structures (trees, graphs, hash tables), system calls, network programming (sockets, TCP/IP), concurrent programming (threads, mutexes), Unix system administration. Projects: Building custom shell, HTTP server, memory allocator, and real-time data processing pipeline."
+                                                         ],
+                                          "degree":  "C/C++ Coding Program",
+                                          "school":  "42 Luxembourg"
+                                      }
+                                  ],
+                    "contact":  {
+                                    "phone":  "+34 675949628",
+                                    "website":  "https://alemxral.github.io/cv/fintech/",
+                                    "github":  "https://www.github.com/alejandromoralwork",
+                                    "email":  "alejandromoralcontact@gmail.com",
+                                    "location":  "Luxembourg",
+                                    "linkedin":  ""
+                                },
+                    "personal":  {
+                                     "jobTitle":  "FinTech \u0026 Blockchain Developer",
+                                     "photo":  "yo.png",
+                                     "name":  "Alejandro Moral Aranda",
+                                     "about":  "Full-stack FinTech developer with hands-on experience building production-grade trading systems, DeFi protocols, and blockchain applications. Active contributor to decentralized finance: UMA Oracle validator for on-chain price feeds and event resolution, top 2% Polymarket trader (1.3M users). Built end-to-end trading infrastructure including REST/WebSocket APIs, order management systems, and atomic swap contracts on Polygon. Strong background in financial services with 3+ years in fund accounting, providing deep domain knowledge for building compliant, efficient financial applications. Expertise in Python, JavaScript, smart contracts, and financial data APIs."
+                                 },
+                    "interests":  [
+                                      {
+                                          "icon":  "fas fa-chess",
+                                          "name":  "Chess"
+                                      },
+                                      {
+                                          "icon":  "fas fa-calculator",
+                                          "name":  "Maths"
+                                      },
+                                      {
+                                          "icon":  "fas fa-film",
+                                          "name":  "Anime"
+                                      },
+                                      {
+                                          "icon":  "fas fa-code",
+                                          "name":  "Coding"
+                                      },
+                                      {
+                                          "icon":  "fas fa-futbol",
+                                          "name":  "Football"
+                                      }
+                                  ],
+                    "skills":  [
+                                   {
+                                       "tags":  [
+                                                    "Backend",
+                                                    "Data Science"
+                                                ],
+                                       "name":  "Python",
+                                       "years":  4,
+                                       "percent":  80
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Scripting",
+                                                    "Automation"
+                                                ],
+                                       "name":  "PowerShell",
+                                       "years":  2,
+                                       "percent":  30
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Stats",
+                                                    "Analysis"
+                                                ],
+                                       "name":  "R",
+                                       "years":  3,
+                                       "percent":  75
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Frontend",
+                                                    "Node"
+                                                ],
+                                       "name":  "JavaScript",
+                                       "years":  2,
+                                       "percent":  70
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Systems"
+                                                ],
+                                       "name":  "C/C++",
+                                       "years":  1,
+                                       "percent":  60
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Markup",
+                                                    "Styling"
+                                                ],
+                                       "name":  "HTML \u0026 CSS",
+                                       "years":  3,
+                                       "percent":  70
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Databases",
+                                                    "SQL"
+                                                ],
+                                       "name":  "SQL",
+                                       "years":  4,
+                                       "percent":  85
+                                   },
+                                   {
+                                       "tags":  [
+                                                    "Macros",
+                                                    "Reporting"
+                                                ],
+                                       "name":  "VBA",
+                                       "years":  5,
+                                       "percent":  90
+                                   }
+                               ],
+                    "workExperience":  [
+                                           {
+                                               "dates":  "2020 - Present (4 Years)",
+                                               "title":  "Individual Investor",
+                                               "description":  "Built and deployed automated trading systems for cryptocurrency and prediction markets. Developed quantitative strategies using Python (pandas, numpy, scikit-learn) with real-time market data integration via WebSocket APIs. Created custom indicators, backtesting frameworks, and risk management modules. Integrated with DeFi protocols (Uniswap, Polymarket) using Web3.py and ethers.js. Managed personal portfolio through self-built dashboard with PostgreSQL backend and React frontend.",
+                                               "company":  ""
+                                           },
+                                           {
+                                               "dates":  "April 2023 - November 2023 (7 months)",
+                                               "title":  "Private Equity Fund Accountant",
+                                               "description":  "Created automation solutions for high-volume fund accounting tasks. Developed Python scripts for data extraction, transformation, and validation across multiple systems. Built Excel add-ins (VBA) for complex calculations and report generation. Implemented data quality checks and anomaly detection algorithms. Experience with financial APIs and data warehousing concepts.",
+                                               "company":  "Intertrust"
+                                           },
+                                           {
+                                               "dates":  "April 2022 - May 2023 (1 Year)",
+                                               "title":  "Private Debt Fund Accountant",
+                                               "description":  "Fund Accounting for Permira Debt Funds, Subordinated Syndicated Loans, Work with financial instruments: Syndicated Loans, ITLs, Swaps, Preferred Equity, Bonds and FX Forwards, Prepare accounting, financial statements, CAS, capital calls, distributions and debt restructuring.",
+                                               "company":  "Alter Domus"
+                                           },
+                                           {
+                                               "dates":  "October 2021 - March 2022 (6 Months)",
+                                               "title":  "Wealth Management Internship",
+                                               "description":  "Assisted in digitizing client onboarding and KYC processes. Developed VBA macros for automated risk profiling and portfolio allocation. Worked with compliance systems for AML monitoring and transaction screening. Gained understanding of regulatory technology (RegTech) requirements in wealth management.",
+                                               "company":  "UBS Europe SE"
+                                           },
+                                           {
+                                               "dates":  "February 2024 - Current",
+                                               "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                               "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                               "company":  "Arendt Investor Services"
+                                           },
+                                           {
+                                               "dates":  "June 2021 - August 2021 (3 Months)",
+                                               "title":  "M\u0026A Analyst Internship",
+                                               "description":  "Work in a buy-side mandate in the heating industry, Searching for potential acquisition.",
+                                               "company":  "Empresax"
+                                           }
+                                       ],
+                    "projects":  [
+                                     {
+                                         "description":  "Active trader on Polymarket ranking in the top 2% by profitability (1.3M users). Aggregated trading performance and analytics are available via the reference link below. I also serve as a validator for the UMA Oracle, participating in event resolution and validating on-chain price feeds.",
+                                         "filterCategory":  "trading",
+                                         "links":  [
+                                                       {
+                                                           "text":  "Polymarket Account",
+                                                           "url":  "https://polymarket.com/profile/0xF937dBe9976Ac34157b30DD55BDbf248458F6b43"
+                                                       },
+                                                       {
+                                                           "text":  "View trading analytics (Hashdive)",
+                                                           "url":  "https://www.hashdive.com/Analyze_User?user_address=0xf937dbe9976ac34157b30dd55bdbf248458f6b43"
+                                                       }
+                                                   ],
+                                         "image":  "polymarket.png",
+                                         "category":  "Trading / Markets / DeFi",
+                                         "title":  "Polymarket Trading"
+                                     },
+                                     {
+                                         "description":  "Built a production-grade client for Polymarket/Polygon: REST + WebSocket utilities, order-book adapters and order management. I also developed a fast execution terminal that supports remote strategy deployment and remote order execution (for automated trading), integrating with a custom Exchange contract to perform atomic swaps between binary outcome tokens and collateral.",
+                                         "filterCategory":  "web development",
+                                         "links":  [
+                                                       {
+                                                           "text":  "View Project",
+                                                           "url":  "https://github.com/alemxral/polytrading"
+                                                       }
+                                                   ],
+                                         "image":  "PMTerminal.PNG",
+                                         "category":  "Python / Trading / Infrastructure",
+                                         "title":  "Polymarket / Polygon Trading Client, Utility Library \u0026 Terminal"
+                                     },
+                                     {
+                                         "description":  "Trading strategy for predicting market open direction using Leave-One-Out Cross-Validation and k-Nearest Neighbors with asymptotically optimal weights.",
+                                         "filterCategory":  "web development",
+                                         "links":  [
+                                                       {
+                                                           "text":  "View Project",
+                                                           "url":  "https://github.com/alemxral/trading_algo"
+                                                       }
+                                                   ],
+                                         "image":  "KNN.png",
+                                         "category":  "Python/Data Science",
+                                         "title":  "Algorithmic Trading"
+                                     },
+                                     {
+                                         "description":  "A web-based solution with a simple internal PowerShell server that includes a Team Task Tracker, Team Holidays, and Work From Home management tool - all running locally on your localhost with no installation required.",
+                                         "filterCategory":  "web development",
+                                         "links":  [
+                                                       {
+                                                           "text":  "View Project",
+                                                           "url":  "https://github.com/alemxral/TareaFlow/tree/main/Internal"
+                                                       }
+                                                   ],
+                                         "image":  "tareaholidays.PNG",
+                                         "category":  "Powershell/JavaScript",
+                                         "title":  "TareaFlow"
+                                     },
+                                     {
+                                         "description":  "A sleek online shop mockup designed for selling stylish socks, developed using Bootstrap and Node.js.",
+                                         "filterCategory":  "web development",
+                                         "links":  [
+                                                       {
+                                                           "text":  "View Project",
+                                                           "url":  "https://miemiesocks.vercel.app/"
+                                                       }
+                                                   ],
+                                         "image":  "miemiesocks.PNG",
+                                         "category":  "Node.js/JavaScript",
+                                         "title":  "MieMieSocks"
+                                     },
+                                     {
+                                         "description":  "A nonprofit website dedicated to learning Japanese, focusing on mastering kanji and their readings effectively.",
+                                         "filterCategory":  "web design",
+                                         "links":  [
+                                                       {
+                                                           "text":  "View Project",
+                                                           "url":  "https://kanjilist-git-main-alemxrals-projects.vercel.app/"
+                                                       }
+                                                   ],
+                                         "image":  "kanjilist.PNG",
+                                         "category":  "Python/WebScraping/Web Dev",
+                                         "title":  "KanjiList.org"
+                                     }
+                                 ],
+                    "languages":  [
+                                      {
+                                          "flag":  "spain.png",
+                                          "name":  "Spanish (Native)"
+                                      },
+                                      {
+                                          "flag":  "uk.png",
+                                          "name":  "English (Fluent)"
+                                      },
+                                      {
+                                          "flag":  "france.png",
+                                          "name":  "French (Medium)"
+                                      },
+                                      {
+                                          "flag":  "japan.png",
+                                          "name":  "Japanese (Basic)"
+                                      },
+                                      {
+                                          "flag":  "china.png",
+                                          "name":  "Chinese (Basic)"
+                                      }
+                                  ]
+                },
+    "reporting_analyst":  {
+                              "education":  [
+                                                {
+                                                    "dates":  "Sep. 2019 - Sep. 2022",
+                                                    "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                                    "coursework":  [
+                                                                       "Specialized in financial reporting, fund accounting, and data analytics. Completed University Program in Value Investing and AFI Business School\u0027s Valuation Analysis program. Strong foundation in financial statement analysis, reporting standards (IFRS/GAAP), and Excel/VBA automation. Relevant coursework: Advanced Accounting, Financial Reporting, Corporate Finance, Financial Statement Analysis, Statistics, Econometrics.",
+                                                                       "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                                   ],
+                                                    "degree":  "Bachelor of Finance and Accounting",
+                                                    "school":  "University of Malaga"
+                                                },
+                                                {
+                                                    "dates":  "Sept. 2023 - Sep. 2024",
+                                                    "description":  "",
+                                                    "coursework":  [
+                                                                       "Advanced quantitative finance with focus on econometrics, statistical analysis, and programming. Developed expertise in data analytics, financial modeling, and automated reporting systems. Relevant coursework: Financial Econometrics (Time Series Analysis), Programming in R, Survey Data Analysis (Stata), Statistics, Economic Research Methods. Thesis involved quantitative analysis using large financial datasets and automated data processing pipelines."
+                                                                   ],
+                                                    "degree":  "Master of Science in Financial Economics",
+                                                    "school":  "University of Luxembourg"
+                                                },
+                                                {
+                                                    "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                                    "description":  "",
+                                                    "coursework":  [
+                                                                       "Relevant Coursework: Calculus and Linear Algebra for Data Science, Mathematical Statistics and Inferential Techniques, Probability Theory with Applications in Stochastic Modeling, Comprehensive Database Management and Optimization Techniques, Foundations of Machine Learning and Algorithmic Design, Predictive Analytics and High-Dimensional Data Visualization"
+                                                                   ],
+                                                    "degree":  "Bachelor in Data Science",
+                                                    "school":  "IU International University of Applied Sciences"
+                                                },
+                                                {
+                                                    "dates":  "May. 2025 - Present (In progress)",
+                                                    "description":  "",
+                                                    "coursework":  [
+                                                                       "Relevant Coursework: C Programming, Algorithms and Data Structures, System Programming, Network Programming, Low-Level Programming, Software Engineering Principles"
+                                                                   ],
+                                                    "degree":  "C/C++ Coding Program",
+                                                    "school":  "42 Luxembourg"
+                                                }
+                                            ],
+                              "contact":  {
+                                              "phone":  "+34 675949628",
+                                              "website":  "https://alemxral.github.io/cv/reporting-analyst/",
+                                              "github":  "https://www.github.com/alejandromoralwork",
+                                              "email":  "alejandromoralcontact@gmail.com",
+                                              "location":  "Luxembourg",
+                                              "linkedin":  ""
+                                          },
+                              "personal":  {
+                                               "jobTitle":  "Fund Reporting \u0026 Investor Communications Specialist",
+                                               "photo":  "yo.png",
+                                               "name":  "Alejandro Moral Aranda",
+                                               "about":  "Experienced fund reporting analyst with 3+ years specializing in Private Equity, Private Debt, and Real Estate fund reporting. Expert in automated investor reporting systems, NAV analysis, capital activity reporting, and investor communications. Proven track record in developing VBA-based automation tools that reduced monthly reporting cycles by 50% and improved data accuracy by 95%. Proficient in Python for document automation (DAS software), SQL for data extraction and validation, and advanced Excel/VBA for complex financial reporting. Skilled in preparing investor statements, CAS reports, performance analytics, and regulatory filings. Strong background in data analytics, process optimization, and cross-functional collaboration with fund administrators, auditors, and investors."
+                                           },
+                              "interests":  [
+                                                {
+                                                    "icon":  "fas fa-chess",
+                                                    "name":  "Chess"
+                                                },
+                                                {
+                                                    "icon":  "fas fa-calculator",
+                                                    "name":  "Maths"
+                                                },
+                                                {
+                                                    "icon":  "fas fa-film",
+                                                    "name":  "Anime"
+                                                },
+                                                {
+                                                    "icon":  "fas fa-code",
+                                                    "name":  "Coding"
+                                                },
+                                                {
+                                                    "icon":  "fas fa-futbol",
+                                                    "name":  "Football"
+                                                }
+                                            ],
+                              "skills":  [
+                                             {
+                                                 "tags":  [
+                                                              "Backend",
+                                                              "Data Science"
+                                                          ],
+                                                 "name":  "Python",
+                                                 "years":  4,
+                                                 "percent":  80
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Scripting",
+                                                              "Automation"
+                                                          ],
+                                                 "name":  "PowerShell",
+                                                 "years":  2,
+                                                 "percent":  30
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Stats",
+                                                              "Analysis"
+                                                          ],
+                                                 "name":  "R",
+                                                 "years":  3,
+                                                 "percent":  75
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Frontend",
+                                                              "Node"
+                                                          ],
+                                                 "name":  "JavaScript",
+                                                 "years":  2,
+                                                 "percent":  70
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Systems"
+                                                          ],
+                                                 "name":  "C/C++",
+                                                 "years":  1,
+                                                 "percent":  60
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Markup",
+                                                              "Styling"
+                                                          ],
+                                                 "name":  "HTML \u0026 CSS",
+                                                 "years":  3,
+                                                 "percent":  70
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Databases",
+                                                              "SQL"
+                                                          ],
+                                                 "name":  "SQL",
+                                                 "years":  4,
+                                                 "percent":  85
+                                             },
+                                             {
+                                                 "tags":  [
+                                                              "Macros",
+                                                              "Reporting"
+                                                          ],
+                                                 "name":  "VBA",
+                                                 "years":  5,
+                                                 "percent":  90
+                                             }
+                                         ],
+                              "workExperience":  [
+                                                     {
+                                                         "dates":  "April 2023 - November 2023 (7 months)",
+                                                         "title":  "Private Equity Fund Accountant",
+                                                         "description":  "Fund reporting for multiple Private Equity funds (â‚¬2B+ AUM). Responsible for preparing monthly/quarterly investor reports including NAV statements, performance attribution, capital activity summaries, and investment portfolio updates. Automated repetitive reporting tasks using VBA macros: created investor statement generator reducing manual work by 45%, developed automated capital call/distribution calculators with investor-specific allocations, built performance analytics dashboards with IRR calculations and benchmark comparisons. Collaborated with investors to customize reporting formats and provide ad-hoc analysis. Managed data integrity through SQL validation scripts and reconciliation procedures. Streamlined quarter-end reporting process through standardized templates and automated data flows.",
+                                                         "company":  "Intertrust"
+                                                     },
+                                                     {
+                                                         "dates":  "April 2022 - May 2023 (1 Year)",
+                                                         "title":  "Private Debt Fund Accountant",
+                                                         "description":  "Specialized reporting for Permira Debt Funds focusing on loan portfolios and credit analytics. Prepared monthly investor reports covering loan performance metrics, covenant monitoring, credit quality analysis, and portfolio composition. Developed automated Excel/VBA reporting tools: loan amortization schedule generator, interest accrual calculators with day-count conventions, covenant tracking dashboards with alert systems, and debt restructuring impact analysis tools. Created standardized investor communication templates for capital activity notifications. Built SQL queries for extracting loan-level data from accounting systems and market data providers. Implemented quality control procedures ensuring 100% accuracy in investor reporting.",
+                                                         "company":  "Alter Domus"
+                                                     },
+                                                     {
+                                                         "dates":  "October 2021 - March 2022 (6 Months)",
+                                                         "title":  "Wealth Management Internship",
+                                                         "description":  "KYC for physical persons, risk profile analysis, AML and management of bank accounts.",
+                                                         "company":  "UBS Europe SE"
+                                                     },
+                                                     {
+                                                         "dates":  "2020 - Present (4 Years)",
+                                                         "title":  "Individual Investor",
+                                                         "description":  "Portfolio Management of my own investments in stocks and funds, valuation analysis with comparables.",
+                                                         "company":  ""
+                                                     },
+                                                     {
+                                                         "dates":  "February 2024 - Current",
+                                                         "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                                         "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                                         "company":  "Arendt Investor Services"
+                                                     },
+                                                     {
+                                                         "dates":  "June 2021 - August 2021 (3 Months)",
+                                                         "title":  "M\u0026A Analyst Internship",
+                                                         "description":  "Work in a buy-side mandate in the heating industry, Searching for potential acquisition.",
+                                                         "company":  "Empresax"
+                                                     }
+                                                 ],
+                              "projects":  [
+                                               {
+                                                   "description":  "A collection of research papers that I have authored on topics related to finance and data science.",
+                                                   "filterCategory":  "web development",
+                                                   "links":  [
+                                                                 {
+                                                                     "text":  "View Project",
+                                                                     "url":  "https://github.com/alemxral/Research"
+                                                                 }
+                                                             ],
+                                                   "image":  "research.PNG",
+                                                   "category":  "Econometrics/Data Science",
+                                                   "title":  "Research Papers"
+                                               },
+                                               {
+                                                   "description":  "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+                                                   "filterCategory":  "web development",
+                                                   "links":  [
+                                                                 {
+                                                                     "text":  "View Project",
+                                                                     "url":  "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+                                                                 }
+                                                             ],
+                                                   "image":  "VBA.PNG",
+                                                   "category":  "Visual Basic for Applications (VBA)",
+                                                   "title":  "VBA Automated Reporting Tools"
+                                               },
+                                               {
+                                                   "description":  "Python-based document automation system designed for fund reporting and investor communications. Generate customized reports from templates with support for multiple input formats (Excel, CSV, JSON, SQL databases) and output formats (PDF, Word, Excel, HTML). Features advanced template engine with conditional logic, dynamic data binding, variable substitution, batch processing capabilities, and automated scheduling.",
+                                                   "filterCategory":  "automation",
+                                                   "links":  [
+                                                                 {
+                                                                     "text":  "View Project",
+                                                                     "url":  "#"
+                                                                 }
+                                                             ],
+                                                   "image":  "DA.PNG",
+                                                   "category":  "Python / Automation / Reporting",
+                                                   "title":  "DAS - Document Automation Software"
+                                               }
+                                           ],
+                              "languages":  [
+                                                {
+                                                    "flag":  "spain.png",
+                                                    "name":  "Spanish (Native)"
+                                                },
+                                                {
+                                                    "flag":  "uk.png",
+                                                    "name":  "English (Fluent)"
+                                                },
+                                                {
+                                                    "flag":  "france.png",
+                                                    "name":  "French (Medium)"
+                                                },
+                                                {
+                                                    "flag":  "japan.png",
+                                                    "name":  "Japanese (Basic)"
+                                                },
+                                                {
+                                                    "flag":  "china.png",
+                                                    "name":  "Chinese (Basic)"
+                                                }
+                                            ]
+                          },
+    "neutral_finance":  {
+                            "education":  [
+                                              {
+                                                  "dates":  "Sep. 2019 - Sep. 2022",
+                                                  "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                                  "coursework":  [
+                                                                     "Program in Valuation Analysis, Investment Analysis Fundamentals, Assets Valuation Methods, Comparable Analysis, DCF (Afi Business School)",
+                                                                     "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                                 ],
+                                                  "degree":  "Bachelor of Finance and Accounting",
+                                                  "school":  "University of Malaga"
+                                              },
+                                              {
+                                                  "dates":  "Sept. 2023 - Sep. 2024",
+                                                  "description":  "",
+                                                  "coursework":  [
+                                                                     "Relevant Coursework: Econometrics (Causal Inference), Programming in R, Financial Econometrics (Time Series), Economics Research, Well-being Research, Survey Data Analysis (Stata), Microeconomics (Dynamic Programming)"
+                                                                 ],
+                                                  "degree":  "Master of Science in Financial Economics",
+                                                  "school":  "University of Luxembourg"
+                                              },
+                                              {
+                                                  "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                                  "description":  "",
+                                                  "coursework":  [
+                                                                     "Relevant Coursework: Calculus and Linear Algebra for Data Science, Mathematical Statistics and Inferential Techniques, Probability Theory with Applications in Stochastic Modeling, Comprehensive Database Management and Optimization Techniques, Foundations of Machine Learning and Algorithmic Design, Predictive Analytics and High-Dimensional Data Visualization"
+                                                                 ],
+                                                  "degree":  "Bachelor in Data Science",
+                                                  "school":  "IU International University of Applied Sciences"
+                                              },
+                                              {
+                                                  "dates":  "May. 2025 - Present (In progress)",
+                                                  "description":  "",
+                                                  "coursework":  [
+                                                                     "Relevant Coursework: C Programming, Algorithms and Data Structures, System Programming, Network Programming, Low-Level Programming, Software Engineering Principles"
+                                                                 ],
+                                                  "degree":  "C/C++ Coding Program",
+                                                  "school":  "42 Luxembourg"
+                                              }
+                                          ],
+                            "contact":  {
+                                            "phone":  "+34 675949628",
+                                            "website":  "https://alemxral.github.io/cv/finance/",
+                                            "github":  "https://www.github.com/alejandromoralwork",
+                                            "email":  "alejandromoralcontact@gmail.com",
+                                            "location":  "Luxembourg",
+                                            "linkedin":  ""
+                                        },
+                            "personal":  {
+                                             "jobTitle":  "Finance \u0026 Data Analytics Professional",
+                                             "photo":  "yo.png",
+                                             "name":  "Alejandro Moral Aranda",
+                                             "about":  "Versatile finance professional with experience across fund accounting, wealth management, and M\u0026A. Strong quantitative background with expertise in financial analysis, econometrics, and programming. Passionate about leveraging technology to solve complex financial problems."
+                                         },
+                            "interests":  [
+                                              {
+                                                  "icon":  "fas fa-chess",
+                                                  "name":  "Chess"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-calculator",
+                                                  "name":  "Maths"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-film",
+                                                  "name":  "Anime"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-code",
+                                                  "name":  "Coding"
+                                              },
+                                              {
+                                                  "icon":  "fas fa-futbol",
+                                                  "name":  "Football"
+                                              }
+                                          ],
+                            "skills":  [
+                                           {
+                                               "tags":  [
+                                                            "Backend",
+                                                            "Data Science"
+                                                        ],
+                                               "name":  "Python",
+                                               "years":  4,
+                                               "percent":  80
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Scripting",
+                                                            "Automation"
+                                                        ],
+                                               "name":  "PowerShell",
+                                               "years":  2,
+                                               "percent":  30
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Stats",
+                                                            "Analysis"
+                                                        ],
+                                               "name":  "R",
+                                               "years":  3,
+                                               "percent":  75
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Frontend",
+                                                            "Node"
+                                                        ],
+                                               "name":  "JavaScript",
+                                               "years":  2,
+                                               "percent":  70
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Systems"
+                                                        ],
+                                               "name":  "C/C++",
+                                               "years":  1,
+                                               "percent":  60
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Markup",
+                                                            "Styling"
+                                                        ],
+                                               "name":  "HTML \u0026 CSS",
+                                               "years":  3,
+                                               "percent":  70
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Databases",
+                                                            "SQL"
+                                                        ],
+                                               "name":  "SQL",
+                                               "years":  4,
+                                               "percent":  85
+                                           },
+                                           {
+                                               "tags":  [
+                                                            "Macros",
+                                                            "Reporting"
+                                                        ],
+                                               "name":  "VBA",
+                                               "years":  5,
+                                               "percent":  90
+                                           }
+                                       ],
+                            "workExperience":  [
+                                                   {
+                                                       "dates":  "April 2023 - November 2023 (7 months)",
+                                                       "title":  "Private Equity Fund Accountant",
+                                                       "description":  "Fund Accounting for Private Equity Funds, Prepare accounting, financial statements, CAS, capital calls, distributions, equalizations, NAV calculation.",
+                                                       "company":  "Intertrust"
+                                                   },
+                                                   {
+                                                       "dates":  "April 2022 - May 2023 (1 Year)",
+                                                       "title":  "Private Debt Fund Accountant",
+                                                       "description":  "Fund Accounting for Permira Debt Funds, Subordinated Syndicated Loans, Work with financial instruments: Syndicated Loans, ITLs, Swaps, Preferred Equity, Bonds and FX Forwards, Prepare accounting, financial statements, CAS, capital calls, distributions and debt restructuring.",
+                                                       "company":  "Alter Domus"
+                                                   },
+                                                   {
+                                                       "dates":  "October 2021 - March 2022 (6 Months)",
+                                                       "title":  "Wealth Management Internship",
+                                                       "description":  "KYC for physical persons, risk profile analysis, AML and management of bank accounts.",
+                                                       "company":  "UBS Europe SE"
+                                                   },
+                                                   {
+                                                       "dates":  "June 2021 - August 2021 (3 Months)",
+                                                       "title":  "M\u0026A Analyst Internship",
+                                                       "description":  "Work in a buy-side mandate in the heating industry, Searching for potential acquisition.",
+                                                       "company":  "Empresax"
+                                                   },
+                                                   {
+                                                       "dates":  "2020 - Present (4 Years)",
+                                                       "title":  "Individual Investor",
+                                                       "description":  "Portfolio Management of my own investments in stocks and funds, valuation analysis with comparables.",
+                                                       "company":  ""
+                                                   },
+                                                   {
+                                                       "dates":  "February 2024 - Current",
+                                                       "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                                       "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                                       "company":  "Arendt Investor Services"
+                                                   }
+                                               ],
+                            "projects":  [
+                                             {
+                                                 "description":  "Active trader on Polymarket ranking in the top 2% by profitability (1.3M users). Aggregated trading performance and analytics are available via the reference link below. I also serve as a validator for the UMA Oracle, participating in event resolution and validating on-chain price feeds.",
+                                                 "filterCategory":  "trading",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "Polymarket Account",
+                                                                   "url":  "https://polymarket.com/profile/0xF937dBe9976Ac34157b30DD55BDbf248458F6b43"
+                                                               },
+                                                               {
+                                                                   "text":  "View trading analytics (Hashdive)",
+                                                                   "url":  "https://www.hashdive.com/Analyze_User?user_address=0xf937dbe9976ac34157b30dd55bdbf248458f6b43"
+                                                               }
+                                                           ],
+                                                 "image":  "polymarket.png",
+                                                 "category":  "Trading / Markets / DeFi",
+                                                 "title":  "Polymarket Trading"
+                                             },
+                                             {
+                                                 "description":  "Built a production-grade client for Polymarket/Polygon: REST + WebSocket utilities, order-book adapters and order management. I also developed a fast execution terminal that supports remote strategy deployment and remote order execution (for automated trading), integrating with a custom Exchange contract to perform atomic swaps between binary outcome tokens and collateral.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/polytrading"
+                                                               }
+                                                           ],
+                                                 "image":  "PMTerminal.PNG",
+                                                 "category":  "Python / Trading / Infrastructure",
+                                                 "title":  "Polymarket / Polygon Trading Client, Utility Library \u0026 Terminal"
+                                             },
+                                             {
+                                                 "description":  "Trading strategy for predicting market open direction using Leave-One-Out Cross-Validation and k-Nearest Neighbors with asymptotically optimal weights.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/trading_algo"
+                                                               }
+                                                           ],
+                                                 "image":  "KNN.png",
+                                                 "category":  "Python/Data Science",
+                                                 "title":  "Algorithmic Trading"
+                                             },
+                                             {
+                                                 "description":  "A collection of research papers that I have authored on topics related to finance and data science.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/Research"
+                                                               }
+                                                           ],
+                                                 "image":  "research.PNG",
+                                                 "category":  "Econometrics/Data Science",
+                                                 "title":  "Research Papers"
+                                             },
+                                             {
+                                                 "description":  "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+                                                               }
+                                                           ],
+                                                 "image":  "VBA.PNG",
+                                                 "category":  "Visual Basic for Applications (VBA)",
+                                                 "title":  "VBA Automated Reporting Tools"
+                                             },
+                                             {
+                                                 "description":  "Python-based document automation system designed for fund reporting and investor communications. Generate customized reports from templates with support for multiple input formats (Excel, CSV, JSON, SQL databases) and output formats (PDF, Word, Excel, HTML). Features advanced template engine with conditional logic, dynamic data binding, variable substitution, batch processing capabilities, and automated scheduling.",
+                                                 "filterCategory":  "automation",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "#"
+                                                               }
+                                                           ],
+                                                 "image":  "DA.PNG",
+                                                 "category":  "Python / Automation / Reporting",
+                                                 "title":  "DAS - Document Automation Software"
+                                             },
+                                             {
+                                                 "description":  "A web-based solution with a simple internal PowerShell server that includes a Team Task Tracker, Team Holidays, and Work From Home management tool - all running locally on your localhost with no installation required.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://github.com/alemxral/TareaFlow/tree/main/Internal"
+                                                               }
+                                                           ],
+                                                 "image":  "tareaholidays.PNG",
+                                                 "category":  "Powershell/JavaScript",
+                                                 "title":  "TareaFlow"
+                                             },
+                                             {
+                                                 "description":  "A sleek online shop mockup designed for selling stylish socks, developed using Bootstrap and Node.js.",
+                                                 "filterCategory":  "web development",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://miemiesocks.vercel.app/"
+                                                               }
+                                                           ],
+                                                 "image":  "miemiesocks.PNG",
+                                                 "category":  "Node.js/JavaScript",
+                                                 "title":  "MieMieSocks"
+                                             },
+                                             {
+                                                 "description":  "A nonprofit website dedicated to learning Japanese, focusing on mastering kanji and their readings effectively.",
+                                                 "filterCategory":  "web design",
+                                                 "links":  [
+                                                               {
+                                                                   "text":  "View Project",
+                                                                   "url":  "https://kanjilist-git-main-alemxrals-projects.vercel.app/"
+                                                               }
+                                                           ],
+                                                 "image":  "kanjilist.PNG",
+                                                 "category":  "Python/WebScraping/Web Dev",
+                                                 "title":  "KanjiList.org"
+                                             }
+                                         ],
+                            "languages":  [
+                                              {
+                                                  "flag":  "spain.png",
+                                                  "name":  "Spanish (Native)"
+                                              },
+                                              {
+                                                  "flag":  "uk.png",
+                                                  "name":  "English (Fluent)"
+                                              },
+                                              {
+                                                  "flag":  "france.png",
+                                                  "name":  "French (Medium)"
+                                              },
+                                              {
+                                                  "flag":  "japan.png",
+                                                  "name":  "Japanese (Basic)"
+                                              },
+                                              {
+                                                  "flag":  "china.png",
+                                                  "name":  "Chinese (Basic)"
+                                              }
+                                          ]
+                        },
+    "data_science":  {
+                         "education":  [
+                                           {
+                                               "dates":  "Sep. 2019 - Sep. 2022",
+                                               "description":  "University Program in Value Investing, Degree completion one year ahead of schedule",
+                                               "coursework":  [
+                                                                  "Quantitative finance with coursework in statistics, econometrics, and financial modeling. Relevant courses: Statistics, Advanced Econometrics, Financial Operations, Corporate Finance, Quantitative Methods. Developed strong foundation in data analysis and mathematical modeling for financial applications.",
+                                                                  "Relevant Coursework: Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations"
+                                                              ],
+                                               "degree":  "Bachelor of Finance and Accounting",
+                                               "school":  "University of Malaga"
+                                           },
+                                           {
+                                               "dates":  "Sept. 2023 - Sep. 2024",
+                                               "description":  "",
+                                               "coursework":  [
+                                                                  "Quantitative economics with strong emphasis on econometrics and statistical programming. Coursework: Advanced Econometrics (causal inference, instrumental variables, difference-in-differences, regression discontinuity), Time Series Analysis (ARIMA, GARCH, VAR models), Panel Data Methods, Survey Data Analysis in Stata, Programming in R (tidyverse, data.table, advanced visualization). Thesis: Applied machine learning to economic forecasting using high-dimensional datasets."
+                                                              ],
+                                               "degree":  "Master of Science in Financial Economics",
+                                               "school":  "University of Luxembourg"
+                                           },
+                                           {
+                                               "dates":  "Sept. 2024 - Sep.2027 (In progress)",
+                                               "description":  "",
+                                               "coursework":  [
+                                                                  "Comprehensive program covering statistics, machine learning, and data engineering. Core coursework: Machine Learning (supervised/unsupervised learning, neural networks, ensemble methods), Statistical Modeling (regression, hypothesis testing, Bayesian methods), Big Data Technologies (Spark, Hadoop, distributed computing), Database Management (SQL/NoSQL optimization), Data Visualization (Tableau, D3.js, matplotlib/seaborn), Deep Learning (CNNs, RNNs, transformers). Capstone project: Built end-to-end recommendation system deployed on AWS."
+                                                              ],
+                                               "degree":  "Bachelor in Data Science",
+                                               "school":  "IU International University of Applied Sciences"
+                                           },
+                                           {
+                                               "dates":  "May. 2025 - Present (In progress)",
+                                               "description":  "",
+                                               "coursework":  [
+                                                                  "Relevant Coursework: C Programming, Algorithms and Data Structures, System Programming, Network Programming, Low-Level Programming, Software Engineering Principles"
+                                                              ],
+                                               "degree":  "C/C++ Coding Program",
+                                               "school":  "42 Luxembourg"
+                                           }
+                                       ],
+                         "contact":  {
+                                         "phone":  "+34 675949628",
+                                         "website":  "https://alemxral.github.io/cv/data-science/",
+                                         "github":  "https://www.github.com/alejandromoralwork",
+                                         "email":  "alejandromoralcontact@gmail.com",
+                                         "location":  "Luxembourg",
+                                         "linkedin":  ""
+                                     },
+                         "personal":  {
+                                          "jobTitle":  "Data Scientist \u0026 Machine Learning Engineer",
+                                          "photo":  "yo.png",
+                                          "name":  "Alejandro Moral Aranda",
+                                          "about":  "Data scientist with strong foundation in statistical modeling, machine learning, and data engineering. Experienced in building end-to-end ML pipelines, from data extraction and cleaning to model deployment and monitoring. Proficient in Python (pandas, scikit-learn, TensorFlow), R (tidyverse, caret), and SQL for data manipulation and analysis. Specialized in predictive analytics, time series forecasting, and causal inference. Built production systems for automated reporting, data migration, and workflow optimization in financial services. Strong background in econometrics, statistical computing, and mathematical modeling with Master\u0027s degree in Financial Economics and ongoing Bachelor\u0027s in Data Science."
+                                      },
+                         "interests":  [
+                                           {
+                                               "icon":  "fas fa-chess",
+                                               "name":  "Chess"
+                                           },
+                                           {
+                                               "icon":  "fas fa-calculator",
+                                               "name":  "Maths"
+                                           },
+                                           {
+                                               "icon":  "fas fa-film",
+                                               "name":  "Anime"
+                                           },
+                                           {
+                                               "icon":  "fas fa-code",
+                                               "name":  "Coding"
+                                           },
+                                           {
+                                               "icon":  "fas fa-futbol",
+                                               "name":  "Football"
+                                           }
+                                       ],
+                         "skills":  [
+                                        {
+                                            "tags":  [
+                                                         "Backend",
+                                                         "Data Science"
+                                                     ],
+                                            "name":  "Python",
+                                            "years":  4,
+                                            "percent":  80
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Scripting",
+                                                         "Automation"
+                                                     ],
+                                            "name":  "PowerShell",
+                                            "years":  2,
+                                            "percent":  30
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Stats",
+                                                         "Analysis"
+                                                     ],
+                                            "name":  "R",
+                                            "years":  3,
+                                            "percent":  75
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Frontend",
+                                                         "Node"
+                                                     ],
+                                            "name":  "JavaScript",
+                                            "years":  2,
+                                            "percent":  70
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Systems"
+                                                     ],
+                                            "name":  "C/C++",
+                                            "years":  1,
+                                            "percent":  60
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Markup",
+                                                         "Styling"
+                                                     ],
+                                            "name":  "HTML \u0026 CSS",
+                                            "years":  3,
+                                            "percent":  70
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Databases",
+                                                         "SQL"
+                                                     ],
+                                            "name":  "SQL",
+                                            "years":  4,
+                                            "percent":  85
+                                        },
+                                        {
+                                            "tags":  [
+                                                         "Macros",
+                                                         "Reporting"
+                                                     ],
+                                            "name":  "VBA",
+                                            "years":  5,
+                                            "percent":  90
+                                        }
+                                    ],
+                         "workExperience":  [
+                                                {
+                                                    "dates":  "April 2023 - November 2023 (7 months)",
+                                                    "title":  "Private Equity Fund Accountant",
+                                                    "description":  "Fund accounting with emphasis on data analysis and process automation. Created SQL queries and stored procedures for automated data validation and reconciliation. Built R scripts for statistical analysis of fund performance metrics and investor reporting. Developed VBA macros for automating repetitive tasks in Excel, improving efficiency by 40%. Analyzed large datasets to identify patterns in capital flows and investment performance.",
+                                                    "company":  "Intertrust"
+                                                },
+                                                {
+                                                    "dates":  "April 2022 - May 2023 (1 Year)",
+                                                    "title":  "Private Debt Fund Accountant",
+                                                    "description":  "Managed complex financial data for debt funds with focus on data quality and automation. Developed automated Excel/VBA tools for loan amortization schedules, interest calculations, and covenant tracking. Created Python scripts for scraping and processing market data. Built data pipelines for integrating third-party pricing data into accounting systems. Performed statistical analysis on loan performance and default rates.",
+                                                    "company":  "Alter Domus"
+                                                },
+                                                {
+                                                    "dates":  "2020 - Present (4 Years)",
+                                                    "title":  "Individual Investor",
+                                                    "description":  "Applied machine learning and statistical analysis to investment decisions. Developed algorithmic trading strategies using Python (scikit-learn, pandas, numpy) with backtesting on historical data. Built predictive models for market direction using time series analysis (ARIMA, LSTM neural networks). Created portfolio optimization tools using modern portfolio theory and risk metrics. Implemented data collection systems (web scraping, API integration) for alternative data sources. Technologies: Python, R, PostgreSQL, Jupyter notebooks.",
+                                                    "company":  ""
+                                                },
+                                                {
+                                                    "dates":  "February 2024 - Current",
+                                                    "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                                    "description":  "Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.",
+                                                    "company":  "Arendt Investor Services"
+                                                },
+                                                {
+                                                    "dates":  "October 2021 - March 2022 (6 Months)",
+                                                    "title":  "Wealth Management Internship",
+                                                    "description":  "KYC for physical persons, risk profile analysis, AML and management of bank accounts.",
+                                                    "company":  "UBS Europe SE"
+                                                },
+                                                {
+                                                    "dates":  "June 2021 - August 2021 (3 Months)",
+                                                    "title":  "M\u0026A Analyst Internship",
+                                                    "description":  "Work in a buy-side mandate in the heating industry, Searching for potential acquisition.",
+                                                    "company":  "Empresax"
+                                                }
+                                            ],
+                         "projects":  [
+                                          {
+                                              "description":  "Trading strategy for predicting market open direction using Leave-One-Out Cross-Validation and k-Nearest Neighbors with asymptotically optimal weights.",
+                                              "filterCategory":  "web development",
+                                              "links":  [
+                                                            {
+                                                                "text":  "View Project",
+                                                                "url":  "https://github.com/alemxral/trading_algo"
+                                                            }
+                                                        ],
+                                              "image":  "KNN.png",
+                                              "category":  "Python/Data Science",
+                                              "title":  "Algorithmic Trading"
+                                          },
+                                          {
+                                              "description":  "A collection of research papers that I have authored on topics related to finance and data science.",
+                                              "filterCategory":  "web development",
+                                              "links":  [
+                                                            {
+                                                                "text":  "View Project",
+                                                                "url":  "https://github.com/alemxral/Research"
+                                                            }
+                                                        ],
+                                              "image":  "research.PNG",
+                                              "category":  "Econometrics/Data Science",
+                                              "title":  "Research Papers"
+                                          },
+                                          {
+                                              "description":  "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+                                              "filterCategory":  "web development",
+                                              "links":  [
+                                                            {
+                                                                "text":  "View Project",
+                                                                "url":  "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+                                                            }
+                                                        ],
+                                              "image":  "VBA.PNG",
+                                              "category":  "Visual Basic for Applications (VBA)",
+                                              "title":  "VBA Automated Reporting Tools"
+                                          },
+                                          {
+                                              "description":  "A web-based solution with a simple internal PowerShell server that includes a Team Task Tracker, Team Holidays, and Work From Home management tool - all running locally on your localhost with no installation required.",
+                                              "filterCategory":  "web development",
+                                              "links":  [
+                                                            {
+                                                                "text":  "View Project",
+                                                                "url":  "https://github.com/alemxral/TareaFlow/tree/main/Internal"
+                                                            }
+                                                        ],
+                                              "image":  "tareaholidays.PNG",
+                                              "category":  "Powershell/JavaScript",
+                                              "title":  "TareaFlow"
+                                          }
+                                      ],
+                         "languages":  [
+                                           {
+                                               "flag":  "spain.png",
+                                               "name":  "Spanish (Native)"
+                                           },
+                                           {
+                                               "flag":  "uk.png",
+                                               "name":  "English (Fluent)"
+                                           },
+                                           {
+                                               "flag":  "france.png",
+                                               "name":  "French (Medium)"
+                                           },
+                                           {
+                                               "flag":  "japan.png",
+                                               "name":  "Japanese (Basic)"
+                                           },
+                                           {
+                                               "flag":  "china.png",
+                                               "name":  "Chinese (Basic)"
+                                           }
+                                       ]
+                     }
+}

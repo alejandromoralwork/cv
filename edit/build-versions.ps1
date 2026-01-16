@@ -52,38 +52,36 @@ foreach ($key in $versions.Keys) {
     # Read the base index.html
     $html = Get-Content "index.html" -Raw
     
-    # Remove version selector
-    $html = $html -replace '(?s)<!-- Version Selector -->.*?</div>\s*</div>', ''
-    
-    # Set default version in select (though it will be hidden)
-    $html = $html -replace "value=`"neutral-finance`" selected", "value=`"$version`" selected"
+    # Remove the auto-load script comment section
+    $html = $html -replace '(?s)<!-- Auto-load neutral-finance version -->.*?</script>', ''
     
     # Update title
     $html = $html -replace '<title>.*?</title>', "<title>$title</title>"
     
-    # Add inline script to auto-load version and hide selector
+    # Update website URL to match the version directory
+    $websiteUrl = "https://alemxral.github.io/cv/$key/"
+    $html = $html -replace 'href="https://alemxral\.github\.io/cv/[^"]*"', "href=`"$websiteUrl`""
+    $html = $html -replace '\(CV\) https://alemxral\.github\.io/cv/[^<]*', "(CV) $websiteUrl"
+    
+    # Add inline script to auto-load version
     $versionScript = @"
-<style>
-.version-selector-container {
-  display: none !important;
-}
-</style>
 <script>
 // Auto-load specific version on page load
 (function() {
   const targetVersion = '$version';
   
-  // Override URL parameter detection
-  const originalInit = window.CVVersionController ? window.CVVersionController.prototype.loadVersionFromURL : null;
-  
-  // Wait for DOM and controller
-  window.addEventListener('load', function() {
-    if (window.cvController) {
-      // Force switch to this version
-      setTimeout(function() {
-        window.cvController.switchVersion(targetVersion);
-      }, 100);
+  window.addEventListener('DOMContentLoaded', function() {
+    if (window.CVVersionController) {
+      if (window.CVVersionController.setVersion) {
+        window.CVVersionController.setVersion(targetVersion);
+      }
     }
+    
+    setTimeout(function() {
+      if (window.cvController && window.cvController.switchVersion) {
+        window.cvController.switchVersion(targetVersion);
+      }
+    }, 200);
   });
 })();
 </script>
@@ -103,14 +101,16 @@ foreach ($key in $versions.Keys) {
     Copy-Item "*.png" -Destination $dir -Force -ErrorAction SilentlyContinue
     Copy-Item "*.PNG" -Destination $dir -Force -ErrorAction SilentlyContinue
     
-    Write-Host "  ✓ Created $indexPath" -ForegroundColor Green
+    Write-Host "  Created $indexPath" -ForegroundColor Green
 }
 
-Write-Host "`n✓ All versions built successfully!" -ForegroundColor Green
+Write-Host "`nAll versions built successfully!" -ForegroundColor Green
 Write-Host "`nGenerated directories:" -ForegroundColor Cyan
-Write-Host "  /fund-accounting/  - Fund Accounting version"
-Write-Host "  /finance/          - Finance Professional version"
-Write-Host "  /investment/       - Investment Analysis version"
-Write-Host "  /fintech/          - FinTech Developer version"
-Write-Host "  /developer/        - Software Developer version"
+Write-Host "  /fund-accounting/   - Fund Accounting version"
+Write-Host "  /reporting-analyst/ - Reporting Analyst version"
+Write-Host "  /finance/           - Finance Professional version"
+Write-Host "  /investment/        - Investment Analysis version"
+Write-Host "  /fintech/           - FinTech Developer version"
+Write-Host "  /data-science/      - Data Science version"
+Write-Host "  /developer/         - Software Developer version"
 Write-Host "`nEdit your CV in /edit/ and run this script to rebuild all versions." -ForegroundColor Yellow
