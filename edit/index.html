@@ -36,17 +36,25 @@
     <h4><i class="fas fa-sliders-h"></i> CV Version</h4>
     <select id="version-selector">
       <option value="fund-accounting">Fund Accounting</option>
+      <option value="reporting-analyst">Reporting Analyst</option>
       <option value="neutral-finance" selected>Finance Professional</option>
       <option value="investment-analysis">Investment Analysis</option>
       <option value="fintech">FinTech Developer</option>
+      <option value="data-science">Data Science</option>
       <option value="pure-coding">Software Developer</option>
     </select>
     <div class="version-quick-buttons">
       <button class="version-quick-btn" data-version="fund-accounting" title="Professional formalism">
         <i class="fas fa-briefcase"></i> Accounting
       </button>
+      <button class="version-quick-btn" data-version="reporting-analyst" title="Professional formalism">
+        <i class="fas fa-file-invoice"></i> Reporting
+      </button>
       <button class="version-quick-btn" data-version="investment-analysis" title="Professional formalism">
         <i class="fas fa-chart-line"></i> Investment
+      </button>
+      <button class="version-quick-btn" data-version="data-science" title="Balanced formalism">
+        <i class="fas fa-database"></i> Data Science
       </button>
       <button class="version-quick-btn" data-version="fintech" title="Modern formalism">
         <i class="fab fa-bitcoin"></i> FinTech
@@ -180,24 +188,9 @@
       <h3><i class="fa fa-briefcase"></i>Work Experience</h3>
       <ul>
         <li>
-            <span>Individual Investor</span>
-            <small>2020 - Present (4 Years)</small>
-            <h6 class="coursework">Portfolio Management of my own investments in stocks and funds, valuation analysis with comparables.</h6>
-        </li>
-        <li>
-            <span>M&A Analyst Internship</span><span class="highlight"> (Empresax)</span>
-            <small>June 2021 - August 2021 (3 Months)</small>
-            <h6 class="coursework">Work in a buy-side mandate in the heating industry, Searching for potential acquisition.</h6>
-        </li>
-        <li>
-            <span>Wealth Management Internship</span><span class="highlight"> (UBS Europe SE)</span>
-            <small>October 2021 - March 2022 (6 Months)</small>
-            <h6 class="coursework">KYC for physical persons, risk profile analysis, AML and management of bank accounts.</h6>
-        </li>
-        <li>
-            <span>Private Debt Fund Accountant</span><span class="highlight"> (Alter Domus)</span>
-            <small>April 2022 - May 2023 (1 Year)</small>
-            <h6 class="coursework">Fund Accounting for Permira Debt Funds, Subordinated Syndicated Loans, Work with financial instruments: Syndicated Loans, ITLs, Swaps, Preferred Equity, Bonds and FX Forwards, Prepare accounting, financial statements, CAS, capital calls, distributions and debt restructuring.</h6>
+            <span>PERE Fund Accountant & Automation Specialist</span><span class="highlight"> (Arendt Investor Services)</span>
+            <small>February 2024 - Current</small>
+            <h6 class="coursework">Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls and distributions. Developed automation solutions for repetitive workflows, led data migration projects between accounting systems, created custom reporting tools, and provided technical support for accounting software implementations. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.</h6>
         </li>
         <li>
             <span>Private Equity Fund Accountant</span><span class="highlight"> (Intertrust)</span>
@@ -205,9 +198,24 @@
             <h6 class="coursework">Fund Accounting for Private Equity Funds, Prepare accounting, financial statements, CAS, capital calls, distributions, equalizations, NAV calculation.</h6>
         </li>
         <li>
-            <span>PERE Fund Accountant</span><span class="highlight"> (Arendt Investor Services)</span>
-            <small>February 2024 - Current</small>
-            <h6 class="coursework"> Fund Accounting for Private Equity and Real Estate Funds (GLP), responsible for preparing financial statements, NAV calculation, CAS compliance, and managing capital activities such as calls, distributions. Skilled in waterfall calculations, fee structures, complex investor allocations, and fund performance analysis.</h6>
+            <span>Private Debt Fund Accountant</span><span class="highlight"> (Alter Domus)</span>
+            <small>April 2022 - May 2023 (1 Year)</small>
+            <h6 class="coursework">Fund Accounting for Permira Debt Funds, Subordinated Syndicated Loans, Work with financial instruments: Syndicated Loans, ITLs, Swaps, Preferred Equity, Bonds and FX Forwards, Prepare accounting, financial statements, CAS, capital calls, distributions and debt restructuring.</h6>
+        </li>
+        <li>
+            <span>Wealth Management Internship</span><span class="highlight"> (UBS Europe SE)</span>
+            <small>October 2021 - March 2022 (6 Months)</small>
+            <h6 class="coursework">KYC for physical persons, risk profile analysis, AML and management of bank accounts.</h6>
+        </li>
+        <li>
+            <span>M&A Analyst Internship</span><span class="highlight"> (Empresax)</span>
+            <small>June 2021 - August 2021 (3 Months)</small>
+            <h6 class="coursework">Work in a buy-side mandate in the heating industry, Searching for potential acquisition.</h6>
+        </li>
+        <li>
+            <span>Individual Investor</span>
+            <small>2020 - Present (4 Years)</small>
+            <h6 class="coursework">Portfolio Management of my own investments in stocks and funds, valuation analysis with comparables.</h6>
         </li>
 
       
@@ -534,6 +542,28 @@
       </p>
       <a href="https://github.com/alemxral/VBA-Automated-Reporting-tools" class="project-link" target="_blank">View Project</a>
       <p class="project-category">Visual Basic for Applications (VBA)</p>
+    </div>
+  </li>
+
+  <!-- DAS Document Automation Software -->
+  <li class="project-item active" data-filter-item data-category="automation">
+    <figure class="project-img">
+      <a href="#" class="project-eye-link" target="_blank">
+        <div class="project-item-icon-box">
+          <i class="fas fa-eye"></i>
+        </div>
+        <img src="DA.PNG" alt="DAS Document Automation Software" loading="lazy">
+      </a>
+    </figure>
+    <div class="project-info">
+      <h3 class="project-title">
+        <a href="#" target="_blank">DAS - Document Automation Software</a>
+      </h3>
+      <p class="project-description">
+        Python-based document automation system designed for fund reporting and investor communications. Generate customized reports from templates with support for multiple input formats (Excel, CSV, JSON, SQL databases) and output formats (PDF, Word, Excel, HTML). Features advanced template engine with conditional logic, dynamic data binding, variable substitution, batch processing capabilities, and automated scheduling. Includes quality control validation, audit trails, and version control for all generated reports. Significantly reduces manual reporting time by 70% while ensuring consistency, accuracy, and compliance across all investor communications and regulatory filings.
+      </p>
+      <a href="#" class="project-link" target="_blank">View Project</a>
+      <p class="project-category">Python / Automation / Reporting</p>
     </div>
   </li>
 

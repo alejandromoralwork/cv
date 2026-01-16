@@ -49,6 +49,18 @@ body.formalism-professional .func {
   color: #2c3e50;
 }
 
+body.formalism-professional .func h3 {
+  color: #2c3e50 !important;
+}
+
+body.formalism-professional .func p,
+body.formalism-professional .func span,
+body.formalism-professional .func li,
+body.formalism-professional .func small,
+body.formalism-professional .func h6 {
+  color: #2c3e50 !important;
+}
+
 body.formalism-professional h1.name {
   font-size: 2.2em;
   letter-spacing: 1px;
@@ -108,6 +120,28 @@ body.formalism-balanced {
   /* Default theme - no major changes */
 }
 
+body.formalism-balanced .func {
+  color: #333 !important;
+}
+
+body.formalism-balanced .func h3 {
+  color: #333 !important;
+}
+
+body.formalism-balanced .func p,
+body.formalism-balanced .func span,
+body.formalism-balanced .func li,
+body.formalism-balanced .func small,
+body.formalism-balanced .func h6,
+body.formalism-balanced .func a {
+  color: #333 !important;
+}
+
+body.formalism-balanced .func .skill-name,
+body.formalism-balanced .func .skill-percent {
+  color: #333 !important;
+}
+
 body.formalism-balanced .resume {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -143,6 +177,27 @@ body.formalism-modern .resume {
 body.formalism-modern .base {
   background: linear-gradient(135deg, #1e2749 0%, #2d3561 100%);
   border-right: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+body.formalism-modern .func {
+  background: #f8f9fa;
+  color: #222 !important;
+}
+
+body.formalism-modern .func h3 {
+  color: #00d4ff !important;
+}
+
+body.formalism-modern .func p,
+body.formalism-modern .func span,
+body.formalism-modern .func li,
+body.formalism-modern .func small,
+body.formalism-modern .func h6 {
+  color: #222 !important;
+}
+
+body.formalism-modern .func a {
+  color: #00b8e6 !important;
 }
 
 body.formalism-modern h1.name {
@@ -272,6 +327,23 @@ body.formalism-creative .resume {
 
 body.formalism-creative .base {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.formalism-creative .func {
+  background: #ffffff;
+  color: #333 !important;
+}
+
+body.formalism-creative .func h3 {
+  color: #667eea !important;
+}
+
+body.formalism-creative .func p,
+body.formalism-creative .func span,
+body.formalism-creative .func li,
+body.formalism-creative .func small,
+body.formalism-creative .func h6 {
+  color: #333 !important;
 }
 
 body.formalism-creative h1.name {
