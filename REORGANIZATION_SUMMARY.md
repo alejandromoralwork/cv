@@ -41,7 +41,7 @@ cv/
 │       ├── yo.png
 │       ├── spain.png, uk.png, france.png, japan.png, china.png
 │       ├── polymarket.png, PMTerminal.PNG, KNN.png
-│       ├── research.PNG, VBA.PNG, DA.PNG
+│       ├── research.PNG, VBA.PNG, DA.png
 │       └── tareaholidays.PNG, miemiesocks.PNG, kanjilist.PNG
 │
 ├── data-science/              (~72 KB - version-specific only)
