@@ -359,8 +359,15 @@ class CVVersionController {
   }
 
   applyVersion(versionKey) {
+    if (!this.versions) {
+      console.error('CVVersionController: versions data is not loaded.');
+      return;
+    }
     const version = this.versions[versionKey];
-    if (!version) return;
+    if (!version) {
+      console.error(`CVVersionController: version '${versionKey}' not found in versions data. Available keys:`, Object.keys(this.versions));
+      return;
+    }
 
     // Update document title
     document.title = `Alejandro Moral Aranda - ${version.title}`;
