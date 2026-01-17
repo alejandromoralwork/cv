@@ -166,7 +166,7 @@ h3 {
 }
 
 .resume .base .profile {
-  background: var(--light-green);
+  background: var(--white);
   padding: 30px 15px 40px 15px;
   margin: -30px -15px 45px -15px;
   position: relative;
@@ -213,7 +213,7 @@ h3 {
   margin-bottom: 0;
   font-size: 1.75em;
   
-  color: var(--off-white-3);
+  color: var(--black-2);
 }
 
 .resume .base .profile .info .job {
@@ -221,7 +221,7 @@ h3 {
   margin-bottom: 0;
   font-size: 1.5em;
   text-transform: none;
-  color: var(--white);
+    color: var(--black-2);
 }
 
 .resume .base .contact div {
@@ -1175,8 +1175,6 @@ body.pdf-export #particles-foreground {
     overflow-wrap: break-word;
     white-space: normal;
   }
-
-
 
 
 }
