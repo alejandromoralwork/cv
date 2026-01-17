@@ -1,0 +1,57 @@
+/* data-science.css - Modern, colorful theme for data science CVs */
+body, .resume, .base, .func {
+  background: #f7fafd;
+  color: #222;
+}
+
+.resume, .base, .func {
+  border: 1px solid #b3c6e0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1a237e;
+  font-weight: 700;
+}
+
+a, a:visited {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+.navbar, .download-btn, .skills-prog, .work, .edu, .interests, .projects, .follow, .contact, .about {
+  background: #e3f2fd;
+  color: #222;
+  border-radius: 8px;
+  border: none;
+}
+
+.skills-grid .skill {
+  background: #e1f5fe;
+  color: #222;
+}
+
+.skills-grid .skill-fill {
+  background: #1976d2;
+}
+
+.project-item, .project-info {
+  background: #e3f2fd;
+  color: #222;
+}
+
+.download-btn {
+  background: #1976d2;
+  color: #fff;
+}
+
+.download-btn:hover {
+  background: #1565c0;
+}
+
+.resume .highlight, .project-category, .project-link {
+  color: #1976d2 !important;
+}
+
+* {
+  box-shadow: none !important;
+}
