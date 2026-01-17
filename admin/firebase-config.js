@@ -1,13 +1,13 @@
 // Firebase Configuration
-// Replace these values with your actual Firebase project credentials
+// Firestore configuration for jobsearch-a3a6c project
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com"
+  apiKey: "AIzaSyBHw7K6HMLa2W_PmN9Yctq4XO3Zsng5PXI",
+  authDomain: "jobsearch-a3a6c.firebaseapp.com",
+  projectId: "jobsearch-a3a6c",
+  storageBucket: "jobsearch-a3a6c.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcdef123456"
+  // NOTE: No databaseURL for Firestore (only for Realtime Database)
 };
 
 // Initialize Firebase
@@ -30,14 +30,22 @@ const CVDatabase = {
   // Load CV data from Firestore
   async loadCVData(cvVersion = 'neutral-finance') {
     try {
+      console.log('Loading CV data for version:', cvVersion);
       const docRef = db.collection('cv-data').doc(cvVersion);
       const doc = await docRef.get();
       
       if (doc.exists) {
         const docData = doc.data();
+        console.log('Document data:', docData);
+        
         // Data is stored as JSON string to avoid Firestore restrictions
         if (docData.cvData) {
-          return JSON.parse(docData.cvData);
+          // If cvData is already a string, parse it
+          if (typeof docData.cvData === 'string') {
+            return JSON.parse(docData.cvData);
+          }
+          // If it's already an object, return it
+          return docData.cvData;
         }
         // Fallback for old format
         return docData;
@@ -47,6 +55,7 @@ const CVDatabase = {
       }
     } catch (error) {
       console.error('Error loading CV data:', error);
+      console.error('Error details:', error.message);
       return null;
     }
   },
@@ -54,6 +63,8 @@ const CVDatabase = {
   // Save CV data to Firestore (requires authentication)
   async saveCVData(cvVersion, data, passwordHash) {
     try {
+      console.log('Saving CV data for version:', cvVersion);
+      
       // Verify password
       const isValid = await this.verifyPassword(passwordHash);
       if (!isValid) {
@@ -62,16 +73,20 @@ const CVDatabase = {
 
       // Store as JSON string to avoid Firestore field name restrictions
       const docRef = db.collection('cv-data').doc(cvVersion);
-      await docRef.set({
-        cvData: JSON.stringify(data),
+      const saveData = {
+        cvData: typeof data === 'string' ? data : JSON.stringify(data),
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp(),
         version: cvVersion
-      });
+      };
+      
+      console.log('Saving data:', saveData);
+      await docRef.set(saveData);
       
       console.log('CV data saved successfully');
       return true;
     } catch (error) {
       console.error('Error saving CV data:', error);
+      console.error('Error details:', error.message);
       throw error;
     }
   },

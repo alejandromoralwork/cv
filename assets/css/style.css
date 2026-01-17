@@ -6,7 +6,7 @@
 
 :root {
   --black: #000000;
-  --white: var(--black);
+  --white: #ffffff;
   --dark-green: #222831;
   --medium-green: #393E46;
   --light-green: #747D8C;
@@ -16,12 +16,27 @@
   --darker-green: #1A1C20;
   --lighter-green: #464B53;
   --brighter-green: #518397;
-  --pure-white: var(--black);
+  --pure-white: #ffffff;
   --off-white-1: #f8f8f8;
   --off-white-2: #f2f2f2;
   --off-white-3: #e6e6e6;
   --off-white-4: #d9d9d9;
   --off-white-5: #cccccc;
+  
+  /* Auto-adaptive text colors */
+  color-scheme: light dark;
+}
+
+/* Automatic color inversion for text on contrasting backgrounds */
+.auto-contrast-text {
+  color: Canvas;
+  background: CanvasText;
+}
+
+/* Alternative: Use mix-blend-mode for automatic contrast */
+.blend-text {
+  mix-blend-mode: difference;
+  color: white;
 }
 
 *,
@@ -124,31 +139,45 @@ h3 {
 
 /* Fix text colors in base section - ensure white text for readability */
 .resume .base h3 {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base p {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base .about p {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base .contact div {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base .contact div a {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base .contact div span {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base .follow {
-  color: var(--white) !important;
+  mix-blend-mode: difference;
+  color: light-dark(black, white);
+  background: light-dark(white, black);
 }
 
 .resume .base .profile {

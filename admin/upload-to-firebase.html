@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CV Data to Firebase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .config-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .file-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .file-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 3px;
+        }
+
+        .file-status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .file-status.uploading {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .file-status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .file-status.failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+        }
+
+        small {
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Upload CV Data to Firebase</h1>
+        
+        <div class="config-section">
+            <h3 style="margin-bottom: 15px;">Firebase Configuration</h3>
+            <div class="form-group">
+                <label>API Key:</label>
+                <input type="text" id="apiKey" placeholder="Your Firebase API Key">
+            </div>
+            <div class="form-group">
+                <label>Project ID:</label>
+                <input type="text" id="projectId" placeholder="your-project-id">
+            </div>
+            <div class="form-group">
+                <label>Auth Domain:</label>
+                <input type="text" id="authDomain" placeholder="your-project-id.firebaseapp.com">
+            </div>
+            <div class="form-group">
+                <label>Admin Password:</label>
+                <input type="password" id="adminPassword" placeholder="Set your admin password">
+                <small>This password will be used to authenticate admin operations</small>
+            </div>
+        </div>
+
+        <div id="filesContainer" class="progress-container" style="display: none;">
+            <h3 style="margin-bottom: 15px;">Upload Progress:</h3>
+            <div id="filesList"></div>
+        </div>
+
+        <button id="uploadBtn" onclick="uploadAllData()">Upload All CV Data to Firebase</button>
+        
+        <div id="status" class="status"></div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // CV Data files to upload
+        const cvFiles = [
+            { name: 'data_science', file: 'firebase-import/data_science.json' },
+            { name: 'fintech', file: 'firebase-import/fintech.json' },
+            { name: 'fund_accounting', file: 'firebase-import/fund_accounting.json' },
+            { name: 'investment_analysis', file: 'firebase-import/investment_analysis.json' },
+            { name: 'neutral_finance', file: 'firebase-import/neutral_finance.json' },
+            { name: 'pure_coding', file: 'firebase-import/pure_coding.json' },
+            { name: 'reporting_analyst', file: 'firebase-import/reporting_analyst.json' }
+        ];
+
+        let app, db;
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.className = 'status ' + type;
+            statusDiv.style.display = 'block';
+        }
+
+        function updateFileStatus(fileName, status) {
+            const fileElement = document.getElementById('file-' + fileName);
+            if (fileElement) {
+                const statusSpan = fileElement.querySelector('.file-status');
+                statusSpan.textContent = status;
+                statusSpan.className = 'file-status ' + status.toLowerCase();
+            }
+        }
+
+        function createFilesList() {
+            const filesContainer = document.getElementById('filesContainer');
+            const filesList = document.getElementById('filesList');
+            filesList.innerHTML = '';
+            
+            cvFiles.forEach(cv => {
+                const fileDiv = document.createElement('div');
+                fileDiv.className = 'file-item';
+                fileDiv.id = 'file-' + cv.name;
+                fileDiv.innerHTML = `
+                    <span>${cv.name}</span>
+                    <span class="file-status pending">Pending</span>
+                `;
+                filesList.appendChild(fileDiv);
+            });
+            
+            filesContainer.style.display = 'block';
+        }
+
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        async function initializeFirebase() {
+            const apiKey = document.getElementById('apiKey').value.trim();
+            const projectId = document.getElementById('projectId').value.trim();
+            const authDomain = document.getElementById('authDomain').value.trim();
+
+            if (!apiKey || !projectId || !authDomain) {
+                showStatus('Please fill in all Firebase configuration fields', 'error');
+                return false;
+            }
+
+            try {
+                const firebaseConfig = {
+                    apiKey: apiKey,
+                    authDomain: authDomain,
+                    projectId: projectId,
+                    storageBucket: projectId + ".firebasestorage.app",
+                    messagingSenderId: "123456789",
+                    appId: "1:123456789:web:abcdef123456"
+                };
+
+                app = firebase.initializeApp(firebaseConfig);
+                db = firebase.firestore();
+                console.log('Firebase initialized successfully');
+                console.log('Using Firestore (not Realtime Database)');
+                return true;
+            } catch (error) {
+                console.error('Firebase initialization error:', error);
+                showStatus('Error initializing Firebase: ' + error.message, 'error');
+                return false;
+            }
+        }
+
+        async function uploadAllData() {
+            const uploadBtn = document.getElementById('uploadBtn');
+            const password = document.getElementById('adminPassword').value.trim();
+
+            if (!password) {
+                showStatus('Please enter an admin password', 'error');
+                return;
+            }
+
+            uploadBtn.disabled = true;
+            showStatus('Initializing Firebase...', 'info');
+            createFilesList();
+
+            // Initialize Firebase
+            const initialized = await initializeFirebase();
+            if (!initialized) {
+                uploadBtn.disabled = false;
+                return;
+            }
+
+            // Hash the password
+            const passwordHash = await hashPassword(password);
+
+            // Initialize admin password in Firebase
+            try {
+                await db.collection('admin').doc('config').set({
+                    passwordHash: passwordHash,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                console.log('Admin password initialized');
+            } catch (error) {
+                console.error('Error setting admin password:', error);
+                showStatus('Error setting admin password: ' + error.message, 'error');
+                uploadBtn.disabled = false;
+                return;
+            }
+
+            // Upload each CV file
+            let successCount = 0;
+            let failCount = 0;
+
+            for (const cv of cvFiles) {
+                try {
+                    updateFileStatus(cv.name, 'Uploading');
+                    showStatus(`Uploading ${cv.name}...`, 'info');
+
+                    // Fetch the JSON file
+                    const response = await fetch(cv.file);
+                    if (!response.ok) {
+                        throw new Error('Failed to load file: ' + cv.file);
+                    }
+                    
+                    const data = await response.json();
+
+                    // Upload to Firestore
+                    await db.collection('cv-data').doc(cv.name).set({
+                        cvData: data.cvData || JSON.stringify(data),
+                        lastUpdated: firebase.firestore.FieldValue.serverTimestamp(),
+                        version: cv.name
+                    });
+
+                    updateFileStatus(cv.name, 'Success');
+                    successCount++;
+                    console.log(`Successfully uploaded: ${cv.name}`);
+                } catch (error) {
+                    updateFileStatus(cv.name, 'Failed');
+                    failCount++;
+                    console.error(`Error uploading ${cv.name}:`, error);
+                }
+            }
+
+            // Show final status
+            if (failCount === 0) {
+                showStatus(`✅ Successfully uploaded all ${successCount} CV versions to Firebase!`, 'success');
+            } else {
+                showStatus(`⚠️ Upload completed: ${successCount} successful, ${failCount} failed`, 
+                    successCount > 0 ? 'success' : 'error');
+            }
+
+            uploadBtn.disabled = false;
+        }
+    </script>
+</body>
+</html>

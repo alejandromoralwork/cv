@@ -320,6 +320,54 @@
                         <label>Location</label>
                         <input type="text" id="edit-location">
                     </div>
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" id="edit-website">
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Follow Me</h2>
+                    <div class="form-group">
+                        <label>GitHub</label>
+                        <input type="text" id="edit-github">
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Education</h2>
+                    <div id="edit-education-list"></div>
+                    <button type="button" onclick="addEducation()">➕ Add Education</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Work Experience</h2>
+                    <div id="edit-work-list"></div>
+                    <button type="button" onclick="addWork()">➕ Add Work Experience</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Skills</h2>
+                    <div id="edit-skills-list"></div>
+                    <button type="button" onclick="addSkill()">➕ Add Skill</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Projects</h2>
+                    <div id="edit-projects-list"></div>
+                    <button type="button" onclick="addProject()">➕ Add Project</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Interests</h2>
+                    <div id="edit-interests-list"></div>
+                    <button type="button" onclick="addInterest()">➕ Add Interest</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Languages</h2>
+                    <div id="edit-languages-list"></div>
+                    <button type="button" onclick="addLanguage()">➕ Add Language</button>
                 </div>
 
                 <div class="action-buttons">
@@ -352,7 +400,7 @@
         let currentData = null;
 
         // Hardcoded password hash for 'cv' - SHA-256 hash
-        const ADMIN_PASSWORD_HASH = 'b33bbe17f5c8d226085754333709c97930aac3a0e6842c4c42bc4a2ee38146bf';
+        const ADMIN_PASSWORD_HASH = '29cdee48e28d8104186513c96be32955f6203cffa61833e36a88a37ecbff7989';
 
         // Initialize Firebase on page load
         window.addEventListener('DOMContentLoaded', () => {
@@ -469,17 +517,168 @@
         // Load visual editor
         function loadVisualEditor() {
             if (!currentData) return;
-            
-            // Handle both old and new data structures
+            // Personal
             const personal = currentData.personal || currentData;
             const contact = currentData.contact || {};
-            
             document.getElementById('edit-name').value = personal.name || '';
             document.getElementById('edit-jobTitle').value = personal.jobTitle || currentData.jobTitle || '';
             document.getElementById('edit-about').value = personal.about || currentData.about || '';
             document.getElementById('edit-email').value = contact.email || currentData.email || '';
             document.getElementById('edit-phone').value = contact.phone || currentData.phone || '';
             document.getElementById('edit-location').value = contact.location || currentData.location || '';
+            document.getElementById('edit-website').value = contact.website || currentData.website || '';
+            document.getElementById('edit-github').value = (contact.github || currentData.github || currentData.personal?.github || '');
+
+            // Education
+            const eduList = document.getElementById('edit-education-list');
+            eduList.innerHTML = '';
+            (currentData.education || []).forEach((edu, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Degree</label><input type="text" value="${edu.degree || ''}" onchange="currentData.education[${i}].degree=this.value">
+                    <label>School</label><input type="text" value="${edu.school || ''}" onchange="currentData.education[${i}].school=this.value">
+                    <label>Dates</label><input type="text" value="${edu.dates || ''}" onchange="currentData.education[${i}].dates=this.value">
+                    <label>Description</label><input type="text" value="${edu.description || ''}" onchange="currentData.education[${i}].description=this.value">
+                    <label>Coursework (comma separated)</label><input type="text" value="${(edu.coursework||[]).join(', ')}" onchange="currentData.education[${i}].coursework=this.value.split(',').map(x=>x.trim())">
+                    <button type='button' class='btn-danger' onclick='removeEducation(${i})'>Remove</button>
+                `;
+                eduList.appendChild(div);
+            });
+
+            // Work Experience
+            const workList = document.getElementById('edit-work-list');
+            workList.innerHTML = '';
+            (currentData.workExperience || []).forEach((work, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Title</label><input type="text" value="${work.title || ''}" onchange="currentData.workExperience[${i}].title=this.value">
+                    <label>Company</label><input type="text" value="${work.company || ''}" onchange="currentData.workExperience[${i}].company=this.value">
+                    <label>Dates</label><input type="text" value="${work.dates || ''}" onchange="currentData.workExperience[${i}].dates=this.value">
+                    <label>Description</label><input type="text" value="${work.description || ''}" onchange="currentData.workExperience[${i}].description=this.value">
+                    <button type='button' class='btn-danger' onclick='removeWork(${i})'>Remove</button>
+                `;
+                workList.appendChild(div);
+            });
+
+            // Skills
+            const skillsList = document.getElementById('edit-skills-list');
+            skillsList.innerHTML = '';
+            (currentData.skills || []).forEach((skill, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Name</label><input type="text" value="${skill.name || ''}" onchange="currentData.skills[${i}].name=this.value">
+                    <label>Percent</label><input type="number" value="${skill.percent || 0}" onchange="currentData.skills[${i}].percent=parseInt(this.value)">
+                    <label>Years</label><input type="number" value="${skill.years || 0}" onchange="currentData.skills[${i}].years=parseInt(this.value)">
+                    <label>Tags (comma separated)</label><input type="text" value="${(skill.tags||[]).join(', ')}" onchange="currentData.skills[${i}].tags=this.value.split(',').map(x=>x.trim())">
+                    <button type='button' class='btn-danger' onclick='removeSkill(${i})'>Remove</button>
+                `;
+                skillsList.appendChild(div);
+            });
+
+            // Projects
+            const projectsList = document.getElementById('edit-projects-list');
+            projectsList.innerHTML = '';
+            (currentData.projects || []).forEach((proj, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Title</label><input type="text" value="${proj.title || ''}" onchange="currentData.projects[${i}].title=this.value">
+                    <label>Description</label><input type="text" value="${proj.description || ''}" onchange="currentData.projects[${i}].description=this.value">
+                    <label>Category</label><input type="text" value="${proj.category || ''}" onchange="currentData.projects[${i}].category=this.value">
+                    <label>Image</label><input type="text" value="${proj.image || ''}" onchange="currentData.projects[${i}].image=this.value">
+                    <label>Links (comma separated: text|url)</label><input type="text" value="${(proj.links||[]).map(l=>l.text+ '|' + l.url).join(', ')}" onchange="currentData.projects[${i}].links=this.value.split(',').map(x=>{let p=x.split('|');return {text:p[0]?.trim()||'',url:p[1]?.trim()||''}})">
+                    <label>Filter Category</label><input type="text" value="${proj.filterCategory || ''}" onchange="currentData.projects[${i}].filterCategory=this.value">
+                    <button type='button' class='btn-danger' onclick='removeProject(${i})'>Remove</button>
+                `;
+                projectsList.appendChild(div);
+            });
+
+            // Interests
+            const interestsList = document.getElementById('edit-interests-list');
+            interestsList.innerHTML = '';
+            (currentData.interests || []).forEach((intr, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Name</label><input type="text" value="${intr.name || ''}" onchange="currentData.interests[${i}].name=this.value">
+                    <label>Icon</label><input type="text" value="${intr.icon || ''}" onchange="currentData.interests[${i}].icon=this.value">
+                    <button type='button' class='btn-danger' onclick='removeInterest(${i})'>Remove</button>
+                `;
+                interestsList.appendChild(div);
+            });
+
+            // Languages
+            const langList = document.getElementById('edit-languages-list');
+            langList.innerHTML = '';
+            (currentData.languages || []).forEach((lang, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Name</label><input type="text" value="${lang.name || ''}" onchange="currentData.languages[${i}].name=this.value">
+                    <label>Flag (image file)</label><input type="text" value="${lang.flag || ''}" onchange="currentData.languages[${i}].flag=this.value">
+                    <button type='button' class='btn-danger' onclick='removeLanguage(${i})'>Remove</button>
+                `;
+                langList.appendChild(div);
+            });
+        }
+
+        // Add/remove functions for arrays
+        function addEducation() {
+            if (!currentData.education) currentData.education = [];
+            currentData.education.push({degree:'',school:'',dates:'',description:'',coursework:[]});
+            loadVisualEditor();
+        }
+        function removeEducation(i) {
+            currentData.education.splice(i,1);
+            loadVisualEditor();
+        }
+        function addWork() {
+            if (!currentData.workExperience) currentData.workExperience = [];
+            currentData.workExperience.push({title:'',company:'',dates:'',description:''});
+            loadVisualEditor();
+        }
+        function removeWork(i) {
+            currentData.workExperience.splice(i,1);
+            loadVisualEditor();
+        }
+        function addSkill() {
+            if (!currentData.skills) currentData.skills = [];
+            currentData.skills.push({name:'',percent:0,years:0,tags:[]});
+            loadVisualEditor();
+        }
+        function removeSkill(i) {
+            currentData.skills.splice(i,1);
+            loadVisualEditor();
+        }
+        function addProject() {
+            if (!currentData.projects) currentData.projects = [];
+            currentData.projects.push({title:'',description:'',category:'',image:'',links:[],filterCategory:''});
+            loadVisualEditor();
+        }
+        function removeProject(i) {
+            currentData.projects.splice(i,1);
+            loadVisualEditor();
+        }
+        function addInterest() {
+            if (!currentData.interests) currentData.interests = [];
+            currentData.interests.push({name:'',icon:''});
+            loadVisualEditor();
+        }
+        function removeInterest(i) {
+            currentData.interests.splice(i,1);
+            loadVisualEditor();
+        }
+        function addLanguage() {
+            if (!currentData.languages) currentData.languages = [];
+            currentData.languages.push({name:'',flag:''});
+            loadVisualEditor();
+        }
+        function removeLanguage(i) {
+            currentData.languages.splice(i,1);
+            loadVisualEditor();
         }
 
         // Save visual editor data
@@ -494,7 +693,9 @@
                         ...currentData.contact,
                         email: document.getElementById('edit-email').value,
                         phone: document.getElementById('edit-phone').value,
-                        location: document.getElementById('edit-location').value
+                        location: document.getElementById('edit-location').value,
+                        website: document.getElementById('edit-website').value,
+                        github: document.getElementById('edit-github').value
                     }
                 };
 
