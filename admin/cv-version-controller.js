@@ -16,13 +16,15 @@ class CVVersionController {
     await this.loadVersions();
     this.setupEventListeners();
     this.loadVersionFromURL();
-    this.applyVersion(this.currentVersion);
+    // Do NOT call applyVersion here; it will be called after data is loaded in loadVersions
   }
 
   async loadVersions() {
     try {
       const response = await fetch('cv-versions.json');
       this.versions = await response.json();
+      // Now safe to call applyVersion
+      this.applyVersion(this.currentVersion);
     } catch (error) {
       console.error('Failed to load CV versions:', error);
       this.versions = {};

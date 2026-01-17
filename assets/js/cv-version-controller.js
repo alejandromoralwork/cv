@@ -39,17 +39,17 @@ class CVVersionController {
   async init() {
     // Initialize Firebase first
     await this.initializeFirebase();
-    
-    // Load CV data from Firebase
+
+    // Load CV data from Firebase or local
     await this.loadVersions();
-    
+
     // Get DOM elements after data is loaded
     this.allExperiences = this.getAllExperiences();
     this.allProjects = this.getAllProjects();
-    
+
     this.setupEventListeners();
     this.loadVersionFromURL();
-    this.applyVersion(this.currentVersion);
+    // Do NOT call applyVersion here; it will be called after data is loaded in loadFromLocal/loadFromFirebase
   }
 
   async initializeFirebase() {
@@ -99,24 +99,26 @@ class CVVersionController {
       console.log('Loading CV data from Firebase...');
       const docRef = this.db.collection('cv-data').doc(this.currentVersion);
       const doc = await docRef.get();
-      
+
       if (doc.exists) {
         const docData = doc.data();
         console.log('Firebase data loaded:', docData);
-        
+
         // Parse cvData
         let cvData;
         if (docData.cvData) {
-          cvData = typeof docData.cvData === 'string' 
-            ? JSON.parse(docData.cvData) 
+          cvData = typeof docData.cvData === 'string'
+            ? JSON.parse(docData.cvData)
             : docData.cvData;
         } else {
           cvData = docData;
         }
-        
+
         this.cvData = cvData;
         this.populatePageWithData(cvData);
         console.log('CV populated from Firebase successfully');
+        // Now safe to call applyVersion
+        this.applyVersion(this.currentVersion);
         return true;
       } else {
         console.log('No Firebase data found for version:', this.currentVersion);
@@ -134,6 +136,8 @@ class CVVersionController {
       const response = await fetch('cv-versions.json');
       this.versions = await response.json();
       console.log('Local data loaded');
+      // Now safe to call applyVersion
+      this.applyVersion(this.currentVersion);
     } catch (error) {
       console.error('Failed to load CV versions:', error);
       this.versions = {};
