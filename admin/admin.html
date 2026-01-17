@@ -384,6 +384,10 @@
                 </div>
                 <iframe id="previewFrame" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
             </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+                <button onclick="downloadCurrentJson()">⬇️ Download JSON from Firebase</button>
+            </div>
         </div>
     </div>
 
@@ -774,6 +778,30 @@
                 login();
             }
         });
+
+        // Download current JSON from Firebase
+        async function downloadCurrentJson() {
+            try {
+                const data = await CVDatabase.loadCVData(currentVersion);
+                if (!data) {
+                    showStatus('status', 'No data found for this version.', 'error');
+                    return;
+                }
+                const jsonStr = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${currentVersion}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showStatus('status', 'JSON downloaded successfully.', 'success');
+            } catch (error) {
+                showStatus('status', 'Error downloading JSON: ' + error.message, 'error');
+            }
+        }
     </script>
 </body>
 </html>
