@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Alejandro Moral Aranda - Data Scientist</title>
+  <title>Alejandro Moral Aranda - Reporting Analyst</title>
   <!-- ...existing code... -->
 <meta name="viewport" content="width=1200, initial-scale=0.4, maximum-scale=1.0, user-scalable=yes">
 
@@ -12,13 +12,24 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script>
 // Auto-load specific version on page load
 (function() {
-  const targetVersion = 'data_science'; // Match Firebase document name
+  const targetVersion = 'reporting-analyst';
   
   window.addEventListener('DOMContentLoaded', function() {
-    console.log('Page loaded, target version:', targetVersion);
+    if (window.CVVersionController) {
+      if (window.CVVersionController.setVersion) {
+        window.CVVersionController.setVersion(targetVersion);
+      }
+    }
+    
+    setTimeout(function() {
+      if (window.cvController && window.cvController.switchVersion) {
+        window.cvController.switchVersion(targetVersion);
+      }
+    }, 200);
   });
 })();
 </script>
@@ -68,19 +79,19 @@
     <div class="contact">
       <h3>Contact Me</h3>
       <div class="call"><a href="tel:+34 675949628"><i class="fas fa-phone"></i><span>+34 675949628</span></a></div>
-      <div class="address"><i class="fas fa-map-marker"></i><span>Luxembourg</span></a>
+      <div class="address"><i class="fas fa-map-marker"></i><span>Luxembourg</span>
       </div>
-      <div class="email">
-        <a href="mailto:alejandro.moral.work@gmail.com" style="display: flex; align-items: center; font-size: 13px;">
-          <i class="fas fa-envelope" style="margin-right: 5px;"></i>
-          <span>Email</span>
-        </a>
-      </div>
+
+
+
+
+      <div class="Email"><a href="mailto:alejandro.moral.work@gmail.com"><i class="fas fa-envelope"></i><span>alejandro.moral.work@gmail.com</span></a></div>
+
       
       <div class="website-link">
-        <a href="https://alejandromoralwork.github.io/cv/data-science/" target="_blank">
+        <a href="https://alejandromoralwork.github.io/cv/reporting-analyst/" target="_blank">
           <i class="fas fa-globe"></i>
-          <span class="website-text">(CV)</span>
+          <span class="website-text">(CV) Online CV</span>
         </a>
       </div>
       
@@ -396,9 +407,7 @@
     
 <!-- Project Grid -->
 <ul class="project-list">
-  <!-- Polymarket Trading (New) -->
 
-    
   
 
 
@@ -599,16 +608,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <!-- pdf-lib for merging PDFs -->
 <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-<!-- Firebase SDK - Load before CV Controller -->
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-<!-- CV Version Controller - Load After Firebase -->
+<!-- CV Version Controller - Load First -->
 <script src="../assets/js/cv-version-controller.js"></script>
 <!-- Custom PDF generator -->
 <script src="../assets/js/pdf-generator.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-  <script src="../assets/js/script.js"></script>
-  <script src="../assets/js/bd.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script  src="../assets/js/script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script><script  src="../assets/js/bd.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script><script  src="../assets/js/utils.js"></script>
 
 </body>
 </html>
