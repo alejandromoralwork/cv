@@ -182,7 +182,7 @@ class CVVersionController {
         const websiteEl = document.querySelector('.website-link a');
         if (websiteEl) {
           websiteEl.href = data.contact.website;
-          websiteEl.querySelector('.website-text').textContent = '(CV) ' + data.contact.website;
+          websiteEl.querySelector('.website-text').textContent = data.contact.website;
         }
       }
     }
