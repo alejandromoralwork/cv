@@ -5,6 +5,7 @@
 
 class CVVersionController {
   constructor() {
+    this.preloader = document.getElementById('preloader-overlay');
     // Detect version from URL path or default
     this.currentVersion = this.detectVersionFromPath() || 'data_science';
     this.versions = null;
@@ -37,6 +38,7 @@ class CVVersionController {
   }
 
   async init() {
+    this.showPreloader();
     // Initialize Firebase first
     await this.initializeFirebase();
 
@@ -50,6 +52,19 @@ class CVVersionController {
     this.setupEventListeners();
     this.loadVersionFromURL();
     // Do NOT call applyVersion here; it will be called after data is loaded in loadFromLocal/loadFromFirebase
+    this.hidePreloader();
+  }
+
+  showPreloader() {
+    if (this.preloader) {
+      this.preloader.classList.remove('hidden');
+    }
+  }
+
+  hidePreloader() {
+    if (this.preloader) {
+      this.preloader.classList.add('hidden');
+    }
   }
 
   async initializeFirebase() {
