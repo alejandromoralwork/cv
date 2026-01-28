@@ -357,6 +357,10 @@ class CVVersionController {
   }
 
   switchVersion(version) {
+    if (!this.versions) {
+      console.error('CVVersionController: versions data is not loaded. Cannot switch version.');
+      return;
+    }
     if (!this.versions[version]) {
       console.error('Version not found:', version);
       return;
@@ -364,7 +368,7 @@ class CVVersionController {
 
     this.currentVersion = version;
     this.applyVersion(version);
-    
+
     // Update URL without reload
     const url = new URL(window.location);
     url.searchParams.set('version', version);
@@ -374,6 +378,13 @@ class CVVersionController {
     const selector = document.getElementById('version-selector');
     if (selector) {
       selector.value = version;
+    }
+
+    // Auto-refresh PDF preview if function exists
+    if (typeof window.generatePDF === 'function') {
+      setTimeout(() => {
+        window.generatePDF();
+      }, 300); // slight delay to ensure DOM is updated
     }
   }
 

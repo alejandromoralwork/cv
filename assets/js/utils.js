@@ -45,7 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (typeof window.letters === 'undefined') {
+    window.letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
   
   function scrambleText(target) {
     let iteration = 0;
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (index < iteration) {
             return target.dataset.value[index];
           }
-          return letters[Math.floor(Math.random() * 26)];
+          return window.letters[Math.floor(Math.random() * 26)];
         })
         .join("");
         
