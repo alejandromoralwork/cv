@@ -1,3 +1,36 @@
+/* Preloader overlay styles */
+#preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+#preloader-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--bright-green);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
   outline: none;
@@ -1180,7 +1213,7 @@ body.pdf-export #particles-foreground {
 }
 
 .Email {
-  font-size: 13px;
+  font-size: 8px;
   max-width: 100%;
   word-break: break-all;
   white-space: normal;
@@ -1200,4 +1233,45 @@ body.pdf-export #particles-foreground {
 .Email span {
   overflow-wrap: anywhere;
   word-break: break-all;
+}
+
+
+:root{
+  --bg:#f8f9fa;
+  --panel:#ffffff;
+  --text:#10435f;
+  --muted:#10435f;
+  --accent:#10435f; /* modest gold */
+  --border:#eef1f3;
+  --radius:6px;
+  --shadow: 0 6px 16px rgba(8,12,18,0.04);
+}
+
+*{box-sizing:border-box; margin:0; padding:0; outline:none;}
+html,body{  background:var(--bg); color:var(--text); }
+
+/* container */
+.resume{ max-width:1100px; margin:20px auto; display:flex; background:var(--panel); border-radius:10px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); }
+.resume .base{ width:30%; padding:26px; min-width:220px; }
+.resume .func{ width:70%; padding:26px; }
+
+/* headings */
+.resume h3{color:var(--text); font-weight:700; margin-bottom:8px; }
+
+/* reporting lists / tables */
+.reporting-table{ width:100%; border-collapse:collapse; margin-top:8px; }
+.reporting-table th, .reporting-table td{ padding:10px 8px; border-bottom:1px solid var(--border); text-align:left; font-size:0.95rem; }
+.reporting-table th{ color:var(--muted); font-weight:600; }
+
+/* skills & meters (simple) */
+.skill{ background:#fff; border:1px solid rgba(10,15,20,0.02); padding:10px; border-radius:8px; display:flex; gap:12px; align-items:center; }
+.skill-meter{ width:130px; height:8px; background:#eef1f3; border-radius:999px; overflow:hidden; }
+.skill-fill{ height:100%; width:0%; background: linear-gradient(90deg,var(--accent), #22bdd8); transition: width .75s ease; }
+
+a{ color:var(--accent); text-decoration:none; font-weight:600; }
+
+/* responsive */
+@media (max-width:760px){
+  .resume{ flex-direction:column; }
+  .resume .base, .resume .func{ width:100%; }
 }

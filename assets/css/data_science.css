@@ -1,3 +1,36 @@
+/* Preloader overlay styles */
+#preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+#preloader-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--bright-green);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
   outline: none;
@@ -5,23 +38,25 @@
 
 
 :root {
-  --black: #071124;
-  --white: #FFFFFF;
-  --dark-green: #283044;
-  --medium-green: #415268;
-  --light-green: #5B6B8A;
-  --bright-green: #17C3B2;  /* teal primary */
-  --darker-black: #050916;
-  --lighter-black: #2E3A48;
-  --darker-green: #1A2430;
-  --lighter-green: #78899D;
-  --brighter-green: #6A6DE5; /* indigo secondary */
-  --pure-white: #FFFFFF;
-  --off-white-1: #F7F9FB;
-  --off-white-2: #EEF2F6;
-  --off-white-3: #E6EAEE;
-  --off-white-4: #DEE3E8;
-  --off-white-5: #D6DCE2;
+  --black: #000000;
+  --white: #ffffff;
+  --dark-green: #222831;
+  --medium-green: #393E46;
+  --light-green: #747D8C;
+  --bright-green: #95B9C7;
+  --darker-black: #111111;
+  --lighter-black: #333333;
+  --darker-green: #1A1C20;
+  --lighter-green: #464B53;
+  --brighter-green: #518397;
+  --pure-white: #ffffff;
+  --off-white-1: #f8f8f8;
+  --off-white-2: #f2f2f2;
+  --off-white-3: #e6e6e6;
+  --off-white-4: #d9d9d9;
+  --off-white-5: #cccccc;
+  
+
 }
 
 
@@ -1178,7 +1213,7 @@ body.pdf-export #particles-foreground {
 }
 
 .Email {
-  font-size: 13px;
+  font-size: 10px;
   max-width: 100%;
   word-break: break-all;
   white-space: normal;
@@ -1200,24 +1235,20 @@ body.pdf-export #particles-foreground {
   word-break: break-all;
 }
 
-/* Data Science — modern & stylish (colors/fonts only)
-   - Poppins headings, Inter body, teal accent
-*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400;600&display=swap");
 
 :root{
-  --bg:#071124;
+  --bg:#f8f9fa;
   --panel:#ffffff;
-  --text:#0f1720;
-  --muted:#6b7b84;
-  --accent:#17c3b2; /* teal */
-  --border:#e9f6f4;
-  --radius:8px;
-  --shadow: 0 10px 30px rgba(8,12,20,0.06);
+  --text:#10435f;
+  --muted:#10435f;
+  --accent:#10435f; /* modest gold */
+  --border:#eef1f3;
+  --radius:6px;
+  --shadow: 0 6px 16px rgba(8,12,18,0.04);
 }
 
 *{box-sizing:border-box; margin:0; padding:0; outline:none;}
-html,body{ font-family:"Inter", system-ui, -apple-system; background:var(--bg); color:var(--text); }
+html,body{  background:var(--bg); color:var(--text); }
 
 /* container */
 .resume{ max-width:1100px; margin:20px auto; display:flex; background:var(--panel); border-radius:10px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); }
@@ -1225,7 +1256,7 @@ html,body{ font-family:"Inter", system-ui, -apple-system; background:var(--bg); 
 .resume .func{ width:70%; padding:26px; }
 
 /* headings */
-.resume h3{ font-family:"Poppins", sans-serif; color:var(--text); font-weight:700; margin-bottom:8px; }
+.resume h3{color:var(--text); font-weight:700; margin-bottom:8px; }
 
 /* reporting lists / tables */
 .reporting-table{ width:100%; border-collapse:collapse; margin-top:8px; }
@@ -1235,7 +1266,7 @@ html,body{ font-family:"Inter", system-ui, -apple-system; background:var(--bg); 
 /* skills & meters (simple) */
 .skill{ background:#fff; border:1px solid rgba(10,15,20,0.02); padding:10px; border-radius:8px; display:flex; gap:12px; align-items:center; }
 .skill-meter{ width:130px; height:8px; background:#eef1f3; border-radius:999px; overflow:hidden; }
-.skill-fill{ height:100%; width:0%; background: linear-gradient(90deg,var(--accent), #6a6de5); transition: width .75s ease; }
+.skill-fill{ height:100%; width:0%; background: linear-gradient(90deg,var(--accent), #22bdd8); transition: width .75s ease; }
 
 a{ color:var(--accent); text-decoration:none; font-weight:600; }
 
