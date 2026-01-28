@@ -111,6 +111,8 @@ class CVVersionController {
 
     // Update PDF download link
     this.updatePDFLink(versionKey);
+    // Regenerate PDF preview when version changes
+    this.generatePDF();
   }
 
   getAllExperiences() {
