@@ -17,8 +17,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const trackerCollection = collection(db, 'application_tracker');
+
 let editingRowId = null;
-                company: document.getElementById('company').value,
 
 const appForm = document.getElementById('appForm');
 const appTableBody = document.getElementById('appTable').querySelector('tbody');
