@@ -3,30 +3,81 @@
 // Requires: Tabulator (https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js)
 //           Chart.js (https://cdn.jsdelivr.net/npm/chart.js)
 
-export function renderTable(containerId, data, columns) {
-    // Dynamically load Tabulator if not present
-    if (!window.Tabulator) {
-        const script = document.createElement('script');
-        script.src = 'https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js';
-        script.onload = () => _render();
-        document.head.appendChild(script);
-    } else {
-        _render();
-    }
+let _pendingTableRender = null;
+export function renderTable(containerId, data, columns, editable=false) {
     function _render() {
         const container = document.getElementById(containerId);
-        if (!container) return;
+        if (!container) {
+            console.warn('[DEBUG] renderTable: container not found:', containerId);
+            return;
+        }
         container.innerHTML = '';
-        new Tabulator(container, {
-            data,
-            layout: 'fitDataFill',
-            columns,
-            responsiveLayout: true,
-            movableColumns: true,
-            pagination: false,
-            autoColumns: false,
-            height: 'auto',
-        });
+        // Add Save Changes button if editable
+        if (editable) {
+            const saveBtn = document.createElement('button');
+            saveBtn.textContent = 'Save Changes';
+            saveBtn.style = 'margin-bottom:8px;float:right;background:#1976d2;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;';
+            saveBtn.onclick = () => window.saveTableChanges();
+            container.appendChild(saveBtn);
+        }
+        console.log('[DEBUG] renderTable: rendering Tabulator with', data.length, 'rows and', columns.length, 'columns', {data, columns});
+        // Set default width for columns if not set
+        const cols = columns.map(col => ({...col, width: col.width || 160, editor: editable && col.field !== '_id' && col.field !== 'Actions' ? 'input' : false}));
+        let tableInstance = null;
+        try {
+            tableInstance = new Tabulator(container, {
+                data,
+                columns: cols,
+                layout: 'fitColumns',
+                responsiveLayout: false,
+                movableColumns: true,
+                pagination: false,
+                autoColumns: false,
+                height: '400px',
+                virtualDom: true,
+                resizableColumns: true,
+                tooltips: true,
+                columnDefaults: {
+                    headerSort: true,
+                    hozAlign: 'left',
+                    vertAlign: 'middle',
+                },
+                autoResize: true,
+                scrollHorizontal: true,
+                cellEdited: function(cell) {
+                    // Save all table data to window for batch save
+                    const tableData = cell.getTable().getData();
+                    window._latestTableData = tableData;
+                },
+                tableBuilt: function() {
+                    // Always keep latest data reference for save
+                    window._getCurrentTableData = () => tableInstance.getData();
+                }
+            });
+            // Add compact/visibility classes
+            container.classList.add('tabulator-compact', 'tabulator-visible');
+        } catch (e) {
+            console.error('[DEBUG] renderTable: Tabulator error', e);
+        }
+    }
+    if (!window.Tabulator) {
+        console.log('[DEBUG] renderTable: Tabulator not loaded, queueing render');
+        _pendingTableRender = () => _render();
+        if (!document.getElementById('tabulator-js')) {
+            const script = document.createElement('script');
+            script.id = 'tabulator-js';
+            script.src = 'https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js';
+            script.onload = () => {
+                console.log('[DEBUG] Tabulator script loaded');
+                if (_pendingTableRender) {
+                    _pendingTableRender();
+                    _pendingTableRender = null;
+                }
+            };
+            document.head.appendChild(script);
+        }
+    } else {
+        _render();
     }
 }
 

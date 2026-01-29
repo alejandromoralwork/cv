@@ -1,3 +1,32 @@
+/* Compact and visible Tabulator table styles */
+.tabulator-compact .tabulator-table {
+  font-size: 13px;
+  line-height: 1.2;
+}
+.tabulator-compact .tabulator-row {
+  min-height: 24px;
+  height: 24px;
+}
+.tabulator-compact .tabulator-cell {
+  padding: 2px 6px;
+}
+.tabulator-visible {
+  border: 2px solid #1976d2;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  background: #fff;
+}
+.tabulator .tabulator-header .tabulator-col {
+  background: #f5f7fa;
+  color: #222;
+  font-weight: 600;
+  border-right: 1px solid #e0e0e0;
+}
+.tabulator .tabulator-row.tabulator-selected {
+  background: #e3f2fd;
+}
+.tabulator .tabulator-row:hover {
+  background: #f0f7ff;
+}
 /* Table renderer and stats modal styles */
 #statsModal {
   animation: fadeIn 0.2s;

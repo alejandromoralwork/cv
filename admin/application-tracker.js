@@ -52,6 +52,7 @@ appForm.addEventListener('submit', async (e) => {
 
 // Load applications from Firestore
 async function loadApplications() {
+    console.log('[DEBUG] loadApplications: fetching data from Firestore...');
     const q = query(trackerCollection, orderBy('entryTime', 'desc'));
     const snapshot = await getDocs(q);
     // Detect dynamic columns
@@ -69,7 +70,9 @@ async function loadApplications() {
             }
         });
     });
+    console.log('[DEBUG] loadApplications: loaded', tableData.length, 'records:', tableData);
     renderDynamicColumns();
+    window._allApps = allApps; // for filterable stats
     renderStats(allApps);
     // Build columns for Tabulator
     const baseCols = [
@@ -85,19 +88,96 @@ async function loadApplications() {
     const dynamicCols = dynamicColumns.map(col => ({title: col, field: col}));
     baseCols.push({title: "Actions", field: "_id", formatter: (cell) => {
         const id = cell.getValue();
-        return `<button onclick=\"editRow('${id}')\">Edit</button> <button onclick=\"deleteEntry('${id}')\">Delete</button>`;
+        return `<button onclick=\"deleteEntry('${id}')\">Delete</button>`;
     }});
     const columns = [...baseCols, ...dynamicCols];
-    renderTable('appTableContainer', tableData, columns);
+    console.log('[DEBUG] loadApplications: calling renderTable with', tableData.length, 'rows and', columns.length, 'columns');
+    renderTable('appTableContainer', tableData, columns, true); // true = editable
 }
 
     // Render stats section
     function renderStats(apps) {
-        // ...existing stats logic...
         // Add advanced stats and chart data
+        const statsSection = document.getElementById('appStats');
+        if (!statsSection) return;
+        const total = apps.length;
+        const statusCounts = {};
+        const countryCounts = {};
+        const cvCounts = {};
+        apps.forEach(app => {
+            statusCounts[app.status] = (statusCounts[app.status] || 0) + 1;
+            countryCounts[app.country] = (countryCounts[app.country] || 0) + 1;
+            cvCounts[app.cvVersion] = (cvCounts[app.cvVersion] || 0) + 1;
+        });
+        let html = `<b>Total Applications:</b> ${total}<br>`;
+        html += '<b>Status Breakdown:</b> ';
+        html += Object.entries(statusCounts).map(([k,v]) => `${k}: ${v}`).join(', ');
+        html += '<br><b>Country Breakdown:</b> ';
+        html += Object.entries(countryCounts).map(([k,v]) => `${k}: ${v}`).join(', ');
+        html += '<br><b>CV Version Breakdown:</b> ';
+        html += Object.entries(cvCounts).map(([k,v]) => `${k}: ${v}`).join(', ');
+        statsSection.innerHTML = html;
         window._latestStats = apps;
     }
 
+    function getUniqueValues(apps, field) {
+        return Array.from(new Set(apps.map(app => app[field]).filter(Boolean)));
+    }
+
+    function updateStatsByFilters() {
+        const allApps = window._allApps || [];
+        const country = document.getElementById('filterCountry').value;
+        const cv = document.getElementById('filterCV').value;
+        const status = document.getElementById('filterStatus').value;
+        let filtered = allApps;
+        if (country) filtered = filtered.filter(app => app.country === country);
+        if (cv) filtered = filtered.filter(app => app.cvVersion === cv);
+        if (status) filtered = filtered.filter(app => app.status === status);
+        renderStats(filtered);
+    }
+
+    function renderStatsFilters() {
+        const allApps = window._allApps || [];
+        const filterDiv = document.getElementById('statsFilters');
+        if (!filterDiv) return;
+        // Get unique values
+        const countries = getUniqueValues(allApps, 'country');
+        const cvs = getUniqueValues(allApps, 'cvVersion');
+        const statuses = getUniqueValues(allApps, 'status');
+        // Build selects
+        let html = '';
+        html += '<label>Country: <select id="filterCountry"><option value="">All</option>' + countries.map(c => `<option value="${c}">${c}</option>`).join('') + '</select></label>';
+        html += '<label>CV Version: <select id="filterCV"><option value="">All</option>' + cvs.map(c => `<option value="${c}">${c}</option>`).join('') + '</select></label>';
+        html += '<label>Status: <select id="filterStatus"><option value="">All</option>' + statuses.map(s => `<option value="${s}">${s}</option>`).join('') + '</select></label>';
+        filterDiv.innerHTML = html;
+        // Add listeners
+        document.getElementById('filterCountry').addEventListener('change', updateStatsByFilters);
+        document.getElementById('filterCV').addEventListener('change', updateStatsByFilters);
+        document.getElementById('filterStatus').addEventListener('change', updateStatsByFilters);
+    }
+
+    // Re-render filters and stats after loading
+    const origRenderStats = renderStats;
+    renderStats = function(apps) {
+        origRenderStats(apps);
+        renderStatsFilters();
+    }
+
+    // Save changes button logic
+    window.saveTableChanges = async function() {
+        // Always get the latest data from Tabulator, even if user hasn't left the last cell
+        const updates = (window._getCurrentTableData && window._getCurrentTableData()) || window._latestTableData;
+        if (!updates) return alert('No changes to save.');
+        for (const row of updates) {
+            if (!row._id) continue;
+            const docRef = doc(db, 'application_tracker', row._id);
+            const rowCopy = {...row};
+            delete rowCopy._id;
+            await updateDoc(docRef, rowCopy);
+        }
+        alert('Changes saved!');
+        loadApplications();
+    }
     // Show stats modal with charts
     document.addEventListener('DOMContentLoaded', () => {
         const btn = document.getElementById('showStatsModalBtn');
@@ -173,17 +253,7 @@ function renderDynamicColumns() {
             dynamicDiv.appendChild(input);
         }
     });
-    // Update table header
-    const theadRow = document.querySelector('#appTable thead tr');
-    // Remove old dynamic ths
-    while (theadRow.children.length > 7) theadRow.removeChild(theadRow.lastChild);
-    dynamicColumns.forEach(col => {
-        if (![...theadRow.children].some(th => th.textContent === col)) {
-            const th = document.createElement('th');
-            th.textContent = col;
-            theadRow.insertBefore(th, theadRow.children[theadRow.children.length-1]);
-        }
-    });
+    // No table header update needed; Tabulator handles columns.
 }
 
 // Edit and save logic
