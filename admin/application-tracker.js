@@ -3,16 +3,23 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, updateDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 import { renderTable, showStatsModal } from './table-renderer.js';
 
-// Firebase config (copy from firebase-config.js or define here)
+
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBHw7K6HMLa2W_PmN9Yctq4XO3Zsng5PXI",
   authDomain: "jobsearch-a3a6c.firebaseapp.com",
+  databaseURL: "https://jobsearch-a3a6c-default-rtdb.firebaseio.com",
   projectId: "jobsearch-a3a6c",
-  storageBucket: "jobsearch-a3a6c.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef123456"
+  storageBucket: "jobsearch-a3a6c.firebasestorage.app",
+  messagingSenderId: "63177029478",
+  appId: "1:63177029478:web:29682710bea4d3d194faa7",
+  measurementId: "G-X7F3CZK48G"
 };
-
 
 
 const app = initializeApp(firebaseConfig);
@@ -28,6 +35,8 @@ const appForm = document.getElementById('appForm');
 // Add new application
 appForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (appForm._submitting) return; // Prevent double submit
+    appForm._submitting = true;
         const statusValue = document.getElementById('status').value || 'transmitted';
         const newApp = {
             offerLink: document.getElementById('offerLink').value,
@@ -37,23 +46,29 @@ appForm.addEventListener('submit', async (e) => {
             cvVersion: document.getElementById('cvVersion').value,
             wayOfApplication: document.getElementById('wayOfApplication').value,
             status: statusValue,
-            entryTime: serverTimestamp()
+            date: document.getElementById('date').value
         };
         // Add dynamic columns if any
         dynamicColumns.forEach(col => {
             newApp[col] = document.getElementById(col).value;
         });
+        // Validation: prevent saving empty objects
+        const hasData = Object.values(newApp).some(v => v && v.trim && v.trim() !== '');
+        if (!hasData) {
+            alert('Cannot save empty application. Please fill at least one field.');
+            return;
+        }
         await addDoc(trackerCollection, newApp);
         appForm.reset();
-        // Reset status to default after reset
         document.getElementById('status').value = 'transmitted';
+        appForm._submitting = false;
         loadApplications();
 });
 
 // Load applications from Firestore
 async function loadApplications() {
     console.log('[DEBUG] loadApplications: fetching data from Firestore...');
-    const q = query(trackerCollection, orderBy('entryTime', 'desc'));
+    const q = query(trackerCollection);
     const snapshot = await getDocs(q);
     // Detect dynamic columns
     dynamicColumns = [];
@@ -61,16 +76,28 @@ async function loadApplications() {
     let tableData = [];
     snapshot.forEach(docSnap => {
         const app = docSnap.data();
+        if (!app || Object.keys(app).length === 0) {
+            console.warn('[DEBUG] Skipping empty Firestore docSnap:', docSnap.id, app);
+            return; // skip empty docs
+        }
         app._id = docSnap.id;
+        // Ensure 'date' field exists for Tabulator (fallback for legacy rows)
+        if (!('date' in app)) app.date = '';
         allApps.push(app);
         tableData.push(app);
         Object.keys(app).forEach(key => {
-            if (!["offerLink","field","country","cvVersion","status","entryTime","company","wayOfApplication"].includes(key) && !dynamicColumns.includes(key)) {
+            if (!["offerLink","field","country","cvVersion","status","date","company","wayOfApplication"].includes(key) && !dynamicColumns.includes(key)) {
                 dynamicColumns.push(key);
             }
         });
     });
     console.log('[DEBUG] loadApplications: loaded', tableData.length, 'records:', tableData);
+    // Extra debug: print each row to see if any are empty
+    tableData.forEach((row, i) => {
+        if (!row || Object.keys(row).length === 0) {
+            console.warn('[DEBUG] tableData row is empty at index', i, row);
+        }
+    });
     renderDynamicColumns();
     window._allApps = allApps; // for filterable stats
     renderStats(allApps);
@@ -83,7 +110,7 @@ async function loadApplications() {
         {title: "CV Version", field: "cvVersion"},
         {title: "Status", field: "status"},
         {title: "Way of Application", field: "wayOfApplication"},
-        {title: "Entry Time", field: "entryTime", formatter: cell => new Date(cell.getValue()).toLocaleString()},
+        {title: "Date", field: "date"},
     ];
     const dynamicCols = dynamicColumns.map(col => ({title: col, field: col}));
     baseCols.push({title: "Actions", field: "_id", formatter: (cell) => {
@@ -92,7 +119,18 @@ async function loadApplications() {
     }});
     const columns = [...baseCols, ...dynamicCols];
     console.log('[DEBUG] loadApplications: calling renderTable with', tableData.length, 'rows and', columns.length, 'columns');
-    renderTable('appTableContainer', tableData, columns, true); // true = editable
+        renderTable('appTableContainer', tableData, columns, true); // true = editable
+        // Attach save button handler after table render
+        setTimeout(() => {
+            const btn = document.getElementById('saveTableBtn');
+            if (btn) btn.onclick = () => {
+                // Always get the latest data from Tabulator, even if user hasn't left the last cell
+                if (window._getCurrentTableData) {
+                    window._latestTableData = window._getCurrentTableData();
+                }
+                window.saveTableChanges();
+            };
+        }, 0);
 }
 
     // Render stats section
@@ -165,18 +203,34 @@ async function loadApplications() {
 
     // Save changes button logic
     window.saveTableChanges = async function() {
-        // Always get the latest data from Tabulator, even if user hasn't left the last cell
+        // Robust: force Tabulator to commit any in-progress edits before saving
+        let tableInstance = null;
+        if (window._getCurrentTableData && document.getElementById('appTableContainer').children.length) {
+            // Try to get Tabulator instance from container
+            tableInstance = Tabulator.findTable('#appTableContainer')[0];
+            if (tableInstance) {
+                // Force any active cell edit to be committed
+                tableInstance.getEditedCells().forEach(cell => cell.cancelEdit()); // commit any in-progress edits
+            }
+        }
+        // Now get the latest data
         const updates = (window._getCurrentTableData && window._getCurrentTableData()) || window._latestTableData;
-        if (!updates) return alert('No changes to save.');
+        if (!updates || !Array.isArray(updates) || updates.length === 0) return alert('No changes to save.');
+        let changed = false;
         for (const row of updates) {
             if (!row._id) continue;
             const docRef = doc(db, 'application_tracker', row._id);
             const rowCopy = {...row};
             delete rowCopy._id;
             await updateDoc(docRef, rowCopy);
+            changed = true;
         }
-        alert('Changes saved!');
-        loadApplications();
+        if (changed) {
+            alert('Changes saved!');
+            loadApplications();
+        } else {
+            alert('No changes to save.');
+        }
     }
     // Show stats modal with charts
     document.addEventListener('DOMContentLoaded', () => {

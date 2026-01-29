@@ -12,14 +12,7 @@ export function renderTable(containerId, data, columns, editable=false) {
             return;
         }
         container.innerHTML = '';
-        // Add Save Changes button if editable
-        if (editable) {
-            const saveBtn = document.createElement('button');
-            saveBtn.textContent = 'Save Changes';
-            saveBtn.style = 'margin-bottom:8px;float:right;background:#1976d2;color:#fff;border:none;padding:6px 16px;border-radius:4px;cursor:pointer;';
-            saveBtn.onclick = () => window.saveTableChanges();
-            container.appendChild(saveBtn);
-        }
+        // Save button is now outside the table
         console.log('[DEBUG] renderTable: rendering Tabulator with', data.length, 'rows and', columns.length, 'columns', {data, columns});
         // Set default width for columns if not set
         const cols = columns.map(col => ({...col, width: col.width || 160, editor: editable && col.field !== '_id' && col.field !== 'Actions' ? 'input' : false}));
