@@ -1,6 +1,7 @@
 // Application Tracker JS (ES module)
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, updateDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+import { renderTable, showStatsModal } from './table-renderer.js';
 
 // Firebase config (copy from firebase-config.js or define here)
 const firebaseConfig = {
@@ -22,7 +23,7 @@ let editingRowId = null;
 let dynamicColumns = [];
 
 const appForm = document.getElementById('appForm');
-const appTableBody = document.getElementById('appTable').querySelector('tbody');
+// Table rendering now handled by Tabulator in table-renderer.js
 
 // Add new application
 appForm.addEventListener('submit', async (e) => {
@@ -51,120 +52,102 @@ appForm.addEventListener('submit', async (e) => {
 
 // Load applications from Firestore
 async function loadApplications() {
-        appTableBody.innerHTML = '';
-        const q = query(trackerCollection, orderBy('entryTime', 'desc'));
-        const snapshot = await getDocs(q);
-        // Detect dynamic columns
-        dynamicColumns = [];
-        // Stats calculation
-        let allApps = [];
-        dynamicColumns = [];
-        snapshot.forEach(docSnap => {
-            const app = docSnap.data();
-            allApps.push(app);
-            Object.keys(app).forEach(key => {
-                if (!["offerLink","field","country","cvVersion","status","entryTime","company","wayOfApplication"].includes(key) && !dynamicColumns.includes(key)) {
-                    dynamicColumns.push(key);
-                }
-            });
-        });
-        renderDynamicColumns();
-        renderStats(allApps);
-        snapshot.forEach(docSnap => {
-            const app = docSnap.data();
-            const row = document.createElement('tr');
-            if (editingRowId === docSnap.id) {
-                row.innerHTML = `
-                    <td><input type="url" value="${app.offerLink || ''}" id="edit-offerLink"></td>
-                    <td><input type="text" value="${app.field || ''}" id="edit-field"></td>
-                    <td><input type="text" value="${app.country || ''}" id="edit-country"></td>
-                    <td><input type="text" value="${app.cvVersion || ''}" id="edit-cvVersion"></td>
-                    <td><input type="text" value="${app.status || ''}" id="edit-status"></td>
-                    <td><input type="text" value="${app.company || ''}" id="edit-company"></td>
-                    <td><input type="text" value="${app.wayOfApplication || ''}" id="edit-wayOfApplication"></td>
-                    <td>${app.entryTime && app.entryTime.toDate ? app.entryTime.toDate().toLocaleString() : ''}</td>
-                    ${dynamicColumns.map(col => `<td><input type="text" value="${app[col] || ''}" id="edit-${col}"></td>`).join('')}
-                    <td>
-                        <button class="save-btn" onclick="window.saveEdit('${docSnap.id}')">Save</button>
-                        <button class="cancel-btn" onclick="window.cancelEdit()">Cancel</button>
-                        <button class="cancel-btn" onclick="window.deleteEntry('${docSnap.id}')">Delete</button>
-                    </td>
-                `;
-            } else {
-                row.innerHTML = `
-                    <td><a href="${app.offerLink}" target="_blank">Link</a></td>
-                    <td>${app.field}</td>
-                    <td>${app.country}</td>
-                    <td>${app.cvVersion}</td>
-                    <td>${app.status}</td>
-                    <td>${app.company || ''}</td>
-                    <td>${app.wayOfApplication || ''}</td>
-                    <td>${app.entryTime && app.entryTime.toDate ? app.entryTime.toDate().toLocaleString() : ''}</td>
-                    ${dynamicColumns.map(col => `<td>${app[col] || ''}</td>`).join('')}
-                    <td>
-                        <button class="edit-btn" onclick="window.editRow('${docSnap.id}')">Edit</button>
-                        <button class="cancel-btn" onclick="window.deleteEntry('${docSnap.id}')">Delete</button>
-                    </td>
-                `;
+    const q = query(trackerCollection, orderBy('entryTime', 'desc'));
+    const snapshot = await getDocs(q);
+    // Detect dynamic columns
+    dynamicColumns = [];
+    let allApps = [];
+    let tableData = [];
+    snapshot.forEach(docSnap => {
+        const app = docSnap.data();
+        app._id = docSnap.id;
+        allApps.push(app);
+        tableData.push(app);
+        Object.keys(app).forEach(key => {
+            if (!["offerLink","field","country","cvVersion","status","entryTime","company","wayOfApplication"].includes(key) && !dynamicColumns.includes(key)) {
+                dynamicColumns.push(key);
             }
-            appTableBody.appendChild(row);
         });
-    }
+    });
+    renderDynamicColumns();
+    renderStats(allApps);
+    // Build columns for Tabulator
+    const baseCols = [
+        {title: "Offer Link", field: "offerLink", formatter: "link", formatterParams: {labelField: "offerLink"}},
+        {title: "Company", field: "company"},
+        {title: "Field", field: "field"},
+        {title: "Country", field: "country"},
+        {title: "CV Version", field: "cvVersion"},
+        {title: "Status", field: "status"},
+        {title: "Way of Application", field: "wayOfApplication"},
+        {title: "Entry Time", field: "entryTime", formatter: cell => new Date(cell.getValue()).toLocaleString()},
+    ];
+    const dynamicCols = dynamicColumns.map(col => ({title: col, field: col}));
+    baseCols.push({title: "Actions", field: "_id", formatter: (cell) => {
+        const id = cell.getValue();
+        return `<button onclick=\"editRow('${id}')\">Edit</button> <button onclick=\"deleteEntry('${id}')\">Delete</button>`;
+    }});
+    const columns = [...baseCols, ...dynamicCols];
+    renderTable('appTableContainer', tableData, columns);
+}
 
     // Render stats section
     function renderStats(apps) {
-        const statsDiv = document.getElementById('appStats');
-        if (!statsDiv) return;
-        const total = apps.length;
-        // Count by status, country, field, wayOfApplication
-        const statusCounts = {}, countryCounts = {}, fieldCounts = {}, wayCounts = {};
-        let offers = 0, hires = 0, rejected = 0, interviews = 0;
-        apps.forEach(app => {
-            const status = (app.status || '').toLowerCase();
-            const country = (app.country || '').trim();
-            const field = (app.field || '').trim();
-            const way = (app.wayOfApplication || '').trim();
-            if (status) statusCounts[status] = (statusCounts[status] || 0) + 1;
-            if (country) countryCounts[country] = (countryCounts[country] || 0) + 1;
-            if (field) fieldCounts[field] = (fieldCounts[field] || 0) + 1;
-            if (way) wayCounts[way] = (wayCounts[way] || 0) + 1;
-            if (status.includes('offer')) offers++;
-            if (status.includes('hire')) hires++;
-            if (status.includes('reject')) rejected++;
-            if (status.includes('interview')) interviews++;
-        });
-        const success = offers + hires;
-        const successRatio = total > 0 ? ((success / total) * 100).toFixed(1) : '0.0';
-        // Build stats HTML
-        let html = '';
-        html += `<span class="stat">Total CVs sent: <b>${total}</b></span>`;
-        html += `<span class="stat">Offers: <b>${offers}</b></span>`;
-        html += `<span class="stat">Hires: <b>${hires}</b></span>`;
-        html += `<span class="stat">Interviews: <b>${interviews}</b></span>`;
-        html += `<span class="stat">Rejected: <b>${rejected}</b></span>`;
-        html += `<span class="stat">Success Ratio: <b>${successRatio}%</b></span>`;
-        // Top 3 statuses
-        const topStatuses = Object.entries(statusCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
-        if (topStatuses.length > 0) {
-            html += `<span class="stat">Top Statuses: ` + topStatuses.map(([s,c]) => `${s}: <b>${c}</b>`).join(', ') + `</span>`;
-        }
-        // Top 3 countries
-        const topCountries = Object.entries(countryCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
-        if (topCountries.length > 0) {
-            html += `<span class="stat">Top Countries: ` + topCountries.map(([c,n]) => `${c}: <b>${n}</b>`).join(', ') + `</span>`;
-        }
-        // Top 3 fields
-        const topFields = Object.entries(fieldCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
-        if (topFields.length > 0) {
-            html += `<span class="stat">Top Fields: ` + topFields.map(([f,n]) => `${f}: <b>${n}</b>`).join(', ') + `</span>`;
-        }
-        // Top 3 ways of application
-        const topWays = Object.entries(wayCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
-        if (topWays.length > 0) {
-            html += `<span class="stat">Top Ways: ` + topWays.map(([w,n]) => `${w}: <b>${n}</b>`).join(', ') + `</span>`;
-        }
-        statsDiv.innerHTML = html;
+        // ...existing stats logic...
+        // Add advanced stats and chart data
+        window._latestStats = apps;
     }
+
+    // Show stats modal with charts
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('showStatsModalBtn');
+        if (btn) {
+            btn.onclick = () => {
+                const apps = window._latestStats || [];
+                // Prepare chart data
+                const statusCounts = {};
+                const countryCounts = {};
+                const fieldCounts = {};
+                apps.forEach(app => {
+                    statusCounts[app.status] = (statusCounts[app.status] || 0) + 1;
+                    countryCounts[app.country] = (countryCounts[app.country] || 0) + 1;
+                    fieldCounts[app.field] = (fieldCounts[app.field] || 0) + 1;
+                });
+                const charts = [
+                    {
+                        type: 'pie',
+                        data: {
+                            labels: Object.keys(statusCounts),
+                            datasets: [{data: Object.values(statusCounts), backgroundColor: ['#4caf50','#f44336','#2196f3','#ff9800','#9c27b0','#607d8b','#ffc107','#00bcd4']}]
+                        },
+                        options: {responsive:true, plugins:{title:{display:true,text:'Status Distribution'}}}
+                    },
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(countryCounts),
+                            datasets: [{label:'Applications by Country',data: Object.values(countryCounts), backgroundColor:'#2196f3'}]
+                        },
+                        options: {responsive:true, plugins:{title:{display:true,text:'Country Breakdown'}}}
+                    },
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(fieldCounts),
+                            datasets: [{label:'Applications by Field',data: Object.values(fieldCounts), backgroundColor:'#4caf50'}]
+                        },
+                        options: {responsive:true, plugins:{title:{display:true,text:'Field Breakdown'}}}
+                    }
+                ];
+                // Advanced stats HTML
+                let statsHtml = `<b>Total Applications:</b> ${apps.length}<br>`;
+                statsHtml += `<b>Status:</b> ` + Object.entries(statusCounts).map(([k,v])=>`${k}: ${v}`).join(', ') + '<br>';
+                statsHtml += `<b>Countries:</b> ` + Object.entries(countryCounts).map(([k,v])=>`${k}: ${v}`).join(', ') + '<br>';
+                statsHtml += `<b>Fields:</b> ` + Object.entries(fieldCounts).map(([k,v])=>`${k}: ${v}`).join(', ') + '<br>';
+                showStatsModal(statsHtml, charts);
+            };
+        }
+    });
 // Delete entry logic
 window.deleteEntry = async function(id) {
     if (confirm('Are you sure you want to delete this entry?')) {
