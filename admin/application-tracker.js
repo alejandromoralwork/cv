@@ -56,53 +56,94 @@ async function loadApplications() {
         const snapshot = await getDocs(q);
         // Detect dynamic columns
         dynamicColumns = [];
+        // Stats calculation
+        let allApps = [];
+        dynamicColumns = [];
         snapshot.forEach(docSnap => {
             const app = docSnap.data();
+            allApps.push(app);
             Object.keys(app).forEach(key => {
-                if (!["offerLink","field","country","cvVersion","status","entryTime"].includes(key) && !dynamicColumns.includes(key)) {
+                if (!["offerLink","field","country","cvVersion","status","entryTime","company","wayOfApplication"].includes(key) && !dynamicColumns.includes(key)) {
                     dynamicColumns.push(key);
                 }
             });
         });
         renderDynamicColumns();
+        renderStats(allApps);
         snapshot.forEach(docSnap => {
-                const app = docSnap.data();
-                const row = document.createElement('tr');
-                if (editingRowId === docSnap.id) {
-                    row.innerHTML = `
-                        <td><input type="url" value="${app.offerLink || ''}" id="edit-offerLink"></td>
-                        <td><input type="text" value="${app.field || ''}" id="edit-field"></td>
-                        <td><input type="text" value="${app.country || ''}" id="edit-country"></td>
-                        <td><input type="text" value="${app.cvVersion || ''}" id="edit-cvVersion"></td>
-                        <td><input type="text" value="${app.status || ''}" id="edit-status"></td>
-                        <td><input type="text" value="${app.company || ''}" id="edit-company"></td>
-                        <td><input type="text" value="${app.wayOfApplication || ''}" id="edit-wayOfApplication"></td>
-                        <td>${app.entryTime && app.entryTime.toDate ? app.entryTime.toDate().toLocaleString() : ''}</td>
-                        ${dynamicColumns.map(col => `<td><input type="text" value="${app[col] || ''}" id="edit-${col}"></td>`).join('')}
-                        <td>
-                            <button class="save-btn" onclick="window.saveEdit('${docSnap.id}')">Save</button>
-                            <button class="cancel-btn" onclick="window.cancelEdit()">Cancel</button>
-                            <button class="cancel-btn" onclick="window.deleteEntry('${docSnap.id}')">Delete</button>
-                        </td>
-                    `;
-                } else {
-                    row.innerHTML = `
-                        <td><a href="${app.offerLink}" target="_blank">Link</a></td>
-                        <td>${app.field}</td>
-                        <td>${app.country}</td>
-                        <td>${app.cvVersion}</td>
-                        <td>${app.status}</td>
-                        <td>${app.company || ''}</td>
-                        <td>${app.wayOfApplication || ''}</td>
-                        <td>${app.entryTime && app.entryTime.toDate ? app.entryTime.toDate().toLocaleString() : ''}</td>
-                        ${dynamicColumns.map(col => `<td>${app[col] || ''}</td>`).join('')}
-                        <td>
-                            <button class="edit-btn" onclick="window.editRow('${docSnap.id}')">Edit</button>
-                            <button class="cancel-btn" onclick="window.deleteEntry('${docSnap.id}')">Delete</button>
-                        </td>
-                    `;
-                }
-                appTableBody.appendChild(row);
+            const app = docSnap.data();
+            const row = document.createElement('tr');
+            if (editingRowId === docSnap.id) {
+                row.innerHTML = `
+                    <td><input type="url" value="${app.offerLink || ''}" id="edit-offerLink"></td>
+                    <td><input type="text" value="${app.field || ''}" id="edit-field"></td>
+                    <td><input type="text" value="${app.country || ''}" id="edit-country"></td>
+                    <td><input type="text" value="${app.cvVersion || ''}" id="edit-cvVersion"></td>
+                    <td><input type="text" value="${app.status || ''}" id="edit-status"></td>
+                    <td><input type="text" value="${app.company || ''}" id="edit-company"></td>
+                    <td><input type="text" value="${app.wayOfApplication || ''}" id="edit-wayOfApplication"></td>
+                    <td>${app.entryTime && app.entryTime.toDate ? app.entryTime.toDate().toLocaleString() : ''}</td>
+                    ${dynamicColumns.map(col => `<td><input type="text" value="${app[col] || ''}" id="edit-${col}"></td>`).join('')}
+                    <td>
+                        <button class="save-btn" onclick="window.saveEdit('${docSnap.id}')">Save</button>
+                        <button class="cancel-btn" onclick="window.cancelEdit()">Cancel</button>
+                        <button class="cancel-btn" onclick="window.deleteEntry('${docSnap.id}')">Delete</button>
+                    </td>
+                `;
+            } else {
+                row.innerHTML = `
+                    <td><a href="${app.offerLink}" target="_blank">Link</a></td>
+                    <td>${app.field}</td>
+                    <td>${app.country}</td>
+                    <td>${app.cvVersion}</td>
+                    <td>${app.status}</td>
+                    <td>${app.company || ''}</td>
+                    <td>${app.wayOfApplication || ''}</td>
+                    <td>${app.entryTime && app.entryTime.toDate ? app.entryTime.toDate().toLocaleString() : ''}</td>
+                    ${dynamicColumns.map(col => `<td>${app[col] || ''}</td>`).join('')}
+                    <td>
+                        <button class="edit-btn" onclick="window.editRow('${docSnap.id}')">Edit</button>
+                        <button class="cancel-btn" onclick="window.deleteEntry('${docSnap.id}')">Delete</button>
+                    </td>
+                `;
+            }
+            appTableBody.appendChild(row);
+        });
+    }
+
+    // Render stats section
+    function renderStats(apps) {
+        const statsDiv = document.getElementById('appStats');
+        if (!statsDiv) return;
+        const total = apps.length;
+        // Count by status
+        const statusCounts = {};
+        let offers = 0, hires = 0, rejected = 0, interviews = 0;
+        apps.forEach(app => {
+            const status = (app.status || '').toLowerCase();
+            if (status) statusCounts[status] = (statusCounts[status] || 0) + 1;
+            if (status.includes('offer')) offers++;
+            if (status.includes('hire')) hires++;
+            if (status.includes('reject')) rejected++;
+            if (status.includes('interview')) interviews++;
+        });
+        const success = offers + hires;
+        const successRatio = total > 0 ? ((success / total) * 100).toFixed(1) : '0.0';
+        // Build stats HTML
+        let html = '';
+        html += `<span class="stat">Total CVs sent: <b>${total}</b></span>`;
+        html += `<span class="stat">Offers: <b>${offers}</b></span>`;
+        html += `<span class="stat">Hires: <b>${hires}</b></span>`;
+        html += `<span class="stat">Interviews: <b>${interviews}</b></span>`;
+        html += `<span class="stat">Rejected: <b>${rejected}</b></span>`;
+        html += `<span class="stat">Success Ratio: <b>${successRatio}%</b></span>`;
+        // Top 3 statuses
+        const topStatuses = Object.entries(statusCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
+        if (topStatuses.length > 0) {
+            html += `<span class="stat">Top Statuses: ` + topStatuses.map(([s,c]) => `${s}: <b>${c}</b>`).join(', ') + `</span>`;
+        }
+        statsDiv.innerHTML = html;
+    }
         // Delete entry logic
         window.deleteEntry = async function(id) {
             if (confirm('Are you sure you want to delete this entry?')) {
