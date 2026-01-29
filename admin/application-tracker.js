@@ -30,6 +30,18 @@ let editingRowId = null;
 let dynamicColumns = [];
 
 const appForm = document.getElementById('appForm');
+// Set default date to today in ddmmyy format
+function setDefaultDate() {
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        const now = new Date();
+        const dd = String(now.getDate()).padStart(2, '0');
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const yy = String(now.getFullYear()).slice(-2);
+        dateInput.value = dd + mm + yy;
+    }
+}
+document.addEventListener('DOMContentLoaded', setDefaultDate);
 // Table rendering now handled by Tabulator in table-renderer.js
 
 // Add new application
@@ -60,6 +72,7 @@ appForm.addEventListener('submit', async (e) => {
         }
         await addDoc(trackerCollection, newApp);
         appForm.reset();
+        setDefaultDate();
         document.getElementById('status').value = 'transmitted';
         appForm._submitting = false;
         loadApplications();
