@@ -116,12 +116,18 @@ async function loadApplications() {
         const statsDiv = document.getElementById('appStats');
         if (!statsDiv) return;
         const total = apps.length;
-        // Count by status
-        const statusCounts = {};
+        // Count by status, country, field, wayOfApplication
+        const statusCounts = {}, countryCounts = {}, fieldCounts = {}, wayCounts = {};
         let offers = 0, hires = 0, rejected = 0, interviews = 0;
         apps.forEach(app => {
             const status = (app.status || '').toLowerCase();
+            const country = (app.country || '').trim();
+            const field = (app.field || '').trim();
+            const way = (app.wayOfApplication || '').trim();
             if (status) statusCounts[status] = (statusCounts[status] || 0) + 1;
+            if (country) countryCounts[country] = (countryCounts[country] || 0) + 1;
+            if (field) fieldCounts[field] = (fieldCounts[field] || 0) + 1;
+            if (way) wayCounts[way] = (wayCounts[way] || 0) + 1;
             if (status.includes('offer')) offers++;
             if (status.includes('hire')) hires++;
             if (status.includes('reject')) rejected++;
@@ -142,20 +148,33 @@ async function loadApplications() {
         if (topStatuses.length > 0) {
             html += `<span class="stat">Top Statuses: ` + topStatuses.map(([s,c]) => `${s}: <b>${c}</b>`).join(', ') + `</span>`;
         }
+        // Top 3 countries
+        const topCountries = Object.entries(countryCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
+        if (topCountries.length > 0) {
+            html += `<span class="stat">Top Countries: ` + topCountries.map(([c,n]) => `${c}: <b>${n}</b>`).join(', ') + `</span>`;
+        }
+        // Top 3 fields
+        const topFields = Object.entries(fieldCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
+        if (topFields.length > 0) {
+            html += `<span class="stat">Top Fields: ` + topFields.map(([f,n]) => `${f}: <b>${n}</b>`).join(', ') + `</span>`;
+        }
+        // Top 3 ways of application
+        const topWays = Object.entries(wayCounts).sort((a,b) => b[1]-a[1]).slice(0,3);
+        if (topWays.length > 0) {
+            html += `<span class="stat">Top Ways: ` + topWays.map(([w,n]) => `${w}: <b>${n}</b>`).join(', ') + `</span>`;
+        }
         statsDiv.innerHTML = html;
     }
-        // Delete entry logic
-        window.deleteEntry = async function(id) {
-            if (confirm('Are you sure you want to delete this entry?')) {
-                await import('https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js').then(({ deleteDoc, doc }) => {
-                    const docRef = doc(db, 'application_tracker', id);
-                    return deleteDoc(docRef);
-                });
-                loadApplications();
-            }
-        };
+// Delete entry logic
+window.deleteEntry = async function(id) {
+    if (confirm('Are you sure you want to delete this entry?')) {
+        await import('https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js').then(({ deleteDoc, doc }) => {
+            const docRef = doc(db, 'application_tracker', id);
+            return deleteDoc(docRef);
         });
-}
+        loadApplications();
+    }
+};
 
 // Render dynamic columns in form and table
 function renderDynamicColumns() {
