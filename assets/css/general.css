@@ -1224,11 +1224,15 @@ body.pdf-export #particles-foreground {
 .Email a {
   display: flex;
   align-items: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
   width: 100%;
   font-size: inherit;
 }
 .Email i {
   margin-right: 8px;
+    word-break: break-word;
+  overflow-wrap: break-word;
 }
 .Email span {
   overflow-wrap: anywhere;

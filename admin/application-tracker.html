@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Tracker</title>
+    <link rel="stylesheet" href="application-tracker.css">
+    <!-- Use ES module imports for Firebase and tracker logic -->
+    <script type="module" src="../admin/application-tracker.js"></script>
+</head>
+<body>
+  <div class="app-tracker-container">
+    <h1>Application Tracker</h1>
+    <form id="appForm">
+        <input type="url" id="offerLink" placeholder="Offer Link" required>
+        <input type="text" id="company" placeholder="Company" required>
+        <input type="text" id="field" placeholder="Field (Finance, IT, etc.)" required>
+        <input type="text" id="country" placeholder="Country" required>
+        <input type="text" id="cvVersion" placeholder="CV Version Sent" required>
+        <input type="text" id="status" placeholder="Status" required>
+        <button type="submit">Add Application</button>
+    </form>
+    <div id="dynamicColumns"></div>
+    <table id="appTable">
+        <thead>
+            <tr>
+                <th>Offer Link</th>
+                <th>Company</th>
+                <th>Field</th>
+                <th>Country</th>
+                <th>CV Version</th>
+                <th>Status</th>
+                <th>Entry Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Applications will be listed here -->
+        </tbody>
+    </table>
+  </div>
+</body>
+</html>
