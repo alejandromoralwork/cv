@@ -12,12 +12,51 @@
   <div class="app-tracker-container">
     <h1>Application Tracker</h1>
     <form id="appForm">
-        <input type="url" id="offerLink" placeholder="Offer Link" required>
-        <input type="text" id="company" placeholder="Company" required>
-        <input type="text" id="field" placeholder="Field (Finance, IT, etc.)" required>
-        <input type="text" id="country" placeholder="Country" required>
-        <input type="text" id="cvVersion" placeholder="CV Version Sent" required>
-        <input type="text" id="status" placeholder="Status" required>
+        <input type="url" id="offerLink" placeholder="Offer Link">
+        <input type="text" id="company" placeholder="Company">
+        <input type="text" id="field" placeholder="Field (Finance, IT, etc.)">
+        <input list="countryList" id="country" placeholder="Country">
+        <datalist id="countryList">
+            <option value="France">
+            <option value="Germany">
+            <option value="United Kingdom">
+            <option value="Spain">
+            <option value="Italy">
+            <option value="Netherlands">
+            <option value="Belgium">
+            <option value="Switzerland">
+            <option value="United States">
+            <option value="Canada">
+            <option value="India">
+            <option value="Singapore">
+            <option value="Australia">
+            <option value="Other">
+        </datalist>
+        <input type="text" id="cvVersion" placeholder="CV Version Sent">
+        <input list="wayList" type="text" id="wayOfApplication" placeholder="Way of Application">
+        <datalist id="wayList">
+            <option value="direct web">
+            <option value="LinkedIn">
+            <option value="email">
+            <option value="referral">
+            <option value="other">
+        </datalist>
+        <input list="statusList" type="text" id="status" placeholder="Status" value="transmitted">
+        <datalist id="statusList">
+            <option value="transmitted">
+            <option value="in review">
+            <option value="interview">
+            <option value="technical test">
+            <option value="HR interview">
+            <option value="manager interview">
+            <option value="offer">
+            <option value="rejected">
+            <option value="withdrawn">
+            <option value="hired">
+            <option value="ghosted">
+            <option value="waiting for feedback">
+            <option value="other">
+        </datalist>
         <button type="submit">Add Application</button>
     </form>
     <div id="dynamicColumns"></div>
@@ -30,6 +69,7 @@
                 <th>Country</th>
                 <th>CV Version</th>
                 <th>Status</th>
+                <th>Way of Application</th>
                 <th>Entry Time</th>
                 <th>Actions</th>
             </tr>
