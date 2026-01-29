@@ -124,12 +124,16 @@ async function loadApplications() {
         setTimeout(() => {
             const btn = document.getElementById('saveTableBtn');
             if (btn) btn.onclick = () => {
+                console.log('[DEBUG] Save Changes button clicked');
                 // Always get the latest data from Tabulator, even if user hasn't left the last cell
                 if (window._getCurrentTableData) {
                     window._latestTableData = window._getCurrentTableData();
                 }
                 window.saveTableChanges();
             };
+            else {
+                console.warn('[DEBUG] Save Changes button not found');
+            }
         }, 0);
 }
 
@@ -204,33 +208,56 @@ async function loadApplications() {
     // Save changes button logic
     window.saveTableChanges = async function() {
         // Robust: force Tabulator to commit any in-progress edits before saving
+        console.log('[DEBUG] saveTableChanges called');
         let tableInstance = null;
-        if (window._getCurrentTableData && document.getElementById('appTableContainer').children.length) {
-            // Try to get Tabulator instance from container
+        let updates;
+        if (document.getElementById('appTableContainer').children.length) {
             tableInstance = Tabulator.findTable('#appTableContainer')[0];
             if (tableInstance) {
-                // Force any active cell edit to be committed
-                tableInstance.getEditedCells().forEach(cell => cell.cancelEdit()); // commit any in-progress edits
+                tableInstance.getEditedCells().forEach(cell => cell.cancelEdit());
+                // Always get latest data from Tabulator instance
+                updates = tableInstance.getData();
+                console.log('[DEBUG] Got table data from Tabulator instance:', updates);
             }
         }
-        // Now get the latest data
-        const updates = (window._getCurrentTableData && window._getCurrentTableData()) || window._latestTableData;
-        if (!updates || !Array.isArray(updates) || updates.length === 0) return alert('No changes to save.');
-        let changed = false;
-        for (const row of updates) {
-            if (!row._id) continue;
-            const docRef = doc(db, 'application_tracker', row._id);
+        if (!updates && window._getCurrentTableData) {
+            updates = window._getCurrentTableData();
+            console.log('[DEBUG] Got table data from window._getCurrentTableData:', updates);
+        }
+        if (!updates && window._latestTableData) {
+            updates = window._latestTableData;
+            console.log('[DEBUG] Got table data from window._latestTableData:', updates);
+        }
+        if (!updates || !Array.isArray(updates) || updates.length === 0) {
+            console.warn('[DEBUG] No changes to save. Table data:', updates);
+            alert('No changes to save.');
+            return;
+        }
+        // 1. Delete all docs in the collection
+        console.log('[DEBUG] Deleting all docs in application_tracker...');
+        const snapshot = await getDocs(trackerCollection);
+        const deletePromises = [];
+        for (const docSnap of snapshot.docs) {
+            try {
+                const { deleteDoc, doc } = await import('https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js');
+                deletePromises.push(deleteDoc(doc(db, 'application_tracker', docSnap.id)));
+            } catch (err) {
+                console.error('[DEBUG] Error deleting doc', docSnap.id, err);
+            }
+        }
+        await Promise.all(deletePromises);
+        console.log('[DEBUG] All docs deleted. Adding new rows...');
+        // 2. Add all rows as new docs
+        const addPromises = updates.map((row, i) => {
             const rowCopy = {...row};
             delete rowCopy._id;
-            await updateDoc(docRef, rowCopy);
-            changed = true;
-        }
-        if (changed) {
-            alert('Changes saved!');
-            loadApplications();
-        } else {
-            alert('No changes to save.');
-        }
+            console.log('[DEBUG] Adding row', i, rowCopy);
+            return addDoc(trackerCollection, rowCopy);
+        });
+        await Promise.all(addPromises);
+        console.log('[DEBUG] All rows added.');
+        alert('All changes saved!');
+        loadApplications();
     }
     // Show stats modal with charts
     document.addEventListener('DOMContentLoaded', () => {
