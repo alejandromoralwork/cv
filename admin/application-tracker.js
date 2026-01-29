@@ -35,10 +35,10 @@ function setDefaultDate() {
     const dateInput = document.getElementById('date');
     if (dateInput) {
         const now = new Date();
-        const dd = String(now.getDate()).padStart(2, '0');
+        const yyyy = now.getFullYear();
         const mm = String(now.getMonth() + 1).padStart(2, '0');
-        const yy = String(now.getFullYear()).slice(-2);
-        dateInput.value = dd + mm + yy;
+        const dd = String(now.getDate()).padStart(2, '0');
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
     }
 }
 document.addEventListener('DOMContentLoaded', setDefaultDate);
@@ -50,6 +50,13 @@ appForm.addEventListener('submit', async (e) => {
     if (appForm._submitting) return; // Prevent double submit
     appForm._submitting = true;
         const statusValue = document.getElementById('status').value || 'transmitted';
+        // Convert yyyy-mm-dd to ddmmyy for storage
+        let dateVal = document.getElementById('date').value;
+        let ddmmyy = '';
+        if (dateVal && dateVal.includes('-')) {
+            const [yyyy, mm, dd] = dateVal.split('-');
+            ddmmyy = `${dd}${mm}${yyyy.slice(-2)}`;
+        }
         const newApp = {
             offerLink: document.getElementById('offerLink').value,
             company: document.getElementById('company').value,
@@ -58,7 +65,7 @@ appForm.addEventListener('submit', async (e) => {
             cvVersion: document.getElementById('cvVersion').value,
             wayOfApplication: document.getElementById('wayOfApplication').value,
             status: statusValue,
-            date: document.getElementById('date').value
+            date: ddmmyy
         };
         // Add dynamic columns if any
         dynamicColumns.forEach(col => {
