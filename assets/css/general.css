@@ -451,7 +451,10 @@ h6 {
 .resume .func .interests-items div:hover img { transform: scale(1.08); }
 
 /* Projects section */
-.projects { display: none;}
+.projects { 
+  
+  margin:25px;
+  display: none;}
 .project-list {
   display: grid;
    list-style: none;
@@ -479,7 +482,7 @@ h6 {
   padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto;
 }
 .project-info .project-description { flex: 1 1 auto; margin-bottom: 0; color: var(--black);}
-.project-link { margin-top: 8px; color: var(--light-green); font-weight: 600;}
+.project-link { margin-top: 8px; color: var(--dark-green); font-weight: 600;}
 .project-category { margin-top: 6px; color: var(--light-green); font-size: 0.85rem;}
 @media (max-width: 720px) { .project-list { grid-template-columns: 1fr;  list-style: none;}}
 
