@@ -250,9 +250,21 @@ html, body {
 .coursework, .program {
   position: relative;
   padding-left: 1.5em;
-   list-style: none;
+  list-style: none;
   margin: 0.5em 0;
-  background-color: var(--bg);
+  background-color: transparent; /* Remove grey background */
+}
+
+/* Ensure .work and .edu sections have white background */
+.resume .func .work,
+.resume .func .edu {
+  background-color: var(--white) !important;
+}
+
+/* Ensure li inside .work and .edu are white */
+.resume .func .work ul li,
+.resume .func .edu ul li {
+  background-color: var(--white) !important;
 }
 .coursework:before, .program:before {
   content: '•';
@@ -281,8 +293,13 @@ h6 {
 /* Work/Education timeline */
 
 .resume .func .work,
+
+.resume .func .work a,
+.resume .func .edu,
+.resume .func .edu a,
 .resume .func .default,
 .resume .func .edu {
+  border-radius: 1%;
   float: left;
   width: 100%;
   padding: 20px; /* inner spacing */
@@ -314,7 +331,7 @@ h6 {
   display: block;
   width: 7px; height: 7px;
   border: 3px solid var(--black);
-  background: var(--light-green);
+  background: var(--white);
   border-radius: 50%;
   left: 3px; top: 0;
   position: absolute;
@@ -401,8 +418,7 @@ h6 {
 }
 .resume .func .skills-soft ul li span { top: 40%; }
 
-/* Interests and language sections */
-.dflt { background: pink; margin: 15px; padding: 15px; box-sizing: border-box; }
+
 
 
 
