@@ -1,42 +1,3 @@
-/* Preloader overlay styles */
-#preloader-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.85);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s;
-}
-
-#preloader-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.preloader-spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid var(--bright-green);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
-* {
-  outline: none;
-}
-
-
 :root {
   --black: #000000;
   --white: #ffffff;
@@ -48,409 +9,265 @@
   --lighter-black: #333333;
   --darker-green: #1A1C20;
   --lighter-green: #464B53;
-  --brighter-green: #518397;
+  --brighter-green: #464B53; /* Matches --lighter-green, can consider using one or better naming */
   --pure-white: #ffffff;
   --off-white-1: #f8f8f8;
   --off-white-2: #f2f2f2;
   --off-white-3: #e6e6e6;
   --off-white-4: #d9d9d9;
   --off-white-5: #cccccc;
-  
-
+  --bg: #f8f9fa;
+  --panel: #ffffff;
+  --text: #464B53;
+  --muted: #464B53;
+  --accent: #464B53;
+  --border: #eef1f3;
+  --radius: 6px;
+  --shadow: 0 6px 16px rgba(8,12,18,0.04);
 }
 
-
-
+/* Remove duplicate outline set above, keep once */
 *,
 *:before,
 *:after {
- 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
+  transition: all .3s;
 }
 
-.background {
-  position: absolute;
-  background-color: black;
-  height: 100%; /* Set to full viewport height */
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 0; /* Ensure it's behind other elements */
+/* Font Import */
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+/* Preloader overlay */
+#preloader-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center; justify-content: center;
+  transition: opacity 0.3s;
 }
+#preloader-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.preloader-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--bright-green);
+  border-radius: 50%;
+  width: 70px; height: 70px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
 
-
-html,
-body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: 0.5s;
-  overflow-x: auto;
-  min-width: 320px;
-  background: black;
-  cursor: default;
+/* Body & html styles, only set once and avoid duplicate background/overflow styles */
+html, body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  height: 100%; 
+  height: 100%;
+  min-width: 320px;
+  background: #000;
+  color: var(--text);
+  transition: 0.5s;
+  overflow-x: auto;
+  cursor: default;
 }
 
-a {
-  text-decoration: none;
-  color: var(--black);
-  display: block;
-  transition-duration: 0.3s;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-h3 {
-  color: var(--light-green);
-  margin: 10px 0;
-  text-transform: none;
-  font-size: 1.25em;
-}
-
-.resume {
-  /* Make the resume container fluid but constrained to a comfortable max width
-     so content (like the skills grid) has more room without overflowing. */
+/* Container */
+.resume{
   max-width: 1200px;
   width: calc(100% - 40px);
+  margin: 10px auto;
+  display: flex;
   background: var(--off-white-3);
   color: var(--black);
-  margin: 20px auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  box-shadow: 10px 10px var(--light-green);
   position: relative;
-  display: flex;
   box-sizing: border-box;
+  border-radius: 10px;
+  /* Remove extra duplicate styles on .resume */
 }
 
+/* Resume sections */
 .resume .base,
 .resume .func {
   box-sizing: border-box;
-  float: left;
+  width: 100%;
+  /* Critical fix: Prevent overflow in flex/grid parents */
+  min-width: 0;
+  /* Fluid padding scales smoothly across viewports */
+  padding: clamp(1.25rem, 2.5vw, 1.875rem) clamp(0.75rem, 2vw, 1.25rem);
 }
 
-.resume .base > div,
-.resume .func > div {
-  padding-bottom: 10px;
+/* Function section: Consistent spacing with visual breathing room */
+.resume .func {
+  /* Optional: Add subtle visual separation if needed */
+  /* border-block-start: 1px solid var(--border-color, #eee); */
+  padding-inline: clamp(0.75rem, 3vw, 1.5rem);
 }
 
-.resume .base > div:last-of-type,
-.resume .func > div:last-of-type {
-  padding-bottom: 0;
+/* Colors for headings and text in base */
+.resume .base h3,
+.resume .base p,
+.resume .base .about p,
+.resume .base .contact div,
+.resume .base .contact div a,
+.resume .base .contact div span,
+.resume .base .follow
+{
+  color: var(--light-green);
 }
 
-.resume .base {
-  width: 30%;
-  padding: 30px 15px;
-  background: var(--white);
+
+.resume .base .about p
+{
   color: var(--black);
-  /* prevent the left column from collapsing and causing layout overflow */
-  min-width: 220px;
-  box-sizing: border-box;
 }
 
-/* Fix text colors in base section - ensure white text for readability */
-.resume .base h3 {
-    color: var(--light-green);
-
-}
-
-.resume .base p {
-    color: var(--light-green);
-
-}
-
-.resume .base .about p {
-    color: var(--light-green);
-
-}
-
-.resume .base .contact div {
-    color: var(--light-green);
-
-}
-
-.resume .base .contact div a {
-    color: var(--light-green);
-
-  display: flex;
-  align-items: center;
-}
-
-.resume .base .contact div span {
-    color: var(--light-green);
-  position: relative;
-  display: inline-block;
-}
-
-.resume .base .follow {
-    color: var(--light-green);
-
-}
-
+/* Profile (photo, info) */
 .resume .base .profile {
+  display: flex;
   background: var(--white);
-  padding: 30px 15px 40px 15px;
-  margin: -30px -15px 45px -15px;
+    padding: 15px 15px 15px 15px;
+    margin: 0px 15px 15px 15px;
+
   position: relative;
   z-index: 2;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
-
 .resume .base .profile::after {
+  /* disabled the decorative skewed strip that created a diagonal black line */
   content: "";
   position: absolute;
-  background: var(--black);
+  background: transparent;
   width: 100%;
-  height: 30px;
-  bottom: -15px;
+  height: 0;
+  bottom: 0;
   left: 0;
-  transform: skewY(-5deg);
+  transform: none;
   z-index: -1;
+  pointer-events: none;
 }
 
-.resume .base .profile .photo img {
-  width: 100%;
-  border-radius: 50%;
-}
 
-.resume .base .profile .photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.resume .base .profile .fa-rocket {
-  font-size: 100px;
-  text-align: center;
-  margin: auto;
-  color: var(--white);
-}
 
-.resume .base .profile .info {
-  text-align: center;
-  color: var(--black);
-}
 
-.resume .base .profile .info .name {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.resume .base .profile .info .name{
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 1.75em;
-  
-  color: var(--black-2);
 }
-
-.resume .base .profile .info .job {
+.resume .base .profile .info .job{
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 1.5em;
   text-transform: none;
-    color: var(--black-2);
 }
 
-.resume .base .contact div {
-  line-height: 24px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.resume .base .contact div a:hover {
-  color: var(--brighter-green);
-}
-
-.resume .base .contact div a:hover span::after {
-  width: 100%;
-}
-
-.resume .base .contact div:hover i {
-  color: var(--brighter-green);
-}
-
+.resume .base .contact div a:hover { color: var(--brighter-green); }
+.resume .base .contact div:hover i { color: var(--brighter-green); }
 .resume .base .contact div i {
   color: var(--light-green);
   width: 20px;
   height: 20px;
   font-size: 20px;
   text-align: center;
-  margin-right: 15px;
+
   transition-duration: 0.3s;
 }
-
-.resume .base .contact div span {
-  position: relative;
-}
-
-.resume .base .contact div span::after {
-  content: "";
-  position: absolute;
-  background: var(--brighter-green);
-  height: 1px;
-  width: 0;
-  bottom: 0;
-  left: 0;
-  transition-duration: 0.3s;
-}
-
-.resume .base .follow .box {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.resume .base .follow .box a {
-  display: inline-block;
-  vertical-align: text-bottom;
-}
-
 .resume .base .follow .box a:hover i {
   background: var(--brighter-green);
   border-radius: 5px;
   transform: rotate(45deg) scale(0.8);
 }
-
-.resume .base .follow .box a:hover i::before {
-  transform: rotate(-45deg) scale(1.5);
-}
-
 .resume .base .follow .box i {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 30px;
   background: var(--light-green);
-  width: 60px;
-  height: 60px;
+  width: 60px; height: 60px;
   border-radius: 50%;
   line-height: 60px;
   color: var(--white);
-  margin: 0 10px 10px 10px;
   transition-duration: 0.3s;
 }
 
-.resume .base .follow .box i::before {
-  transition-duration: 0.3s;
-}
+/* Headings */
+.resume h3 { color: var(--text); font-weight: 700; margin-bottom: 8px; }
 
-.resume .base .follow .box i.fa::before {
-  display: block;
-}
-
-.resume .func {
-  width: 100%;
-  padding: 30px;
-}
-
-.resume .func:hover > div {
-  transition-duration: 0.5s;
-}
-
-.resume .func:hover > div:hover h3 i {
-  transform: scale(1.25);
-}
-
-.resume .func:hover > div:not(:hover) {
-  opacity: 0.5;
-}
-
-.resume .func h3 {
-  transition-duration: 0.3s;
-  margin-top: 0;
-  
-}
-
-.resume .func h3 i {
-  color: var(--white);
-  background: var(--light-green);
-  width: 42px;
-  height: 42px;
-  font-size: 20px;
-  line-height: 42px;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  margin-right: 8px;
-  transition-duration: 0.3s;
-}
-
-
-
-
-.education-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-
-.coursework {
+/* Education, coursework, program list bullets */
+.education-list, .resume .func .skills-prog ul { list-style-type: none; padding-left: 0;}
+.coursework, .program {
   position: relative;
-  padding-left: 1.5em; /* Indentation for the "list" effect */
-  margin: 0.5em 0; /* Space between items */
+  padding-left: 1.5em;
+   list-style: none;
+  margin: 0.5em 0;
+  background-color: var(--bg);
 }
-
-.coursework:before {
-  content: '•'; /* Bullet point before each item */
+.coursework:before, .program:before {
+  content: '•';
   position: absolute;
-  left: 0; /* Position the bullet point */
-  color: var(--brighter-green); /* Customize bullet color */
-  font-size: 1.2em; /* Bullet size */
-}
-
-.program {
-  position: relative;
-  padding-left: 1.5em; /* Indentation for the "list" effect */
-  margin: 0.5em 0; /* Space between items */
-}
-
-.program:before {
-  content: '•'; /* Bullet point before each item */
-  position: absolute;
-  left: 0; /* Position the bullet point */
-  color: var(--brighter-green); /* Customize bullet color */
-  font-size: 1.2em; /* Bullet size */
-}
-
-
-.highlight {
-  
+  left: 0;
   color: var(--brighter-green);
-  padding: 4px; /* Optional: Adds some padding around the text */
-  border-radius: 2px; /* Optional: Adds rounded corners */
+  font-size: 1.2em;
+}
+
+/* Highlight */
+.highlight {
+  color: var(--brighter-green);
+  padding: 4px;
+  border-radius: 2px;
   display: inline;
-  text-decoration: solid;
   font-weight: 500;
- 
+  text-decoration: solid;
 }
-
 h6 {
-  font-weight: 500; /* Remove the bold effect */
-  font-size: 0.8rem; /* Adjust the font size if necessary */
-  line-height: 1.5; /* Adjust line height for better spacing */
-  margin: 0.5em 0; /* Adjust margins to fit your design */
-  color: inherit; /* Use inherited color or specify your desired color */
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.5em 0;
 }
 
-
-
-
-
-
+/* Work/Education timeline */
 .resume .func .work,
+.resume .func .default,
 .resume .func .edu {
   float: left;
+  width: 100%;
+  padding: 20px; /* inner spacing */
+  margin: 15px; /* space between blocks */
+  background-color: #007BFF;
+
 }
 
-.resume .func .work small,
-.resume .func .edu small {
-  display: flex;
-  opacity: 0.8;
-}
+
+
 
 .resume .func .work ul li,
 .resume .func .edu ul li {
@@ -458,111 +275,40 @@ h6 {
   margin-left: 15px;
   padding-left: 25px;
   padding-bottom: 15px;
+   list-style: none;
 }
-
 .resume .func .work ul li:hover::before,
-.resume .func .edu ul li:hover::before {
-  -webkit-animation: circle 1.2s infinite;
-          animation: circle 1.2s infinite;
-}
-
+.resume .func .edu ul li:hover::before { animation: circle 1.2s infinite; }
 .resume .func .work ul li:hover span,
-.resume .func .edu ul li:hover span {
-  color: var(--brighter-green);
-}
-
-@-webkit-keyframes circle {
-  from {
-    box-shadow: 0 0 0 0px var(--brighter-green);
-  }
-  to {
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
-  }
-}
-
+.resume .func .edu ul li:hover span { color: var(--brighter-green); }
 @keyframes circle {
-  from {
-    box-shadow: 0 0 0 0px var(--brighter-green);
-  }
-  to {
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
-  }
+  from { box-shadow: 0 0 0 0px var(--brighter-green);}
+  to { box-shadow: 0 0 0 6px rgba(255,255,255,0);}
 }
-.resume .func .work ul li:first-of-type::before,
-.resume .func .edu ul li:first-of-type::before {
-  width: 10px;
-  height: 10px;
-  left: 1px;
-}
-
-.resume .func .work ul li:last-of-type,
-.resume .func .edu ul li:last-of-type {
-  padding-bottom: 3px;
-}
-
-.resume .func .work ul li:last-of-type::after,
-.resume .func .edu ul li:last-of-type::after {
-  border-radius: 1.5px;
-}
-
-.resume .func .work ul li::before,
-.resume .func .work ul li::after,
-.resume .func .edu ul li::before,
-.resume .func .edu ul li::after {
+.resume .func .work ul li::before, .resume .func .edu ul li::before {
   content: "";
   display: block;
-  position: absolute;
-}
-
-.resume .func .work ul li::before,
-.resume .func .edu ul li::before {
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border: 3px solid var(--black);
   background: var(--light-green);
   border-radius: 50%;
-  left: 3px;
+  left: 3px; top: 0;
+  position: absolute;
   z-index: 1;
 }
-
-.resume .func .work ul li::after,
-.resume .func .edu ul li::after {
-  width: 3px;
-  height: 100%;
+.resume .func .work ul li::after, .resume .func .edu ul li::after {
+  content: ""; display: block;
+  width: 3px; height: 100%;
   background: var(--black);
-  left: 5px;
-  top: 0;
+  left: 5px; top: 0;
+  position: absolute;
 }
-
-.resume .func .work ul li span,
-.resume .func .edu ul li span {
+.resume .func .work ul li span, .resume .func .edu ul li span {
   transition-duration: 0.3s;
   font-weight: 600;
 }
 
-.resume .func .work {
-  clear: both;
-  width: 100%;
-  background: var(--white);
-  padding: 15px;
-  margin: 15px 4% 15px 0;
-}
-
-.resume .func .edu {
-  clear: both;
-  width: 100%;
-  background: var(--white);
-  padding: 15px;
-}
-
-.resume .func .skills-prog {
-  clear: both;
-  background: var(--white);
-  padding: 15px;
-}
-
-/* Compact skills grid (new) */
-
+/* Skills grid */
 .resume .func .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -579,241 +325,56 @@ h6 {
   background: var(--off-white-2);
   padding: 8px 10px;
   border-radius: 8px;
+  min-width: 0;
+  flex-wrap: wrap;
   transition: box-shadow .25s, transform .15s;
-  min-width: 0; /* allow flex children to shrink */
-  flex-wrap: wrap; /* allow pieces to wrap so no text is clipped */
 }
 .resume .func .skills-grid .skill:hover {
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   transform: translateY(-2px);
 }
-.skill .skill-info { flex: 1 1 auto; min-width: 0; overflow: visible; }
-.skill-name { font-weight: 700; font-size: 0.95rem; color: var(--black); white-space: normal; word-break: break-word; }
-.skill-meta { font-size: 0.75rem; color: var(--light-green); display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
-.skill-tags { color: var(--light-green); white-space: normal; overflow: visible; text-overflow: unset; max-width: none; word-break: break-word; }
+.skill .skill-info { flex: 1 1 auto; min-width: 0; }
+.skill-name { font-weight: 700; font-size: 0.95rem; color: var(--black); }
+.skill-meta { font-size: 0.75rem; color: var(--light-green); display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+.skill-tags { color: var(--light-green); }
 .skill-years { color: var(--light-green); opacity: 0.9; }
-.skill-meter { width: 110px; max-width: 30%; min-width: 70px; height: 10px; background: var(--black); border-radius: 8px; overflow: hidden; flex: 0 0 auto; }
+.skill-meter { width: 110px; max-width: 30%; min-width: 70px; height: 10px; background: var(--black); border-radius: 8px; overflow: hidden;}
 .skill-fill { height: 100%; background: linear-gradient(90deg,var(--light-green),var(--brighter-green)); width: 0%; border-radius: 8px; transition: width 800ms cubic-bezier(.2,.8,.2,1); }
-.skill-percent { font-weight: 700; font-size: 0.85rem; color: var(--black); margin-left: 8px; flex: 0 0 40px; text-align: right; }
-.skills-note { display:block; margin-top:8px; color:var(--lighter-black); font-size:0.85rem; }
+.skill-percent { font-weight: 700; font-size: 0.85rem; color: var(--black); margin-left: 8px; flex: 0 0 40px; text-align: right;}
+.skills-note { margin-top:8px; color:var(--lighter-black); font-size:0.85rem; }
 
-/* Responsive: stack single column on small screens */
 @media (max-width: 720px) {
-  .resume { width: calc(100% - 20px); }
+  .resume { width: calc(100% - 20px);}
   .resume .func .skills-grid { grid-template-columns: 1fr; }
   .skill-meter { width: 90px; }
+  .contact { flex-direction: column; gap: 10px; width: 100%; }
 }
 
-
-.resume .func .skills-prog ul {
-  margin-left: 15px;
-  list-style-type: none;
-  padding: 0;
+/* Soft skills section */
+.resume .func .skills-soft { clear: both; background: var(--white); padding: 15px; margin: 15px 0 0; }
+.resume .func .skills-soft ul { display: flex; justify-content: space-between; text-align: center; }
+.resume .func .skills-soft ul li { position: relative; }
+.resume .func .skills-soft ul li:hover svg .cbar { stroke: var(--brighter-green); stroke-width: 4px; }
+.resume .func .skills-soft ul li:hover span, .resume .func .skills-soft ul li:hover small { transform: scale(1.2);}
+.resume .func .skills-soft ul li svg { width: 95%; fill: transparent; transform: rotate(-90deg); }
+.resume .func .skills-soft ul li svg circle { stroke-width: 1px; stroke: var(--black);}
+.resume .func .skills-soft ul li svg .cbar { stroke-width: 3px; stroke: var(--light-green); stroke-linecap: round;}
+.resume .func .skills-soft ul li span, .resume .func .skills-soft ul li small {
+  position: absolute; display: block; width: 100%; top: 52%; transition-duration: 0.3s;
 }
+.resume .func .skills-soft ul li span { top: 40%; }
 
-.resume .func .skills-prog ul li {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  transition: color 0.3s;
-  min-width: 0; /* Allow children to shrink properly */
-}
+/* Interests and language sections */
+.dflt { background: pink; margin: 15px; padding: 15px; box-sizing: border-box; }
 
 
-.resume .func .skills-prog ul li:hover {
-  color: var(--brighter-green);
-}
 
-.resume .func .skills-prog ul li:hover .skills-bar .bar {
-  background: var(--brighter-green);
-  box-shadow: 0 0 0 1px var(--brighter-green);
-}
-
-.resume .func .skills-prog ul li span {
-  flex: 1 1 0;
-  min-width: 0; /* Ensure text can shrink */
-  overflow-wrap: break-word; /* Break long words if needed */
-  word-break: break-word;
-}
-
-.resume .func .skills-prog ul li .skills-bar {
-  background: var(--black);
-  height: 2px;
-  width: calc(90% - 150px); /* Increased subtraction reduces the overall width */
-  position: relative;
-  border-radius: 2px;
-}
-
-.resume .func .skills-prog ul li .skills-bar .bar {
-  position: absolute;
-  top: -1px;
-  height: 4px;
-  background: var(--light-green);
-  box-shadow: 0 0 0 var(--light-green);
-  border-radius: 5px;
-}
-
-
-.resume .func .skills-soft {
-  clear: both;
-  background: var(--white);
-  padding: 15px;
-  margin: 15px 0 0;
-}
-
-.resume .func .skills-soft ul {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.resume .func .skills-soft ul li {
-  position: relative;
-}
-
-.resume .func .skills-soft ul li:hover svg .cbar {
-  stroke: var(--brighter-green);
-  stroke-width: 4px;
-}
-
-.resume .func .skills-soft ul li:hover span,
-.resume .func .skills-soft ul li:hover small {
-  transform: scale(1.2);
-}
-
-.resume .func .skills-soft ul li svg {
-  width: 95%;
-  fill: transparent;
-  transform: rotate(-90deg);
-}
-
-.resume .func .skills-soft ul li svg circle {
-  stroke-width: 1px;
-  stroke: var(--black);
-}
-
-.resume .func .skills-soft ul li svg .cbar {
-  stroke-width: 3px;
-  stroke: var(--light-green);
-  stroke-linecap: round;
-}
-
-.resume .func .skills-soft ul li span,
-.resume .func .skills-soft ul li small {
-  position: absolute;
-  display: block;
-  width: 100%;
-  top: 52%;
-  transition-duration: 0.3s;
-}
-
-.resume .func .skills-soft ul li span {
-  top: 40%;
-}
-
-.resume .func .interests {
-  background: var(--white);
-  margin: 15px 0 0;
-  padding: 15px;
-}
-
-.resume .func .interests-items {
-  box-sizing: border-box;
-  padding: 0 0 15px;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.resume .func .interests-items div {
-  display: flex;
-  flex-direction: column;
+.resume .func .interests-items, .resume .func .language-items {
+  width: 100%; text-align: center; display: flex; justify-content: space-between;
+  padding-bottom: 15px; box-sizing: border-box;
+  gap: 12px; /* space between items */
+  flex-wrap: wrap; /* allow items to wrap on narrow screens */
   justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.resume .func .interests-items div:hover i {
-  transform: scale(1.2);
-}
-
-.resume .func .interests-items div:hover span {
-  color: var(--brighter-green);
-  transition-duration: 0.3s;
-}
-
-.resume .func .interests-items div i {
-  font-size: 45px;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  color: var(--light-green);
-  transition-duration: 0.3s;
-}
-
-.resume .func .interests-items div span {
-  display: block;
-}
-
-
-
-
-
-.resume .func .language {
-  background: var(--white);
-  margin: 15px 0 0;
- 
-
-}
-
-.resume .func .language-items {
-  box-sizing: border-box;
-  padding: 0 0 15px;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.resume .func .language-items div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.resume .func .language-items div:hover i {
-  transform: scale(1.2);
-}
-
-.resume .func .language-items div:hover span {
-  color: var(--brighter-green);
-  transition-duration: 0.3s;
-}
-
-.resume .func .language-items div i {
-  font-size: 45px;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  color: var(--light-green);
-  transition-duration: 0.3s;
-}
-
-.resume .func .language-items div span {
-  display: block;
-}
-
-
-.resume .func .interests-items div:hover img {
-  transform: scale(1.08);
 }
 
 
@@ -822,298 +383,100 @@ h6 {
 
 
 
-
-
-
-
-
-
-
-
-
-.website-link {
-  display: block; /* keep row left-aligned like other contact entries */
+.resume .func .interests-items div, .resume .func .language-items div {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  width: 100px; height: 100px; border-radius: 50%;
+  flex: 0 0 100px; /* prevent items from stretching, but allow wrapping */
 }
-
-.website-link a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: inherit;
-
-  
+.resume .func .interests-items div:hover i, .resume .func .language-items div:hover i { transform: scale(1.2);}
+.resume .func .interests-items div:hover span, .resume .func .language-items div:hover span {
+  color: var(--brighter-green); transition-duration: 0.3s;}
+.resume .func .interests-items div i, .resume .func .language-items div i {
+  font-size: 45px; width: 60px; height: 60px; line-height: 60px; color: var(--light-green); transition-duration: 0.3s;
 }
+.resume .func .interests-items div span, .resume .func .language-items div span { display: block; }
+.resume .func .interests-items div:hover img { transform: scale(1.08); }
 
-.website-link a {
-  text-decoration: none; /* Remove underline from the link */
-  
-  font-size: 12px; /* Adjust font size (change as needed) */
-  display: flex; /* Use flexbox to keep the icon and text on the same line */
-  align-items: center; /* Center items vertically */
-}
-
-.website-link i {
-  margin-right: 8px; /* Add space between icon and text */
-}
-
-/* START: TEMPLATE */
-:root {
-  --blue: #26bbf0;
-  --green: #c2d5a0;
-  --red: #cf6a6d;
-  --yellow: #ffbc0d;
-  
-  --black: #343536;
-  --black-2: #424950;
-  --grey: #89949b;
-  --grey-2: #9aa8b1;
-  --light-grey: #c4c9cd;
-  --light-grey-2: #dbdfe1;
-  --white: #f3f4f5;
-}
-
-html, body {
- 
-  overflow: visible;
-  background: mix(#3f3251, #002025, 70%);
-}
-
-.vertical-centered-box {
-  position: fixed;
-  width: 100%;
-  height: 100%;
- 
-}
-.vertical-centered-box::after {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -0.25em;
-}
-.vertical-centered-box .content {
-  box-sizing: border-box;
-  display: inline-block;
-  vertical-align: middle;
- 
- 
-}
-
-/* Global transition for all elements */
-* {
-  transition: all .3s;
-}
-/* END: TEMPLATE */
-
-
-
-#particles-background,
-#particles-foreground {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  transform: scale3d(1, 1, 1);
-}
-
-#particles-background {
-  background: mix(#7854aa, #2aa9bd, 70%);
-  background-image: linear-gradient(45deg, #4f386e 2%, #268291 100%);
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes fade {
-  0% { opacity: 1; }
-  50% { opacity: 0.25; }
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-/* Navbar container */
-.navbar {
-  background-color: #333;
-  padding: 15px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  display: flex;              /* Use flex layout */
-  justify-content: space-between; /* Distribute space between nav items and download button */
-  align-items: center;        /* Vertically center items */
-}
-
-/* Center the nav-list horizontally */
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-}
-
-
-/* Individual navigation items */
-.nav-item {
-  margin: 0 15px;
-}
-
-/* Anchor styling within nav items */
-.nav-item a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hover and active effects for nav links */
-.nav-item a:hover,
-.nav-item a:focus {
-  background-color: #575757;
-  color: #fff;
-}
-
-/* Optional: Active state for toggling classes with JS */
-.nav-item.active a {
-  background-color: #007BFF;
-  color: #fff;
-}
-
-/* Download button styling */
-.download-btn {
-  color: #fff;
-  font-size: 20px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-/* Hover effect for jumping animation */
-.download-btn:hover {
-  animation: jump 0.5s;
-}
-
-/* Keyframes for jump animation */
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-
-/* Projects section hidden by default */
-.projects {
-  display: none;
-}
-
-
-/* PROJECT IMAGE with adaptive ratio */
-.project-img {
-  position: relative;
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-.project-img img {
-  display: block;
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 0% 50%;
-  margin: 0;
-  padding: 0;
-  transition: transform 0.3s ease;
-
-  z-index: 20;
-}
-.project-eye-link:hover .project-img img {
-  transform: scale(1.05);
-}
-.project-img::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: 1;
-  transition: var(--transition1);
-}
-/* Projects: make project cards equal-height and align footers */
+/* Projects section */
+.projects { display: none;}
 .project-list {
   display: grid;
+   list-style: none;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-  padding: 0;
-  margin: 0;
+  gap: 18px; padding: 0; margin: 0;
 }
 .project-item {
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  height: 100%; /* allow grid items to stretch to equal height */
+  display: flex; flex-direction: column; background: var(--white);
+  border-radius: 8px; overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.06); height: 100%;
 }
-.project-item .project-img {
-  flex: 0 0 auto; /* image keeps its natural area */
+.project-img {
+  position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
 }
+.project-img img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 0% 50%;
+  transition: transform 0.3s ease; z-index: 20; display: block;
+}
+.project-eye-link:hover .project-img img { transform: scale(1.05);}
+.project-img::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: transparent; z-index: 1; transition: var(--transition1);
+}
+.project-eye-link:hover .project-img::before { background: hsla(0,0%,0%,0.5);}
 .project-item .project-info {
-  padding: 12px 14px;
+  padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto;
+}
+.project-info .project-description { flex: 1 1 auto; margin-bottom: 0; color: var(--black);}
+.project-link { margin-top: 8px; color: var(--light-green); font-weight: 600;}
+.project-category { margin-top: 6px; color: var(--light-green); font-size: 0.85rem;}
+@media (max-width: 720px) { .project-list { grid-template-columns: 1fr;  list-style: none;}}
+
+/* Navbar styles */
+.navbar {
+  /* make navbar span full viewport width and stay at top */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1 1 auto; /* take remaining space so footer can stick to bottom */
+  justify-content: space-between;
+  align-items: center;
 }
-.project-info .project-description {
-  flex: 1 1 auto; /* let description expand to push link/category to bottom */
-  margin-bottom: 0;
-  color: var(--black);
+/* keep page content below the fixed navbar */
+body { padding-top: 64px; }
+/* replace absolute centering with normal flex centering */
+.nav-list {
+  position: static;
+  left: auto;
+  transform: none;
+   list-style: none;
+  background-color: transparent;
+  display: flex;
+  margin: 0 auto;
+   list-style: none;
 }
-.project-link {
-  margin-top: 8px;
-  color: var(--light-green);
-  font-weight: 600;
+.nav-item { margin: 0 15px; }
+.nav-item a {
+  color: #fff; text-decoration: none; font-size: 16px; font-weight: 600;
+  padding: 8px 12px; border-radius: 4px; transition: background-color 0.3s, color 0.3s;
 }
-.project-category {
-  margin-top: 6px;
-  color: var(--light-green);
-  font-size: 0.85rem;
+.nav-item a:hover, .nav-item a:focus { background-color: #575757; color: #fff; }
+.nav-item.active a { background-color: #007BFF; color: #fff;}
+.download-btn {
+  color: #fff; font-size: 20px; text-decoration: none; transition: transform 0.3s;
 }
+.download-btn:hover { animation: jump 0.5s;}
+@keyframes jump { 50% { transform: translateY(-10px);}}
 
-@media (max-width: 720px) {
-  .project-list { grid-template-columns: 1fr; }
-}
-
-/* PDF export helpers: ensure exported pages are white and break per section */
+/* PDF export */
 .pdf-export-container {
   background: #ffffff;
   color: #000000;
-  width: 210mm; /* A4 width */
+  width: 210mm;
   box-sizing: border-box;
   padding: 12mm;
 }
@@ -1123,159 +486,108 @@ html, body {
   box-sizing: border-box;
 }
 .pdf-export-container img { max-width: 100%; height: auto; }
-
-/* Hide particle layers when the export helper class is active on body (defensive) */
 body.pdf-export #particles-background,
-body.pdf-export #particles-foreground {
-  display: none !important;
+body.pdf-export #particles-foreground { display: none !important; }
+
+/* Contact + Email styles */
+.website-link, .Email {
+  display: block; margin-bottom: 8px; font-size: 12px; word-break: break-all;
 }
-.project-eye-link:hover .project-img::before {
-  background: hsla(0, 0%, 0%, 0.5);
+.website-link a, .Email a {
+  display: flex; align-items: center; color: inherit; text-decoration: none;
+  font-size: inherit; word-break: break-all;
 }
-
-/* On small screens, constrain resume width and allow horizontal scroll */
-@media (max-width: 900px) {
-  .resume {
-    min-width: 900px;
-     transform: scale(0.5);
-    transform-origin: top left;
-    width: 200%;
-    margin: 0 auto;
-    overflow-x: auto;
-   
-  }
-  body {
-     background-color: #333;
-  }
+.website-link i, .Email i { margin-right: 8px; }
+.Email { font-size: 10px; }
+.Email span { overflow-wrap: anywhere; word-break: break-all; }
+.contact { min-width: 200px; padding-left: 20px; border-left: 2px solid var(--bg); }
+.contact h3, .follow h3 {
+  color: var(--accent); font-size: 0.9rem; text-transform: uppercase;
+  letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;
 }
-
-/* Stack contact links vertically on small screens */
-@media (max-width: 700px) {
-  .contact {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 100vw;
-    box-sizing: border-box;
-    padding: 0 8px;
-  }
-  .contact .email,
-  .contact .website-link {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  .contact .email a,
-  .contact .website-link a {
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-  }
-
-
-
-
-  .contact .email i,
-  .contact .website-link i {
-    margin-right: 8px;
-  }
-  .contact .email,
-  .contact .website-link {
-    display: block;
-    width: 100%;
-    margin-bottom: 4px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-  .contact .email a,
-  .contact .website-link a {
-    font-size: 13px !important;
-    flex-direction: row;
-    align-items: center;
-    word-break: break-word;
-    flex-wrap: wrap;
-    display: flex;
-    overflow-wrap: break-word;
-    max-width: 100%;
-    white-space: normal;
-  }
-  .contact .website-text {
-    word-break: break-word;
-    display: inline-block;
-    font-size: 12px;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    white-space: normal;
-  }
-
-
+.contact div { margin-bottom: 10px; display: flex; align-items: center; font-size: 0.95rem; }
+.contact a, .contact span { text-decoration: none; color: var(--text); transition: color 0.2s; }
+.contact a:hover { color: var(--accent);}
+.contact i { width: 25px; color: var(--accent); margin-right: 8px;}
+@media (max-width:700px) {
+  .contact { flex-direction: column; gap: 10px; width: 100%; padding: 0 8px; border-left: none; border-top: 2px solid var(--bg); padding-top: 20px;}
+  .contact div { justify-content: center; }
 }
 
-.Email {
-  font-size: 10px;
-  max-width: 100%;
-  word-break: break-all;
-  white-space: normal;
+/* Hide particle layers for PDF */
+#particles-background, #particles-foreground {
+  position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; transform: scale3d(1, 1, 1);
+}
+#particles-background {
+  background-image: linear-gradient(45deg, #4f386e 2%, #268291 100%);
+}
+
+
+
+
+
+.resume .base .profile .photo {
+  --photo-size: clamp(100px, 14vw, 150px);
+
+  width: var(--photo-size);
+  height: calc(var(--photo-size) * 1.2); /* enough height to show face */
+  overflow: hidden;
+
   display: flex;
-  align-items: center;
-  margin-bottom: 8px;
+  justify-content: center;
+  align-items: flex-start;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+
 }
-.Email a {
-  display: flex;
-  align-items: center;
-  word-break: break-word;
-  overflow-wrap: break-word;
+
+.resume .base .profile .photo img {
   width: 100%;
-  font-size: inherit;
-}
-.Email i {
-  margin-right: 8px;
-    word-break: break-word;
-  overflow-wrap: break-word;
-}
-.Email span {
-  overflow-wrap: anywhere;
-  word-break: break-all;
+  height: 100%;
+  max-height: none;
+
+  object-fit: cover;
+  object-position: center top; /* face stays visible */
+  display: block;
 }
 
 
-:root{
-  --bg:#f8f9fa;
-  --panel:#ffffff;
-  --text:#10435f;
-  --muted:#10435f;
-  --accent:#10435f; /* modest gold */
-  --border:#eef1f3;
-  --radius:6px;
-  --shadow: 0 6px 16px rgba(8,12,18,0.04);
+@media (max-width: 700px) {
+  .resume .base .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .resume .base .profile .photo {
+    --photo-size: clamp(90px, 40vw, 120px);
+  }
 }
 
-*{box-sizing:border-box; margin:0; padding:0; outline:none;}
-html,body{  background:var(--bg); color:var(--text); }
 
-/* container */
-.resume{ max-width:1100px; margin:20px auto; display:flex; background:var(--panel); border-radius:10px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); }
-.resume .base{ width:30%; padding:26px; min-width:220px; }
-.resume .func{ width:70%; padding:26px; }
 
-/* headings */
-.resume h3{color:var(--text); font-weight:700; margin-bottom:8px; }
 
-/* reporting lists / tables */
-.reporting-table{ width:100%; border-collapse:collapse; margin-top:8px; }
-.reporting-table th, .reporting-table td{ padding:10px 8px; border-bottom:1px solid var(--border); text-align:left; font-size:0.95rem; }
-.reporting-table th{ color:var(--muted); font-weight:600; }
 
-/* skills & meters (simple) */
-.skill{ background:#fff; border:1px solid rgba(10,15,20,0.02); padding:10px; border-radius:8px; display:flex; gap:12px; align-items:center; }
-.skill-meter{ width:130px; height:8px; background:#eef1f3; border-radius:999px; overflow:hidden; }
-.skill-fill{ height:100%; width:0%; background: linear-gradient(90deg,var(--accent), #22bdd8); transition: width .75s ease; }
 
-a{ color:var(--accent); text-decoration:none; font-weight:600; }
+/* Responsive: make resume fluid on small screens without scaling */
+@media (max-width:900px) {
+  .resume {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    flex-direction: column;
+    overflow: visible;
+  }
+  .resume .base, .resume .func {
+    width: 100%;
+    padding: 16px;
+  }
+  body { background-color: #333; }
+}
 
-/* responsive */
-@media (max-width:760px){
-  .resume{ flex-direction:column; }
-  .resume .base, .resume .func{ width:100%; }
+@media (max-width:420px) {
+  /* smaller photo on very small screens */
+  .resume .base .profile .photo { --photo-size: 88px; }
+}
+@media (max-width:320px) {
+  .resume .base .profile .photo { --photo-size: 72px; }
 }

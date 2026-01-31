@@ -111,7 +111,7 @@
   --lighter-black: #333333;
   --darker-green: #1A1C20;
   --lighter-green: #464B53;
-  --brighter-green: #518397;
+  --brighter-green: #464B53;
   --pure-white: #ffffff;
   --off-white-1: #f8f8f8;
   --off-white-2: #f2f2f2;
@@ -199,21 +199,12 @@ h3 {
 .resume .base,
 .resume .func {
   box-sizing: border-box;
-  float: left;
+  float: center;
 }
 
-.resume .base > div,
-.resume .func > div {
-  padding-bottom: 10px;
-}
-
-.resume .base > div:last-of-type,
-.resume .func > div:last-of-type {
-  padding-bottom: 0;
-}
 
 .resume .base {
-  width: 30%;
+  width: 100%;
   padding: 30px 15px;
   background: var(--white);
   color: var(--black);
