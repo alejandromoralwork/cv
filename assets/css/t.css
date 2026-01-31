@@ -1,3 +1,13 @@
+/* Make links inside .project-title look like normal text */
+.project-title a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+.project-title a:hover, .project-title a:focus {
+  color: inherit;
+  text-decoration: underline;
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Portfolio Variables */
@@ -149,7 +159,7 @@
   padding: 18px;
   border-radius: 12px;
   background: var(--jet);
-  color: var(--orange-yellow-crayola);
+  color: var(--eerie-black2);
   opacity: 0;
   z-index: 2;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -164,6 +174,15 @@
   padding: 15px;
   background: #f9f9f9;
 }
+
+
+.project-title h3 {
+  color: inherit;
+  background: none;
+  text-decoration: none;
+  color: var(--eerie-black2)
+}
+
 .project-title {
   margin: 0 0 10px;
   font-size: 1.2em;
@@ -179,7 +198,7 @@
 .project-link {
   display: inline-block;
   padding: 8px 16px;
-  background: var(--orange-yellow-crayola);
+  background:  var(--eerie-black2);
   color: #fff;
   text-decoration: none;
   font-size: 0.9em;
@@ -188,7 +207,7 @@
   margin-bottom: 10px;
 }
 .project-link:hover {
-  background: #d89c1f;
+  background:  var(--eerie-black2);
 }
 .project-category {
   font-size: 0.85em;
@@ -221,7 +240,7 @@
     left: 50%;
     width: 25%;
     height: 2px;
-    background: var(--orange-yellow-crayola);
+    background: var(--eerie-black2);
     transform: translateX(-50%);
     border-radius: 2px;
     transition: width 0.3s ease;
