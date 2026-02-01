@@ -242,25 +242,29 @@ html, body {
   transition-duration: 0.3s;
 }
 
-/* GitHub Logo - Font Awesome with Red Background */
-.github-link {
+/* GitHub Social Icon - Multiple Icon Libraries Test */
+.github-social {
   display: inline-block;
   text-decoration: none;
+  padding: 0;
+  margin: 2px;
 }
-.github-icon {
-  font-size: 30px;
-  color: white;
-  background-color: var(--black);
+.github-social-icon {
   width: 46px;
   height: 46px;
+  padding: 8px;
+  background-color: black;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 46px;
+  color: white;
+  transition: background-color 0.3s;
+  font-size: 24px;
+  line-height: 1;
 }
-.github-link:hover .github-icon {
-  background-color: var(--black);
+.github-social:hover .github-social-icon {
+  background-color: black;
 }
 
 /* Headings */

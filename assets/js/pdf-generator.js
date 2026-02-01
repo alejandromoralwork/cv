@@ -7,6 +7,19 @@
 async function generateResumePDF(customFileName = null) {
   console.log('Starting PDF generation - forcing exactly 2 pages...');
   
+  // Ensure GitHub icon is loaded and visible for PDF
+  const githubIcon = document.querySelector('.github-social-icon');
+  if (githubIcon) {
+    // Force Font Awesome to render the icon
+    if (window.FontAwesome && window.FontAwesome.config) {
+      window.FontAwesome.config.observeMutationsFast = false;
+    }
+    githubIcon.style.display = 'flex';
+    githubIcon.style.visibility = 'visible';
+    githubIcon.style.opacity = '1';
+    console.log('GitHub icon ensured visible for PDF generation');
+  }
+  
   // Get current version for filename if not provided
   let fileName = customFileName;
   if (!fileName && window.cvController) {
