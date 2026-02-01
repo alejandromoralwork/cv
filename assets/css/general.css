@@ -262,7 +262,7 @@ html, body {
   line-height: 46px !important;
 }
 .github-link:hover .github-icon {
-  background-color: #cc0000 !important;
+  background-color: var(--black) !important;
 }
 
 /* Headings */
