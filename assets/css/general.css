@@ -244,25 +244,23 @@ html, body {
 
 /* GitHub Logo - Font Awesome with Red Background */
 .github-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-decoration: none !important;
+  display: inline-block;
+  text-decoration: none;
 }
 .github-icon {
-  font-size: 30px !important;
-  color: #ffffff !important;
-  background-color: var(--black) !important;
-  width: 46px !important;
-  height: 46px !important;
-  border-radius: 50% !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  line-height: 46px !important;
+  font-size: 30px;
+  color: white;
+  background-color: var(--black);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 46px;
 }
 .github-link:hover .github-icon {
-  background-color: var(--black) !important;
+  background-color: var(--black);
 }
 
 /* Headings */
@@ -281,13 +279,13 @@ html, body {
 /* Ensure .work and .edu sections have white background */
 .resume .func .work,
 .resume .func .edu {
-  background-color: var(--white) !important;
+  background-color: var(--white) ;
 }
 
 /* Ensure li inside .work and .edu are white */
 .resume .func .work ul li,
 .resume .func .edu ul li {
-  background-color: var(--white) !important;
+  background-color: var(--white) ;
 }
 .coursework:before, .program:before {
   content: '•';
@@ -566,7 +564,7 @@ body { padding-top: 64px; }
 }
 .pdf-export-container img { max-width: 100%; height: auto; }
 body.pdf-export #particles-background,
-body.pdf-export #particles-foreground { display: none !important; }
+body.pdf-export #particles-foreground { display: none ; }
 
 /* Contact + Email styles */
 .website-link, .Email {
