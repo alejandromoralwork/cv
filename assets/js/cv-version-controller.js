@@ -148,7 +148,7 @@ class CVVersionController {
   async loadFromLocal() {
     try {
       console.log('Loading CV data from local file...');
-      const response = await fetch('cv-versions.json');
+      const response = await fetch('../admin/cv-versions.json');
       this.versions = await response.json();
       console.log('Local data loaded');
       // Now safe to call applyVersion
@@ -167,7 +167,8 @@ class CVVersionController {
       const nameEl = document.querySelector('.name');
       if (nameEl && data.personal.name) nameEl.textContent = data.personal.name;
       
-      const jobEl = document.querySelector('.job');
+      // Try multiple selectors for job title (more flexible)
+      const jobEl = document.querySelector('.job') || document.querySelector('.info p');
       if (jobEl && data.personal.jobTitle) jobEl.textContent = data.personal.jobTitle;
       
       const aboutEl = document.querySelector('.about p');
@@ -280,11 +281,14 @@ class CVVersionController {
       const projectList = document.querySelector('.project-list');
       if (projectList) {
         projectList.innerHTML = '';
-        data.projects.forEach(project => {
+        // Filter projects: only show active projects
+        const activeProjects = data.projects.filter(project => project.active !== false);
+        activeProjects.forEach(project => {
           const li = document.createElement('li');
           li.className = 'project-item active';
           li.setAttribute('data-filter-item', '');
           li.setAttribute('data-category', project.filterCategory || 'web development');
+          li.setAttribute('data-active', project.active !== false ? 'true' : 'false');
           
           const links = project.links || [];
           const mainLink = links[0] || { url: '#', text: 'View Project' };
@@ -309,6 +313,7 @@ class CVVersionController {
           `;
           projectList.appendChild(li);
         });
+        console.log(`Loaded ${activeProjects.length} active projects out of ${data.projects.length} total`);
       }
     }
 

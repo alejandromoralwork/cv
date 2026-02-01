@@ -1,4 +1,4 @@
-// Firebase Configuration
+// Firebase Configuration - CLEAN VERSION (no password logic)
 // Firestore configuration for jobsearch-a3a6c project
 const firebaseConfig = {
   apiKey: "AIzaSyBHw7K6HMLa2W_PmN9Yctq4XO3Zsng5PXI",
@@ -7,7 +7,6 @@ const firebaseConfig = {
   storageBucket: "jobsearch-a3a6c.appspot.com",
   messagingSenderId: "123456789",
   appId: "1:123456789:web:abcdef123456"
-  // NOTE: No databaseURL for Firestore (only for Realtime Database)
 };
 
 // Initialize Firebase
@@ -40,11 +39,9 @@ const CVDatabase = {
         
         // Data is stored as JSON string to avoid Firestore restrictions
         if (docData.cvData) {
-          // If cvData is already a string, parse it
           if (typeof docData.cvData === 'string') {
             return JSON.parse(docData.cvData);
           }
-          // If it's already an object, return it
           return docData.cvData;
         }
         // Fallback for old format
@@ -60,76 +57,29 @@ const CVDatabase = {
     }
   },
 
-  // Save CV data to Firestore (requires authentication)
-  async saveCVData(cvVersion, data, passwordHash) {
+  // Save CV data to Firestore - NO PASSWORD VERIFICATION
+  async saveCVData(cvVersion, data) {
     try {
       console.log('Saving CV data for version:', cvVersion);
-      
-      // Verify password
-      const isValid = await this.verifyPassword(passwordHash);
-      if (!isValid) {
-        throw new Error('Invalid password');
-      }
 
-      // Store as JSON string to avoid Firestore field name restrictions
       const docRef = db.collection('cv-data').doc(cvVersion);
       const saveData = {
         cvData: typeof data === 'string' ? data : JSON.stringify(data),
-        lastUpdated: firebase.firestore.FieldValue.serverTimestamp(),
+        lastUpdated: new Date().toISOString(),
         version: cvVersion
       };
       
-      console.log('Saving data:', saveData);
-      await docRef.set(saveData);
+      console.log('Saving document...');
+      await docRef.set(saveData, { merge: true });
       
       console.log('CV data saved successfully');
       return true;
     } catch (error) {
       console.error('Error saving CV data:', error);
-      console.error('Error details:', error.message);
+      console.error('Firebase error code:', error.code);
+      console.error('Firebase error message:', error.message);
       throw error;
     }
-  },
-
-  // Verify password against stored hash
-  async verifyPassword(inputHash) {
-    try {
-      const configDoc = await db.collection('admin').doc('config').get();
-      if (configDoc.exists) {
-        const storedHash = configDoc.data().passwordHash;
-        return inputHash === storedHash;
-      }
-      return false;
-    } catch (error) {
-      console.error('Error verifying password:', error);
-      return false;
-    }
-  },
-
-  // Initialize admin password (run once)
-  async initializePassword(password) {
-    try {
-      const hash = await this.hashPassword(password);
-      await db.collection('admin').doc('config').set({
-        passwordHash: hash,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-      console.log('Admin password initialized');
-      return hash;
-    } catch (error) {
-      console.error('Error initializing password:', error);
-      throw error;
-    }
-  },
-
-  // Hash password using SHA-256
-  async hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
   },
 
   // Load all CV versions metadata

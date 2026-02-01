@@ -397,54 +397,23 @@
     
     <!-- Firebase Config -->
     <script src="firebase-config.js"></script>
-
     <script>
-        let currentPasswordHash = null;
         let currentVersion = 'neutral_finance';
         let currentData = null;
-
-        // Hardcoded password hash for 'cv' - SHA-256 hash
-        const ADMIN_PASSWORD_HASH = '29cdee48e28d8104186513c96be32955f6203cffa61833e36a88a37ecbff7989';
 
         // Initialize Firebase on page load
         window.addEventListener('DOMContentLoaded', () => {
             initializeFirebase();
+            // Skip login and go directly to admin panel
+            document.getElementById('loginPanel').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+            loadVersion();
         });
-
-        // Login function
-        async function login() {
-            const password = document.getElementById('password').value;
-            if (!password) {
-                showStatus('loginStatus', 'Please enter a password', 'error');
-                return;
-            }
-
-            try {
-                showStatus('loginStatus', 'Verifying password...', 'info');
-                currentPasswordHash = await CVDatabase.hashPassword(password);
-                
-                // Check against hardcoded hash (password: 'cv')
-                if (currentPasswordHash === ADMIN_PASSWORD_HASH) {
-                    document.getElementById('loginPanel').style.display = 'none';
-                    document.getElementById('adminPanel').style.display = 'block';
-                    showStatus('status', 'Login successful! Loading CV data...', 'success');
-                    loadVersion();
-                } else {
-                    showStatus('loginStatus', 'Invalid password', 'error');
-                    currentPasswordHash = null;
-                }
-            } catch (error) {
-                showStatus('loginStatus', 'Login failed: ' + error.message, 'error');
-                currentPasswordHash = null;
-            }
-        }
 
         // Logout function
         function logout() {
-            currentPasswordHash = null;
             document.getElementById('adminPanel').style.display = 'none';
             document.getElementById('loginPanel').style.display = 'block';
-            document.getElementById('password').value = '';
         }
 
         // Load CV version data
@@ -494,7 +463,7 @@
                 const data = JSON.parse(jsonText);
                 
                 showStatus('status', 'Saving changes...', 'info');
-                await CVDatabase.saveCVData(currentVersion, data, currentPasswordHash);
+                await CVDatabase.saveCVData(currentVersion, data);
                 
                 currentData = data;
                 showStatus('status', 'Changes saved successfully!', 'success');
@@ -704,7 +673,7 @@
                 };
 
                 showStatus('status', 'Saving changes...', 'info');
-                await CVDatabase.saveCVData(currentVersion, updatedData, currentPasswordHash);
+                await CVDatabase.saveCVData(currentVersion, updatedData);
                 
                 currentData = updatedData;
                 document.getElementById('jsonEditor').value = JSON.stringify(updatedData, null, 2);

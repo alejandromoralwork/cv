@@ -172,15 +172,28 @@ class CVVersionController {
     const projectList = document.querySelector('.project-list');
     if (!projectList) return;
 
+    // First filter by active status
+    const activeProjects = this.allProjects.filter(proj => {
+      const dataActive = proj.element.getAttribute('data-active');
+      return dataActive !== 'false'; // Show by default if not specified, only hide if explicitly false
+    });
+
     if (projectsToShow.includes('all')) {
-      // Show all projects
-      this.allProjects.forEach(proj => {
+      // Show all active projects
+      activeProjects.forEach(proj => {
         proj.element.style.display = 'list-item';
       });
-    } else {
-      // Filter projects
       this.allProjects.forEach(proj => {
-        if (projectsToShow.includes(proj.title)) {
+        if (!activeProjects.includes(proj)) {
+          proj.element.style.display = 'none';
+        }
+      });
+    } else {
+      // Filter projects by version selection AND active status
+      this.allProjects.forEach(proj => {
+        const isActive = activeProjects.includes(proj);
+        const isInShowList = projectsToShow.includes(proj.title);
+        if (isActive && isInShowList) {
           proj.element.style.display = 'list-item';
         } else {
           proj.element.style.display = 'none';

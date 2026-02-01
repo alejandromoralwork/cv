@@ -1,0 +1,250 @@
+{
+  "education": [
+    {
+      "dates": "Sep. 2019 - Sep. 2022 (3 Years) Degree completion one year ahead of schedule (Bac+4)",
+      "description": "",
+      "coursework": [
+        "Strong foundation in financial reporting and accounting standards. Completed University Program in Value Investing and AFI Business School's Valuation Analysis program. Expert in financial statement analysis, reporting standards (IFRS/GAAP), and investor communications.",
+        "Relevant Coursework: Advanced Accounting, Financial Reporting, Financial Statement Analysis, Audit & Assurance"
+      ],
+      "degree": "Bachelor of Finance and Accounting",
+      "school": "University of Malaga"
+    },
+    {
+      "dates": "Sept. 2023 - Sep. 2024",
+      "description": "",
+      "coursework": [
+        "Advanced quantitative finance with focus on data analytics for reporting applications. Developed expertise in financial modeling and automated reporting systems. Relevant coursework: Financial Econometrics, Advanced Statistics, Programming in R, Data Analysis Methods."
+      ],
+      "degree": "Master of Science in Financial Economics",
+      "school": "University of Luxembourg"
+    },
+    {
+      "dates": "Sept. 2024 - Sep.2027 (In progress)",
+      "description": "",
+      "coursework": [
+        "Data science and visualization for reporting applications. Relevant Coursework: Predictive Analytics, Data Visualization, Database Management, Statistical Analysis, Reporting Systems."
+      ],
+      "degree": "Bachelor in Data Science",
+      "school": "IU International University of Applied Sciences"
+    },
+    {
+      "dates": "May. 2025 - Present (In progress)",
+      "description": "",
+      "coursework": [
+        "Programming for automated systems and reporting. Relevant Coursework: Programming, Algorithms, Data Structures, System Programming."
+      ],
+      "degree": "C/C++ Coding Program",
+      "school": "42 Luxembourg"
+    }
+  ],
+  "contact": {
+    "phone": "+34 675949628",
+    "website": "https://alejandromoralwork.github.io/cv/reporting-analyst/",
+    "github": "https://www.github.com/alemxral",
+    "email": "alejandro.moral.work@gmail.com",
+    "location": "Luxembourg",
+    "linkedin": ""
+  },
+  "personal": {
+    "jobTitle": "Fund Reporting & Investor Communications Specialist",
+    "photo": "yo.png",
+    "name": "Alejandro Moral Aranda",
+    "about": "Experienced fund reporting analyst with 3+ years specializing in Private Equity, Private Debt, and Real Estate fund reporting. Expert in automated investor reporting systems, NAV analysis, capital activity reporting, and investor communications. Proven track record developing VBA-based automation tools that reduced monthly reporting cycles by 50% and improved data accuracy by 95%. Proficient in Python for document automation (DAS software), SQL for data extraction and validation, and advanced Excel/VBA for complex financial reporting. Skilled in preparing investor statements, CAS reports, performance analytics, and regulatory filings. Strong background in data analytics, process optimization, and cross-functional collaboration with fund administrators, auditors, and investors."
+  },
+  "interests": [
+    {
+      "icon": "fas fa-chart-bar",
+      "name": "Reporting"
+    },
+    {
+      "icon": "fas fa-file-alt",
+      "name": "Communications"
+    },
+    {
+      "icon": "fas fa-chess",
+      "name": "Chess"
+    },
+    {
+      "icon": "fas fa-code",
+      "name": "Coding"
+    },
+    {
+      "icon": "fas fa-futbol",
+      "name": "Football"
+    }
+  ],
+  "skills": [
+    {
+      "tags": [
+        "Automation",
+        "Reporting"
+      ],
+      "name": "VBA",
+      "years": 5,
+      "percent": 90
+    },
+    {
+      "tags": [
+        "Automation",
+        "Scripting"
+      ],
+      "name": "Python",
+      "years": 4,
+      "percent": 80
+    },
+    {
+      "tags": [
+        "Databases",
+        "Reporting"
+      ],
+      "name": "SQL",
+      "years": 4,
+      "percent": 85
+    },
+    {
+      "tags": [
+        "Stats",
+        "Analysis"
+      ],
+      "name": "R",
+      "years": 3,
+      "percent": 75
+    },
+    {
+      "tags": [
+        "Frontend",
+        "Reporting"
+      ],
+      "name": "JavaScript",
+      "years": 2,
+      "percent": 70
+    },
+    {
+      "tags": [
+        "Markup",
+        "Styling"
+      ],
+      "name": "HTML & CSS",
+      "years": 3,
+      "percent": 70
+    },
+    {
+      "tags": [
+        "Scripting"
+      ],
+      "name": "PowerShell",
+      "years": 2,
+      "percent": 30
+    },
+    {
+      "tags": [
+        "Systems"
+      ],
+      "name": "C/C++",
+      "years": 1,
+      "percent": 60
+    }
+  ],
+  "workExperience": [
+    {
+      "dates": "February 2024 - Current",
+      "title": "PERE Fund Accountant & Transfer Agency",
+      "description": "Investor reporting and communications for Private Equity and Real Estate Funds. Prepared monthly/quarterly investor statements, NAV reports, and performance analytics. Managed communications with investors regarding capital activities, distributions, and fund performance. Developed automated reporting systems reducing manual work by 50%.",
+      "company": "Arendt Investor Services"
+    },
+    {
+      "dates": "April 2022 - September 2023 (1.5 Year)",
+      "title": "Private Debt Fund Accountant",
+      "description": "Investor reporting for Permira Debt Funds. Prepared CAS compliance reports, investor communications, and performance analysis. Coordinated with multiple stakeholders (administrators, auditors, investors) on reporting matters.",
+      "company": "Alter Domus"
+    },
+    {
+      "dates": "October 2021 - March 2022 (6 Months)",
+      "title": "Wealth Management Internship",
+      "description": "Client reporting and communications. Portfolio analysis and performance reporting for clients.",
+      "company": "UBS Europe SE"
+    },
+    {
+      "dates": "June 2021 - August 2021 (3 Months)",
+      "title": "M&A Analyst Internship",
+      "description": "Analysis reporting and stakeholder communication for acquisition processes.",
+      "company": "Empresax"
+    },
+    {
+      "dates": "2020 - Present (4 Years)",
+      "title": "Individual Investor",
+      "description": "Portfolio reporting and performance analysis. Investment communications and decision reporting.",
+      "company": ""
+    }
+  ],
+  "projects": [
+    {
+      "title": "DAS - Document Automation Software",
+      "description": "Python-based document automation system designed for general purpose. Generate customized reports from templates with support for multiple input formats (Excel, CSV, JSON, SQL databases) and output formats (PDF, Word, Excel, HTML). Features advanced template engine with conditional logic, dynamic data binding, variable substitution, batch processing capabilities, and automated scheduling.",
+      "category": "Python / Automation / Reporting",
+      "filterCategory": "automation",
+      "image": "DA.PNG",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://github.com/alemxral/DAS"
+        }
+      ],
+      "active": true
+    },
+    {
+      "title": "VBA Automated Reporting Tools",
+      "description": "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+      "category": "Visual Basic for Applications (VBA)",
+      "filterCategory": "automation",
+      "image": "VBA.PNG",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+        }
+      ],
+      "active": true
+    },
+    {
+      "title": "Research Papers",
+      "description": "A collection of research papers on fund reporting, investor communications, and financial analytics.",
+      "category": "Research",
+      "filterCategory": "research",
+      "image": "research.PNG",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://github.com/alemxral/Research"
+        }
+      ],
+      "active": false
+    }
+  ],
+  "languages": [
+    {
+      "flag": "spain.png",
+      "name": "Spanish (Native)"
+    },
+    {
+      "flag": "uk.png",
+      "name": "English (Fluent)"
+    },
+    {
+      "flag": "france.png",
+      "name": "French (Medium)"
+    },
+    {
+      "flag": "japan.png",
+      "name": "Japanese (Basic)"
+    },
+    {
+      "flag": "china.png",
+      "name": "Chinese (Basic)"
+    }
+  ],
+  "name": "Alejandro Moral Aranda",
+  "jobTitle": "Fund Reporting & Investor Communications Specialist",
+  "about": "Experienced fund reporting analyst with 3+ years specializing in Private Equity, Private Debt, and Real Estate fund reporting. Expert in automated investor reporting systems, NAV analysis, capital activity reporting, and investor communications. Proven track record developing VBA-based automation tools that reduced monthly reporting cycles by 50% and improved data accuracy by 95%. Proficient in Python for document automation (DAS software), SQL for data extraction and validation, and advanced Excel/VBA for complex financial reporting. Skilled in preparing investor statements, CAS reports, performance analytics, and regulatory filings. Strong background in data analytics, process optimization, and cross-functional collaboration with fund administrators, auditors, and investors."
+}

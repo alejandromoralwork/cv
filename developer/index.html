@@ -7,17 +7,19 @@
 <!-- ...existing code... -->
 <meta content="width=1200, initial-scale=0.4, maximum-scale=1.0, user-scalable=yes" name="viewport"/>
 <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"/>
-<link href="../assets/css/pure_coding.css" rel="stylesheet"/>
+<!-- Feather Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+<!-- Heroicons SVG -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/outline/index.css">
+<link href="../assets/css/general.css" rel="stylesheet"/>
 <link href="../assets/css/t.css" rel="stylesheet"/>
 <!-- Firebase App (core SDK) -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <!-- Firebase Firestore -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
-<!-- Firebase App (core SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<!-- Firebase Firestore -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"/>
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script>
@@ -42,6 +44,10 @@
 </script>
 </head>
 <body>
+  <!-- Preloader overlay -->
+  <div id="preloader-overlay">
+    <div class="preloader-spinner"></div>
+  </div>
 <nav class="navbar">
 <ul class="nav-list">
 <li class="nav-item" id="nav-cv"><a href="#cv">CV</a></li>
@@ -55,41 +61,78 @@
 <div class="vertical-centered-box" id="particles-background"></div>
 <div class="vertical-centered-box" id="particles-foreground"></div>
 <div class="resume">
-<div class="base">
-<div class="profile">
-<div class="photo">
-<img alt="Description of Image" src="../assets/images/yo.png"/>
-</div>
-<div class="info">
-<h1 class="name"></h1>
-<h2 class="job"></h2>
-</div>
-</div>
-<div class="about">
-<h3>About Me</h3>
-<p></p>
-</div>
-<div class="contact">
-<h3>Contact Me</h3>
-<div class="call"><a href="tel:+34 675949628"><i class="fas fa-phone"></i><span></span></a></div>
-<div class="address"><i class="fas fa-map-marker"></i><span></span>
-</div>
-<div class="email"><a href="mailto:alejandro.moral.work@gmail.com"><i class="fas fa-envelope"></i><span></span></a></div>
-<div class="website-link">
-<a href="https://alejandromoralwork.github.io/cv/reporting-analyst/" target="_blank">
-<i class="fas fa-globe"></i>
-<span class="website-text"></span>
-</a>
-</div>
-</div>
-<div class="follow">
-<h3>Follow Me</h3>
-<div class="box">
-<a href="https://www.github.com/alejandromoralwork" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-</div>
-</div>
+
 <div class="func">
+
+<div class="base">
+
+  <div class="default">
+ <div class="profile">
+
+        <div class="photo">
+            <!-- Using a placeholder image for demo purposes -->
+            <img alt="Alejandro Moral" src="../assets/images/yo.png"/>
+        </div>
+
+        <div class="info">
+            <h1 class="name">Alejandro Moral</h1>
+            <!-- Added a subtitle for context -->
+            <p class="job" style="margin-top: 0.5rem; font-size: 1.1rem; color: #7f8c8d;">Reporting Analyst</p>
+        </div>
+
+        <div class="contact">
+            <h3>Contact</h3>
+            <div class="call">
+                <a href="tel:+34 675949628">
+                    <i class="fas fa-phone"></i>
+                    <span>+34 675 949 628</span>
+                </a>
+            </div>
+            <div class="address">
+                <i class="fas fa-map-marker-alt"></i> <!-- Updated icon class -->
+                <span>Madrid, Spain</span>
+            </div>
+            <div class="email">
+                <a href="mailto:alejandro.moral.work@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>alejandro.moral.work@gmail.com</span>
+                </a>
+            </div>
+            <div class="website-link">
+                <a href="https://alejandromoralwork.github.io/cv/reporting-analyst/" target="_blank">
+                    <i class="fas fa-globe"></i>
+                    <span class="website-text">Portfolio Website</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="follow">
+          <!-- 1. Font Awesome SVG (js rendered) -->
+          <a href="https://www.github.com/alejandromoralwork" target="_blank" class="github-social" title="Font Awesome">
+            <i class="fab fa-github github-social-icon"></i>
+          </a>
+          
+          <!-- 2. Feather Icons -->
+          <!-- <a href="https://www.github.com/alejandromoralwork" target="_blank" class="github-social" title="Feather">
+            <svg class="github-social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.375 3.375 0 0 0-.975-2.438A3.375 3.375 0 0 0 16.037 9c1.582 0 3.087.712 4.287 1.875A5.003 5.003 0 0 1 22 14.5V22M9 19c5 1.5 5-2.5 7-3"></path></svg>
+          </a> -->
+          
+          <!-- 3. Bootstrap Icons -->
+          <!-- <a href="https://www.github.com/alejandromoralwork" target="_blank" class="github-social" title="Bootstrap">
+            <i class="bi bi-github github-social-icon"></i>
+          </a> -->
+          
+          <!-- 4. Simple Icons SVG -->
+          <!-- <a href="https://www.github.com/alejandromoralwork" target="_blank" class="github-social" title="Simple Icons">
+            <svg class="github-social-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a> -->
+        </div>
+
+    </div>
+    </div>
+
+
+
 <div class="edu">
 <h3><i class="fa fa-graduation-cap"></i>Education</h3>
 <ul></ul>
@@ -98,7 +141,9 @@
 <h3><i class="fa fa-briefcase"></i>Work Experience</h3>
 <ul></ul>
 </div>
-<div class="skills-prog">
+<div class="default">
+
+  
 <h3><i class="fas fa-code"></i>Skills</h3>
 <!-- Compact grid of skills: name, tags, years (estimated), small meter and percent -->
 <div aria-label="Skills" class="skills-grid"></div>
@@ -189,7 +234,7 @@
       });
     })();
     </script>
-    <div class="interests">
+    <div class="default">
       <h3><i class="fas fa-star"></i>Interests</h3>
       <div class="interests-items">
         <div class="interest"><i class="fas fa-chess"></i><span>Chess</span></div>
@@ -201,7 +246,7 @@
     </div>
 
 
-    <div class="interests">
+    <div class="default">
         <h3><i class="fas fa-star"></i>Languages</h3>
       <div class="interests-items">
         <div class="language"><img src="../assets/images/spain.png" alt="Spanish Flag" class="flag"><span>Spanish (Native)</span></div>
@@ -210,11 +255,7 @@
         <div class="language"><img src="../assets/images/japan.png" alt="Japanese Flag" class="flag"><span>Japanese (Basic)</span></div>
         <div class="language"><img src="../assets/images/china.png" alt="Chinese Flag" class="flag"><span>Chinese (Basic)</span></div>
     </div>
-    </div><div class="projects" id="projects-content">
-<h2 class="projects-title" data-value="PROJECTS">PROJECTS</h2>
-<!-- Project Grid -->
-<ul class="project-list"></ul>
-</div>
+
 </div>
 <!-- partial -->
 <!-- html2pdf library for PDF generation -->
@@ -228,5 +269,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script src="../assets/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><script src="../assets/js/bd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script src="../assets/js/utils.js"></script>
-</div></body>
+
+
+
+  </div>
+
+</div><div class="projects" id="projects-content">
+
+      
+<h2 class="projects-title" data-value="PROJECTS">PROJECTS</h2>
+<!-- Project Grid -->
+<ul class="project-list"></ul>
+</div>
+
+
 </html>
