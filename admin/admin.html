@@ -430,29 +430,10 @@
                     loadVisualEditor();
                     showStatus('status', 'CV data loaded successfully', 'success');
                 } else {
-                    // Load from local cv-versions.json as fallback
-                    await loadFromLocal();
+                    showStatus('status', 'Error: Could not load CV data from Firebase', 'error');
                 }
             } catch (error) {
                 showStatus('status', 'Error loading data: ' + error.message, 'error');
-                await loadFromLocal();
-            }
-        }
-
-        // Load from local JSON file as fallback
-        async function loadFromLocal() {
-            try {
-                const response = await fetch('cv-data-complete.json');
-                const allVersions = await response.json();
-                
-                if (allVersions[currentVersion]) {
-                    currentData = allVersions[currentVersion];
-                    document.getElementById('jsonEditor').value = JSON.stringify(currentData, null, 2);
-                    loadVisualEditor();
-                    showStatus('status', 'Loaded from local file (not yet saved to database)', 'info');
-                }
-            } catch (error) {
-                showStatus('status', 'Error loading local data: ' + error.message, 'error');
             }
         }
 

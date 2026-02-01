@@ -1,73 +1,72 @@
 {
   "education": [
     {
-      "dates": "Sep. 2019 - Sep. 2022 (3 Years) Degree completion one year ahead of schedule (Bac+4)",
+      "dates": "May. 2025 - Present (In progress)",
       "description": "",
       "coursework": [
-        "Strong foundation in financial reporting and accounting standards. Completed University Program in Value Investing and AFI Business School's Valuation Analysis program. Expert in financial statement analysis, reporting standards (IFRS/GAAP), and investor communications.",
-        "Relevant Coursework: Advanced Accounting, Financial Reporting, Financial Statement Analysis, Audit & Assurance"
+        "Core programming foundations with focus on low-level systems and algorithms. Advanced coursework: C Programming, Algorithms and Data Structures, System Programming, Network Programming, Low-Level Programming, Software Engineering Principles."
       ],
-      "degree": "Bachelor of Finance and Accounting",
-      "school": "University of Malaga"
-    },
-    {
-      "dates": "Sept. 2023 - Sep. 2024",
-      "description": "",
-      "coursework": [
-        "Advanced quantitative finance with focus on data analytics for reporting applications. Developed expertise in financial modeling and automated reporting systems. Relevant coursework: Financial Econometrics, Advanced Statistics, Programming in R, Data Analysis Methods."
-      ],
-      "degree": "Master of Science in Financial Economics",
-      "school": "University of Luxembourg"
+      "degree": "C/C++ Coding Program",
+      "school": "42 Luxembourg"
     },
     {
       "dates": "Sept. 2024 - Sep.2027 (In progress)",
       "description": "",
       "coursework": [
-        "Data science and visualization for reporting applications. Relevant Coursework: Predictive Analytics, Data Visualization, Database Management, Statistical Analysis, Reporting Systems."
+        "Full-stack development and computer science fundamentals. Relevant Coursework: Database Management, Software Development, Algorithms, Data Structures, Web Development, Distributed Systems."
       ],
       "degree": "Bachelor in Data Science",
       "school": "IU International University of Applied Sciences"
     },
     {
-      "dates": "May. 2025 - Present (In progress)",
+      "dates": "Sept. 2023 - Sep. 2024",
       "description": "",
       "coursework": [
-        "Programming for automated systems and reporting. Relevant Coursework: Programming, Algorithms, Data Structures, System Programming."
+        "Programming and quantitative analysis for software development. Relevant coursework: Programming in R, Advanced Statistics, Data Processing, Economic Research Methods, Software Engineering."
       ],
-      "degree": "C/C++ Coding Program",
-      "school": "42 Luxembourg"
+      "degree": "Master of Science in Financial Economics",
+      "school": "University of Luxembourg"
+    },
+    {
+      "dates": "Sep. 2019 - Sep. 2022 (3 Years) Degree completion one year ahead of schedule (Bac+4)",
+      "description": "",
+      "coursework": [
+        "Foundations in programming and software development. Relevant Coursework: Programming Fundamentals, Data Structures, Software Design Patterns, Database Design."
+      ],
+      "degree": "Bachelor of Finance and Accounting",
+      "school": "University of Malaga"
     }
   ],
   "contact": {
     "phone": "+34 675949628",
-    "website": "https://alejandromoralwork.github.io/cv/reporting-analyst/",
+    "website": "https://alejandromoralwork.github.io/cv/developer/",
     "github": "https://www.github.com/alemxral",
     "email": "alejandro.moral.work@gmail.com",
     "location": "Luxembourg",
     "linkedin": ""
   },
   "personal": {
-    "jobTitle": "Fund Reporting & Investor Communications Specialist",
+    "jobTitle": "Full Stack Software Developer",
     "photo": "yo.png",
     "name": "Alejandro Moral Aranda",
-    "about": "Experienced fund reporting analyst with 3+ years specializing in Private Equity, Private Debt, and Real Estate fund reporting. Expert in automated investor reporting systems, NAV analysis, capital activity reporting, and investor communications. Proven track record developing VBA-based automation tools that reduced monthly reporting cycles by 50% and improved data accuracy by 95%. Proficient in Python for document automation (DAS software), SQL for data extraction and validation, and advanced Excel/VBA for complex financial reporting. Skilled in preparing investor statements, CAS reports, performance analytics, and regulatory filings. Strong background in data analytics, process optimization, and cross-functional collaboration with fund administrators, auditors, and investors."
+    "about": "Experienced software developer with strong foundations in C/C++, Python, and JavaScript. Expertise in building scalable applications, backend systems, and automation tools. Proficient in system programming, algorithms, and software architecture. Proven track record developing VBA-based automation tools, Python document automation systems, and complex financial software. Strong background in databases (SQL), system design, and cross-platform development. Experienced with version control, testing frameworks, and agile development practices."
   },
   "interests": [
     {
-      "icon": "fas fa-chart-bar",
-      "name": "Reporting"
-    },
-    {
-      "icon": "fas fa-file-alt",
-      "name": "Communications"
+      "icon": "fas fa-code",
+      "name": "Coding"
     },
     {
       "icon": "fas fa-chess",
       "name": "Chess"
     },
     {
-      "icon": "fas fa-code",
-      "name": "Coding"
+      "icon": "fas fa-calculator",
+      "name": "Maths"
+    },
+    {
+      "icon": "fas fa-film",
+      "name": "Anime"
     },
     {
       "icon": "fas fa-futbol",
@@ -77,17 +76,17 @@
   "skills": [
     {
       "tags": [
-        "Automation",
-        "Reporting"
+        "Backend",
+        "Systems"
       ],
-      "name": "VBA",
-      "years": 5,
-      "percent": 90
+      "name": "C/C++",
+      "years": 1,
+      "percent": 60
     },
     {
       "tags": [
-        "Automation",
-        "Scripting"
+        "Backend",
+        "Automation"
       ],
       "name": "Python",
       "years": 4,
@@ -95,26 +94,8 @@
     },
     {
       "tags": [
-        "Databases",
-        "Reporting"
-      ],
-      "name": "SQL",
-      "years": 4,
-      "percent": 85
-    },
-    {
-      "tags": [
-        "Stats",
-        "Analysis"
-      ],
-      "name": "R",
-      "years": 3,
-      "percent": 75
-    },
-    {
-      "tags": [
         "Frontend",
-        "Reporting"
+        "Web"
       ],
       "name": "JavaScript",
       "years": 2,
@@ -131,6 +112,14 @@
     },
     {
       "tags": [
+        "Databases"
+      ],
+      "name": "SQL",
+      "years": 4,
+      "percent": 85
+    },
+    {
+      "tags": [
         "Scripting"
       ],
       "name": "PowerShell",
@@ -139,42 +128,52 @@
     },
     {
       "tags": [
-        "Systems"
+        "Stats",
+        "Analysis"
       ],
-      "name": "C/C++",
-      "years": 1,
-      "percent": 60
+      "name": "R",
+      "years": 3,
+      "percent": 75
+    },
+    {
+      "tags": [
+        "Macros",
+        "VBA"
+      ],
+      "name": "VBA",
+      "years": 5,
+      "percent": 90
     }
   ],
   "workExperience": [
     {
       "dates": "February 2024 - Current",
       "title": "PERE Fund Accountant & Transfer Agency",
-      "description": "Investor reporting and communications for Private Equity and Real Estate Funds. Prepared monthly/quarterly investor statements, NAV reports, and performance analytics. Managed communications with investors regarding capital activities, distributions, and fund performance. Developed automated reporting systems reducing manual work by 50%.",
+      "description": "Developed automation solutions for repetitive workflows and reporting. Led data migration projects between accounting systems. Created custom reporting tools and APIs for fund management systems.",
       "company": "Arendt Investor Services"
     },
     {
       "dates": "April 2022 - September 2023 (1.5 Year)",
       "title": "Private Debt Fund Accountant",
-      "description": "Investor reporting for Permira Debt Funds. Prepared CAS compliance reports, investor communications, and performance analysis. Coordinated with multiple stakeholders (administrators, auditors, investors) on reporting matters.",
+      "description": "Developed SQL queries for data validation and reconciliation. Created automated Excel/VBA tools for loan amortization schedules and interest accrual calculations.",
       "company": "Alter Domus"
     },
     {
       "dates": "October 2021 - March 2022 (6 Months)",
       "title": "Wealth Management Internship",
-      "description": "Client reporting and communications. Portfolio analysis and performance reporting for clients.",
+      "description": "Worked with financial systems and databases for client portfolio management and reporting.",
       "company": "UBS Europe SE"
     },
     {
       "dates": "June 2021 - August 2021 (3 Months)",
       "title": "M&A Analyst Internship",
-      "description": "Analysis reporting and stakeholder communication for acquisition processes.",
+      "description": "Financial analysis and data processing for acquisition research.",
       "company": "Empresax"
     },
     {
       "dates": "2020 - Present (4 Years)",
       "title": "Individual Investor",
-      "description": "Portfolio reporting and performance analysis. Investment communications and decision reporting.",
+      "description": "Portfolio management using custom Python tools and financial modeling applications.",
       "company": ""
     }
   ],
@@ -301,6 +300,6 @@
     }
   ],
   "name": "Alejandro Moral Aranda",
-  "jobTitle": "Fund Reporting & Investor Communications Specialist",
-  "about": "Experienced fund reporting analyst with 3+ years specializing in Private Equity, Private Debt, and Real Estate fund reporting. Expert in automated investor reporting systems, NAV analysis, capital activity reporting, and investor communications. Proven track record developing VBA-based automation tools that reduced monthly reporting cycles by 50% and improved data accuracy by 95%. Proficient in Python for document automation (DAS software), SQL for data extraction and validation, and advanced Excel/VBA for complex financial reporting. Skilled in preparing investor statements, CAS reports, performance analytics, and regulatory filings. Strong background in data analytics, process optimization, and cross-functional collaboration with fund administrators, auditors, and investors."
+  "jobTitle": "Full Stack Software Developer",
+  "about": "Experienced software developer with strong foundations in C/C++, Python, and JavaScript. Expertise in building scalable applications, backend systems, and automation tools. Proficient in system programming, algorithms, and software architecture. Proven track record developing VBA-based automation tools, Python document automation systems, and complex financial software. Strong background in databases (SQL), system design, and cross-platform development. Experienced with version control, testing frameworks, and agile development practices."
 }

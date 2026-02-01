@@ -99,14 +99,15 @@ class CVVersionController {
   }
 
   async loadVersions() {
-    // Try loading from Firebase first
+    // Only load from Firebase - no local fallback
     if (this.firebaseInitialized) {
       const loaded = await this.loadFromFirebase();
-      if (loaded) return;
+      if (!loaded) {
+        console.error('Failed to load CV data from Firebase for version:', this.currentVersion);
+      }
+    } else {
+      console.error('Firebase not initialized - cannot load CV data');
     }
-    
-    // Fallback to local JSON
-    await this.loadFromLocal();
   }
 
   async loadFromFirebase() {
@@ -145,19 +146,6 @@ class CVVersionController {
     }
   }
 
-  async loadFromLocal() {
-    try {
-      console.log('Loading CV data from local file...');
-      const response = await fetch('../admin/cv-versions.json');
-      this.versions = await response.json();
-      console.log('Local data loaded');
-      // Now safe to call applyVersion
-      this.applyVersion(this.currentVersion);
-    } catch (error) {
-      console.error('Failed to load CV versions:', error);
-      this.versions = {};
-    }
-  }
 
   populatePageWithData(data) {
     console.log('Populating page with data:', data);
