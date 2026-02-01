@@ -25,22 +25,49 @@ class CVVersionController {
       'investment': 'investment_analysis',
       'finance': 'neutral_finance',
       'developer': 'pure_coding',
-      'reporting-analyst': 'reporting_analyst'
+      'reporting-analyst': 'fund_accounting'
     };
     
-    for (const [pathSegment, firebaseVersion] of Object.entries(versionMap)) {
+    for (const [pathSegment] of Object.entries(versionMap)) {
       if (path.includes('/' + pathSegment + '/')) {
-        console.log('Detected version from path:', firebaseVersion);
-        return firebaseVersion;
+        console.log('Detected version from path:', pathSegment, '->', this.normalizeVersionKey(pathSegment));
+        return pathSegment;
       }
     }
     return null;
+  }
+
+  normalizeVersionKey(version) {
+    if (!version) return version;
+    const versionMap = {
+      'data-science': 'data_science',
+      'data_science': 'data_science',
+      'fintech': 'fintech',
+      'fund-accounting': 'fund_accounting',
+      'fund_accounting': 'fund_accounting',
+      'investment': 'investment_analysis',
+      'investment-analysis': 'investment_analysis',
+      'investment_analysis': 'investment_analysis',
+      'finance': 'neutral_finance',
+      'neutral-finance': 'neutral_finance',
+      'neutral_finance': 'neutral_finance',
+      'developer': 'pure_coding',
+      'pure-coding': 'pure_coding',
+      'pure_coding': 'pure_coding',
+      'reporting-analyst': 'fund_accounting',
+      'reporting_analyst': 'fund_accounting'
+    };
+    if (versionMap[version]) return versionMap[version];
+    return version.includes('-') ? version.replace(/-/g, '_') : version;
   }
 
   async init() {
     this.showPreloader();
     // Initialize Firebase first
     await this.initializeFirebase();
+
+    // Apply URL version before loading data
+    this.loadVersionFromURL();
 
     // Load CV data from Firebase or local
     await this.loadVersions();
@@ -50,7 +77,6 @@ class CVVersionController {
     this.allProjects = this.getAllProjects();
 
     this.setupEventListeners();
-    this.loadVersionFromURL();
     // Do NOT call applyVersion here; it will be called after data is loaded in loadFromLocal/loadFromFirebase
     this.hidePreloader();
   }
@@ -113,7 +139,8 @@ class CVVersionController {
   async loadFromFirebase() {
     try {
       console.log('Loading CV data from Firebase...');
-      const docRef = this.db.collection('cv-data').doc(this.currentVersion);
+      const firebaseVersion = this.normalizeVersionKey(this.currentVersion);
+      const docRef = this.db.collection('cv-data').doc(firebaseVersion);
       const doc = await docRef.get();
 
       if (doc.exists) {
@@ -137,7 +164,7 @@ class CVVersionController {
         this.applyVersion(this.currentVersion);
         return true;
       } else {
-        console.log('No Firebase data found for version:', this.currentVersion);
+        console.log('No Firebase data found for version:', firebaseVersion);
         return false;
       }
     } catch (error) {
@@ -326,8 +353,8 @@ class CVVersionController {
   loadVersionFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const version = urlParams.get('version');
-    if (version && this.versions[version]) {
-      this.currentVersion = version;
+    if (version) {
+      this.currentVersion = this.normalizeVersionKey(version);
     }
   }
 
@@ -350,27 +377,29 @@ class CVVersionController {
   }
 
   switchVersion(version) {
+    const displayVersion = version;
+    const normalizedVersion = this.normalizeVersionKey(version);
     if (!this.versions) {
       console.error('CVVersionController: versions data is not loaded. Cannot switch version.');
       return;
     }
-    if (!this.versions[version]) {
+    if (!this.versions[normalizedVersion] && !this.versions[displayVersion]) {
       console.error('Version not found:', version);
       return;
     }
 
-    this.currentVersion = version;
-    this.applyVersion(version);
+    this.currentVersion = normalizedVersion;
+    this.applyVersion(normalizedVersion);
 
     // Update URL without reload
     const url = new URL(window.location);
-    url.searchParams.set('version', version);
+    url.searchParams.set('version', displayVersion);
     window.history.pushState({}, '', url);
 
     // Update selector
     const selector = document.getElementById('version-selector');
     if (selector) {
-      selector.value = version;
+      selector.value = displayVersion;
     }
 
     // Auto-refresh PDF preview if function exists

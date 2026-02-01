@@ -12,6 +12,30 @@ const firebaseConfig = {
 // Initialize Firebase
 let app, db;
 
+function normalizeVersionKey(version) {
+  if (!version) return version;
+  const versionMap = {
+    'data-science': 'data_science',
+    'data_science': 'data_science',
+    'fintech': 'fintech',
+    'fund-accounting': 'fund_accounting',
+    'fund_accounting': 'fund_accounting',
+    'investment': 'investment_analysis',
+    'investment-analysis': 'investment_analysis',
+    'investment_analysis': 'investment_analysis',
+    'finance': 'neutral_finance',
+    'neutral-finance': 'neutral_finance',
+    'neutral_finance': 'neutral_finance',
+    'developer': 'pure_coding',
+    'pure-coding': 'pure_coding',
+    'pure_coding': 'pure_coding',
+    'reporting-analyst': 'fund_accounting',
+    'reporting_analyst': 'fund_accounting'
+  };
+  if (versionMap[version]) return versionMap[version];
+  return version.includes('-') ? version.replace(/-/g, '_') : version;
+}
+
 function initializeFirebase() {
   if (typeof firebase !== 'undefined') {
     app = firebase.initializeApp(firebaseConfig);
@@ -27,10 +51,11 @@ function initializeFirebase() {
 // CV Data Management
 const CVDatabase = {
   // Load CV data from Firestore
-  async loadCVData(cvVersion = 'neutral-finance') {
+  async loadCVData(cvVersion = 'neutral_finance') {
     try {
-      console.log('Loading CV data for version:', cvVersion);
-      const docRef = db.collection('cv-data').doc(cvVersion);
+      const firebaseVersion = normalizeVersionKey(cvVersion);
+      console.log('Loading CV data for version:', firebaseVersion);
+      const docRef = db.collection('cv-data').doc(firebaseVersion);
       const doc = await docRef.get();
       
       if (doc.exists) {
@@ -47,7 +72,7 @@ const CVDatabase = {
         // Fallback for old format
         return docData;
       } else {
-        console.log('No CV data found for version:', cvVersion);
+        console.log('No CV data found for version:', firebaseVersion);
         return null;
       }
     } catch (error) {
@@ -60,13 +85,14 @@ const CVDatabase = {
   // Save CV data to Firestore - NO PASSWORD VERIFICATION
   async saveCVData(cvVersion, data) {
     try {
-      console.log('Saving CV data for version:', cvVersion);
+      const firebaseVersion = normalizeVersionKey(cvVersion);
+      console.log('Saving CV data for version:', firebaseVersion);
 
-      const docRef = db.collection('cv-data').doc(cvVersion);
+      const docRef = db.collection('cv-data').doc(firebaseVersion);
       const saveData = {
         cvData: typeof data === 'string' ? data : JSON.stringify(data),
         lastUpdated: new Date().toISOString(),
-        version: cvVersion
+        version: firebaseVersion
       };
       
       console.log('Saving document...');
