@@ -117,7 +117,7 @@ All CV version endpoints are still active and independent:
 - `/fintech/` - FinTech Developer CV
 - `/fund-accounting/` - Fund Accounting CV
 - `/investment/` - Investment Analysis CV
-- `/reporting-analyst/` - Reporting Analyst CV
+- `/reporting-analyst/`  CV
 
 Each version's `index.html` now references shared assets via relative paths (`../assets/`).
 

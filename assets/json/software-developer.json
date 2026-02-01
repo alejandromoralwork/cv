@@ -177,24 +177,52 @@
       "company": ""
     }
   ],
-  "projects": [
+   "projects": [
     {
-      "title": "DAS - Document Automation Software",
-      "description": "Python-based document automation system designed for general purpose. Generate customized reports from templates with support for multiple input formats (Excel, CSV, JSON, SQL databases) and output formats (PDF, Word, Excel, HTML). Features advanced template engine with conditional logic, dynamic data binding, variable substitution, batch processing capabilities, and automated scheduling.",
-      "category": "Python / Full Stack",
-      "filterCategory": "automation",
-      "image": "DA.PNG",
+      "title": "Polymarket / Polygon Trading Client, Utility Library & Terminal",
+      "description": "Production-grade Python client for Polymarket/Polygon decentralized prediction markets. Implemented REST + WebSocket utilities, order-book adapters, and advanced order management systems. Developed fast execution terminal supporting remote strategy deployment and automated trading with atomic swap integration.",
+      "category": "Python / Trading / Infrastructure",
+      "filterCategory": "web development",
+      "image": "PMTerminal.PNG",
       "links": [
         {
           "text": "View Project",
-          "url": "https://github.com/alemxral/DAS"
+          "url": "https://github.com/alemxral/polytrading"
+        }
+      ],
+      "active": true
+    },
+    {
+      "title": "Algorithmic Trading",
+      "description": "Data-driven trading strategy using machine learning. Implemented Leave-One-Out Cross-Validation and k-Nearest Neighbors with asymptotically optimal weights for predicting market open direction and generating trading signals.",
+      "category": "Python / Data Science / ML",
+      "filterCategory": "web development",
+      "image": "KNN.png",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://github.com/alemxral/trading_algo"
+        }
+      ],
+      "active": true
+    },
+    {
+      "title": "Research Papers",
+      "description": "Collection of peer-reviewed research papers on quantitative finance, econometrics, machine learning, and data science applications in financial markets.",
+      "category": "Research / Data Science",
+      "filterCategory": "web development",
+      "image": "research.PNG",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://github.com/alemxral/Research"
         }
       ],
       "active": true
     },
     {
       "title": "VBA Automated Reporting Tools",
-      "description": "Three advanced tools in Visual Basic for Applications (VBA) designed for large-scale email and report generation. Automate the creation of custom reports using templates configured in Word, Excel, or email formats to meet diverse reporting needs.",
+      "description": "Advanced automation tools in VBA for large-scale report generation and data processing. Automating custom reports using templates with intelligent logic and batch processing capabilities.",
       "category": "VBA / Automation",
       "filterCategory": "web development",
       "image": "VBA.PNG",
@@ -204,18 +232,46 @@
           "url": "https://github.com/alemxral/VBA-Automated-Reporting-tools"
         }
       ],
-      "active": true
+      "active": false
     },
     {
-      "title": "Research Papers",
-      "description": "A collection of research papers on topics related to software engineering, algorithms, and data science.",
-      "category": "Research",
+      "title": "TareaFlow",
+      "description": "Web-based team management solution with embedded PowerShell server. Includes task tracking, holiday management, and work-from-home tools running locally without installation.",
+      "category": "PowerShell / JavaScript",
       "filterCategory": "web development",
-      "image": "research.PNG",
+      "image": "tareaholidays.PNG",
       "links": [
         {
           "text": "View Project",
-          "url": "https://github.com/alemxral/Research"
+          "url": "https://github.com/alemxral/TareaFlow/tree/main/Internal"
+        }
+      ],
+      "active": false
+    },
+    {
+      "title": "MieMieSocks",
+      "description": "E-commerce platform mockup for online retail. Built with Bootstrap and Node.js demonstrating full-stack web development capabilities.",
+      "category": "Node.js / JavaScript",
+      "filterCategory": "web development",
+      "image": "miemiesocks.PNG",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://miemiesocks.vercel.app/"
+        }
+      ],
+      "active": false
+    },
+    {
+      "title": "KanjiList.org",
+      "description": "Educational web platform for learning Japanese kanji. Utilizes web scraping and Python backend for data collection and interactive learning.",
+      "category": "Python / Web Development",
+      "filterCategory": "web design",
+      "image": "kanjilist.PNG",
+      "links": [
+        {
+          "text": "View Project",
+          "url": "https://kanjilist-git-main-alemxrals-projects.vercel.app/"
         }
       ],
       "active": false
