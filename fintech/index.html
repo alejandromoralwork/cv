@@ -77,7 +77,7 @@
         <div class="info">
             <h1 class="name">Alejandro Moral</h1>
             <!-- Added a subtitle for context -->
-            <p class="job" style="margin-top: 0.5rem; font-size: 1.1rem; color: #7f8c8d;">Reporting Analyst</p>
+            <p class="job" style="margin-top: 0.5rem; font-size: 1.1rem; color: #7f8c8d;">Finance and Programming</p>
         </div>
 
         <div class="contact">
@@ -99,11 +99,24 @@
                 </a>
             </div>
             <div class="website-link">
-                <a href="https://alejandromoralwork.github.io/cv/reporting-analyst/" target="_blank">
+                <a id="portfolio-link" href="#" target="_blank">
                     <i class="fas fa-globe"></i>
                     <span class="website-text">Portfolio Website</span>
                 </a>
             </div>
+            <script>
+                (function() {
+                    // Extract the folder name from the current path
+                    const pathParts = window.location.pathname.split('/').filter(p => p && p !== 'index.html');
+                    const folderName = pathParts[pathParts.length - 1];
+                    
+                    // Construct the portfolio URL
+                    const portfolioUrl = `https://alejandromoralwork.github.io/cv/${folderName}/`;
+                    
+                    // Set the link href
+                    document.getElementById('portfolio-link').href = portfolioUrl;
+                })();
+            </script>
         </div>
 
         <div class="follow">
