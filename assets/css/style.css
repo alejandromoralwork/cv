@@ -386,16 +386,11 @@ h3 {
 }
 
 .resume .base .follow .box i {
-  display: inline-block;
+
+
   font-size: 30px;
-  background: var(--light-green);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  line-height: 60px;
-  color: var(--white);
-  margin: 0 10px 10px 10px;
   transition-duration: 0.3s;
+
 }
 
 .resume .base .follow .box i::before {
