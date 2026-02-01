@@ -640,11 +640,14 @@
             try {
                 const updatedData = {
                     ...currentData,
-                    name: document.getElementById('edit-name').value,
-                    jobTitle: document.getElementById('edit-jobTitle').value,
-                    about: document.getElementById('edit-about').value,
+                    personal: {
+                        ...(currentData.personal || {}),
+                        name: document.getElementById('edit-name').value,
+                        jobTitle: document.getElementById('edit-jobTitle').value,
+                        about: document.getElementById('edit-about').value
+                    },
                     contact: {
-                        ...currentData.contact,
+                        ...(currentData.contact || {}),
                         email: document.getElementById('edit-email').value,
                         phone: document.getElementById('edit-phone').value,
                         location: document.getElementById('edit-location').value,

@@ -54,8 +54,8 @@ class CVVersionController {
       'developer': 'pure_coding',
       'pure-coding': 'pure_coding',
       'pure_coding': 'pure_coding',
-      'reporting-analyst': 'fund_accounting',
-      'reporting_analyst': 'fund_accounting'
+      'reporting-analyst': 'reporting_analyst',
+      'reporting_analyst': 'reporting_analyst'
     };
     if (versionMap[version]) return versionMap[version];
     return version.includes('-') ? version.replace(/-/g, '_') : version;
