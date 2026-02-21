@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase CV Data Uploader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .version-list {
+            list-style: none;
+            padding: 0;
+        }
+        .version-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .version-name {
+            font-weight: 600;
+            color: #333;
+        }
+        .version-status {
+            color: #666;
+            font-size: 14px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+        .upload-all {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .progress {
+            margin-top: 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Firebase CV Data Uploader</h1>
+        <p class="subtitle">Upload all CV versions to Firebase Firestore</p>
+        
+        <div class="status" id="status"></div>
+        
+        <div class="upload-all">
+            <button onclick="uploadAll()" id="uploadBtn">📤 Upload All Versions to Firebase</button>
+        </div>
+        
+        <div class="progress" id="progressContainer" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+        </div>
+        
+        <ul class="version-list" id="versionList">
+            <li class="version-item">
+                <span class="version-name">📊 Finance Professional</span>
+                <span class="version-status" id="status-neutral_finance">⏳ Waiting...</span>
+            </li>
+            <li class="version-item">
+                <span class="version-name">💼 Fund Accounting</span>
+                <span class="version-status" id="status-fund_accounting">⏳ Waiting...</span>
+            </li>
+            <li class="version-item">
+                <span class="version-name">📈 Reporting Analyst</span>
+                <span class="version-status" id="status-reporting_analyst">⏳ Waiting...</span>
+            </li>
+            <li class="version-item">
+                <span class="version-name">💹 Investment Analysis</span>
+                <span class="version-status" id="status-investment_analysis">⏳ Waiting...</span>
+            </li>
+            <li class="version-item">
+                <span class="version-name">🏦 FinTech Developer</span>
+                <span class="version-status" id="status-fintech">⏳ Waiting...</span>
+            </li>
+            <li class="version-item">
+                <span class="version-name">🤖 Data Science</span>
+                <span class="version-status" id="status-data_science">⏳ Waiting...</span>
+            </li>
+            <li class="version-item">
+                <span class="version-name">💻 Software Developer</span>
+                <span class="version-status" id="status-pure_coding">⏳ Waiting...</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <script>
+        let db;
+
+        // Initialize Firebase on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                initializeFirebase();
+                db = firebase.firestore();
+                showStatus('Firebase initialized successfully!', 'success');
+            } catch (error) {
+                showStatus('Failed to initialize Firebase: ' + error.message, 'error');
+            }
+        });
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = 'status ' + type;
+            statusEl.style.display = 'block';
+        }
+
+        // Update version status
+        function updateVersionStatus(version, status, isError = false) {
+            const statusEl = document.getElementById('status-' + version);
+            if (statusEl) {
+                statusEl.textContent = status;
+                statusEl.style.color = isError ? '#dc3545' : '#28a745';
+            }
+        }
+
+        // Upload all versions
+        async function uploadAll() {
+            const uploadBtn = document.getElementById('uploadBtn');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressFill = document.getElementById('progressFill');
+            
+            uploadBtn.disabled = true;
+            progressContainer.style.display = 'block';
+            
+            try {
+                showStatus('Loading CV data...', 'info');
+                
+                // Load the JSON file
+                const response = await fetch('cv-data-complete.json');
+                const allVersions = await response.json();
+                
+                const versions = Object.keys(allVersions);
+                let completed = 0;
+                let failed = 0;
+                
+                // Upload each version
+                for (const versionKey of versions) {
+                    const versionData = allVersions[versionKey];
+                    
+                    try {
+                        updateVersionStatus(versionKey, '⏳ Uploading...', false);
+                        
+                        // Store as JSON string to avoid Firestore field restrictions
+                        await db.collection('cv-data').doc(versionKey).set({
+                            cvData: JSON.stringify(versionData),
+                            version: versionKey,
+                            lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        
+                        completed++;
+                        updateVersionStatus(versionKey, '✅ Uploaded!', false);
+                        
+                    } catch (error) {
+                        failed++;
+                        updateVersionStatus(versionKey, '❌ Failed: ' + error.message, true);
+                        console.error('Error uploading ' + versionKey + ':', error);
+                    }
+                    
+                    // Update progress
+                    const progress = Math.round(((completed + failed) / versions.length) * 100);
+                    progressFill.style.width = progress + '%';
+                    progressFill.textContent = progress + '%';
+                }
+                
+                // Show final status
+                if (failed === 0) {
+                    showStatus(`✅ Success! All ${completed} versions uploaded to Firebase!`, 'success');
+                } else {
+                    showStatus(`⚠️ Completed with errors: ${completed} uploaded, ${failed} failed`, 'error');
+                }
+                
+            } catch (error) {
+                showStatus('Upload failed: ' + error.message, 'error');
+                console.error('Upload error:', error);
+            } finally {
+                uploadBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
