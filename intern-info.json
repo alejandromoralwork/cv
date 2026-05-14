@@ -1,0 +1,116 @@
+{
+  "profile": {
+    "name": "Alejandro Moral Aranda",
+    "title": "Finance Professional & Analyst",
+    "contact": {
+      "phone": "+34 675949628",
+      "location": "Luxembourg",
+      "email": "alejandro.moral.work@gmail.com",
+      "online_cv": "Available"
+    }
+  },
+  "education": [
+    {
+      "degree": "Master of Science in Financial Economics",
+      "institution": "University of Luxembourg",
+      "period": "Sept. 2023 - Sep. 2024",
+      "focus": "Advanced quantitative finance, econometrics, dynamic programming, statistical analysis, and causal inference.",
+      "relevant_coursework": [
+        "Financial Econometrics (Time Series Analysis)",
+        "Programming in R",
+        "Survey Data Analysis",
+        "Sampling",
+        "Economic Research Methods"
+      ]
+    },
+    {
+      "degree": "Bachelor of Finance and Accounting",
+      "institution": "University of Malaga",
+      "period": "Sep. 2019 - Sep. 2022",
+      "note": "Degree completion one year ahead of schedule (Bac+4)",
+      "specialization": "Financial analysis and valuation. Completed University Program in Value Investing and AFI Business School's Valuation Analysis program.",
+      "relevant_coursework": [
+        "Advanced Accounting",
+        "Corporate Finance",
+        "Financial Statement Analysis",
+        "Investment Analysis",
+        "Audit & Assurance"
+      ]
+    },
+    {
+      "degree": "Bachelor in Data Science",
+      "institution": "IU International University of Applied Sciences",
+      "period": "Sept. 2024 - Sep. 2027 (In progress)",
+      "relevant_coursework": [
+        "Calculus and Linear Algebra for Data Science",
+        "Mathematical Statistics and Inferential Techniques",
+        "Probability Theory with Applications in Stochastic Modeling",
+        "Comprehensive Database Management and Optimization Techniques",
+        "Foundations of Machine Learning and Algorithmic Design",
+        "Predictive Analytics and High-Dimensional Data Visualization"
+      ]
+    },
+    {
+      "degree": "C/C++ Coding Program",
+      "institution": "42 Luxembourg",
+      "period": "May. 2025 - Present (In progress)",
+      "relevant_coursework": [
+        "C Programming",
+        "Algorithms and Data Structures",
+        "System Programming",
+        "Network Programming",
+        "Low-Level Programming",
+        "Software Engineering Principles"
+      ]
+    }
+  ],
+  "work_experience": [
+    {
+      "role": "PERE Fund Accountant & Transfer Agency",
+      "company": "Arendt Investor Services",
+      "period": "February 2024 - Current",
+      "description": "Performed full-scope fund accounting for Private Equity and Real Estate funds (NAV, CAS, financial statements, investor reporting). Oversaw capital flows, waterfall allocations, and consolidation across real estate structures. Analyzed cap rates and fair value movements for valuations. Supported interest rate swap accounting and designed automated reporting tools."
+    },
+    {
+      "role": "Private Debt Fund Accountant",
+      "company": "Alter Domus",
+      "period": "April 2022 - April 2023",
+      "description": "Involved in syndicated loan restructuring (amendments, refinancing, debt-to-equity conversions). Analyzed credit facilities, drawdowns, and compliance. Assisted with forward contracts and hedging structures for interest rate and FX risk. Prepared statutory financial statements and CAS reports."
+    },
+    {
+      "role": "Wealth Management Internship",
+      "company": "UBS Europe SE",
+      "period": "October 2021 - March 2022",
+      "description": "Portfolio analysis, KYC for physical persons, risk profile analysis, AML, and bank account management."
+    },
+    {
+      "role": "M&A Analyst Internship",
+      "company": "Empresax",
+      "period": "June 2021 - August 2021",
+      "description": "Financial valuation and analysis in acquisition research. Comparable company analysis and market assessment."
+    },
+    {
+      "role": "Individual Investor",
+      "company": "Self-managed",
+      "period": "2020 - Present",
+      "description": "Portfolio Management of personal investments in stocks and funds using financial models and comparables."
+    }
+  ],
+  "skills": [
+    { "name": "Python", "proficiency": "80%" },
+    { "name": "R", "proficiency": "75%" },
+    { "name": "SQL", "proficiency": "85%" },
+    { "name": "VBA", "proficiency": "90%" },
+    { "name": "JavaScript", "proficiency": "70%" },
+    { "name": "HTML & CSS", "proficiency": "70%" },
+    { "name": "PowerShell", "proficiency": "30%" },
+    { "name": "C/C++", "proficiency": "60%" }
+  ],
+  "interests": [
+    "Chess",
+    "Maths",
+    "Anime",
+    "Coding",
+    "Football"
+  ]
+}

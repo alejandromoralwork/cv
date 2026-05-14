@@ -1,0 +1,67 @@
+{
+  "education": [
+    {
+      "degree": "Master in Computer Science",
+      "institution": "University of Luxembourg",
+      "location": "Luxembourg",
+      "period": "Sept 2019 - Sept 2020",
+      "description": "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system.",
+      "thesis": "Research and Development of a Scalable AI, Data-Intensive, or Distributed Computing System."
+    },
+    {
+      "degree": "Bachelor in Computer Science",
+      "institution": "University of Malaga",
+      "location": "Spain",
+      "period": "Sept 2015 - Sept 2019",
+      "description": "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
+    }
+  ],
+  "work_experience": [
+    {
+      "role": "Senior Software Engineer",
+      "company": "Freelancer",
+      "period": "September 2025 - Present",
+      "description": "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "ARHS Group",
+      "period": "May 2024 - August 2025",
+      "description": "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "Accenture Spain",
+      "period": "February 2021 - March 2024",
+      "description": "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
+    }
+  ],
+  "skills": [
+    { "name": "Java", "proficiency": "90%" },
+    { "name": "Python", "proficiency": "85%" },
+    { "name": "Node.js", "proficiency": "85%" },
+    { "name": "RESTful APIs", "proficiency": "95%" },
+    { "name": "Microservices", "proficiency": "85%" },
+    { "name": "SQL", "proficiency": "90%" },
+    { "name": "NoSQL", "proficiency": "80%" },
+    { "name": "AWS", "proficiency": "85%" },
+    { "name": "Docker", "proficiency": "85%" },
+    { "name": "Kubernetes", "proficiency": "75%" },
+    { "name": "Git", "proficiency": "90%" },
+    { "name": "CI/CD", "proficiency": "85%" }
+  ],
+  "interests": [
+    "Chess",
+    "Maths",
+    "Anime",
+    "Coding",
+    "Football"
+  ],
+  "languages": [
+    { "language": "Spanish", "proficiency": "Native" },
+    { "language": "English", "proficiency": "Fluent" },
+    { "language": "French", "proficiency": "Medium" },
+    { "language": "Japanese", "proficiency": "Basic" },
+    { "language": "Chinese", "proficiency": "Basic" }
+  ]
+}

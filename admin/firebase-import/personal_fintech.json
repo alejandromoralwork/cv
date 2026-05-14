@@ -1,0 +1,114 @@
+{
+  "lastUpdated": "2026-05-14T00:00:00Z",
+  "version": "personal_fintech",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "FinTech Developer Intern",
+      "photo": "yo.png",
+      "about": "FinTech profile centered on trading tools, financial data, and practical automation. I combine product thinking with Python, JavaScript, SQL, and systems experience to build useful tools for finance, analysis, and market workflows."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.work@gmail.com",
+      "location": "Luxembourg",
+      "website": "https://alejandromoralwork.github.io/cv/PersonalFintech/",
+      "github": "https://www.github.com/alejandromoralwork",
+      "linkedin": ""
+    },
+    "education": [
+      {
+        "dates": "Sept. 2023 - Sep. 2024",
+        "degree": "Master of Science in Financial Economics",
+        "school": "University of Luxembourg",
+        "coursework": [
+          "Financial econometrics, statistics, and quantitative methods.",
+          "Strong fit for trading, analytics, and risk-oriented tools."
+        ]
+      },
+      {
+        "dates": "Sept. 2024 - Sep. 2027 (In progress)",
+        "degree": "Bachelor in Data Science",
+        "school": "IU International University of Applied Sciences",
+        "coursework": [
+          "Data analysis, programming, and model-driven problem solving.",
+          "Useful for product analytics and financial tooling."
+        ]
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "2020 - Present",
+        "title": "Individual Investor",
+        "company": "",
+        "description": "Built personal workflows for market research, strategy review, and trade analysis."
+      },
+      {
+        "dates": "April 2023 - November 2023",
+        "title": "Private Equity Fund Accountant",
+        "company": "Intertrust",
+        "description": "Worked with financial data, performance reporting, and automation around recurring tasks."
+      },
+      {
+        "dates": "October 2021 - March 2022",
+        "title": "Wealth Management Internship",
+        "company": "UBS Europe SE",
+        "description": "Gained experience in regulated finance operations, KYC, and account workflows."
+      }
+    ],
+    "skills": [
+      { "name": "Python", "percent": 86, "years": 5, "tags": ["Automation", "Data"] },
+      { "name": "JavaScript", "percent": 78, "years": 3, "tags": ["Trading UI", "APIs"] },
+      { "name": "SQL", "percent": 80, "years": 4, "tags": ["Data", "Validation"] },
+      { "name": "R", "percent": 70, "years": 3, "tags": ["Stats", "Forecasting"] },
+      { "name": "C/C++", "percent": 58, "years": 2, "tags": ["Systems"] },
+      { "name": "VBA", "percent": 82, "years": 5, "tags": ["Reporting", "Automation"] }
+    ],
+    "projects": [
+      {
+        "title": "Polymarket Trading",
+        "category": "Trading / Markets / DeFi",
+        "filterCategory": "trading",
+        "image": "polymarket.png",
+        "description": "Real-world trading experience with market tracking, analytics, and execution-oriented tooling.",
+        "links": [
+          { "text": "Polymarket Account", "url": "https://polymarket.com/profile/0xF937dBe9976Ac34157b30DD55BDbf248458F6b43" },
+          { "text": "View trading analytics (Hashdive)", "url": "https://www.hashdive.com/Analyze_User?user_address=0xf937dbe9976ac34157b30dd55bdbf248458f6b43" }
+        ],
+        "active": true
+      },
+      {
+        "title": "Polymarket / Polygon Trading Client, Utility Library & Terminal",
+        "category": "Python / Trading / Infrastructure",
+        "filterCategory": "web development",
+        "image": "PMTerminal.PNG",
+        "description": "Trading terminal and utility library for market workflows and execution support.",
+        "links": [
+          { "text": "View Project", "url": "https://github.com/alemxral/polytrading" }
+        ],
+        "active": true
+      },
+      {
+        "title": "TareaFlow",
+        "category": "Powershell / JavaScript",
+        "filterCategory": "web development",
+        "image": "tareaholidays.PNG",
+        "description": "Internal tool with scheduling and task flows that map well to FinTech operations.",
+        "links": [
+          { "text": "View Project", "url": "https://github.com/alemxral/TareaFlow/tree/main/Internal" }
+        ],
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" },
+      { "name": "Football", "icon": "fas fa-futbol" }
+    ]
+  }
+}

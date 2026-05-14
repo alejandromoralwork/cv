@@ -1,0 +1,265 @@
+{
+  "education": [
+    {
+      "school": "University of Malaga",
+      "location": "Malaga, Spain",
+      "degree": "Bachelor in Computer Science",
+      "dates": "Sept 2015 - Sept 2019",
+      "duration": "4 Year",
+      "description": "Projects: Full-Stack Web Application, REST API Development, Database Design",
+      "coursework": [
+        "Relevant coursework: Data Structures & Algorithms, Operating Systems, Databases, Computer Networks, Software Engineering, Artificial Intelligence, Machine Learning, Computer Architecture, Discrete Mathematics, and Probability & Statistics."
+      ]
+    },
+    {
+      "school": "University of Luxembourg",
+      "location": "Luxembourg",
+      "degree": "Master in Computer Science",
+      "dates": "Sept 2019 - Sept 2020",
+      "duration": "1 Year",
+      "description": "",
+      "coursework": [
+        "Relevant coursework: Advanced Algorithms, Distributed Systems, Advanced Machine Learning, Deep Learning, Big Data Analytics, Cloud Computing, Advanced Database Systems, Cybersecurity, Parallel Computing, Research Methods",
+        "Thesis: Research and Development of a Scalable AI, Data-Intensive, or Distributed Computing System."
+      ]
+    }
+  ],
+  "workExperience": [
+    {
+      "company": "Freelancer",
+      "title": "Senior Software Engineer",
+      "location": "Paris, France",
+      "dates": "September 2025 - Present",
+      "description": "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes).\n\nLed full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
+    },
+    {
+      "company": "ARHS Group",
+      "title": "Senior Software Engineer",
+      "location": "Luxembourg",
+      "dates": "May 2024 - August 2025",
+      "duration": "3 Year 2 Months",
+      "description": " Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows.\n Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments.\n Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions.\n Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
+    },
+    {
+      "company": "Accenture Spain",
+      "title": "Senior Software Engineer",
+      "location": "Seville, Spain",
+      "dates": "February 2021 - March 2024",
+      "duration": "3 Year 2 Months",
+      "description": "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions.\n Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes).\n Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Java",
+      "tags": ["Backend", "Enterprise"],
+      "years": 6,
+      "percent": 90
+    },
+    {
+      "name": "Python",
+      "tags": ["Backend", "Data"],
+      "years": 5,
+      "percent": 85
+    },
+    {
+      "name": "Node.js",
+      "tags": ["Backend", "JavaScript"],
+      "years": 5,
+      "percent": 85
+    },
+    {
+      "name": "RESTful APIs",
+      "tags": ["Architecture", "Integration"],
+      "years": 6,
+      "percent": 95
+    },
+    {
+      "name": "Microservices",
+      "tags": ["Architecture", "Design"],
+      "years": 4,
+      "percent": 85
+    },
+    {
+      "name": "SQL",
+      "tags": ["Database", "Query"],
+      "years": 6,
+      "percent": 90
+    },
+    {
+      "name": "NoSQL",
+      "tags": ["Database", "MongoDB"],
+      "years": 4,
+      "percent": 80
+    },
+    {
+      "name": "AWS",
+      "tags": ["Cloud", "Infrastructure"],
+      "years": 5,
+      "percent": 85
+    },
+    {
+      "name": "Docker",
+      "tags": ["DevOps", "Containers"],
+      "years": 4,
+      "percent": 85
+    },
+    {
+      "name": "Kubernetes",
+      "tags": ["DevOps", "Orchestration"],
+      "years": 3,
+      "percent": 75
+    },
+    {
+      "name": "Git",
+      "tags": ["Version Control"],
+      "years": 6,
+      "percent": 90
+    },
+    {
+      "name": "CI/CD",
+      "tags": ["DevOps", "Automation"],
+      "years": 5,
+      "percent": 85
+    }
+  ],
+  "languages": [
+    {
+      "name": "Spanish (Native)",
+      "flag": "spain.png"
+    },
+    {
+      "name": "English (Fluent)",
+      "flag": "uk.png"
+    },
+    {
+      "name": "French (Intermediate)",
+      "flag": "france.png"
+    },
+    {
+      "name": "Chinese (Basic)",
+      "flag": "china.png"
+    }
+  ],
+  "personal": {
+    "name": "Alejandro Moral ",
+    "jobTitle": "Senior Software Engineer",
+    "photo": "yo.png",
+    "about": "Senior Software Engineer with expertise in back-end development, microservices architecture, and cloud computing."
+  },
+  "contact": {
+    "phone": "+33 07 43 32 65 25",
+    "email": "alejandrom.work@proton.me",
+    "location": "Paris, France",
+    "website": "https://alejandromwork.github.io/cv",
+    "github": "https://www.github.com/alejandromwork"
+  },
+  "interests": [
+    {
+      "name": "Chess",
+      "icon": "fas fa-chess"
+    },
+    {
+      "name": "Maths",
+      "icon": "fas fa-calculator"
+    },
+    {
+      "name": "Anime",
+      "icon": "fas fa-film"
+    },
+    {
+      "name": "Coding",
+      "icon": "fas fa-code"
+    },
+    {
+      "name": "Football",
+      "icon": "fas fa-futbol"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Mendix.IfElse",
+      "category": "Front-end / Low-Code / UI Components",
+      "description": "Tiny widget that enhances Conditional Visibility feature adding the else/otherwise case",
+      "image": "project1.PNG",
+      "filterCategory": "backend",
+      "active": true,
+      "links": [
+        {
+          "url": "https://github.com/Accenture/Mendix.IfElse",
+          "text": "View Project"
+        }
+      ]
+    },
+    {
+      "title": "Real-Time Analytics Dashboard API",
+      "category": "Backend / Data Processing / Python",
+      "description": "Built high-performance REST API using FastAPI and PostgreSQL for real-time analytics dashboard. Implemented Redis caching layer reducing query times by 80%, designed efficient database schemas with complex aggregations, and integrated WebSocket connections for live data streaming. Handles 10M+ events per day with sub-100ms response times.",
+      "image": "project2.png",
+      "filterCategory": "backend",
+      "active": true,
+      "links": [
+        {
+          "url": "https://github.com/alejandromwork/analytics-api",
+          "text": "View Project"
+        }
+      ]
+    },
+    {
+      "title": "Multi-Tenant SaaS Backend Infrastructure",
+      "category": "Backend / Cloud / Kubernetes",
+      "description": "Designed and deployed multi-tenant SaaS infrastructure on Kubernetes with tenant isolation, automated CI/CD pipelines using GitLab CI, and comprehensive monitoring with Prometheus/Grafana. Implemented JWT-based authentication, rate limiting, and audit logging. Reduced deployment time by 70% and achieved 99.9% uptime.",
+      "image": "project3.png",
+      "filterCategory": "devops",
+      "active": true,
+      "links": [
+        {
+          "url": "https://github.com/alejandromwork/saas-infrastructure",
+          "text": "View Project"
+        }
+      ]
+    },
+    {
+      "title": "Payment Processing Gateway",
+      "category": "Backend / Integration / Security",
+      "description": "Developed secure payment gateway integrating multiple payment providers (Stripe, PayPal, Bank transfers). Implemented idempotency keys, webhook handling, retry mechanisms with exponential backoff, and PCI-DSS compliant data handling. Built comprehensive reconciliation system processing $5M+ monthly transactions with 99.99% accuracy.",
+      "image": "project4.png",
+      "filterCategory": "backend",
+      "active": false,
+      "links": [
+        {
+          "url": "https://github.com/alejandromwork/payment-gateway",
+          "text": "View Project"
+        }
+      ]
+    },
+    {
+      "title": "Distributed Task Scheduler",
+      "category": "Backend / Distributed Systems / Go",
+      "description": "Created distributed task scheduling system using Go and etcd for coordination. Implemented leader election, task sharding across workers, failure recovery, and priority queues. System processes 500k+ scheduled jobs daily with automatic failover and horizontal scaling capabilities. Reduced infrastructure costs by 40% through efficient resource utilization.",
+      "image": "project5.png",
+      "filterCategory": "backend",
+      "active": true,
+      "links": [
+        {
+          "url": "https://github.com/alejandromwork/task-scheduler",
+          "text": "View Project"
+        }
+      ]
+    },
+    {
+      "title": "API Rate Limiting & Throttling Service",
+      "category": "Backend / Performance / Redis",
+      "description": "Built centralized rate limiting service using Redis and Lua scripts supporting multiple algorithms (token bucket, sliding window, fixed window). Integrated with Kong API Gateway serving 1B+ API requests monthly. Implemented dynamic rate limit adjustments based on customer tiers and real-time monitoring dashboard for API usage analytics.",
+      "image": "project6.png",
+      "filterCategory": "backend",
+      "active": true,
+      "links": [
+        {
+          "url": "https://github.com/alejandromwork/rate-limiter",
+          "text": "View Project"
+        }
+      ]
+    }
+  ]
+}

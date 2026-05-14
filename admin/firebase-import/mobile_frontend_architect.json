@@ -1,0 +1,106 @@
+{
+  "lastUpdated": "2026-05-14T00:00:00Z",
+  "version": "mobile_frontend_architect",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Mobile & Frontend Architect",
+      "photo": "yo.png",
+      "about": "Frontend and mobile-minded architect who likes clean UX, responsive interfaces, and readable product flows. I build with JavaScript, HTML, CSS, and component thinking, backed by a practical understanding of data-heavy apps and polished presentation."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.work@gmail.com",
+      "location": "Luxembourg",
+      "website": "https://alejandromoralwork.github.io/cv/Mobile%26Frontend%20Architect/",
+      "github": "https://www.github.com/alejandromoralwork",
+      "linkedin": ""
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Software Engineer",
+        "company": "Freelancer",
+        "description": "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Senior Software Engineer",
+        "company": "ARHS Group",
+        "description": "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Senior Software Engineer",
+        "company": "Accenture Spain",
+        "description": "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
+      }
+    ],
+    "skills": [
+      { "name": "JavaScript", "percent": 92, "years": 4, "tags": ["Frontend", "Components"] },
+      { "name": "React", "percent": 88, "years": 4, "tags": ["UI", "SPA"] },
+      { "name": "TypeScript", "percent": 82, "years": 3, "tags": ["Type Safety", "Frontend"] },
+      { "name": "HTML & CSS", "percent": 96, "years": 4, "tags": ["Layout", "Styling"] },
+      { "name": "Node.js", "percent": 80, "years": 3, "tags": ["APIs", "Tooling"] },
+      { "name": "Python", "percent": 66, "years": 4, "tags": ["Automation", "Data"] }
+    ],
+    "projects": [
+      {
+        "title": "Responsive Portfolio Shell",
+        "category": "Frontend / UI",
+        "filterCategory": "web design",
+        "image": "miemiesocks.PNG",
+        "description": "A sample responsive layout focused on product presentation, spacing rhythm, and visual hierarchy.",
+        "active": true
+      },
+      {
+        "title": "Design System Playground",
+        "category": "React / TypeScript",
+        "filterCategory": "frontend",
+        "image": "kanjilist.PNG",
+        "description": "A sample interface kit for reusable components, layout variants, and theme exploration.",
+        "active": true
+      },
+      {
+        "title": "Mobile Workflow Prototype",
+        "category": "Frontend / Product",
+        "filterCategory": "mobile",
+        "image": "tarea.PNG",
+        "description": "A sample mobile-first workflow prototype emphasizing navigation clarity and fast task completion.",
+        "active": true
+      },
+      {
+        "title": "Content Presentation Studio",
+        "category": "JavaScript / UX",
+        "filterCategory": "web design",
+        "image": "project1.PNG",
+        "description": "A sample presentation-focused project for polished content cards, responsive spacing, and clean typography.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Anime", "icon": "fas fa-film" },
+      { "name": "Football", "icon": "fas fa-futbol" }
+    ]
+  }
+}

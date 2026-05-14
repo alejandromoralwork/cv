@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Text Extractor</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f9fa; padding: 40px; }
+    .container { max-width: 700px; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px #0001; padding: 32px; }
+    h1 { color: #5568d3; }
+    input[type="file"] { margin: 20px 0; }
+    textarea { width: 100%; min-height: 200px; margin-top: 20px; font-family: monospace; font-size: 14px; }
+    .status { margin: 10px 0; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PDF Text Extractor</h1>
+    <p>Select a PDF file to extract and view all embedded text. Useful for checking if your CV text is present for AI/ATS parsing.</p>
+    <input type="file" id="pdfFile" accept="application/pdf">
+    <div class="status" id="status"></div>
+    <textarea id="output" placeholder="Extracted text will appear here..."></textarea>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    const fileInput = document.getElementById('pdfFile');
+    const output = document.getElementById('output');
+    const status = document.getElementById('status');
+    
+    fileInput.addEventListener('change', async function() {
+      output.value = '';
+      status.textContent = '';
+      const file = fileInput.files[0];
+      if (!file) return;
+      status.textContent = 'Reading PDF...';
+      const reader = new FileReader();
+      reader.onload = async function(e) {
+        try {
+          const typedarray = new Uint8Array(e.target.result);
+          const pdf = await window['pdfjsLib'].getDocument({data: typedarray}).promise;
+          let allText = '';
+          for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+            const pageText = content.items.map(item => item.str).join(' ');
+            allText += `--- Page ${i} ---\n` + pageText + '\n\n';
+          }
+          output.value = allText.trim();
+          status.textContent = 'Extraction complete!';
+        } catch (err) {
+          output.value = '';
+          status.textContent = 'Error extracting text: ' + err.message;
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  </script>
+</body>
+</html>

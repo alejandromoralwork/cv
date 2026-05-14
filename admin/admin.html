@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Admin Panel - Edit Content</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .login-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 400px;
+            margin: 100px auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .admin-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input[type="password"],
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: monospace;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            margin-left: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .editor-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .json-editor {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            min-height: 400px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Panel -->
+    <div class="login-panel" id="loginPanel">
+        <h1>🔐 CV Admin Login</h1>
+        <div class="form-group">
+            <label for="password">Admin Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+        <button onclick="login()">Login</button>
+        <div class="status" id="loginStatus"></div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="container">
+        <div class="admin-panel" id="adminPanel">
+            <div class="header">
+                <h1>📝 CV Content Editor</h1>
+                <button class="btn-secondary" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="status" id="status"></div>
+
+            <div class="form-group">
+                <label for="versionSelect">Select CV Version</label>
+                <select id="versionSelect" onchange="loadVersion()" disabled>
+                    <option value="">Loading CV versions...</option>
+                </select>
+                <small id="versionHint" style="display:block;margin-top:8px;color:#666;">CV versions are loaded from Firestore documents.</small>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('json')">JSON Editor</button>
+                <button class="tab" onclick="switchTab('visual')">Visual Editor</button>
+                <button class="tab" onclick="switchTab('preview')">Preview</button>
+            </div>
+
+            <!-- JSON Editor Tab -->
+            <div class="tab-content active" id="jsonTab">
+                <div class="editor-section">
+                    <h2>Edit CV Data (JSON)</h2>
+                    <textarea class="json-editor" id="jsonEditor" spellcheck="false"></textarea>
+                    <div class="action-buttons">
+                        <button onclick="saveData()">💾 Save Changes</button>
+                        <button class="btn-secondary" onclick="loadVersion()">🔄 Reload</button>
+                        <button class="btn-danger" onclick="validateJSON()">✓ Validate JSON</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Editor Tab -->
+            <div class="tab-content" id="visualTab">
+                <div class="editor-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="edit-name">
+                    </div>
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" id="edit-jobTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>About Me</label>
+                        <textarea id="edit-about"></textarea>
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Contact Information</h2>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" id="edit-email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="edit-phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="edit-location">
+                    </div>
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" id="edit-website">
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Follow Me</h2>
+                    <div class="form-group">
+                        <label>GitHub</label>
+                        <input type="text" id="edit-github">
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Education</h2>
+                    <div id="edit-education-list"></div>
+                    <button type="button" onclick="addEducation()">➕ Add Education</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Work Experience</h2>
+                    <div id="edit-work-list"></div>
+                    <button type="button" onclick="addWork()">➕ Add Work Experience</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Skills</h2>
+                    <div id="edit-skills-list"></div>
+                    <button type="button" onclick="addSkill()">➕ Add Skill</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Projects</h2>
+                    <div id="edit-projects-list"></div>
+                    <button type="button" onclick="addProject()">➕ Add Project</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Interests</h2>
+                    <div id="edit-interests-list"></div>
+                    <button type="button" onclick="addInterest()">➕ Add Interest</button>
+                </div>
+
+                <div class="editor-section">
+                    <h2>Languages</h2>
+                    <div id="edit-languages-list"></div>
+                    <button type="button" onclick="addLanguage()">➕ Add Language</button>
+                </div>
+
+                <div class="action-buttons">
+                    <button onclick="saveVisualData()">💾 Save Visual Changes</button>
+                    <button class="btn-secondary" onclick="loadVisualEditor()">🔄 Reload</button>
+                </div>
+            </div>
+
+            <!-- Preview Tab -->
+            <div class="tab-content" id="previewTab">
+                <div class="loading" id="previewLoading">
+                    <div class="spinner"></div>
+                    <p>Loading preview...</p>
+                </div>
+                <iframe id="previewFrame" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+                <button onclick="downloadCurrentJson()">⬇️ Download JSON from Firebase</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+    <script>
+        let currentVersion = 'neutral_finance';
+        let currentData = null;
+        let availableVersions = {};
+
+        const previewFolderMap = {
+            ai_data_engineer: 'AI&Data Engineer',
+            backend_systems_architect: 'Backend&Systems Architect',
+            cloud_platform: 'Cloud&Platform',
+            mobile_frontend_architect: 'Mobile&Frontend Architect',
+            personal_blockchain: 'PersonalBlockchain',
+            personal_data_analyst: 'PersonalDataAnalyst',
+            personal_fintech: 'PersonalFintech',
+            rust_market_infra: 'PersonalBlockchain',
+            neutral_finance: 'finance',
+            fund_accounting: 'fund-accounting',
+            reporting_analyst: 'reporting-analyst',
+            investment_analysis: 'investment',
+            fintech: 'fintech',
+            data_science: 'data-science',
+            pure_coding: 'developer'
+        };
+
+        // Initialize Firebase on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            initializeFirebase();
+            // Skip login and go directly to admin panel
+            document.getElementById('loginPanel').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+            await loadAvailableVersions();
+        });
+
+        function formatVersionLabel(versionId, docData = {}) {
+            const rawLabel = docData.displayName || docData.title || docData.version || versionId || '';
+            return String(rawLabel)
+                .replace(/[_-]+/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .replace(/\b\w/g, character => character.toUpperCase());
+        }
+
+        function resolvePreviewFolder(versionId) {
+            const direct = previewFolderMap[versionId];
+            if (direct) return direct;
+
+            const normalized = String(versionId || '').trim().toLowerCase().replace(/\s+/g, '_').replace(/-/g, '_');
+            return previewFolderMap[normalized] || null;
+        }
+
+        function setVersionSelectState(isDisabled, placeholderText) {
+            const versionSelect = document.getElementById('versionSelect');
+            versionSelect.disabled = isDisabled;
+            if (placeholderText !== undefined) {
+                versionSelect.innerHTML = '';
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = placeholderText;
+                versionSelect.appendChild(option);
+            }
+        }
+
+        async function loadAvailableVersions() {
+            try {
+                showStatus('status', 'Loading CV versions from Firestore...', 'info');
+                setVersionSelectState(true, 'Loading CV versions...');
+
+                const versions = await CVDatabase.loadAllVersions();
+                availableVersions = versions || {};
+
+                const versionEntries = Object.entries(availableVersions)
+                    .sort((firstEntry, secondEntry) => formatVersionLabel(firstEntry[0], firstEntry[1]).localeCompare(formatVersionLabel(secondEntry[0], secondEntry[1])));
+
+                const versionSelect = document.getElementById('versionSelect');
+                versionSelect.innerHTML = '';
+
+                if (!versionEntries.length) {
+                    const emptyOption = document.createElement('option');
+                    emptyOption.value = '';
+                    emptyOption.textContent = 'No CV versions found';
+                    versionSelect.appendChild(emptyOption);
+                    document.getElementById('versionHint').textContent = 'No cv-data documents were found in Firestore.';
+                    showStatus('status', 'No CV versions found in Firestore.', 'error');
+                    return;
+                }
+
+                versionEntries.forEach(([versionId, docData]) => {
+                    const option = document.createElement('option');
+                    option.value = versionId;
+                    option.textContent = formatVersionLabel(versionId, docData);
+                    versionSelect.appendChild(option);
+                });
+
+                const preferredVersion = availableVersions[currentVersion] ? currentVersion : versionEntries[0][0];
+                currentVersion = preferredVersion;
+                versionSelect.value = currentVersion;
+                versionSelect.disabled = false;
+                document.getElementById('versionHint').textContent = `${versionEntries.length} CV version${versionEntries.length === 1 ? '' : 's'} loaded from Firestore.`;
+                await loadVersion(currentVersion);
+            } catch (error) {
+                setVersionSelectState(true, 'Failed to load versions');
+                document.getElementById('versionHint').textContent = 'Could not load Firestore CV versions.';
+                showStatus('status', 'Error loading version list: ' + error.message, 'error');
+            }
+        }
+
+        // Logout function
+        function logout() {
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('loginPanel').style.display = 'block';
+        }
+
+        // Load CV version data
+        async function loadVersion(versionId = null) {
+            const versionSelect = document.getElementById('versionSelect');
+            currentVersion = versionId || versionSelect.value;
+
+            if (currentVersion && versionSelect.value !== currentVersion) {
+                versionSelect.value = currentVersion;
+            }
+
+            if (!currentVersion) {
+                showStatus('status', 'Select a CV version to load.', 'error');
+                return;
+            }
+            
+            try {
+                showStatus('status', 'Loading CV data...', 'info');
+                const data = await CVDatabase.loadCVData(currentVersion);
+                
+                if (data) {
+                    currentData = data;
+                    document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+                    loadVisualEditor();
+                    showStatus('status', 'CV data loaded successfully', 'success');
+                } else {
+                    showStatus('status', 'Error: Could not load CV data from Firebase', 'error');
+                }
+            } catch (error) {
+                showStatus('status', 'Error loading data: ' + error.message, 'error');
+            }
+        }
+
+        // Save CV data
+        async function saveData() {
+            try {
+                const jsonText = document.getElementById('jsonEditor').value;
+                const data = JSON.parse(jsonText);
+                
+                showStatus('status', 'Saving changes...', 'info');
+                await CVDatabase.saveCVData(currentVersion, data);
+                
+                currentData = data;
+                showStatus('status', 'Changes saved successfully!', 'success');
+            } catch (error) {
+                if (error instanceof SyntaxError) {
+                    showStatus('status', 'Invalid JSON format: ' + error.message, 'error');
+                } else {
+                    showStatus('status', 'Error saving data: ' + error.message, 'error');
+                }
+            }
+        }
+
+        // Validate JSON
+        function validateJSON() {
+            try {
+                const jsonText = document.getElementById('jsonEditor').value;
+                JSON.parse(jsonText);
+                showStatus('status', '✓ JSON is valid', 'success');
+            } catch (error) {
+                showStatus('status', '✗ Invalid JSON: ' + error.message, 'error');
+            }
+        }
+
+        // Load visual editor
+        function loadVisualEditor() {
+            if (!currentData) return;
+            // Personal
+            const personal = currentData.personal || currentData;
+            const contact = currentData.contact || {};
+            document.getElementById('edit-name').value = personal.name || '';
+            document.getElementById('edit-jobTitle').value = personal.jobTitle || currentData.jobTitle || '';
+            document.getElementById('edit-about').value = personal.about || currentData.about || '';
+            document.getElementById('edit-email').value = contact.email || currentData.email || '';
+            document.getElementById('edit-phone').value = contact.phone || currentData.phone || '';
+            document.getElementById('edit-location').value = contact.location || currentData.location || '';
+            document.getElementById('edit-website').value = contact.website || currentData.website || '';
+            document.getElementById('edit-github').value = (contact.github || currentData.github || currentData.personal?.github || '');
+
+            // Education
+            const eduList = document.getElementById('edit-education-list');
+            eduList.innerHTML = '';
+            (currentData.education || []).forEach((edu, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Degree</label><input type="text" value="${edu.degree || ''}" onchange="currentData.education[${i}].degree=this.value">
+                    <label>School</label><input type="text" value="${edu.school || ''}" onchange="currentData.education[${i}].school=this.value">
+                    <label>Dates</label><input type="text" value="${edu.dates || ''}" onchange="currentData.education[${i}].dates=this.value">
+                    <label>Description</label><input type="text" value="${edu.description || ''}" onchange="currentData.education[${i}].description=this.value">
+                    <label>Coursework (comma separated)</label><input type="text" value="${(edu.coursework||[]).join(', ')}" onchange="currentData.education[${i}].coursework=this.value.split(',').map(x=>x.trim())">
+                    <button type='button' class='btn-danger' onclick='removeEducation(${i})'>Remove</button>
+                `;
+                eduList.appendChild(div);
+            });
+
+            // Work Experience
+            const workList = document.getElementById('edit-work-list');
+            workList.innerHTML = '';
+            (currentData.workExperience || []).forEach((work, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Title</label><input type="text" value="${work.title || ''}" onchange="currentData.workExperience[${i}].title=this.value">
+                    <label>Company</label><input type="text" value="${work.company || ''}" onchange="currentData.workExperience[${i}].company=this.value">
+                    <label>Dates</label><input type="text" value="${work.dates || ''}" onchange="currentData.workExperience[${i}].dates=this.value">
+                    <label>Description</label><input type="text" value="${work.description || ''}" onchange="currentData.workExperience[${i}].description=this.value">
+                    <button type='button' class='btn-danger' onclick='removeWork(${i})'>Remove</button>
+                `;
+                workList.appendChild(div);
+            });
+
+            // Skills
+            const skillsList = document.getElementById('edit-skills-list');
+            skillsList.innerHTML = '';
+            (currentData.skills || []).forEach((skill, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Name</label><input type="text" value="${skill.name || ''}" onchange="currentData.skills[${i}].name=this.value">
+                    <label>Percent</label><input type="number" value="${skill.percent || 0}" onchange="currentData.skills[${i}].percent=parseInt(this.value)">
+                    <label>Years</label><input type="number" value="${skill.years || 0}" onchange="currentData.skills[${i}].years=parseInt(this.value)">
+                    <label>Tags (comma separated)</label><input type="text" value="${(skill.tags||[]).join(', ')}" onchange="currentData.skills[${i}].tags=this.value.split(',').map(x=>x.trim())">
+                    <button type='button' class='btn-danger' onclick='removeSkill(${i})'>Remove</button>
+                `;
+                skillsList.appendChild(div);
+            });
+
+            // Projects
+            const projectsList = document.getElementById('edit-projects-list');
+            projectsList.innerHTML = '';
+            (currentData.projects || []).forEach((proj, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Title</label><input type="text" value="${proj.title || ''}" onchange="currentData.projects[${i}].title=this.value">
+                    <label>Description</label><input type="text" value="${proj.description || ''}" onchange="currentData.projects[${i}].description=this.value">
+                    <label>Category</label><input type="text" value="${proj.category || ''}" onchange="currentData.projects[${i}].category=this.value">
+                    <label>Image</label><input type="text" value="${proj.image || ''}" onchange="currentData.projects[${i}].image=this.value">
+                    <label>Links (comma separated: text|url)</label><input type="text" value="${(proj.links||[]).map(l=>l.text+ '|' + l.url).join(', ')}" onchange="currentData.projects[${i}].links=this.value.split(',').map(x=>{let p=x.split('|');return {text:p[0]?.trim()||'',url:p[1]?.trim()||''}})">
+                    <label>Filter Category</label><input type="text" value="${proj.filterCategory || ''}" onchange="currentData.projects[${i}].filterCategory=this.value">
+                    <button type='button' class='btn-danger' onclick='removeProject(${i})'>Remove</button>
+                `;
+                projectsList.appendChild(div);
+            });
+
+            // Interests
+            const interestsList = document.getElementById('edit-interests-list');
+            interestsList.innerHTML = '';
+            (currentData.interests || []).forEach((intr, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Name</label><input type="text" value="${intr.name || ''}" onchange="currentData.interests[${i}].name=this.value">
+                    <label>Icon</label><input type="text" value="${intr.icon || ''}" onchange="currentData.interests[${i}].icon=this.value">
+                    <button type='button' class='btn-danger' onclick='removeInterest(${i})'>Remove</button>
+                `;
+                interestsList.appendChild(div);
+            });
+
+            // Languages
+            const langList = document.getElementById('edit-languages-list');
+            langList.innerHTML = '';
+            (currentData.languages || []).forEach((lang, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>Name</label><input type="text" value="${lang.name || ''}" onchange="currentData.languages[${i}].name=this.value">
+                    <label>Flag (image file)</label><input type="text" value="${lang.flag || ''}" onchange="currentData.languages[${i}].flag=this.value">
+                    <button type='button' class='btn-danger' onclick='removeLanguage(${i})'>Remove</button>
+                `;
+                langList.appendChild(div);
+            });
+        }
+
+        // Add/remove functions for arrays
+        function addEducation() {
+            if (!currentData.education) currentData.education = [];
+            currentData.education.push({degree:'',school:'',dates:'',description:'',coursework:[]});
+            loadVisualEditor();
+        }
+        function removeEducation(i) {
+            currentData.education.splice(i,1);
+            loadVisualEditor();
+        }
+        function addWork() {
+            if (!currentData.workExperience) currentData.workExperience = [];
+            currentData.workExperience.push({title:'',company:'',dates:'',description:''});
+            loadVisualEditor();
+        }
+        function removeWork(i) {
+            currentData.workExperience.splice(i,1);
+            loadVisualEditor();
+        }
+        function addSkill() {
+            if (!currentData.skills) currentData.skills = [];
+            currentData.skills.push({name:'',percent:0,years:0,tags:[]});
+            loadVisualEditor();
+        }
+        function removeSkill(i) {
+            currentData.skills.splice(i,1);
+            loadVisualEditor();
+        }
+        function addProject() {
+            if (!currentData.projects) currentData.projects = [];
+            currentData.projects.push({title:'',description:'',category:'',image:'',links:[],filterCategory:''});
+            loadVisualEditor();
+        }
+        function removeProject(i) {
+            currentData.projects.splice(i,1);
+            loadVisualEditor();
+        }
+        function addInterest() {
+            if (!currentData.interests) currentData.interests = [];
+            currentData.interests.push({name:'',icon:''});
+            loadVisualEditor();
+        }
+        function removeInterest(i) {
+            currentData.interests.splice(i,1);
+            loadVisualEditor();
+        }
+        function addLanguage() {
+            if (!currentData.languages) currentData.languages = [];
+            currentData.languages.push({name:'',flag:''});
+            loadVisualEditor();
+        }
+        function removeLanguage(i) {
+            currentData.languages.splice(i,1);
+            loadVisualEditor();
+        }
+
+        // Save visual editor data
+        async function saveVisualData() {
+            try {
+                const updatedData = {
+                    ...currentData,
+                    personal: {
+                        ...(currentData.personal || {}),
+                        name: document.getElementById('edit-name').value,
+                        jobTitle: document.getElementById('edit-jobTitle').value,
+                        about: document.getElementById('edit-about').value
+                    },
+                    contact: {
+                        ...(currentData.contact || {}),
+                        email: document.getElementById('edit-email').value,
+                        phone: document.getElementById('edit-phone').value,
+                        location: document.getElementById('edit-location').value,
+                        website: document.getElementById('edit-website').value,
+                        github: document.getElementById('edit-github').value
+                    }
+                };
+
+                showStatus('status', 'Saving changes...', 'info');
+                await CVDatabase.saveCVData(currentVersion, updatedData);
+                
+                currentData = updatedData;
+                document.getElementById('jsonEditor').value = JSON.stringify(updatedData, null, 2);
+                showStatus('status', 'Changes saved successfully!', 'success');
+            } catch (error) {
+                showStatus('status', 'Error saving data: ' + error.message, 'error');
+            }
+        }
+
+        // Switch tabs
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            
+            // Load preview if preview tab is selected
+            if (tabName === 'preview') {
+                loadPreview();
+            }
+        }
+
+        // Load preview
+        function loadPreview() {
+            const iframe = document.getElementById('previewFrame');
+            const loading = document.getElementById('previewLoading');
+            
+            loading.innerHTML = '<div class="spinner"></div><p>Loading preview...</p>';
+            loading.style.display = 'block';
+            iframe.style.display = 'none';
+
+            const dir = resolvePreviewFolder(currentVersion);
+
+            if (!dir) {
+                loading.innerHTML = '<p>No preview route is mapped for this CV version.</p>';
+                return;
+            }
+
+            const previewPath = '../' + dir.split('/').map(segment => encodeURIComponent(segment)).join('/') + '/index.html';
+            iframe.src = previewPath;
+
+            iframe.onload = () => {
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+            };
+        }
+
+        // Show status message
+        function showStatus(elementId, message, type) {
+            const statusEl = document.getElementById(elementId);
+            statusEl.textContent = message;
+            statusEl.className = 'status ' + type;
+            statusEl.style.display = 'block';
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusEl.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Handle Enter key in login
+        document.getElementById('password')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                login();
+            }
+        });
+
+        // Download current JSON from Firebase
+        async function downloadCurrentJson() {
+            try {
+                const data = await CVDatabase.loadCVData(currentVersion);
+                if (!data) {
+                    showStatus('status', 'No data found for this version.', 'error');
+                    return;
+                }
+                const jsonStr = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${currentVersion}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showStatus('status', 'JSON downloaded successfully.', 'success');
+            } catch (error) {
+                showStatus('status', 'Error downloading JSON: ' + error.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

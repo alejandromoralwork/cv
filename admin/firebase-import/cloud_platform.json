@@ -1,0 +1,106 @@
+{
+  "lastUpdated": "2026-05-14T00:00:00Z",
+  "version": "cloud_platform",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Cloud & Platform Engineer",
+      "photo": "yo.png",
+      "about": "Cloud and platform engineer profile centered on automation, repeatable deployment flows, and dependable internal tooling. I work comfortably across scripting, backend logic, data validation, and the operational details that keep systems stable."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.work@gmail.com",
+      "location": "Luxembourg",
+      "website": "https://alejandromoralwork.github.io/cv/Cloud%26Platform/",
+      "github": "https://www.github.com/alejandromoralwork",
+      "linkedin": ""
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Software Engineer",
+        "company": "Freelancer",
+        "description": "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Senior Software Engineer",
+        "company": "ARHS Group",
+        "description": "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Senior Software Engineer",
+        "company": "Accenture Spain",
+        "description": "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
+      }
+    ],
+    "skills": [
+      { "name": "AWS", "percent": 88, "years": 4, "tags": ["Cloud", "Infrastructure"] },
+      { "name": "Docker", "percent": 90, "years": 4, "tags": ["Containers", "Deployment"] },
+      { "name": "Kubernetes", "percent": 80, "years": 3, "tags": ["Orchestration", "Scaling"] },
+      { "name": "CI/CD", "percent": 86, "years": 4, "tags": ["Delivery", "Automation"] },
+      { "name": "Python", "percent": 88, "years": 5, "tags": ["Automation", "Platform"] },
+      { "name": "RESTful APIs", "percent": 92, "years": 4, "tags": ["Services", "Integration"] }
+    ],
+    "projects": [
+      {
+        "title": "Cloud Deployment Pipeline",
+        "category": "DevOps / CI-CD",
+        "filterCategory": "devops",
+        "image": "tareaholidays.PNG",
+        "description": "A sample pipeline project for repeatable deployments, environment promotion, and release automation.",
+        "active": true
+      },
+      {
+        "title": "Platform Monitoring Dashboard",
+        "category": "Cloud / Observability",
+        "filterCategory": "monitoring",
+        "image": "PMTerminal.PNG",
+        "description": "A sample dashboard for service health, deployment visibility, and platform incident tracking.",
+        "active": true
+      },
+      {
+        "title": "Infrastructure Provisioning Kit",
+        "category": "Python / Cloud Automation",
+        "filterCategory": "automation",
+        "image": "DA.png",
+        "description": "A sample provisioning kit for infrastructure setup, configuration consistency, and repeatable cloud operations.",
+        "active": true
+      },
+      {
+        "title": "Release Readiness Checker",
+        "category": "Automation / Platform",
+        "filterCategory": "devops",
+        "image": "project1.PNG",
+        "description": "A sample readiness checker for deployment gates, release criteria, and platform validation.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Chess", "icon": "fas fa-chess" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ]
+  }
+}
