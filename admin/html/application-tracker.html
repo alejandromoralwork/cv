@@ -1,87 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-gray-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Tracker</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css">
+    <!-- Existing assets -->
     <link rel="stylesheet" href="../../assets/css/application-tracker.css">
     <link rel="stylesheet" href="../../assets/css/table-renderer.css">
-    <!-- Use ES module imports for Firebase and tracker logic -->
     <script type="module" src="../../assets/js/application-tracker.js"></script>
+    
+    <style>
+        /* Small fix for Tabulator theme to match Tailwind */
+        .tabulator { border: none !important; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
+        .tabulator-header { background-color: #f9fafb !important; border-bottom: 1px solid #e5e7eb !important; }
+    </style>
 </head>
-<body>
-    <div class="app-tracker-container">
-        <div class="tracker-header">
+<body class="text-gray-900 font-sans antialiased">
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
-                <p class="eyebrow">Job search log</p>
-                <h1>Application Tracker</h1>
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-1">Job search log</p>
+                <h1 class="text-3xl font-bold text-gray-900">Application Tracker</h1>
             </div>
-            <button id="showStatsModalBtn" class="secondary-action">Show Stats & Charts</button>
+            <button id="showStatsModalBtn" class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                Show Stats & Charts
+            </button>
         </div>
-        <section id="appStats" class="stats-panel"></section>
-        <div id="statsFilters" class="stats-filters"></div>
-    <form id="appForm">
-        <input type="url" id="offerLink" placeholder="Offer Link">
-        <input type="text" id="company" placeholder="Company">
-        <input type="text" id="field" placeholder="Field (Finance, IT, etc.)">
-        <input list="countryList" id="country" placeholder="Country">
-        <datalist id="countryList">
-            <option value="France">
-            <option value="Germany">
-            <option value="United Kingdom">
-            <option value="Spain">
-            <option value="Italy">
-            <option value="Netherlands">
-            <option value="Belgium">
-            <option value="Switzerland">
-            <option value="United States">
-            <option value="Canada">
-            <option value="India">
-            <option value="Singapore">
-            <option value="Australia">
-            <option value="Other">
-        </datalist>
-        <div class="version-field-group">
-            <label class="field-label" for="cvVersionSelect">CV Version</label>
-            <select id="cvVersionSelect">
-                <option value="">Loading CV versions...</option>
-            </select>
-            <input type="text" id="cvVersion" placeholder="Or type a CV version manually">
-            <small class="field-hint">Pick a CV version from Firestore or type a custom value.</small>
+
+        <!-- Stats Panel -->
+
+
+        <!-- Form Panel -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+            <h2 class="text-lg font-semibold mb-4 text-gray-800">Add New Application</h2>
+            <form id="appForm" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                <input type="url" id="offerLink" placeholder="Offer Link" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                
+                <input type="text" id="company" placeholder="Company" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                
+                <input type="text" id="field" placeholder="Field (Finance, IT, etc.)" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                
+                <input list="countryList" id="country" placeholder="Country" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                
+                <input list="wayList" type="text" id="wayOfApplication" placeholder="Way of Application" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                
+                <input list="statusList" type="text" id="status" placeholder="Status" value="transmitted" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+
+                <!-- CV Version Group -->
+                <div class="lg:col-span-2 bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-3">
+                    <div class="flex flex-col sm:flex-row gap-3 items-center">
+                        <label class="text-sm font-medium text-gray-700 whitespace-nowrap" for="cvVersionSelect">CV Version</label>
+                        <select id="cvVersionSelect" class="flex-1 px-3 py-1.5 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                            <option value="">Loading CV versions...</option>
+                        </select>
+                        <span class="text-gray-400 text-sm italic">or</span>
+                        <input type="text" id="cvVersion" placeholder="Manual entry" 
+                            class="flex-1 px-3 py-1.5 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    </div>
+                    <p class="text-xs text-gray-500">Pick a version from Firestore or type a custom value.</p>
+                </div>
+
+                <div class="flex gap-4 items-end">
+                    <div class="flex-1">
+                        <input type="text" id="date" placeholder="Date (ddmmyy)" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                    </div>
+                    <button type="submit" class="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 shadow-md hover:shadow-lg transform active:scale-95 transition-all">
+                        Add Application
+                    </button>
+                </div>
+            </form>
         </div>
-        <input list="wayList" type="text" id="wayOfApplication" placeholder="Way of Application">
-        <datalist id="wayList">
-            <option value="direct web">
-            <option value="LinkedIn">
-            <option value="email">
-            <option value="referral">
-            <option value="other">
-        </datalist>
-        <input list="statusList" type="text" id="status" placeholder="Status" value="transmitted">
-        <datalist id="statusList">
-            <option value="transmitted">
-            <option value="in review">
-            <option value="interview">
-            <option value="technical test">
-            <option value="HR interview">
-            <option value="manager interview">
-            <option value="offer">
-            <option value="rejected">
-            <option value="withdrawn">
-            <option value="hired">
-            <option value="ghosted">
-            <option value="waiting for feedback">
-            <option value="other">
-        </datalist>
-        <input type="text" id="date" placeholder="Date (ddmmyy)">
-        <button type="submit">Add Application</button>
-    </form>
-    <div id="dynamicColumns"></div>
-        <div id="appTableContainer"></div>
-        <div class="table-actions">
-            <button id="saveTableBtn" class="primary-action">Save Changes</button>
+
+        <!-- Table Section -->
+        <div class="space-y-4">
+            <div id="dynamicColumns" class="flex justify-end gap-2"></div>
+            <div id="appTableContainer" class="rounded-xl overflow-hidden border border-gray-200"></div>
+            
+            <div class="flex justify-end pt-4">
+                <button id="saveTableBtn" class="px-6 py-2.5 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 shadow-sm transition-colors flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+                    Save Changes
+                </button>
+            </div>
         </div>
-  </div>
+
+    </div>
+
+    <!-- Datalists stay hidden -->
+    <datalist id="countryList">
+        <option value="France"><option value="Germany"><option value="United Kingdom"><option value="Spain"><option value="Italy"><option value="Netherlands"><option value="Belgium"><option value="Switzerland"><option value="United States"><option value="Canada"><option value="India"><option value="Singapore"><option value="Australia"><option value="Other">
+    </datalist>
+    <datalist id="wayList">
+        <option value="direct web"><option value="LinkedIn"><option value="email"><option value="referral"><option value="other">
+    </datalist>
+    <datalist id="statusList">
+        <option value="transmitted"><option value="in review"><option value="interview"><option value="technical test"><option value="HR interview"><option value="manager interview"><option value="offer"><option value="rejected"><option value="withdrawn"><option value="hired"><option value="ghosted"><option value="waiting for feedback"><option value="other">
+    </datalist>
 </body>
 </html>
