@@ -165,11 +165,12 @@ async initializeFirebase() {
         authDomain: "jobsearch-a3a6c.firebaseapp.com",
         databaseURL: "https://jobsearch-a3a6c-default-rtdb.firebaseio.com",
         projectId: "jobsearch-a3a6c",
-        storageBucket: "jobsearch-a3a6c.firebasestorage.app", // Fixed domain
+        storageBucket: "jobsearch-a3a6c.firebasestorage.app",
         messagingSenderId: "63177029478",
         appId: "1:63177029478:web:29682710bea4d3d194faa7",
         measurementId: "G-X7F3CZK48G"
       };
+
 
       // Initialize if not already active
       if (!firebase.apps.length) {
