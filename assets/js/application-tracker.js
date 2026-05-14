@@ -26,9 +26,25 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const trackerCollection = collection(db, 'application_tracker');
-const cvVersionsCollection = collection(db, 'cv-data');
 let editingRowId = null;
 let dynamicColumns = [];
+const cvVersionOptions = [
+    { value: 'ai_data_engineer', label: 'AI & Data Engineer' },
+    { value: 'backend_systems_architect', label: 'Backend & Systems Architect' },
+    { value: 'cloud_platform', label: 'Cloud & Platform' },
+    { value: 'mobile_frontend_architect', label: 'Mobile & Frontend Architect' },
+    { value: 'reporting_analyst', label: 'Reporting Analyst' },
+    { value: 'neutral_finance', label: 'Neutral Finance' },
+    { value: 'fund_accounting', label: 'Fund Accounting' },
+    { value: 'investment_analysis', label: 'Investment Analysis' },
+    { value: 'fintech', label: 'Fintech' },
+    { value: 'data_science', label: 'Data Science' },
+    { value: 'pure_coding', label: 'Pure Coding' },
+    { value: 'personal_data_analyst', label: 'Personal Data Analyst' },
+    { value: 'personal_fintech', label: 'Personal Fintech' },
+    { value: 'personal_blockchain', label: 'Personal Blockchain' },
+    { value: 'rust_market_infra', label: 'Rust Market Infra' }
+];
 
 const appForm = document.getElementById('appForm');
 // Set default date to today in ddmmyy format
@@ -45,69 +61,37 @@ function setDefaultDate() {
 document.addEventListener('DOMContentLoaded', setDefaultDate);
 // Table rendering now handled by Tabulator in table-renderer.js
 
-function formatCvVersionLabel(versionId, docData = {}) {
-    const rawLabel = docData.displayName || docData.title || docData.version || docData.personal?.jobTitle || versionId || '';
-    return String(rawLabel)
-        .replace(/[_-]+/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .replace(/\b\w/g, character => character.toUpperCase());
-}
-
-async function loadCvVersionOptions() {
+function populateCvVersionOptions() {
     const versionSelect = document.getElementById('cvVersionSelect');
     const versionInput = document.getElementById('cvVersion');
     if (!versionSelect || !versionInput) return;
 
-    try {
-        const snapshot = await getDocs(query(cvVersionsCollection));
-        const versionOptions = [];
+    versionSelect.innerHTML = '<option value="">Select a CV version...</option>' + cvVersionOptions.map(option => {
+        return `<option value="${option.value}">${option.label}</option>`;
+    }).join('');
 
-        snapshot.forEach(docSnap => {
-            const data = docSnap.data() || {};
-            versionOptions.push({
-                value: docSnap.id,
-                label: formatCvVersionLabel(docSnap.id, data)
-            });
-        });
+    versionSelect.onchange = () => {
+        versionInput.value = versionSelect.value;
+    };
 
-        versionOptions.sort((first, second) => first.label.localeCompare(second.label));
-        versionSelect.innerHTML = '<option value="">Select a CV version from Firestore...</option>' + versionOptions.map(option => {
-            return `<option value="${option.value}">${option.label}</option>`;
-        }).join('');
+    versionInput.oninput = () => {
+        const currentValue = versionInput.value.trim();
+        versionSelect.value = cvVersionOptions.some(option => option.value === currentValue) ? currentValue : '';
+    };
 
-        versionSelect.onchange = () => {
-            versionInput.value = versionSelect.value;
-        };
-
-        versionInput.oninput = () => {
-            const currentValue = versionInput.value.trim();
-            versionSelect.value = versionOptions.some(option => option.value === currentValue) ? currentValue : '';
-        };
-
-        if (!versionInput.value && versionOptions.length) {
-            versionSelect.value = versionOptions[0].value;
-            versionInput.value = versionOptions[0].value;
-        } else if (versionInput.value) {
-            versionSelect.value = versionOptions.some(option => option.value === versionInput.value.trim())
-                ? versionInput.value.trim()
-                : '';
-        }
-
-        const hint = document.querySelector('.field-hint');
-        if (hint) {
-            hint.textContent = versionOptions.length
-                ? 'Select a CV version from the dropdown or type your own value.'
-                : 'No CV versions were found in Firestore, but you can still type one manually.';
-        }
-    } catch (error) {
-        console.error('Error loading CV version options:', error);
-        versionSelect.innerHTML = '<option value="">Could not load versions</option>';
-        const hint = document.querySelector('.field-hint');
-        if (hint) {
-            hint.textContent = 'Could not load CV versions from Firestore, but you can still type one manually.';
-        }
+    const hint = document.querySelector('.field-hint');
+    if (hint) {
+        hint.textContent = 'Select a CV version from the dropdown or type your own value.';
     }
+}
+
+function buildStatCard(label, value, tone = '') {
+    return `
+        <div class="stat-card ${tone}">
+            <span class="stat-card-label">${label}</span>
+            <strong class="stat-card-value">${value}</strong>
+        </div>
+    `;
 }
 
 // Add new application
@@ -225,9 +209,9 @@ async function loadApplications() {
 
     // Render stats section
     function renderStats(apps) {
-        // Add advanced stats and chart data
         const statsSection = document.getElementById('appStats');
         if (!statsSection) return;
+
         const total = apps.length;
         const statusCounts = {};
         const countryCounts = {};
@@ -237,14 +221,43 @@ async function loadApplications() {
             countryCounts[app.country] = (countryCounts[app.country] || 0) + 1;
             cvCounts[app.cvVersion] = (cvCounts[app.cvVersion] || 0) + 1;
         });
-        let html = `<b>Total Applications:</b> ${total}<br>`;
-        html += '<b>Status Breakdown:</b> ';
-        html += Object.entries(statusCounts).map(([k,v]) => `${k}: ${v}`).join(', ');
-        html += '<br><b>Country Breakdown:</b> ';
-        html += Object.entries(countryCounts).map(([k,v]) => `${k}: ${v}`).join(', ');
-        html += '<br><b>CV Version Breakdown:</b> ';
-        html += Object.entries(cvCounts).map(([k,v]) => `${k}: ${v}`).join(', ');
-        statsSection.innerHTML = html;
+
+        const topStatus = Object.entries(statusCounts).sort((first, second) => second[1] - first[1])[0];
+        const topCountry = Object.entries(countryCounts).sort((first, second) => second[1] - first[1])[0];
+        const topVersion = Object.entries(cvCounts).sort((first, second) => second[1] - first[1])[0];
+
+        const statusPills = Object.entries(statusCounts)
+            .map(([label, value]) => `<span class="stat-pill">${label}: ${value}</span>`)
+            .join('');
+        const countryPills = Object.entries(countryCounts)
+            .map(([label, value]) => `<span class="stat-pill">${label}: ${value}</span>`)
+            .join('');
+        const versionPills = Object.entries(cvCounts)
+            .map(([label, value]) => `<span class="stat-pill">${label}: ${value}</span>`)
+            .join('');
+
+        statsSection.innerHTML = `
+            <div class="stats-grid">
+                ${buildStatCard('Total Applications', total, 'primary')}
+                ${buildStatCard('Top Status', topStatus ? `${topStatus[0]} (${topStatus[1]})` : 'No data')}
+                ${buildStatCard('Top Country', topCountry ? `${topCountry[0]} (${topCountry[1]})` : 'No data')}
+                ${buildStatCard('Top CV Version', topVersion ? `${topVersion[0]} (${topVersion[1]})` : 'No data')}
+            </div>
+            <div class="stats-breakdown-grid">
+                <div class="stats-breakdown-block">
+                    <h3>Status Breakdown</h3>
+                    <div class="stats-pill-row">${statusPills || '<span class="stat-pill empty">No status data</span>'}</div>
+                </div>
+                <div class="stats-breakdown-block">
+                    <h3>Country Breakdown</h3>
+                    <div class="stats-pill-row">${countryPills || '<span class="stat-pill empty">No country data</span>'}</div>
+                </div>
+                <div class="stats-breakdown-block">
+                    <h3>CV Version Breakdown</h3>
+                    <div class="stats-pill-row">${versionPills || '<span class="stat-pill empty">No CV version data</span>'}</div>
+                </div>
+            </div>
+        `;
         window._latestStats = apps;
     }
 
@@ -452,5 +465,5 @@ window.saveEdit = async function(id) {
 };
 
 // Initial load
-loadCvVersionOptions();
+populateCvVersionOptions();
 loadApplications();
