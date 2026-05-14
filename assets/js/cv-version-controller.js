@@ -152,33 +152,42 @@ class CVVersionController {
     }
   }
 
-  async initializeFirebase() {
+async initializeFirebase() {
     try {
       if (typeof firebase === 'undefined') {
-        console.warn('Firebase SDK not loaded, will use local fallback');
+        console.warn('Firebase SDK not loaded. Ensure Firebase Scripts are in your HTML head.');
         return false;
       }
 
-      // Firebase config
+      // REAL DATA INTEGRATED HERE
       const firebaseConfig = {
         apiKey: "AIzaSyBHw7K6HMLa2W_PmN9Yctq4XO3Zsng5PXI",
         authDomain: "jobsearch-a3a6c.firebaseapp.com",
+        databaseURL: "https://jobsearch-a3a6c-default-rtdb.firebaseio.com",
         projectId: "jobsearch-a3a6c",
-        storageBucket: "jobsearch-a3a6c.appspot.com",
-        messagingSenderId: "123456789",
-        appId: "1:123456789:web:abcdef123456"
+        storageBucket: "jobsearch-a3a6c.firebasestorage.app", // Fixed domain
+        messagingSenderId: "63177029478",
+        appId: "1:63177029478:web:29682710bea4d3d194faa7",
+        measurementId: "G-X7F3CZK48G"
       };
 
+      // Initialize if not already active
       if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
+        
+        // Initialize Analytics if needed
+        if (typeof firebase.analytics === 'function') {
+          firebase.analytics();
+        }
       }
       
       this.db = firebase.firestore();
       this.firebaseInitialized = true;
-      console.log('Firebase initialized successfully for CV loading');
+      
+      console.log('✅ Firebase Live: Connected to jobsearch-a3a6c');
       return true;
     } catch (error) {
-      console.error('Firebase initialization failed:', error);
+      console.error('❌ Firebase connection error:', error);
       return false;
     }
   }
@@ -217,25 +226,30 @@ class CVVersionController {
     return docData;
   }
 
-  async loadVersionData(versionKey) {
+async loadVersionData(versionKey) {
     const normalizedVersion = this.normalizeVersionKey(versionKey);
-    const localData = await this.loadFromLocal(normalizedVersion);
 
-    if (localData) {
-      this.cvData = localData;
-      this.populatePageWithData(localData);
-      this.applyVersion(normalizedVersion);
-      return true;
-    }
-
+    // 1. Try Firebase First (for real-time updates)
     if (this.firebaseInitialized) {
       const firebaseData = await this.loadFromFirebase(normalizedVersion);
       if (firebaseData) {
+        console.log('Using data from: Firebase');
         this.cvData = firebaseData;
         this.populatePageWithData(firebaseData);
         this.applyVersion(normalizedVersion);
         return true;
       }
+    }
+
+    // 2. Fallback to Local JSON
+    console.log('Firebase failed or unavailable, checking local storage...');
+    const localData = await this.loadFromLocal(normalizedVersion);
+    if (localData) {
+      console.log('Using data from: Local JSON');
+      this.cvData = localData;
+      this.populatePageWithData(localData);
+      this.applyVersion(normalizedVersion);
+      return true;
     }
 
     return false;
