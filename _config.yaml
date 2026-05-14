@@ -1,0 +1,12 @@
+# Forces the root index.html to be the primary landing page
+include: [index.html, assets, admin, .nojekyll]
+
+# Prevents GitHub from ignoring files starting with a dot
+exclude: [script.py, README.md, REORGANIZATION_SUMMARY.md, FIREBASE_SECURITY_RULES.md]
+
+# Ensures links are relative to your domain root
+baseurl: ""
+url: "https://alejandromoralwork.github.io"
+
+# Prevents the & symbol in folder names from breaking the build
+permalink: /:path/:basename:output_ext
