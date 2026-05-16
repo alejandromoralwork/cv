@@ -248,19 +248,15 @@ async loadVersionData(versionKey) {
       }
     }
 
-    // 2. Fallback to Local JSON only during localhost development
-    if (this.allowLocalFallback) {
-      console.log('Firebase failed or unavailable, checking local storage...');
-      const localData = await this.loadFromLocal(normalizedVersion);
-      if (localData) {
-        console.log('Using data from: Local JSON');
-        this.cvData = localData;
-        this.populatePageWithData(localData);
-        this.applyVersion(normalizedVersion);
-        return true;
-      }
-    } else {
-      console.error('Firebase data unavailable on deployed site. Local JSON fallback is disabled outside localhost.');
+    // 2. Fallback to Local JSON if Firebase didn't provide data
+    console.log('Attempting local JSON fallback if Firebase unavailable...');
+    const localData = await this.loadFromLocal(normalizedVersion);
+    if (localData) {
+      console.log('Using data from: Local JSON');
+      this.cvData = localData;
+      this.populatePageWithData(localData);
+      this.applyVersion(normalizedVersion);
+      return true;
     }
 
     return false;

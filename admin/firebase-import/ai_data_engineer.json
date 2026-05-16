@@ -79,7 +79,7 @@
         "title": "Reporting Validation Suite",
         "category": "Python / Automation / Reporting",
         "filterCategory": "automation",
-        "image": "DA.png",
+        "image": "DA.PNG",
         "description": "A sample reporting suite for automated checks, reconciliation logic, and templated output generation.",
         "active": true
       },

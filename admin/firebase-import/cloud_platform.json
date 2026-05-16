@@ -79,7 +79,7 @@
         "title": "Infrastructure Provisioning Kit",
         "category": "Python / Cloud Automation",
         "filterCategory": "automation",
-        "image": "DA.png",
+        "image": "DA.PNG",
         "description": "A sample provisioning kit for infrastructure setup, configuration consistency, and repeatable cloud operations.",
         "active": true
       },

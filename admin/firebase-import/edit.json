@@ -46,7 +46,7 @@
         "title": "Template Project",
         "category": "Editable / Template",
         "filterCategory": "web development",
-        "image": "placeholder.png",
+        "image": "project1.PNG",
         "description": "Placeholder project entry for the edit flow.",
         "links": [
           { "text": "View Project", "url": "#" }
