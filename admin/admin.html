@@ -398,10 +398,10 @@
         let availableVersions = {};
 
         const previewFolderMap = {
-            ai_data_engineer: 'AI&Data Engineer',
-            backend_systems_architect: 'Backend&Systems Architect',
+            ai_data_engineer: 'AI&DataEngineer',
+            backend_systems_architect: 'Backend&Systems',
             cloud_platform: 'Cloud&Platform',
-            mobile_frontend_architect: 'Mobile&Frontend Architect',
+            mobile_frontend_architect: 'Mobile&Frontend',
             personal_blockchain: 'PersonalBlockchain',
             personal_data_analyst: 'PersonalDataAnalyst',
             personal_fintech: 'PersonalFintech',
@@ -796,7 +796,7 @@
                 return;
             }
 
-            const previewPath = '../' + dir.split('/').map(segment => encodeURIComponent(segment)).join('/') + '/index.html';
+            const previewPath = '/cv/' + dir.split('/').map(segment => encodeURIComponent(segment)).join('/') + '/index.html';
             iframe.src = previewPath;
 
             iframe.onload = () => {
