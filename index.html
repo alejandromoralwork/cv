@@ -6,7 +6,7 @@
 <base href="/cv/">
 <script>
 // Auto-detect base path for local vs GitHub Pages
-window.__localHubMode = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+window.__localHubMode = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.endsWith('github.io');
 if (window.__localHubMode) {
   document.documentElement.classList.add('local-hub');
   document.title = 'CV Hub';
@@ -458,7 +458,7 @@ if (window.__localHubMode) {
                     const folderName = pathParts[pathParts.length - 1];
                     
                     // Construct the portfolio URL
-                    const portfolioUrl = `https://alejandromwork.github.io/cv/${folderName}/`;
+                    const portfolioUrl = `https://alejandromoralwork.github.io/cv/${folderName}/`;
                     
                     // Set the link href
                     document.getElementById('portfolio-link').href = portfolioUrl;

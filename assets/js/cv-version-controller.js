@@ -6,6 +6,7 @@
 class CVVersionController {
   constructor() {
     this.preloader = document.getElementById('preloader-overlay');
+    this.allowLocalFallback = this.isLocalDevelopment();
     this.versionFileMap = {
       ai_data_engineer: 'ai_data_engineer.json',
       backend_systems_architect: 'backend_systems_architect.json',
@@ -32,6 +33,11 @@ class CVVersionController {
     this.allExperiences = null;
     this.allProjects = null;
     this.init();
+  }
+
+  isLocalDevelopment() {
+    const hostname = window.location.hostname;
+    return hostname === 'localhost' || hostname === '127.0.0.1';
   }
 
   resolveInitialVersion() {
@@ -242,15 +248,19 @@ async loadVersionData(versionKey) {
       }
     }
 
-    // 2. Fallback to Local JSON
-    console.log('Firebase failed or unavailable, checking local storage...');
-    const localData = await this.loadFromLocal(normalizedVersion);
-    if (localData) {
-      console.log('Using data from: Local JSON');
-      this.cvData = localData;
-      this.populatePageWithData(localData);
-      this.applyVersion(normalizedVersion);
-      return true;
+    // 2. Fallback to Local JSON only during localhost development
+    if (this.allowLocalFallback) {
+      console.log('Firebase failed or unavailable, checking local storage...');
+      const localData = await this.loadFromLocal(normalizedVersion);
+      if (localData) {
+        console.log('Using data from: Local JSON');
+        this.cvData = localData;
+        this.populatePageWithData(localData);
+        this.applyVersion(normalizedVersion);
+        return true;
+      }
+    } else {
+      console.error('Firebase data unavailable on deployed site. Local JSON fallback is disabled outside localhost.');
     }
 
     return false;
