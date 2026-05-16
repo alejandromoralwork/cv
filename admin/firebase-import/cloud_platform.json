@@ -14,7 +14,9 @@
                                    "location":  "Luxembourg",
                                    "website":  "https://alejandromoralwork.github.io/cv/Cloud%26Platform/",
                                    "github":  "https://www.github.com/alejandromwork",
-                                   "linkedin":  ""
+                                   "linkedin":  "",
+                                   "showWebsite":  "No",
+                                   "showGithub":  "No"
                                },
                    "education":  [
                                      {

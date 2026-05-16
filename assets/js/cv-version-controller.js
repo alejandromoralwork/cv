@@ -242,6 +242,23 @@ async initializeFirebase() {
     return flag === true;
   }
 
+  isEnabledFlag(flag) {
+    if (typeof flag === 'string') {
+      return flag.trim().toLowerCase() === 'yes';
+    }
+
+    return flag === true;
+  }
+
+  getContactVisibilityFlags(data) {
+    const contact = data?.contact || {};
+
+    return {
+      showWebsite: this.isEnabledFlag(contact.showWebsite ?? contact.websiteVisible ?? contact.showPersonalWebsite),
+      showGithub: this.isEnabledFlag(contact.showGithub ?? contact.githubVisible)
+    };
+  }
+
   setProjectPageVisibility(isActive) {
     const projectsSection = document.querySelector('.projects, #projects-content');
     const projectsNavItem = document.getElementById('nav-projects');
@@ -337,6 +354,8 @@ async loadVersionData(versionKey) {
 
     // Update contact info
     if (data.contact) {
+      const { showWebsite, showGithub } = this.getContactVisibilityFlags(data);
+
       if (data.contact.phone) {
         const phoneEl = document.querySelector('.call a');
         if (phoneEl) {
@@ -364,6 +383,16 @@ async loadVersionData(versionKey) {
           websiteEl.href = data.contact.website;
           websiteEl.querySelector('.website-text').textContent = 'Online CV';
         }
+
+        const websiteWrap = document.querySelector('.website-link');
+        if (websiteWrap) {
+          websiteWrap.style.display = showWebsite ? '' : 'none';
+        }
+      }
+
+      const githubLink = document.querySelector('.follow .github-social');
+      if (githubLink) {
+        githubLink.style.display = showGithub ? '' : 'none';
       }
     }
 

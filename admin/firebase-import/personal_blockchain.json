@@ -14,7 +14,9 @@
                                    "location":  "Luxembourg",
                                    "website":  "https://alejandromoralwork.github.io/cv/PersonalBlockchain/",
                                    "github":  "https://www.github.com/alejandromwork",
-                                   "linkedin":  ""
+                                   "linkedin":  "",
+                                   "showWebsite":  "No",
+                                   "showGithub":  "No"
                                },
                    "education":  [
                                      {
