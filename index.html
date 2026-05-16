@@ -303,28 +303,28 @@ if (window.__localHubMode) {
           <h1 class="hub-title">CV launcher for versions, editing, and import flows.</h1>
           <p class="hub-copy">Use this root page to jump into the senior CV variants, open the admin editor, or open the application tracker. It is meant to be a quick project map for local development, not a separate data workflow.</p>
           <div class="hub-grid">
-            <a class="hub-link" href="admin/admin.html">
+            <a class="hub-link" href="/cv/admin/admin.html">
               <div>
                 <strong>Open CV editor</strong>
                 <small>Edit Firestore-backed CV versions from the admin panel.</small>
               </div>
               <span class="hub-arrow">↗</span>
             </a>
-            <a class="hub-link" href="admin/html/application-tracker.html">
+            <a class="hub-link" href="/cv/admin/html/application-tracker.html">
               <div>
                 <strong>Open application tracker</strong>
                 <small>Log and review applications in the tracker dashboard.</small>
               </div>
               <span class="hub-arrow">↗</span>
             </a>
-            <a class="hub-link" href="admin/html/upload-to-firebase.html">
+            <a class="hub-link" href="/cv/admin/html/upload-to-firebase.html">
               <div>
                 <strong>Open admin upload tool</strong>
                 <small>Use the existing admin import page for Firestore uploads.</small>
               </div>
               <span class="hub-arrow">↗</span>
             </a>
-            <a class="hub-link" href="senior-info.json">
+            <a class="hub-link" href="/cv/senior-info.json">
               <div>
                 <strong>Inspect senior base JSON</strong>
                 <small>View the shared senior template used for the role variants.</small>
@@ -705,7 +705,7 @@ if (window.__localHubMode) {
     function renderCard(version) {
       const card = document.createElement('a');
       card.className = 'version-card';
-      card.href = version.path;
+      card.href = '/cv/' + version.path;
       card.innerHTML = `
         <div class="version-meta">
           <div>
