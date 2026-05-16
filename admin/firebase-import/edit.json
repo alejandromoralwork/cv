@@ -1,66 +1,110 @@
-{
-  "lastUpdated": "2026-05-14T00:00:00Z",
-  "version": "edit",
-  "cvData": {
-    "personal": {
-      "name": "Alejandro Moral Aranda",
-      "jobTitle": "CV Editor Template",
-      "photo": "yo.png",
-      "about": "Editable template profile used by the CV editing flow. This version is intentionally neutral and provides a clean starting point for updating role-specific content."
-    },
-    "contact": {
-      "phone": "+34 675949628",
-      "email": "alejandro.moral.work@gmail.com",
-      "location": "Luxembourg",
-      "website": "https://alejandromoralwork.github.io/cv/edit/",
-      "github": "https://www.github.com/alejandromoralwork",
-      "linkedin": ""
-    },
-    "education": [
-      {
-        "dates": "In progress",
-        "degree": "Flexible CV Template",
-        "school": "Editable Profile",
-        "coursework": [
-          "Use this record as a base when preparing a new CV variant.",
-          "Update title, summary, and project selection as needed."
-        ]
-      }
-    ],
-    "workExperience": [
-      {
-        "dates": "Current",
-        "title": "Editable Role Profile",
-        "company": "",
-        "description": "Template entry for preparing a tailored CV version."
-      }
-    ],
-    "skills": [
-      { "name": "Python", "percent": 70, "years": 4, "tags": ["Template"] },
-      { "name": "JavaScript", "percent": 70, "years": 3, "tags": ["Template"] },
-      { "name": "SQL", "percent": 70, "years": 4, "tags": ["Template"] },
-      { "name": "Rust", "percent": 50, "years": 1, "tags": ["Template"] }
-    ],
-    "projects": [
-      {
-        "title": "Template Project",
-        "category": "Editable / Template",
-        "filterCategory": "web development",
-        "image": "project1.PNG",
-        "description": "Placeholder project entry for the edit flow.",
-        "links": [
-          { "text": "View Project", "url": "#" }
-        ],
-        "active": true
-      }
-    ],
-    "languages": [
-      { "name": "Spanish (Native)", "flag": "spain.png" },
-      { "name": "English (Fluent)", "flag": "uk.png" }
-    ],
-    "interests": [
-      { "name": "Coding", "icon": "fas fa-code" },
-      { "name": "Maths", "icon": "fas fa-calculator" }
-    ]
-  }
+﻿{
+    "lastUpdated":  "2026-05-14T00:00:00Z",
+    "version":  "edit",
+    "cvData":  {
+                   "personal":  {
+                                    "name":  "Alejandro Moral Aranda",
+                                    "jobTitle":  "CV Editor Template",
+                                    "photo":  "yo.png",
+                                    "about":  "Editable template profile used by the CV editing flow. This version is intentionally neutral and provides a clean starting point for updating role-specific content."
+                                },
+                   "contact":  {
+                                   "phone":  "+34 675949628",
+                                   "email":  "alejandro.moral.dev@proton.me",
+                                   "location":  "Luxembourg",
+                                   "website":  "https://alejandromoralwork.github.io/cv/edit/",
+                                   "github":  "https://www.github.com/alejandromwork",
+                                   "linkedin":  ""
+                               },
+                   "education":  [
+                                     {
+                                         "dates":  "In progress",
+                                         "degree":  "Flexible CV Template",
+                                         "school":  "Editable Profile",
+                                         "coursework":  [
+                                                            "Use this record as a base when preparing a new CV variant.",
+                                                            "Update title, summary, and project selection as needed."
+                                                        ]
+                                     }
+                                 ],
+                   "workExperience":  [
+                                          {
+                                              "dates":  "Current",
+                                              "title":  "Editable Role Profile",
+                                              "company":  "",
+                                              "description":  "Template entry for preparing a tailored CV version."
+                                          }
+                                      ],
+                   "skills":  [
+                                  {
+                                      "name":  "Python",
+                                      "percent":  70,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Template"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "JavaScript",
+                                      "percent":  70,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Template"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "SQL",
+                                      "percent":  70,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Template"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Rust",
+                                      "percent":  50,
+                                      "years":  1,
+                                      "tags":  [
+                                                   "Template"
+                                               ]
+                                  }
+                              ],
+                   "projects":  [
+                                    {
+                                        "title":  "Template Project",
+                                        "category":  "Editable / Template",
+                                        "filterCategory":  "web development",
+                                        "image":  "project1.PNG",
+                                        "description":  "Placeholder project entry for the edit flow.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "#"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    }
+                                ],
+                   "languages":  [
+                                     {
+                                         "name":  "Spanish (Native)",
+                                         "flag":  "spain.png"
+                                     },
+                                     {
+                                         "name":  "English (Fluent)",
+                                         "flag":  "uk.png"
+                                     }
+                                 ],
+                   "interests":  [
+                                     {
+                                         "name":  "Coding",
+                                         "icon":  "fas fa-code"
+                                     },
+                                     {
+                                         "name":  "Maths",
+                                         "icon":  "fas fa-calculator"
+                                     }
+                                 ],
+                   "isProjectPageActive":  "No"
+               }
 }

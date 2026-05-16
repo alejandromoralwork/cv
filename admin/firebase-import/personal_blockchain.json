@@ -1,114 +1,191 @@
-{
-  "lastUpdated": "2026-05-14T00:00:00Z",
-  "version": "personal_blockchain",
-  "cvData": {
-    "personal": {
-      "name": "Alejandro Moral Aranda",
-      "jobTitle": "Blockchain Developer Intern",
-      "photo": "yo.png",
-      "about": "Blockchain-focused developer interested in smart contracts, decentralized finance, and execution infrastructure. I bring a practical mix of Python, JavaScript, C/C++, and financial domain knowledge to build and test reliable tooling around crypto and market systems."
-    },
-    "contact": {
-      "phone": "+34 675949628",
-      "email": "alejandro.moral.work@gmail.com",
-      "location": "Luxembourg",
-      "website": "https://alejandromoralwork.github.io/cv/PersonalBlockchain/",
-      "github": "https://www.github.com/alejandromoralwork",
-      "linkedin": ""
-    },
-    "education": [
-      {
-        "dates": "Sept. 2024 - Sep. 2027 (In progress)",
-        "degree": "Bachelor in Data Science",
-        "school": "IU International University of Applied Sciences",
-        "coursework": [
-          "Applied computing, data structures, and analytical workflows.",
-          "Useful for blockchain tooling, indexing, and data validation tasks."
-        ]
-      },
-      {
-        "dates": "May. 2025 - Present (In progress)",
-        "degree": "C/C++ Coding Program",
-        "school": "42 Luxembourg",
-        "coursework": [
-          "Systems programming, networking, and low-level implementation.",
-          "Training that translates well to blockchain infrastructure work."
-        ]
-      }
-    ],
-    "workExperience": [
-      {
-        "dates": "2020 - Present",
-        "title": "Individual Investor",
-        "company": "",
-        "description": "Built personal trading and analysis workflows around crypto and prediction markets."
-      },
-      {
-        "dates": "February 2024 - Current",
-        "title": "PERE Fund Accountant & Automation Specialist",
-        "company": "Arendt Investor Services",
-        "description": "Used scripting and automation to make data-heavy reporting processes faster and more reliable."
-      },
-      {
-        "dates": "October 2021 - March 2022",
-        "title": "Wealth Management Internship",
-        "company": "UBS Europe SE",
-        "description": "Worked in a regulated environment where security, process discipline, and accuracy mattered."
-      }
-    ],
-    "skills": [
-      { "name": "Python", "percent": 84, "years": 5, "tags": ["Automation", "Data"] },
-      { "name": "JavaScript", "percent": 78, "years": 3, "tags": ["Web3", "APIs"] },
-      { "name": "C/C++", "percent": 64, "years": 2, "tags": ["Systems"] },
-      { "name": "SQL", "percent": 74, "years": 4, "tags": ["Data", "Validation"] },
-      { "name": "Rust", "percent": 58, "years": 1, "tags": ["Smart Contracts", "Performance"] },
-      { "name": "HTML & CSS", "percent": 66, "years": 3, "tags": ["Interfaces"] }
-    ],
-    "projects": [
-      {
-        "title": "Polymarket Trading",
-        "category": "Trading / Markets / DeFi",
-        "filterCategory": "trading",
-        "image": "polymarket.png",
-        "description": "Analysis and tooling around market activity, on-chain feeds, and execution workflows.",
-        "links": [
-          { "text": "Polymarket Account", "url": "https://polymarket.com/profile/0xF937dBe9976Ac34157b30DD55BDbf248458F6b43" },
-          { "text": "View trading analytics (Hashdive)", "url": "https://www.hashdive.com/Analyze_User?user_address=0xf937dbe9976ac34157b30dd55bdbf248458f6b43" }
-        ],
-        "active": true
-      },
-      {
-        "title": "Polymarket / Polygon Trading Client, Utility Library & Terminal",
-        "category": "Python / Trading / Infrastructure",
-        "filterCategory": "web development",
-        "image": "PMTerminal.PNG",
-        "description": "Client utilities and terminal tooling for trading, order management, and market infrastructure.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/polytrading" }
-        ],
-        "active": true
-      },
-      {
-        "title": "Algorithmic Trading",
-        "category": "Python / Data Science",
-        "filterCategory": "web development",
-        "image": "KNN.png",
-        "description": "Statistical trading strategy built on predictive signals and backtesting workflows.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/trading_algo" }
-        ],
-        "active": true
-      }
-    ],
-    "languages": [
-      { "name": "Spanish (Native)", "flag": "spain.png" },
-      { "name": "English (Fluent)", "flag": "uk.png" },
-      { "name": "French (Medium)", "flag": "france.png" }
-    ],
-    "interests": [
-      { "name": "Coding", "icon": "fas fa-code" },
-      { "name": "Maths", "icon": "fas fa-calculator" },
-      { "name": "Chess", "icon": "fas fa-chess" }
-    ]
-  }
+﻿{
+    "lastUpdated":  "2026-05-14T00:00:00Z",
+    "version":  "personal_blockchain",
+    "cvData":  {
+                   "personal":  {
+                                    "name":  "Alejandro Moral Aranda",
+                                    "jobTitle":  "Blockchain Developer Intern",
+                                    "photo":  "yo.png",
+                                    "about":  "Blockchain-focused developer interested in smart contracts, decentralized finance, and execution infrastructure. I bring a practical mix of Python, JavaScript, C/C++, and financial domain knowledge to build and test reliable tooling around crypto and market systems."
+                                },
+                   "contact":  {
+                                   "phone":  "+34 675949628",
+                                   "email":  "alejandro.moral.dev@proton.me",
+                                   "location":  "Luxembourg",
+                                   "website":  "https://alejandromoralwork.github.io/cv/PersonalBlockchain/",
+                                   "github":  "https://www.github.com/alejandromwork",
+                                   "linkedin":  ""
+                               },
+                   "education":  [
+                                     {
+                                         "dates":  "Sept. 2024 - Sep. 2027 (In progress)",
+                                         "degree":  "Bachelor in Data Science",
+                                         "school":  "IU International University of Applied Sciences",
+                                         "coursework":  [
+                                                            "Applied computing, data structures, and analytical workflows.",
+                                                            "Useful for blockchain tooling, indexing, and data validation tasks."
+                                                        ]
+                                     },
+                                     {
+                                         "dates":  "May. 2025 - Present (In progress)",
+                                         "degree":  "C/C++ Coding Program",
+                                         "school":  "42 Luxembourg",
+                                         "coursework":  [
+                                                            "Systems programming, networking, and low-level implementation.",
+                                                            "Training that translates well to blockchain infrastructure work."
+                                                        ]
+                                     }
+                                 ],
+                   "workExperience":  [
+                                          {
+                                              "dates":  "2020 - Present",
+                                              "title":  "Individual Investor",
+                                              "company":  "",
+                                              "description":  "Built personal trading and analysis workflows around crypto and prediction markets."
+                                          },
+                                          {
+                                              "dates":  "February 2024 - Current",
+                                              "title":  "PERE Fund Accountant \u0026 Automation Specialist",
+                                              "company":  "Arendt Investor Services",
+                                              "description":  "Used scripting and automation to make data-heavy reporting processes faster and more reliable."
+                                          },
+                                          {
+                                              "dates":  "October 2021 - March 2022",
+                                              "title":  "Wealth Management Internship",
+                                              "company":  "UBS Europe SE",
+                                              "description":  "Worked in a regulated environment where security, process discipline, and accuracy mattered."
+                                          }
+                                      ],
+                   "skills":  [
+                                  {
+                                      "name":  "Python",
+                                      "percent":  84,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Automation",
+                                                   "Data"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "JavaScript",
+                                      "percent":  78,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Web3",
+                                                   "APIs"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "C/C++",
+                                      "percent":  64,
+                                      "years":  2,
+                                      "tags":  [
+                                                   "Systems"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "SQL",
+                                      "percent":  74,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Data",
+                                                   "Validation"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Rust",
+                                      "percent":  58,
+                                      "years":  1,
+                                      "tags":  [
+                                                   "Smart Contracts",
+                                                   "Performance"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "HTML \u0026 CSS",
+                                      "percent":  66,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Interfaces"
+                                               ]
+                                  }
+                              ],
+                   "projects":  [
+                                    {
+                                        "title":  "Polymarket Trading",
+                                        "category":  "Trading / Markets / DeFi",
+                                        "filterCategory":  "trading",
+                                        "image":  "polymarket.png",
+                                        "description":  "Analysis and tooling around market activity, on-chain feeds, and execution workflows.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "Polymarket Account",
+                                                          "url":  "https://polymarket.com/profile/0xF937dBe9976Ac34157b30DD55BDbf248458F6b43"
+                                                      },
+                                                      {
+                                                          "text":  "View trading analytics (Hashdive)",
+                                                          "url":  "https://www.hashdive.com/Analyze_User?user_address=0xf937dbe9976ac34157b30dd55bdbf248458f6b43"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Polymarket / Polygon Trading Client, Utility Library \u0026 Terminal",
+                                        "category":  "Python / Trading / Infrastructure",
+                                        "filterCategory":  "web development",
+                                        "image":  "PMTerminal.PNG",
+                                        "description":  "Client utilities and terminal tooling for trading, order management, and market infrastructure.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/polytrading"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Algorithmic Trading",
+                                        "category":  "Python / Data Science",
+                                        "filterCategory":  "web development",
+                                        "image":  "KNN.png",
+                                        "description":  "Statistical trading strategy built on predictive signals and backtesting workflows.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/trading_algo"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    }
+                                ],
+                   "languages":  [
+                                     {
+                                         "name":  "Spanish (Native)",
+                                         "flag":  "spain.png"
+                                     },
+                                     {
+                                         "name":  "English (Fluent)",
+                                         "flag":  "uk.png"
+                                     },
+                                     {
+                                         "name":  "French (Medium)",
+                                         "flag":  "france.png"
+                                     }
+                                 ],
+                   "interests":  [
+                                     {
+                                         "name":  "Coding",
+                                         "icon":  "fas fa-code"
+                                     },
+                                     {
+                                         "name":  "Maths",
+                                         "icon":  "fas fa-calculator"
+                                     },
+                                     {
+                                         "name":  "Chess",
+                                         "icon":  "fas fa-chess"
+                                     }
+                                 ],
+                   "isProjectPageActive":  "No"
+               }
 }

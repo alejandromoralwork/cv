@@ -1,106 +1,173 @@
-{
-  "lastUpdated": "2026-05-14T00:00:00Z",
-  "version": "backend_systems_architect",
-  "cvData": {
-    "personal": {
-      "name": "Alejandro Moral Aranda",
-      "jobTitle": "Backend & Systems Architect",
-      "photo": "yo.png",
-      "about": "Backend and systems architect with a strong bias for clear APIs, automation, and maintainable service design. I like building dependable tooling across Python, JavaScript, C/C++, and PowerShell, with a practical understanding of reporting systems, data validation, and workflow orchestration."
-    },
-    "contact": {
-      "phone": "+34 675949628",
-      "email": "alejandro.moral.work@gmail.com",
-      "location": "Luxembourg",
-      "website": "https://alejandromoralwork.github.io/cv/Backend%26Systems%20Architect/",
-      "github": "https://www.github.com/alejandromoralwork",
-      "linkedin": ""
-    },
-    "education": [
-      {
-        "dates": "Sept 2019 - Sept 2020",
-        "degree": "Master in Computer Science",
-        "school": "University of Luxembourg",
-        "description": "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system."
-      },
-      {
-        "dates": "Sept 2015 - Sept 2019",
-        "degree": "Bachelor in Computer Science",
-        "school": "University of Malaga",
-        "description": "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
-      }
-    ],
-    "workExperience": [
-      {
-        "dates": "September 2025 - Present",
-        "title": "Senior Software Engineer",
-        "company": "Freelancer",
-        "description": "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
-      },
-      {
-        "dates": "May 2024 - August 2025",
-        "title": "Senior Software Engineer",
-        "company": "ARHS Group",
-        "description": "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
-      },
-      {
-        "dates": "February 2021 - March 2024",
-        "title": "Senior Software Engineer",
-        "company": "Accenture Spain",
-        "description": "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
-      }
-    ],
-    "skills": [
-      { "name": "Java", "percent": 90, "years": 5, "tags": ["Backend", "Services"] },
-      { "name": "Python", "percent": 88, "years": 5, "tags": ["Automation", "APIs"] },
-      { "name": "Node.js", "percent": 86, "years": 4, "tags": ["Services", "Integration"] },
-      { "name": "RESTful APIs", "percent": 95, "years": 4, "tags": ["Architecture", "Delivery"] },
-      { "name": "Microservices", "percent": 86, "years": 4, "tags": ["Systems", "Scalability"] },
-      { "name": "SQL / NoSQL", "percent": 88, "years": 4, "tags": ["Databases", "Data Models"] }
-    ],
-    "projects": [
-      {
-        "title": "API Gateway Service",
-        "category": "Python / Backend",
-        "filterCategory": "backend",
-        "image": "PMTerminal.PNG",
-        "description": "A sample gateway project for routing requests, validating payloads, and coordinating backend services.",
-        "active": true
-      },
-      {
-        "title": "Service Orchestration Console",
-        "category": "JavaScript / Operations",
-        "filterCategory": "operations",
-        "image": "tareaholidays.PNG",
-        "description": "A sample internal console for coordinating recurring workflows, scheduled jobs, and service health checks.",
-        "active": true
-      },
-      {
-        "title": "Distributed Worker Manager",
-        "category": "Python / Microservices",
-        "filterCategory": "systems",
-        "image": "VBA.PNG",
-        "description": "A sample worker manager for queue handling, retries, and distributed task coordination.",
-        "active": true
-      },
-      {
-        "title": "Deployment Toolkit",
-        "category": "PowerShell / CI-CD",
-        "filterCategory": "devops",
-        "image": "project1.PNG",
-        "description": "A sample deployment toolkit for repeatable builds, release steps, and environment preparation.",
-        "active": true
-      }
-    ],
-    "languages": [
-      { "name": "Spanish (Native)", "flag": "spain.png" },
-      { "name": "English (Fluent)", "flag": "uk.png" },
-      { "name": "French (Medium)", "flag": "france.png" }
-    ],
-    "interests": [
-      { "name": "Coding", "icon": "fas fa-code" },
-      { "name": "Chess", "icon": "fas fa-chess" },
-      { "name": "Maths", "icon": "fas fa-calculator" }
-    ]
-  }
+﻿{
+    "lastUpdated":  "2026-05-14T00:00:00Z",
+    "version":  "backend_systems_architect",
+    "cvData":  {
+                   "personal":  {
+                                    "name":  "Alejandro Moral Aranda",
+                                    "jobTitle":  "Backend \u0026 Systems Architect",
+                                    "photo":  "yo.png",
+                                    "about":  "Backend and systems architect with a strong bias for clear APIs, automation, and maintainable service design. I like building dependable tooling across Python, JavaScript, C/C++, and PowerShell, with a practical understanding of reporting systems, data validation, and workflow orchestration."
+                                },
+                   "contact":  {
+                                   "phone":  "+34 675949628",
+                                   "email":  "alejandro.moral.dev@proton.me",
+                                   "location":  "Luxembourg",
+                                   "website":  "https://alejandromoralwork.github.io/cv/Backend%26Systems%20Architect/",
+                                   "github":  "https://www.github.com/alejandromwork",
+                                   "linkedin":  ""
+                               },
+                   "education":  [
+                                     {
+                                         "dates":  "Sept 2019 - Sept 2020",
+                                         "degree":  "Master in Computer Science",
+                                         "school":  "University of Luxembourg",
+                                         "description":  "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system."
+                                     },
+                                     {
+                                         "dates":  "Sept 2015 - Sept 2019",
+                                         "degree":  "Bachelor in Computer Science",
+                                         "school":  "University of Malaga",
+                                         "description":  "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
+                                     }
+                                 ],
+                   "workExperience":  [
+                                          {
+                                              "dates":  "September 2025 - Present",
+                                              "title":  "Senior Software Engineer",
+                                              "company":  "Freelancer",
+                                              "description":  "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
+                                          },
+                                          {
+                                              "dates":  "May 2024 - August 2025",
+                                              "title":  "Senior Software Engineer",
+                                              "company":  "ARHS Group (Luxembourg)",
+                                              "description":  "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
+                                          },
+                                          {
+                                              "dates":  "February 2021 - March 2024",
+                                              "title":  "Senior Software Engineer",
+                                              "company":  "Accenture Spain",
+                                              "description":  "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
+                                          }
+                                      ],
+                   "skills":  [
+                                  {
+                                      "name":  "Java",
+                                      "percent":  90,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Backend",
+                                                   "Services"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Python",
+                                      "percent":  88,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Automation",
+                                                   "APIs"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Node.js",
+                                      "percent":  86,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Services",
+                                                   "Integration"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "RESTful APIs",
+                                      "percent":  95,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Architecture",
+                                                   "Delivery"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Microservices",
+                                      "percent":  86,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Systems",
+                                                   "Scalability"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "SQL / NoSQL",
+                                      "percent":  88,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Databases",
+                                                   "Data Models"
+                                               ]
+                                  }
+                              ],
+                   "projects":  [
+                                    {
+                                        "title":  "API Gateway Service",
+                                        "category":  "Python / Backend",
+                                        "filterCategory":  "backend",
+                                        "image":  "PMTerminal.PNG",
+                                        "description":  "A sample gateway project for routing requests, validating payloads, and coordinating backend services.",
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Service Orchestration Console",
+                                        "category":  "JavaScript / Operations",
+                                        "filterCategory":  "operations",
+                                        "image":  "tareaholidays.PNG",
+                                        "description":  "A sample internal console for coordinating recurring workflows, scheduled jobs, and service health checks.",
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Distributed Worker Manager",
+                                        "category":  "Python / Microservices",
+                                        "filterCategory":  "systems",
+                                        "image":  "VBA.PNG",
+                                        "description":  "A sample worker manager for queue handling, retries, and distributed task coordination.",
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Deployment Toolkit",
+                                        "category":  "PowerShell / CI-CD",
+                                        "filterCategory":  "devops",
+                                        "image":  "project1.PNG",
+                                        "description":  "A sample deployment toolkit for repeatable builds, release steps, and environment preparation.",
+                                        "active":  true
+                                    }
+                                ],
+                   "languages":  [
+                                     {
+                                         "name":  "Spanish (Native)",
+                                         "flag":  "spain.png"
+                                     },
+                                     {
+                                         "name":  "English (Fluent)",
+                                         "flag":  "uk.png"
+                                     },
+                                     {
+                                         "name":  "French (Medium)",
+                                         "flag":  "france.png"
+                                     }
+                                 ],
+                   "interests":  [
+                                     {
+                                         "name":  "Coding",
+                                         "icon":  "fas fa-code"
+                                     },
+                                     {
+                                         "name":  "Chess",
+                                         "icon":  "fas fa-chess"
+                                     },
+                                     {
+                                         "name":  "Maths",
+                                         "icon":  "fas fa-calculator"
+                                     }
+                                 ],
+                   "isProjectPageActive":  "No"
+               }
 }

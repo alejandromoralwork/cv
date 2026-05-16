@@ -1,113 +1,188 @@
-{
-  "lastUpdated": "2026-05-14T00:00:00Z",
-  "version": "rust_market_infra",
-  "cvData": {
-    "personal": {
-      "name": "Alejandro Moral Aranda",
-      "jobTitle": "Rust & Market Infra Intern",
-      "photo": "yo.png",
-      "about": "Systems-minded developer interested in Rust, market infrastructure, and low-latency tooling. I like building predictable software for data and trading workflows where performance, correctness, and clear interfaces matter."
-    },
-    "contact": {
-      "phone": "+34 675949628",
-      "email": "alejandro.moral.work@gmail.com",
-      "location": "Luxembourg",
-      "website": "https://alejandromoralwork.github.io/cv/Rust%26MarketInfra/",
-      "github": "https://www.github.com/alejandromoralwork",
-      "linkedin": ""
-    },
-    "education": [
-      {
-        "dates": "May. 2025 - Present (In progress)",
-        "degree": "C/C++ Coding Program",
-        "school": "42 Luxembourg",
-        "coursework": [
-          "System programming, networking, and low-level debugging.",
-          "Good foundation for Rust and performance-oriented engineering."
-        ]
-      },
-      {
-        "dates": "Sept. 2024 - Sep. 2027 (In progress)",
-        "degree": "Bachelor in Data Science",
-        "school": "IU International University of Applied Sciences",
-        "coursework": [
-          "Programming, data modeling, and software engineering fundamentals.",
-          "Useful for infrastructure, analytics, and tooling work."
-        ]
-      }
-    ],
-    "workExperience": [
-      {
-        "dates": "2020 - Present",
-        "title": "Individual Investor",
-        "company": "",
-        "description": "Built market analysis workflows and followed execution details across trading tools and data sources."
-      },
-      {
-        "dates": "April 2023 - November 2023",
-        "title": "Private Equity Fund Accountant",
-        "company": "Intertrust",
-        "description": "Used structured data processing and automation to support robust reporting flows."
-      },
-      {
-        "dates": "June 2021 - August 2021",
-        "title": "M&A Analyst Internship",
-        "company": "Empresax",
-        "description": "Assisted with analysis and research in a time-sensitive environment."
-      }
-    ],
-    "skills": [
-      { "name": "Rust", "percent": 68, "years": 1, "tags": ["Systems", "Performance"] },
-      { "name": "C/C++", "percent": 72, "years": 2, "tags": ["Low-level", "Memory"] },
-      { "name": "Python", "percent": 82, "years": 5, "tags": ["Automation", "Data"] },
-      { "name": "SQL", "percent": 74, "years": 4, "tags": ["Data", "Validation"] },
-      { "name": "JavaScript", "percent": 66, "years": 3, "tags": ["Tooling", "APIs"] },
-      { "name": "PowerShell", "percent": 62, "years": 2, "tags": ["Ops"] }
-    ],
-    "projects": [
-      {
-        "title": "Polymarket / Polygon Trading Client, Utility Library & Terminal",
-        "category": "Python / Trading / Infrastructure",
-        "filterCategory": "web development",
-        "image": "PMTerminal.PNG",
-        "description": "A trading terminal and utility library that emphasizes reliable execution and clean interfaces.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/polytrading" }
-        ],
-        "active": true
-      },
-      {
-        "title": "Algorithmic Trading",
-        "category": "Python / Data Science",
-        "filterCategory": "web development",
-        "image": "KNN.png",
-        "description": "Predictive market project with a focus on testing, signal quality, and repeatability.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/trading_algo" }
-        ],
-        "active": true
-      },
-      {
-        "title": "TareaFlow",
-        "category": "Powershell / JavaScript",
-        "filterCategory": "web development",
-        "image": "tareaholidays.PNG",
-        "description": "A small internal system showing process thinking and operational clarity.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/TareaFlow/tree/main/Internal" }
-        ],
-        "active": true
-      }
-    ],
-    "languages": [
-      { "name": "Spanish (Native)", "flag": "spain.png" },
-      { "name": "English (Fluent)", "flag": "uk.png" },
-      { "name": "French (Medium)", "flag": "france.png" }
-    ],
-    "interests": [
-      { "name": "Coding", "icon": "fas fa-code" },
-      { "name": "Chess", "icon": "fas fa-chess" },
-      { "name": "Maths", "icon": "fas fa-calculator" }
-    ]
-  }
+﻿{
+    "lastUpdated":  "2026-05-14T00:00:00Z",
+    "version":  "rust_market_infra",
+    "cvData":  {
+                   "personal":  {
+                                    "name":  "Alejandro Moral Aranda",
+                                    "jobTitle":  "Rust \u0026 Market Infra Intern",
+                                    "photo":  "yo.png",
+                                    "about":  "Systems-minded developer interested in Rust, market infrastructure, and low-latency tooling. I like building predictable software for data and trading workflows where performance, correctness, and clear interfaces matter."
+                                },
+                   "contact":  {
+                                   "phone":  "+34 675949628",
+                                   "email":  "alejandro.moral.dev@proton.me",
+                                   "location":  "Luxembourg",
+                                   "website":  "https://alejandromoralwork.github.io/cv/Rust%26MarketInfra/",
+                                   "github":  "https://www.github.com/alejandromwork",
+                                   "linkedin":  ""
+                               },
+                   "education":  [
+                                     {
+                                         "dates":  "May. 2025 - Present (In progress)",
+                                         "degree":  "C/C++ Coding Program",
+                                         "school":  "42 Luxembourg",
+                                         "coursework":  [
+                                                            "System programming, networking, and low-level debugging.",
+                                                            "Good foundation for Rust and performance-oriented engineering."
+                                                        ]
+                                     },
+                                     {
+                                         "dates":  "Sept. 2024 - Sep. 2027 (In progress)",
+                                         "degree":  "Bachelor in Data Science",
+                                         "school":  "IU International University of Applied Sciences",
+                                         "coursework":  [
+                                                            "Programming, data modeling, and software engineering fundamentals.",
+                                                            "Useful for infrastructure, analytics, and tooling work."
+                                                        ]
+                                     }
+                                 ],
+                   "workExperience":  [
+                                          {
+                                              "dates":  "2020 - Present",
+                                              "title":  "Individual Investor",
+                                              "company":  "",
+                                              "description":  "Built market analysis workflows and followed execution details across trading tools and data sources."
+                                          },
+                                          {
+                                              "dates":  "April 2023 - November 2023",
+                                              "title":  "Private Equity Fund Accountant",
+                                              "company":  "Intertrust",
+                                              "description":  "Used structured data processing and automation to support robust reporting flows."
+                                          },
+                                          {
+                                              "dates":  "June 2021 - August 2021",
+                                              "title":  "M\u0026A Analyst Internship",
+                                              "company":  "Empresax",
+                                              "description":  "Assisted with analysis and research in a time-sensitive environment."
+                                          }
+                                      ],
+                   "skills":  [
+                                  {
+                                      "name":  "Rust",
+                                      "percent":  68,
+                                      "years":  1,
+                                      "tags":  [
+                                                   "Systems",
+                                                   "Performance"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "C/C++",
+                                      "percent":  72,
+                                      "years":  2,
+                                      "tags":  [
+                                                   "Low-level",
+                                                   "Memory"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Python",
+                                      "percent":  82,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Automation",
+                                                   "Data"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "SQL",
+                                      "percent":  74,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Data",
+                                                   "Validation"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "JavaScript",
+                                      "percent":  66,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Tooling",
+                                                   "APIs"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "PowerShell",
+                                      "percent":  62,
+                                      "years":  2,
+                                      "tags":  [
+                                                   "Ops"
+                                               ]
+                                  }
+                              ],
+                   "projects":  [
+                                    {
+                                        "title":  "Polymarket / Polygon Trading Client, Utility Library \u0026 Terminal",
+                                        "category":  "Python / Trading / Infrastructure",
+                                        "filterCategory":  "web development",
+                                        "image":  "PMTerminal.PNG",
+                                        "description":  "A trading terminal and utility library that emphasizes reliable execution and clean interfaces.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/polytrading"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Algorithmic Trading",
+                                        "category":  "Python / Data Science",
+                                        "filterCategory":  "web development",
+                                        "image":  "KNN.png",
+                                        "description":  "Predictive market project with a focus on testing, signal quality, and repeatability.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/trading_algo"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "TareaFlow",
+                                        "category":  "Powershell / JavaScript",
+                                        "filterCategory":  "web development",
+                                        "image":  "tareaholidays.PNG",
+                                        "description":  "A small internal system showing process thinking and operational clarity.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/TareaFlow/tree/main/Internal"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    }
+                                ],
+                   "languages":  [
+                                     {
+                                         "name":  "Spanish (Native)",
+                                         "flag":  "spain.png"
+                                     },
+                                     {
+                                         "name":  "English (Fluent)",
+                                         "flag":  "uk.png"
+                                     },
+                                     {
+                                         "name":  "French (Medium)",
+                                         "flag":  "france.png"
+                                     }
+                                 ],
+                   "interests":  [
+                                     {
+                                         "name":  "Coding",
+                                         "icon":  "fas fa-code"
+                                     },
+                                     {
+                                         "name":  "Chess",
+                                         "icon":  "fas fa-chess"
+                                     },
+                                     {
+                                         "name":  "Maths",
+                                         "icon":  "fas fa-calculator"
+                                     }
+                                 ],
+                   "isProjectPageActive":  "No"
+               }
 }

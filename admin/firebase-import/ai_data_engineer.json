@@ -1,106 +1,174 @@
-{
-  "lastUpdated": "2026-05-14T00:00:00Z",
-  "version": "ai_data_engineer",
-  "cvData": {
-    "personal": {
-      "name": "Alejandro Moral Aranda",
-      "jobTitle": "AI & Data Engineer",
-      "photo": "yo.png",
-      "about": "AI and data engineer focused on building reliable data pipelines, analytics automation, and ML-enabled tooling. I combine finance domain knowledge with Python, SQL, R, and JavaScript to ship production systems that clean, validate, and operationalize data. Strong background in reporting automation, forecasting, and workflow design for data-heavy environments."
-    },
-    "contact": {
-      "phone": "+34 675949628",
-      "email": "alejandro.moral.work@gmail.com",
-      "location": "Luxembourg",
-      "website": "https://alejandromoralwork.github.io/cv/AI%26Data%20Engineer/",
-      "github": "https://www.github.com/alejandromoralwork",
-      "linkedin": ""
-    },
-    "education": [
-      {
-        "dates": "Sept 2019 - Sept 2020",
-        "degree": "Master in Computer Science",
-        "school": "University of Luxembourg",
-        "description": "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system."
-      },
-      {
-        "dates": "Sept 2015 - Sept 2019",
-        "degree": "Bachelor in Computer Science",
-        "school": "University of Malaga",
-        "description": "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
-      }
-    ],
-    "workExperience": [
-      {
-        "dates": "September 2025 - Present",
-        "title": "Senior Software Engineer",
-        "company": "Freelancer",
-        "description": "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
-      },
-      {
-        "dates": "May 2024 - August 2025",
-        "title": "Senior Software Engineer",
-        "company": "ARHS Group",
-        "description": "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
-      },
-      {
-        "dates": "February 2021 - March 2024",
-        "title": "Senior Software Engineer",
-        "company": "Accenture Spain",
-        "description": "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
-      }
-    ],
-    "skills": [
-      { "name": "Python", "percent": 95, "years": 5, "tags": ["Data", "ML", "Automation"] },
-      { "name": "SQL", "percent": 92, "years": 5, "tags": ["Databases", "Analytics"] },
-      { "name": "Node.js", "percent": 86, "years": 4, "tags": ["Pipelines", "APIs"] },
-      { "name": "RESTful APIs", "percent": 94, "years": 4, "tags": ["Services", "Integration"] },
-      { "name": "AWS", "percent": 86, "years": 3, "tags": ["Cloud", "Deployment"] },
-      { "name": "Docker / Kubernetes", "percent": 84, "years": 3, "tags": ["Containers", "Scaling"] }
-    ],
-    "projects": [
-      {
-        "title": "Data Pipeline Orchestrator",
-        "category": "Python / Data Engineering",
-        "filterCategory": "data engineering",
-        "image": "KNN.png",
-        "description": "A sample orchestration project for cleaning, validating, and scheduling recurring data workflows across reporting systems.",
-        "active": true
-      },
-      {
-        "title": "Forecasting Workspace",
-        "category": "Python / Analytics",
-        "filterCategory": "analytics",
-        "image": "research.PNG",
-        "description": "A sample analytics workspace used for predictive checks, forecasting experiments, and data quality reviews.",
-        "active": true
-      },
-      {
-        "title": "Reporting Validation Suite",
-        "category": "Python / Automation / Reporting",
-        "filterCategory": "automation",
-        "image": "DA.PNG",
-        "description": "A sample reporting suite for automated checks, reconciliation logic, and templated output generation.",
-        "active": true
-      },
-      {
-        "title": "ML Feature Lab",
-        "category": "Machine Learning / Python",
-        "filterCategory": "machine learning",
-        "image": "project1.PNG",
-        "description": "A sample ML experimentation project for feature testing, model comparison, and dataset preparation.",
-        "active": true
-      }
-    ],
-    "languages": [
-      { "name": "Spanish (Native)", "flag": "spain.png" },
-      { "name": "English (Fluent)", "flag": "uk.png" },
-      { "name": "French (Medium)", "flag": "france.png" }
-    ],
-    "interests": [
-      { "name": "Chess", "icon": "fas fa-chess" },
-      { "name": "Maths", "icon": "fas fa-calculator" },
-      { "name": "Coding", "icon": "fas fa-code" }
-    ]
-  }
+﻿{
+    "lastUpdated":  "2026-05-14T00:00:00Z",
+    "version":  "ai_data_engineer",
+    "cvData":  {
+                   "personal":  {
+                                    "name":  "Alejandro Moral Aranda",
+                                    "jobTitle":  "AI \u0026 Data Engineer",
+                                    "photo":  "yo.png",
+                                    "about":  "AI and data engineer focused on building reliable data pipelines, analytics automation, and ML-enabled tooling. I combine finance domain knowledge with Python, SQL, R, and JavaScript to ship production systems that clean, validate, and operationalize data. Strong background in reporting automation, forecasting, and workflow design for data-heavy environments."
+                                },
+                   "contact":  {
+                                   "phone":  "+34 675949628",
+                                   "email":  "alejandro.moral.dev@proton.me",
+                                   "location":  "Luxembourg",
+                                   "website":  "https://alejandromoralwork.github.io/cv/AI%26Data%20Engineer/",
+                                   "github":  "https://www.github.com/alejandromwork",
+                                   "linkedin":  ""
+                               },
+                   "education":  [
+                                     {
+                                         "dates":  "Sept 2019 - Sept 2020",
+                                         "degree":  "Master in Computer Science",
+                                         "school":  "University of Luxembourg",
+                                         "description":  "Master in Computer Science from the University of Luxembourg, with a focus on advanced algorithms, distributed systems, machine learning, cloud computing, and advanced database systems. The thesis centered on research and development of a scalable AI, data-intensive, or distributed computing system."
+                                     },
+                                     {
+                                         "dates":  "Sept 2015 - Sept 2019",
+                                         "degree":  "Bachelor in Computer Science",
+                                         "school":  "University of Malaga",
+                                         "description":  "Bachelor in Computer Science from the University of Malaga covering data structures, operating systems, databases, computer networks, and software engineering. The program also included artificial intelligence, machine learning, computer architecture, discrete mathematics, and probability and statistics."
+                                     }
+                                 ],
+                   "workExperience":  [
+                                          {
+                                              "dates":  "September 2025 - Present",
+                                              "title":  "Senior Software Engineer",
+                                              "company":  "Freelancer",
+                                              "description":  "Delivered end-to-end software solutions for diverse clients, designing scalable back-end architectures, RESTful APIs, and data-driven applications while leveraging cloud platforms (AWS/Azure/GCP) and containerization (Docker/Kubernetes). Led full project lifecycles from requirements gathering to deployment, developed web and automation solutions (Python, Node.js, JavaScript), optimized databases (SQL/NoSQL), implemented CI/CD pipelines, ensured security best practices, and provided technical consulting across system design, performance optimization, and digital transformation initiatives."
+                                          },
+                                          {
+                                              "dates":  "May 2024 - August 2025",
+                                              "title":  "Senior Software Engineer",
+                                              "company":  "ARHS Group (Luxembourg)",
+                                              "description":  "Developed and deployed AI-driven features and web applications, integrating machine learning models into production systems to support business workflows. Designed and maintained scalable web architectures and data pipelines, ensuring high performance and reliability across distributed environments. Worked with Python, JavaScript/TypeScript, React.js, Node.js, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes) to deliver end-to-end solutions. Collaborated with cross-functional teams to implement full-stack solutions, optimize system performance, and deploy AI-enabled services efficiently."
+                                          },
+                                          {
+                                              "dates":  "February 2021 - March 2024",
+                                              "title":  "Senior Software Engineer",
+                                              "company":  "Accenture Spain",
+                                              "description":  "Developed and deployed machine learning and deep learning models, integrating them into production systems for enterprise AI solutions. Built and optimized scalable, data-intensive pipelines and distributed AI systems using Python, TensorFlow, PyTorch, and cloud technologies (AWS, Docker, Kubernetes). Collaborated with cross-functional teams to deliver end-to-end AI solutions, ensuring performance, reliability, and maintainability."
+                                          }
+                                      ],
+                   "skills":  [
+                                  {
+                                      "name":  "Python",
+                                      "percent":  95,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Data",
+                                                   "ML",
+                                                   "Automation"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "SQL",
+                                      "percent":  92,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Databases",
+                                                   "Analytics"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Node.js",
+                                      "percent":  86,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Pipelines",
+                                                   "APIs"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "RESTful APIs",
+                                      "percent":  94,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Services",
+                                                   "Integration"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "AWS",
+                                      "percent":  86,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Cloud",
+                                                   "Deployment"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Docker / Kubernetes",
+                                      "percent":  84,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Containers",
+                                                   "Scaling"
+                                               ]
+                                  }
+                              ],
+                   "projects":  [
+                                    {
+                                        "title":  "Data Pipeline Orchestrator",
+                                        "category":  "Python / Data Engineering",
+                                        "filterCategory":  "data engineering",
+                                        "image":  "KNN.png",
+                                        "description":  "A sample orchestration project for cleaning, validating, and scheduling recurring data workflows across reporting systems.",
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Forecasting Workspace",
+                                        "category":  "Python / Analytics",
+                                        "filterCategory":  "analytics",
+                                        "image":  "research.PNG",
+                                        "description":  "A sample analytics workspace used for predictive checks, forecasting experiments, and data quality reviews.",
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Reporting Validation Suite",
+                                        "category":  "Python / Automation / Reporting",
+                                        "filterCategory":  "automation",
+                                        "image":  "DA.PNG",
+                                        "description":  "A sample reporting suite for automated checks, reconciliation logic, and templated output generation.",
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "ML Feature Lab",
+                                        "category":  "Machine Learning / Python",
+                                        "filterCategory":  "machine learning",
+                                        "image":  "project1.PNG",
+                                        "description":  "A sample ML experimentation project for feature testing, model comparison, and dataset preparation.",
+                                        "active":  true
+                                    }
+                                ],
+                   "languages":  [
+                                     {
+                                         "name":  "Spanish (Native)",
+                                         "flag":  "spain.png"
+                                     },
+                                     {
+                                         "name":  "English (Fluent)",
+                                         "flag":  "uk.png"
+                                     },
+                                     {
+                                         "name":  "French (Medium)",
+                                         "flag":  "france.png"
+                                     }
+                                 ],
+                   "interests":  [
+                                     {
+                                         "name":  "Chess",
+                                         "icon":  "fas fa-chess"
+                                     },
+                                     {
+                                         "name":  "Maths",
+                                         "icon":  "fas fa-calculator"
+                                     },
+                                     {
+                                         "name":  "Coding",
+                                         "icon":  "fas fa-code"
+                                     }
+                                 ],
+                   "isProjectPageActive":  "No"
+               }
 }

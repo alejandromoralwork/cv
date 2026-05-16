@@ -1,113 +1,188 @@
-{
-  "lastUpdated": "2026-05-14T00:00:00Z",
-  "version": "personal_data_analyst",
-  "cvData": {
-    "personal": {
-      "name": "Alejandro Moral Aranda",
-      "jobTitle": "Data Analyst Intern",
-      "photo": "yo.png",
-      "about": "Data analyst profile focused on cleaning, validating, and interpreting data for practical decision-making. I combine SQL, Python, R, and spreadsheet automation to turn messy inputs into usable reports and clear insights."
-    },
-    "contact": {
-      "phone": "+34 675949628",
-      "email": "alejandro.moral.work@gmail.com",
-      "location": "Luxembourg",
-      "website": "https://alejandromoralwork.github.io/cv/PersonalDataAnalyst/",
-      "github": "https://www.github.com/alejandromoralwork",
-      "linkedin": ""
-    },
-    "education": [
-      {
-        "dates": "Sept. 2024 - Sep. 2027 (In progress)",
-        "degree": "Bachelor in Data Science",
-        "school": "IU International University of Applied Sciences",
-        "coursework": [
-          "Statistics, databases, data visualization, and programming.",
-          "Applied analytics for business and finance contexts."
-        ]
-      },
-      {
-        "dates": "Sept. 2023 - Sep. 2024",
-        "degree": "Master of Science in Financial Economics",
-        "school": "University of Luxembourg",
-        "coursework": [
-          "Econometrics, statistical analysis, and quantitative methods.",
-          "Useful for analytical reporting and evidence-based decisions."
-        ]
-      }
-    ],
-    "workExperience": [
-      {
-        "dates": "April 2023 - November 2023",
-        "title": "Private Equity Fund Accountant",
-        "company": "Intertrust",
-        "description": "Prepared recurring reports, reconciliations, and analytical summaries for fund operations."
-      },
-      {
-        "dates": "April 2022 - May 2023",
-        "title": "Private Debt Fund Accountant",
-        "company": "Alter Domus",
-        "description": "Worked with structured financial data, calculations, and report validation."
-      },
-      {
-        "dates": "October 2021 - March 2022",
-        "title": "Wealth Management Internship",
-        "company": "UBS Europe SE",
-        "description": "Assisted with KYC, AML, and operational workflows that relied on accurate data handling."
-      }
-    ],
-    "skills": [
-      { "name": "SQL", "percent": 86, "years": 4, "tags": ["Databases", "Reporting"] },
-      { "name": "Python", "percent": 80, "years": 5, "tags": ["Data", "Automation"] },
-      { "name": "R", "percent": 74, "years": 3, "tags": ["Statistics", "Analysis"] },
-      { "name": "Excel / VBA", "percent": 88, "years": 5, "tags": ["Reporting", "Automation"] },
-      { "name": "JavaScript", "percent": 60, "years": 2, "tags": ["Dashboards", "APIs"] },
-      { "name": "PowerShell", "percent": 54, "years": 2, "tags": ["Scripting"] }
-    ],
-    "projects": [
-      {
-        "title": "Research Papers",
-        "category": "Econometrics / Analytics",
-        "filterCategory": "web development",
-        "image": "research.PNG",
-        "description": "Written work and analytical projects covering finance, statistics, and quantitative methods.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/Research" }
-        ],
-        "active": true
-      },
-      {
-        "title": "Algorithmic Trading",
-        "category": "Python / Data Science",
-        "filterCategory": "web development",
-        "image": "KNN.png",
-        "description": "Predictive analytics project using statistical learning and evaluation workflows.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/trading_algo" }
-        ],
-        "active": true
-      },
-      {
-        "title": "VBA Automated Reporting Tools",
-        "category": "Automation / Reporting",
-        "filterCategory": "web development",
-        "image": "VBA.PNG",
-        "description": "Excel-based automation tools for fast report generation and repeated calculations.",
-        "links": [
-          { "text": "View Project", "url": "https://github.com/alemxral/VBA-Automated-Reporting-tools" }
-        ],
-        "active": true
-      }
-    ],
-    "languages": [
-      { "name": "Spanish (Native)", "flag": "spain.png" },
-      { "name": "English (Fluent)", "flag": "uk.png" },
-      { "name": "French (Medium)", "flag": "france.png" }
-    ],
-    "interests": [
-      { "name": "Maths", "icon": "fas fa-calculator" },
-      { "name": "Chess", "icon": "fas fa-chess" },
-      { "name": "Coding", "icon": "fas fa-code" }
-    ]
-  }
+﻿{
+    "lastUpdated":  "2026-05-14T00:00:00Z",
+    "version":  "personal_data_analyst",
+    "cvData":  {
+                   "personal":  {
+                                    "name":  "Alejandro Moral Aranda",
+                                    "jobTitle":  "Data Analyst Intern",
+                                    "photo":  "yo.png",
+                                    "about":  "Data analyst profile focused on cleaning, validating, and interpreting data for practical decision-making. I combine SQL, Python, R, and spreadsheet automation to turn messy inputs into usable reports and clear insights."
+                                },
+                   "contact":  {
+                                   "phone":  "+34 675949628",
+                                   "email":  "alejandro.moral.dev@proton.me",
+                                   "location":  "Luxembourg",
+                                   "website":  "https://alejandromoralwork.github.io/cv/PersonalDataAnalyst/",
+                                   "github":  "https://www.github.com/alejandromwork",
+                                   "linkedin":  ""
+                               },
+                   "education":  [
+                                     {
+                                         "dates":  "Sept. 2024 - Sep. 2027 (In progress)",
+                                         "degree":  "Bachelor in Data Science",
+                                         "school":  "IU International University of Applied Sciences",
+                                         "coursework":  [
+                                                            "Statistics, databases, data visualization, and programming.",
+                                                            "Applied analytics for business and finance contexts."
+                                                        ]
+                                     },
+                                     {
+                                         "dates":  "Sept. 2023 - Sep. 2024",
+                                         "degree":  "Master of Science in Financial Economics",
+                                         "school":  "University of Luxembourg",
+                                         "coursework":  [
+                                                            "Econometrics, statistical analysis, and quantitative methods.",
+                                                            "Useful for analytical reporting and evidence-based decisions."
+                                                        ]
+                                     }
+                                 ],
+                   "workExperience":  [
+                                          {
+                                              "dates":  "April 2023 - November 2023",
+                                              "title":  "Private Equity Fund Accountant",
+                                              "company":  "Intertrust",
+                                              "description":  "Prepared recurring reports, reconciliations, and analytical summaries for fund operations."
+                                          },
+                                          {
+                                              "dates":  "April 2022 - May 2023",
+                                              "title":  "Private Debt Fund Accountant",
+                                              "company":  "Alter Domus",
+                                              "description":  "Worked with structured financial data, calculations, and report validation."
+                                          },
+                                          {
+                                              "dates":  "October 2021 - March 2022",
+                                              "title":  "Wealth Management Internship",
+                                              "company":  "UBS Europe SE",
+                                              "description":  "Assisted with KYC, AML, and operational workflows that relied on accurate data handling."
+                                          }
+                                      ],
+                   "skills":  [
+                                  {
+                                      "name":  "SQL",
+                                      "percent":  86,
+                                      "years":  4,
+                                      "tags":  [
+                                                   "Databases",
+                                                   "Reporting"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Python",
+                                      "percent":  80,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Data",
+                                                   "Automation"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "R",
+                                      "percent":  74,
+                                      "years":  3,
+                                      "tags":  [
+                                                   "Statistics",
+                                                   "Analysis"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "Excel / VBA",
+                                      "percent":  88,
+                                      "years":  5,
+                                      "tags":  [
+                                                   "Reporting",
+                                                   "Automation"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "JavaScript",
+                                      "percent":  60,
+                                      "years":  2,
+                                      "tags":  [
+                                                   "Dashboards",
+                                                   "APIs"
+                                               ]
+                                  },
+                                  {
+                                      "name":  "PowerShell",
+                                      "percent":  54,
+                                      "years":  2,
+                                      "tags":  [
+                                                   "Scripting"
+                                               ]
+                                  }
+                              ],
+                   "projects":  [
+                                    {
+                                        "title":  "Research Papers",
+                                        "category":  "Econometrics / Analytics",
+                                        "filterCategory":  "web development",
+                                        "image":  "research.PNG",
+                                        "description":  "Written work and analytical projects covering finance, statistics, and quantitative methods.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/Research"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "Algorithmic Trading",
+                                        "category":  "Python / Data Science",
+                                        "filterCategory":  "web development",
+                                        "image":  "KNN.png",
+                                        "description":  "Predictive analytics project using statistical learning and evaluation workflows.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/trading_algo"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    },
+                                    {
+                                        "title":  "VBA Automated Reporting Tools",
+                                        "category":  "Automation / Reporting",
+                                        "filterCategory":  "web development",
+                                        "image":  "VBA.PNG",
+                                        "description":  "Excel-based automation tools for fast report generation and repeated calculations.",
+                                        "links":  [
+                                                      {
+                                                          "text":  "View Project",
+                                                          "url":  "https://github.com/alemxral/VBA-Automated-Reporting-tools"
+                                                      }
+                                                  ],
+                                        "active":  true
+                                    }
+                                ],
+                   "languages":  [
+                                     {
+                                         "name":  "Spanish (Native)",
+                                         "flag":  "spain.png"
+                                     },
+                                     {
+                                         "name":  "English (Fluent)",
+                                         "flag":  "uk.png"
+                                     },
+                                     {
+                                         "name":  "French (Medium)",
+                                         "flag":  "france.png"
+                                     }
+                                 ],
+                   "interests":  [
+                                     {
+                                         "name":  "Maths",
+                                         "icon":  "fas fa-calculator"
+                                     },
+                                     {
+                                         "name":  "Chess",
+                                         "icon":  "fas fa-chess"
+                                     },
+                                     {
+                                         "name":  "Coding",
+                                         "icon":  "fas fa-code"
+                                     }
+                                 ],
+                   "isProjectPageActive":  "No"
+               }
 }

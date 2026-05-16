@@ -232,6 +232,29 @@ async initializeFirebase() {
     return docData;
   }
 
+  isProjectPageActive(data) {
+    const flag = data?.isProjectPageActive ?? data?.projectPageActive ?? data?.cvData?.isProjectPageActive ?? data?.cvData?.projectPageActive;
+
+    if (typeof flag === 'string') {
+      return flag.trim().toLowerCase() === 'yes';
+    }
+
+    return flag === true;
+  }
+
+  setProjectPageVisibility(isActive) {
+    const projectsSection = document.querySelector('.projects, #projects-content');
+    const projectsNavItem = document.getElementById('nav-projects');
+
+    if (projectsSection) {
+      projectsSection.style.display = isActive ? '' : 'none';
+    }
+
+    if (projectsNavItem) {
+      projectsNavItem.style.display = isActive ? '' : 'none';
+    }
+  }
+
 async loadVersionData(versionKey) {
     const normalizedVersion = this.normalizeVersionKey(versionKey);
 
@@ -531,6 +554,10 @@ async loadVersionData(versionKey) {
 
   applyVersion(versionKey) {
     const version = this.versions && this.versions[versionKey];
+    const dataSource = version || this.cvData || {};
+    const projectPageActive = this.isProjectPageActive(dataSource);
+
+    this.setProjectPageVisibility(projectPageActive);
 
     if (version) {
       document.title = `Alejandro Moral Aranda - ${version.title}`;
@@ -561,6 +588,13 @@ async loadVersionData(versionKey) {
       const aboutText = document.querySelector('.about p');
       if (aboutText && this.cvData.personal?.about) {
         aboutText.textContent = this.cvData.personal.about;
+      }
+    }
+
+    if (!projectPageActive) {
+      const projectList = document.querySelector('.project-list');
+      if (projectList) {
+        projectList.innerHTML = '';
       }
     }
 
