@@ -687,24 +687,27 @@ body.pdf-export #particles-foreground { display: none ; }
 }
 
 .resume .base .profile .photo {
-  --photo-size: 120px;
+  --photo-size: 150px;
   width: var(--photo-size);
   height: var(--photo-size);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5%;
+  border-radius: 1%;
   border: 4px solid rgba(255,255,255,0.3);
   background: white;
+ 
+ 
 }
 
 .resume .base .profile .photo img {
   width: 100%;
-  height: 100%;
+  height: 108%;
   object-fit: cover;
   object-position: center top;
   display: block;
+
 }
 
 
