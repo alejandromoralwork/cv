@@ -6,7 +6,6 @@
 class CVVersionController {
   constructor() {
     this.preloader = document.getElementById('preloader-overlay');
-    this.allowLocalFallback = this.isLocalDevelopment();
     this.versionFileMap = {
       ai_data_engineer: 'ai_data_engineer.json',
       backend_systems_architect: 'backend_systems_architect.json',
@@ -58,15 +57,15 @@ class CVVersionController {
   detectVersionFromPath() {
     const path = decodeURIComponent(window.location.pathname);
     const versionMap = {
-      'AI&Data Engineer': 'ai_data_engineer',
-      'Backend&Systems Architect': 'backend_systems_architect',
+      'AI&DataEngineer': 'ai_data_engineer',
+      'Backend&Systems': 'backend_systems_architect',
       'Cloud&Platform': 'cloud_platform',
       'data-science': 'data_science',
       'edit': 'edit',
       'fintech': 'fintech',
       'fund-accounting': 'fund_accounting',
       'investment': 'investment_analysis',
-      'Mobile&Frontend Architect': 'mobile_frontend_architect',
+      'Mobile&Frontend': 'mobile_frontend_architect',
       'neutral-finance': 'neutral_finance',
       'PersonalBlockchain': 'personal_blockchain',
       'PersonalDataAnalyst': 'personal_data_analyst',
@@ -248,16 +247,7 @@ async loadVersionData(versionKey) {
       }
     }
 
-    // 2. Fallback to Local JSON if Firebase didn't provide data
-    console.log('Attempting local JSON fallback if Firebase unavailable...');
-    const localData = await this.loadFromLocal(normalizedVersion);
-    if (localData) {
-      console.log('Using data from: Local JSON');
-      this.cvData = localData;
-      this.populatePageWithData(localData);
-      this.applyVersion(normalizedVersion);
-      return true;
-    }
+    console.error('Firebase did not return data for version:', normalizedVersion);
 
     return false;
   }
@@ -730,6 +720,7 @@ async loadVersionData(versionKey) {
 let cvController;
 document.addEventListener('DOMContentLoaded', function() {
   cvController = new CVVersionController();
+  window.cvController = cvController;
 });
 
 // Make it globally accessible
