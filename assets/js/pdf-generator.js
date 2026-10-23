@@ -264,21 +264,19 @@ async function generateResumePDF(customFileName = null, options = {}) {
 
     const profilePhoto = clonedResume.querySelector('.photo');
     if (profilePhoto) {
-      profilePhoto.style.marginTop = '6px';
+      profilePhoto.style.marginTop = '0px';
       profilePhoto.style.marginBottom = '0px';
       profilePhoto.style.setProperty('--photo-size', '158px');
-    }
-
-    // move the image down inside the cloned frame (keeps aspect ratio)
-    const profileImg = profilePhoto.querySelector('img');
-    if (profileImg) {
-      profileImg.style.width = '110%';
-      profileImg.style.height = 'auto';
-      profileImg.style.objectFit = 'cover';
-      profileImg.style.objectPosition = 'center 50%';
-      profileImg.style.willChange = 'transform';
-      profileImg.style.transform = 'translateY(4%)'; // increase/decrease (4%..12%) to tune
-      profileImg.style.webkitTransform = 'translateY(8%)';
+      const profileImg = profilePhoto.querySelector('img');
+      if (profileImg) {
+        profileImg.style.width = '100%';
+        profileImg.style.height = '100%';
+        profileImg.style.objectFit = 'cover';
+        profileImg.style.objectPosition = 'center center';
+        profileImg.style.transform = 'none';
+        profileImg.style.webkitTransform = 'none';
+        profileImg.style.willChange = 'auto';
+      }
     }
 
     page1Container.appendChild(clonedResume);
@@ -579,5 +577,3 @@ document.addEventListener('DOMContentLoaded', function() {
     console.warn('Download button not found');
   }
 });
-
-document.body.classList.add('pdf-export');

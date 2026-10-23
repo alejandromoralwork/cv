@@ -128,24 +128,105 @@
       object-fit: contain;
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
     @media print {
-      .navbar {
-        display: none;
+      html,
+      body {
+        width: auto;
+        min-width: 0;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+        font-size: 10pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .navbar,
+      #pdf-export-dialog {
+        display: none !important;
+      }
+
+      main {
+        width: 100%;
+        margin: 0;
+        padding: 0;
       }
 
       .resume {
         width: 100%;
+        max-width: none;
         margin: 0;
+        overflow: visible;
         box-shadow: none;
       }
 
-      .projects {
-        break-before: page;
-        display: block !important;
+      .resume .func {
+        --content-gutter: 8mm;
+        padding: 0 var(--content-gutter) 8mm;
       }
 
-      .func {
+      .resume .base .default:first-child {
+        grid-template-columns: 125px minmax(0, 1fr) 185px;
+        gap: 12px;
+        margin-bottom: 7mm;
+        padding: 8mm var(--content-gutter) 7mm;
+        border-bottom-width: 1mm;
+        break-inside: avoid;
+      }
+
+      .resume .base .profile .photo {
+        --photo-size: 125px;
+      }
+
+      .resume .base .profile .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transform: none;
+      }
+
+      .resume .base .profile .info .name {
+        font-size: 21pt;
+      }
+
+      .resume .base .profile .info .job {
+        font-size: 12pt;
+      }
+
+      .resume .base .contact {
+        padding-top: 3mm;
+      }
+
+      .resume .base .contact div {
+        margin-bottom: 2mm;
+        font-size: 8pt;
+      }
+
+      .resume .base .contact a,
+      .resume .base .contact span {
+        overflow-wrap: anywhere;
+      }
+
+      .resume .func .edu li,
+      .resume .func .work li {
+        break-inside: avoid;
+      }
+
+      .resume .func .edu .education-institution,
+      .resume .func .work .experience-title {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .projects {
         display: block !important;
+        break-before: page;
       }
     }
 
@@ -465,7 +546,7 @@
           </div>
         </li>
         <li class="project-item">
-          <figure class="project-img"><img src="../assets/images/KNN.PNG" alt="Algorithmic Trading — Market Open Direction Predictor" loading="lazy"></figure>
+          <figure class="project-img"><img src="../assets/images/KNN.png" alt="Algorithmic Trading — Market Open Direction Predictor" loading="lazy"></figure>
           <div class="project-info">
             <h3 class="project-title">Algorithmic Trading — Market Open Direction Predictor</h3>
             <p class="project-description">Trading strategy predicting market open direction using leave-one-out cross-validation and k-nearest neighbors with asymptotically optimal weights. Includes feature engineering for intraday signals, backtesting, and performance evaluation.</p>
