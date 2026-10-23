@@ -33,6 +33,16 @@
       gap: 8px;
     }
 
+    .polymarket-project .project-img {
+      aspect-ratio: auto;
+    }
+
+    .polymarket-project .project-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
     @media print {
       .navbar {
         display: none;
@@ -231,15 +241,15 @@
     <section class="projects" id="projects-content" aria-labelledby="projects-heading">
       <h2 class="projects-title" id="projects-heading" data-value="PROJECTS">PROJECTS</h2>
       <ul class="project-list">
-        <li class="project-item">
+        <li class="project-item polymarket-project">
           <figure class="project-img">
             <a href="https://polymarket.com/" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/polymarket.png" alt="Polymarket Trading" loading="lazy">
+              <img src="../assets/images/polymarket-rank.jpg" alt="Polymarket ranking: rank 14,778, top 0.1% of traders worldwide" loading="lazy">
             </a>
           </figure>
           <div class="project-info">
             <h3 class="project-title"><a href="https://polymarket.com/" target="_blank" rel="noopener noreferrer">Polymarket Trading</a></h3>
-            <p class="project-description">End-to-end trading workflows for prediction-market strategies: market tracking, signal generation, execution and post-trade analytics. Top 0.1% of the platform.</p>
+            <p class="project-description">End-to-end trading workflows for prediction-market strategies: market tracking, signal generation, execution and post-trade analytics. Polymarket Highlights placed me among the top 0.1% of traders worldwide, with a rank of #14,778 among more than 1.5 million users.</p>
             <div class="project-links">
               <a class="project-link" href="https://polymarket.com/" target="_blank" rel="noopener noreferrer">Polymarket</a>
             </div>
