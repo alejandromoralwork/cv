@@ -9,6 +9,91 @@
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/t.css">
   <style>
+    .resume {
+      width: min(calc(100% - 32px), 900px);
+      margin: 24px auto;
+    }
+
+    .resume .func {
+      --content-gutter: clamp(18px, 5vw, 48px);
+      padding: 0 var(--content-gutter) 40px;
+    }
+
+    .resume .base .default:first-child {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr) minmax(220px, 0.9fr);
+      align-items: center;
+      gap: 28px;
+      width: auto;
+      margin: 0 calc(0px - var(--content-gutter)) 28px;
+      padding: clamp(24px, 4vw, 38px) var(--content-gutter) 28px;
+    }
+
+    .resume .base .profile {
+      display: contents;
+      margin: 0;
+    }
+
+    .resume .base .profile::after {
+      display: none;
+    }
+
+    .resume .base .profile .info {
+      min-width: 0;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .resume .base .profile .info .name {
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      line-height: 1.15;
+      overflow-wrap: break-word;
+    }
+
+    .resume .base .contact {
+      align-self: center;
+      width: auto;
+      min-width: 0;
+      margin: 0;
+      padding: 12px 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .resume .base .contact h3 {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .resume .base .contact div {
+      min-width: 0;
+      margin: 0 0 10px;
+      justify-content: flex-start;
+    }
+
+    .resume .base .contact a,
+    .resume .base .contact span {
+      overflow-wrap: anywhere;
+    }
+
+    .resume .func .edu .education-institution,
+    .resume .func .work .experience-title {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: #ecf0f1;
+    }
+
     .resume .base .profile .photo {
       height: calc(var(--photo-size) * 1.427);
     }
@@ -62,6 +147,75 @@
       .func {
         display: block !important;
       }
+    }
+
+    @media (max-width: 700px) {
+      .resume {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+      }
+
+      .resume .func {
+        padding: 0 20px 28px;
+      }
+
+      .resume .base .default:first-child {
+        display: block;
+        margin: 0 -20px 24px;
+        padding: 26px 20px 24px;
+      }
+
+      .resume .base .profile {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .resume .base .profile .info {
+        align-items: center;
+        text-align: center;
+      }
+
+      .resume .base .profile .photo {
+        --photo-size: clamp(88px, 30vw, 112px);
+      }
+
+      .resume .base .contact {
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .resume .base .contact h3 {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0 0 8px;
+        margin: 0 0 15px;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .resume .func {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+
+      .resume .base .default:first-child {
+        margin-right: -14px;
+        margin-left: -14px;
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+
     }
 
     #pdf-export-dialog {
@@ -154,22 +308,22 @@
           <h3 id="education-heading"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h3>
           <ul>
             <li>
-              <span>Bachelor in Finance and Accounting (4 Years)<br>University of Málaga</span>
+              <span>Bachelor in Finance and Accounting (4 Years)<br><span class="education-institution">University of Málaga</span></span>
               <small>Sept. 2019 - Sep. 2022</small>
               <p class="coursework">Accounting, Corporate Finance, Statistics, Econometrics, Financial Operations. University Program in Value Investing. Degree completion one year ahead of schedule (3 years).</p>
             </li>
             <li>
-              <span>Master of Science in Financial Economics<br>University of Luxembourg</span>
+              <span>Master of Science in Financial Economics<br><span class="education-institution">University of Luxembourg</span></span>
               <small>Sept. 2023 - Sep. 2024</small>
               <p class="coursework">Financial econometrics, time series analysis, causal inference, and quantitative methods. Programming for data analysis (R/Python), survey and empirical research methods. Applications to portfolio analysis, risk, and forecasting.</p>
             </li>
             <li>
-              <span>C/C++ Programming Course<br>42 Luxembourg</span>
+              <span>C/C++ Programming Course<br><span class="education-institution">42 Luxembourg</span></span>
               <small>April 2024</small>
               <p class="coursework">Project-based training in C and C++ with emphasis on systems programming.</p>
             </li>
             <li>
-              <span>Bachelor in Data Science<br>IU International University of Applied Sciences</span>
+              <span>Bachelor in Data Science<br><span class="education-institution">IU International University of Applied Sciences</span></span>
               <small>Sept. 2023 - Sep. 2026</small>
               <p class="coursework">Calculus and Linear Algebra for Data Science; Mathematical Statistics and Inferential Techniques; Probability Theory and Stochastic Modeling; Database Management and Optimization Techniques; Data Mining, Foundations of Machine Learning, and Algorithmic Design.</p>
             </li>
@@ -180,7 +334,7 @@
           <h3 id="experience-heading"><i class="fas fa-briefcase" aria-hidden="true"></i> Work Experience</h3>
           <ul>
             <li>
-              <span>Individual Investor</span>
+              <span class="experience-title">Individual Investor</span>
               <small>2020 - Present (Luxembourg)</small>
               <h6 class="coursework">Manage my investment portfolio.</h6>
             </li>
@@ -220,7 +374,7 @@
           <div class="interests-items">
             <div class="interest"><i class="fas fa-chess" aria-hidden="true"></i><span>Chess</span></div>
             <div class="interest"><i class="fas fa-calculator" aria-hidden="true"></i><span>Maths</span></div>
-            <div class="interest"><i class="fas fa-film" aria-hidden="true"></i><span>Anime</span></div>
+            <div class="interest"><i class="fas fa-chart-line" aria-hidden="true"></i><span>Investing &amp; Finance</span></div>
             <div class="interest"><i class="fas fa-code" aria-hidden="true"></i><span>Coding</span></div>
             <div class="interest"><i class="fas fa-futbol" aria-hidden="true"></i><span>Football</span></div>
           </div>
