@@ -9,6 +9,19 @@
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/t.css">
   <style>
+    .resume .base .profile .photo {
+      height: calc(var(--photo-size) * 1.427);
+    }
+
+    .resume .base .profile .photo img {
+      height: 100%;
+      object-position: center center;
+    }
+
+    body.pdf-export .resume .base .profile .photo img {
+      object-position: center center;
+    }
+
     .projects-title {
       display: block;
       margin: 0 auto 20px;

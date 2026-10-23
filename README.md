@@ -8,6 +8,8 @@ Open [`FinanceDataAnalyst/`](./FinanceDataAnalyst/) for the general Finance and 
 
 The page keeps the CV/Projects navigation, standard and ATS-friendly PDF downloads (with optional project pages), and browser printing.
 
+The root project hub displays a simple front-end password prompt. It is only a visual deterrent: its password is present in the public source, and direct CV links remain public. Do not use it to protect confidential information.
+
 ## Other pages
 
 The other role-specific CV pages and the admin tools remain available. Some of those pages use Firebase; the Finance and Data Analyst page does not.

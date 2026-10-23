@@ -68,7 +68,7 @@ document.querySelector('base').setAttribute('href', window.__cvBasePath);
     left: -100px;
   }
 
-  .local-hub body > :not(.hub-shell) {
+  .local-hub body > :not(.hub-shell):not(#root-access-gate) {
     display: none !important;
   }
 
