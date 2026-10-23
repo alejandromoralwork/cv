@@ -190,7 +190,8 @@ html, body {
   /* disabled the decorative skewed strip that created a diagonal black line */
   content: "";
   position: absolute;
-  background: transparent;
+  /* shift focal point down slightly so forehead/head is not cut off */
+  object-position: center 35%;
   width: 100%;
   height: 0;
   bottom: 0;
@@ -248,7 +249,8 @@ html, body {
   height: 20px;
   font-size: 16px;
   text-align: center;
-  transition-duration: 0.3s;
+  /* shift focal point down slightly so forehead/head is not cut off */
+  object-position: center 35%;
 }
 .resume .base .follow .box a:hover i {
   background: #3498db;
@@ -637,6 +639,18 @@ body { padding-top: 60px; }
 body.pdf-export #particles-background,
 body.pdf-export #particles-foreground { display: none ; }
 
+body.pdf-export .resume .base .profile .photo {
+  --photo-size: 170px; /* increase frame for exported PDF only */
+}
+
+body.pdf-export .resume .base .profile .photo img {
+  width: 100%;
+  height: 100%;        /* avoid extra 108% crop */
+  object-fit: cover;
+  object-position: center 40%; /* tune vertical focal point */
+  transform: translateY(0);    /* keep stable for html2canvas */
+}
+
 /* Contact + Email styles */
 .website-link, .Email {
   display: block; margin-bottom: 8px; font-size: 0.9em; word-break: break-all;
@@ -687,24 +701,27 @@ body.pdf-export #particles-foreground { display: none ; }
 }
 
 .resume .base .profile .photo {
-  --photo-size: 120px;
+  --photo-size: 150px;
   width: var(--photo-size);
   height: var(--photo-size);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5%;
+  border-radius: 1%;
   border: 4px solid rgba(255,255,255,0.3);
   background: white;
+ 
+ 
 }
 
 .resume .base .profile .photo img {
   width: 100%;
-  height: 100%;
+  height: 108%;
   object-fit: cover;
   object-position: center top;
   display: block;
+
 }
 
 

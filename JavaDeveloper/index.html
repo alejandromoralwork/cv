@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Alejandro Moral Aranda - Java Developer</title>
+<meta content="width=1200, initial-scale=0.4, maximum-scale=1.0, user-scalable=yes" name="viewport"/>
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"/>
+<link href="../assets/css/general.css" rel="stylesheet"/>
+<link href="../assets/css/t.css" rel="stylesheet"/>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="../assets/js/cv-version-controller.js"></script>
+<script src="../assets/js/pdf-generator.js" defer></script>
+<script>
+(function() { const targetVersion = 'java_developer'; window.addEventListener('DOMContentLoaded', function() { if (window.cvController && window.cvController.switchVersion) { window.cvController.switchVersion(targetVersion); } });})();
+</script>
+</head>
+<body>
+<div id="preloader-overlay"><div class="preloader-spinner"></div></div>
+<nav class="navbar"><ul class="nav-list"><li class="nav-item" id="nav-cv"><a href="#cv">CV</a></li><li class="nav-item" id="nav-projects"><a href="#projects">Projects</a></li></ul><a class="download-btn" download="" href="alejandro_moral_aranda_resume.pdf" title="Download"><i class="fas fa-download"></i></a></nav>
+<div class="vertical-centered-box" id="particles-background"></div><div class="vertical-centered-box" id="particles-foreground"></div>
+<div class="resume"><div class="func"><div class="base"><div class="default"><div class="profile"><div class="photo"><img alt="Alejandro Moral" src="../assets/images/yo.png"/></div><div class="info"><h1 class="name">Alejandro Moral</h1><p class="job" style="margin-top: 0.5rem; font-size: 1.1rem; color: #7f8c8d;">Java Developer</p></div><div class="contact"><h3>Contact</h3><div class="call"><a href="tel:+34 675949628"><i class="fas fa-phone"></i><span>+34 675 949 628</span></a></div><div class="address"><i class="fas fa-map-marker-alt"></i><span>Remote / Europe</span></div><div class="email"><a href="mailto:alejandro.moral.dev@proton.me"><i class="fas fa-envelope"></i><span>alejandro.moral.dev@proton.me</span></a></div><div class="website-link"><a id="portfolio-link" href="#" target="_blank"><i class="fas fa-globe"></i><span class="website-text">Portfolio Website</span></a></div><script>(function(){const pathParts=window.location.pathname.split('/').filter(p=>p&&p!=='index.html');const folderName=pathParts[pathParts.length-1];document.getElementById('portfolio-link').href=`https://alejandromoralwork.github.io/cv/${folderName}/`;})();</script></div></div></div><div class="edu"><h3><i class="fa fa-graduation-cap"></i>Education</h3><ul></ul></div><div class="work"><h3><i class="fa fa-briefcase"></i>Work Experience</h3><ul></ul></div><div class="default"><h3><i class="fas fa-code"></i>Skills</h3><div aria-label="Skills" class="skills-grid"></div></div><div class="default"><h3><i class="fas fa-star"></i>Interests</h3><div class="interests-items"></div></div><div class="default"><h3><i class="fas fa-star"></i>Languages</h3><div class="interests-items"></div></div></div></div></div><div class="projects" id="projects-content"><h2 class="projects-title" data-value="PROJECTS">PROJECTS</h2><ul class="project-list"></ul></div>
+</body>
+</html>

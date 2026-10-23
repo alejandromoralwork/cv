@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "devops_engineer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "DevOps / Platform Engineer",
+      "photo": "yo.png",
+      "about": "DevOps engineer focused on deployment automation, infrastructure reliability and delivery pipelines. I build repeatable deployment flows and observability to keep systems safe and predictable."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/DevOpsEngineer/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master-level exposure to cloud platforms, automation and scalable deployment patterns."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Undergraduate coursework in systems, scripting and software delivery."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior DevOps Engineer",
+        "company": "Freelancer",
+        "description": "Designed repeatable CI/CD pipelines, implemented container workflow optimisations and improved platform observability using monitoring and logging stacks."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Platform Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Owned deployment automation, container orchestration and infrastructure provisioning for production services."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "DevOps Engineer",
+        "company": "Accenture Spain",
+        "description": "Automated builds and deployments, improved release processes and supported operational readiness for enterprise projects."
+      }
+    ],
+    "skills": [
+      { "name": "Docker", "percent": 92, "years": 5, "tags": ["Containers", "Delivery"] },
+      { "name": "Kubernetes", "percent": 84, "years": 4, "tags": ["Orchestration", "Scale"] },
+      { "name": "CI/CD", "percent": 90, "years": 5, "tags": ["Automation", "Release"] },
+      { "name": "AWS", "percent": 80, "years": 4, "tags": ["Cloud", "Infrastructure"] },
+      { "name": "Terraform", "percent": 75, "years": 3, "tags": ["IaC", "Provisioning"] }
+    ],
+    "projects": [
+      {
+        "title": "Delivery Pipeline Toolkit",
+        "category": "DevOps",
+        "filterCategory": "devops",
+        "image": "project1.PNG",
+        "description": "A sample project for repeatable builds, deployments and environment configuration.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Automation", "icon": "fas fa-cogs" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

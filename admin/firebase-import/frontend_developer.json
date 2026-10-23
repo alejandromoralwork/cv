@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "frontend_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Frontend Engineer",
+      "photo": "yo.png",
+      "about": "Frontend engineer focused on polished UI, accessible design systems, and performant single-page applications. I prioritize component design, testing and smooth user experiences."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/FrontendDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master coursework focused on scalable web systems, user-centric design considerations and advanced software engineering practices."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Core computer science foundations with a focus on software engineering and user interface programming."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Frontend Engineer",
+        "company": "Freelancer",
+        "description": "Delivered production-grade frontend applications using React/TypeScript, implemented design systems, improved performance and accessibility, and collaborated on API contracts with backend teams."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Frontend Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Built responsive dashboards and user interfaces, owned component libraries, and improved observability and testing for frontend delivery."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Frontend Engineer",
+        "company": "Accenture Spain",
+        "description": "Implemented UI features, optimized rendering performance, and collaborated cross-functionally to ship web products."
+      }
+    ],
+    "skills": [
+      { "name": "React", "percent": 93, "years": 5, "tags": ["UI", "Components"] },
+      { "name": "TypeScript", "percent": 88, "years": 5, "tags": ["Types", "Scale"] },
+      { "name": "CSS", "percent": 92, "years": 6, "tags": ["Layout", "Motion"] },
+      { "name": "Accessibility", "percent": 85, "years": 4, "tags": ["A11y", "UX"] },
+      { "name": "Testing", "percent": 80, "years": 4, "tags": ["Reliability", "Quality"] }
+    ],
+    "projects": [
+      {
+        "title": "Interface System Builder",
+        "category": "Frontend",
+        "filterCategory": "frontend",
+        "image": "project1.PNG",
+        "description": "A design-system focused reference project demonstrating component reuse, accessibility, and responsive design.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Design", "icon": "fas fa-palette" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

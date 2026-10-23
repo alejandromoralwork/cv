@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "rust_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Systems / Rust Engineer",
+      "photo": "yo.png",
+      "about": "Systems engineer focused on performance, safety, and building reliable tools using Rust. I design memory-safe concurrent systems and developer tooling for backend and infra use-cases."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/RustDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master studies covering systems programming, concurrency models and performance engineering."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Undergraduate studies focused on algorithms, operating systems and software engineering."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Rust Engineer",
+        "company": "Freelancer",
+        "description": "Delivered performance-sensitive utilities and services in Rust, focused on correctness, concurrency and efficient resource usage. Built CLI tools and libraries to support infrastructure workflows."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Systems Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Worked on backend components and tooling integrating performance and safety considerations; contributed to deployment and monitoring of services."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Software Engineer",
+        "company": "Accenture Spain",
+        "description": "Implemented backend services and automation, focusing on reliability and operational excellence."
+      }
+    ],
+    "skills": [
+      { "name": "Rust", "percent": 90, "years": 4, "tags": ["Systems", "Safety"] },
+      { "name": "Concurrency", "percent": 86, "years": 4, "tags": ["Threads", "Async"] },
+      { "name": "CLI Tools", "percent": 86, "years": 4, "tags": ["Automation", "Productivity"] },
+      { "name": "Performance", "percent": 88, "years": 4, "tags": ["Tuning", "Efficiency"] },
+      { "name": "Testing", "percent": 80, "years": 4, "tags": ["Reliability", "Quality"] }
+    ],
+    "projects": [
+      {
+        "title": "Safe Systems Toolkit",
+        "category": "Systems / Rust",
+        "filterCategory": "rust",
+        "image": "project1.PNG",
+        "description": "A Rust toolkit for fast, safe utilities and backend-adjacent system tooling.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Systems", "icon": "fas fa-terminal" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

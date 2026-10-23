@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "javascript_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "JavaScript Engineer",
+      "photo": "yo.png",
+      "about": "JavaScript engineer working on modern web apps, developer tooling and server-side utilities. I focus on cohesive full-stack delivery and developer experience."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/JavascriptDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master-level study including advanced web systems and software engineering practices."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Undergraduate foundation in algorithms, programming and web development."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior JavaScript Engineer",
+        "company": "Freelancer",
+        "description": "Built interactive web applications and server-side tooling using modern JavaScript and Node.js, improved developer experience and delivery automation."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "JavaScript Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Implemented product features across frontend and backend, improving performance and developer workflows."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Software Engineer",
+        "company": "Accenture Spain",
+        "description": "Developed web applications and integration code for enterprise customers, focusing on reliability and maintainability."
+      }
+    ],
+    "skills": [
+      { "name": "JavaScript", "percent": 95, "years": 6, "tags": ["Web", "Node"] },
+      { "name": "TypeScript", "percent": 88, "years": 5, "tags": ["Types", "Scale"] },
+      { "name": "React", "percent": 90, "years": 5, "tags": ["UI", "Components"] },
+      { "name": "Node.js", "percent": 88, "years": 5, "tags": ["API", "Automation"] },
+      { "name": "Testing", "percent": 82, "years": 4, "tags": ["Reliability", "Quality"] }
+    ],
+    "projects": [
+      {
+        "title": "JavaScript Product Suite",
+        "category": "Web",
+        "filterCategory": "javascript",
+        "image": "project1.PNG",
+        "description": "Reference project for interactive web interfaces, tooling and full-stack delivery.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Web Apps", "icon": "fas fa-laptop-code" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

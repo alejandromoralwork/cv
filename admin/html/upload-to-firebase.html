@@ -177,9 +177,7 @@
                 <input type="text" id="authDomain" placeholder="your-project-id.firebaseapp.com">
             </div>
             <div class="form-group">
-                <label>Admin Password:</label>
-                <input type="password" id="adminPassword" placeholder="Set your admin password">
-                <small>This password will be used to authenticate admin operations</small>
+                <small style="color:#a94442;">This uploader is passwordless. Ensure Firestore security rules restrict writes in production.</small>
             </div>
         </div>
 
@@ -198,15 +196,32 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // CV Data files to upload
+        // CV Data files to upload (includes senior and intern versions)
         const cvFiles = [
-            { name: 'data_science', file: 'firebase-import/data_science.json' },
-            { name: 'fintech', file: 'firebase-import/fintech.json' },
-            { name: 'fund_accounting', file: 'firebase-import/fund_accounting.json' },
-            { name: 'investment_analysis', file: 'firebase-import/investment_analysis.json' },
-            { name: 'neutral_finance', file: 'firebase-import/neutral_finance.json' },
-            { name: 'pure_coding', file: 'firebase-import/pure_coding.json' },
-            { name: 'reporting_analyst', file: 'firebase-import/reporting_analyst.json' }
+            { name: 'ai_data_engineer', file: '../firebase-import/ai_data_engineer.json' },
+            { name: 'backend_systems_architect', file: '../firebase-import/backend_systems_architect.json' },
+            { name: 'backend_developer', file: '../firebase-import/backend_developer.json' },
+            { name: 'cloud_platform', file: '../firebase-import/cloud_platform.json' },
+            { name: 'devops_engineer', file: '../firebase-import/devops_engineer.json' },
+            { name: 'full_stack_developer', file: '../firebase-import/full_stack_developer.json' },
+            { name: 'frontend_developer', file: '../firebase-import/frontend_developer.json' },
+            { name: 'java_developer', file: '../firebase-import/java_developer.json' },
+            { name: 'javascript_developer', file: '../firebase-import/javascript_developer.json' },
+            { name: 'mobile_frontend_architect', file: '../firebase-import/mobile_frontend_architect.json' },
+            { name: 'data_science', file: '../firebase-import/data_science.json' },
+            { name: 'fintech', file: '../firebase-import/fintech.json' },
+            { name: 'fund_accounting', file: '../firebase-import/fund_accounting.json' },
+            { name: 'investment_analysis', file: '../firebase-import/investment_analysis.json' },
+            { name: 'neutral_finance', file: '../firebase-import/neutral_finance.json' },
+            { name: 'pure_coding', file: '../firebase-import/pure_coding.json' },
+            { name: 'reporting_analyst', file: '../firebase-import/reporting_analyst.json' },
+            { name: 'python_developer', file: '../firebase-import/python_developer.json' },
+            { name: 'personal_blockchain', file: '../firebase-import/personal_blockchain.json' },
+            { name: 'personal_data_analyst', file: '../firebase-import/personal_data_analyst.json' },
+            { name: 'personal_fintech', file: '../firebase-import/personal_fintech.json' },
+            { name: 'rust_developer', file: '../firebase-import/rust_developer.json' },
+            { name: 'rust_market_infra', file: '../firebase-import/rust_market_infra.json' },
+            { name: 'edit', file: '../firebase-import/edit.json' }
         ];
 
         let app, db;
@@ -246,14 +261,7 @@
             filesContainer.style.display = 'block';
         }
 
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            return hashHex;
-        }
+        // Note: password hashing removed — uploader is passwordless
 
         async function initializeFirebase() {
             const apiKey = document.getElementById('apiKey').value.trim();
@@ -289,12 +297,6 @@
 
         async function uploadAllData() {
             const uploadBtn = document.getElementById('uploadBtn');
-            const password = document.getElementById('adminPassword').value.trim();
-
-            if (!password) {
-                showStatus('Please enter an admin password', 'error');
-                return;
-            }
 
             uploadBtn.disabled = true;
             showStatus('Initializing Firebase...', 'info');
@@ -303,23 +305,6 @@
             // Initialize Firebase
             const initialized = await initializeFirebase();
             if (!initialized) {
-                uploadBtn.disabled = false;
-                return;
-            }
-
-            // Hash the password
-            const passwordHash = await hashPassword(password);
-
-            // Initialize admin password in Firebase
-            try {
-                await db.collection('admin').doc('config').set({
-                    passwordHash: passwordHash,
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                });
-                console.log('Admin password initialized');
-            } catch (error) {
-                console.error('Error setting admin password:', error);
-                showStatus('Error setting admin password: ' + error.message, 'error');
                 uploadBtn.disabled = false;
                 return;
             }

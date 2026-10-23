@@ -6,8 +6,34 @@
 class CVVersionController {
   constructor() {
     this.preloader = document.getElementById('preloader-overlay');
+    this.versionFileMap = {
+      ai_data_engineer: 'ai_data_engineer.json',
+      backend_systems_architect: 'backend_systems_architect.json',
+      backend_developer: 'backend_developer.json',
+      cloud_platform: 'cloud_platform.json',
+      data_science: 'data_science.json',
+      edit: 'edit.json',
+      devops_engineer: 'devops_engineer.json',
+      full_stack_developer: 'full_stack_developer.json',
+      fintech: 'fintech.json',
+      fund_accounting: 'fund_accounting.json',
+      frontend_developer: 'frontend_developer.json',
+      java_developer: 'java_developer.json',
+      javascript_developer: 'javascript_developer.json',
+      investment_analysis: 'investment_analysis.json',
+      mobile_frontend_architect: 'mobile_frontend_architect.json',
+      neutral_finance: 'neutral_finance.json',
+      personal_blockchain: 'personal_blockchain.json',
+      personal_data_analyst: 'personal_data_analyst.json',
+      personal_fintech: 'personal_fintech.json',
+      pure_coding: 'pure_coding.json',
+      reporting_analyst: 'reporting_analyst.json',
+      python_developer: 'python_developer.json',
+      rust_developer: 'rust_developer.json',
+      rust_market_infra: 'rust_market_infra.json'
+    };
     // Detect version from URL path or default
-    this.currentVersion = this.detectVersionFromPath() || 'data_science';
+    this.currentVersion = this.resolveInitialVersion() || 'data_science';
     this.versions = null;
     this.cvData = null;
     this.firebaseInitialized = false;
@@ -16,22 +42,59 @@ class CVVersionController {
     this.init();
   }
 
+  isLocalDevelopment() {
+    const hostname = window.location.hostname;
+    return hostname === 'localhost' || hostname === '127.0.0.1';
+  }
+
+  resolveInitialVersion() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryVersion = urlParams.get('version');
+    if (queryVersion) {
+      return this.normalizeVersionKey(queryVersion);
+    }
+
+    const bodyVersion = document.body?.dataset?.version || document.documentElement?.dataset?.version;
+    if (bodyVersion) {
+      return this.normalizeVersionKey(bodyVersion);
+    }
+
+    return this.detectVersionFromPath();
+  }
+
   detectVersionFromPath() {
-    const path = window.location.pathname;
+    const path = decodeURIComponent(window.location.pathname);
     const versionMap = {
+      'AI&DataEngineer': 'ai_data_engineer',
+      'Backend&Systems': 'backend_systems_architect',
+      'BackendDeveloper': 'backend_developer',
+      'Cloud&Platform': 'cloud_platform',
       'data-science': 'data_science',
+      'edit': 'edit',
+      'DevOpsEngineer': 'devops_engineer',
+      'FullStackDeveloper': 'full_stack_developer',
       'fintech': 'fintech',
       'fund-accounting': 'fund_accounting',
+      'FrontendDeveloper': 'frontend_developer',
+      'JavaDeveloper': 'java_developer',
+      'JavascriptDeveloper': 'javascript_developer',
       'investment': 'investment_analysis',
-      'finance': 'neutral_finance',
-      'developer': 'pure_coding',
-      'reporting-analyst': 'fund_accounting'
+      'Mobile&Frontend': 'mobile_frontend_architect',
+      'neutral-finance': 'neutral_finance',
+      'PersonalBlockchain': 'personal_blockchain',
+      'PersonalDataAnalyst': 'personal_data_analyst',
+      'PersonalFintech': 'personal_fintech',
+      'pure-coding': 'pure_coding',
+      'reporting-analyst': 'reporting_analyst',
+      'PythonDeveloper': 'python_developer',
+      'RustDeveloper': 'rust_developer',
+      'Rust&MarketInfra': 'rust_market_infra'
     };
-    
-    for (const [pathSegment] of Object.entries(versionMap)) {
-      if (path.includes('/' + pathSegment + '/')) {
-        console.log('Detected version from path:', pathSegment, '->', this.normalizeVersionKey(pathSegment));
-        return pathSegment;
+
+    for (const [pathSegment, versionKey] of Object.entries(versionMap)) {
+      if (path.includes('/' + pathSegment + '/') || path.endsWith('/' + pathSegment + '/index.html')) {
+        console.log('Detected version from path:', pathSegment, '->', versionKey);
+        return versionKey;
       }
     }
     return null;
@@ -40,22 +103,55 @@ class CVVersionController {
   normalizeVersionKey(version) {
     if (!version) return version;
     const versionMap = {
+      'ai-data-engineer': 'ai_data_engineer',
+      'ai_data_engineer': 'ai_data_engineer',
+      'backend-systems-architect': 'backend_systems_architect',
+      'backend_systems_architect': 'backend_systems_architect',
+      'backend-developer': 'backend_developer',
+      'backend_developer': 'backend_developer',
+      'cloud-platform': 'cloud_platform',
+      'cloud_platform': 'cloud_platform',
       'data-science': 'data_science',
       'data_science': 'data_science',
+      'edit': 'edit',
+      'devops-engineer': 'devops_engineer',
+      'devops_engineer': 'devops_engineer',
+      'full-stack-developer': 'full_stack_developer',
+      'full_stack_developer': 'full_stack_developer',
       'fintech': 'fintech',
       'fund-accounting': 'fund_accounting',
       'fund_accounting': 'fund_accounting',
+      'frontend-developer': 'frontend_developer',
+      'frontend_developer': 'frontend_developer',
+      'java-developer': 'java_developer',
+      'java_developer': 'java_developer',
+      'javascript-developer': 'javascript_developer',
+      'javascript_developer': 'javascript_developer',
       'investment': 'investment_analysis',
       'investment-analysis': 'investment_analysis',
       'investment_analysis': 'investment_analysis',
+      'mobile-frontend-architect': 'mobile_frontend_architect',
+      'mobile_frontend_architect': 'mobile_frontend_architect',
       'finance': 'neutral_finance',
       'neutral-finance': 'neutral_finance',
       'neutral_finance': 'neutral_finance',
+      'personal-blockchain': 'personal_blockchain',
+      'personal_blockchain': 'personal_blockchain',
+      'personal-data-analyst': 'personal_data_analyst',
+      'personal_data_analyst': 'personal_data_analyst',
+      'personal-fintech': 'personal_fintech',
+      'personal_fintech': 'personal_fintech',
       'developer': 'pure_coding',
       'pure-coding': 'pure_coding',
       'pure_coding': 'pure_coding',
       'reporting-analyst': 'reporting_analyst',
-      'reporting_analyst': 'reporting_analyst'
+      'reporting_analyst': 'reporting_analyst',
+      'python-developer': 'python_developer',
+      'python_developer': 'python_developer',
+      'rust-developer': 'rust_developer',
+      'rust_developer': 'rust_developer',
+      'rust-market-infra': 'rust_market_infra',
+      'rust_market_infra': 'rust_market_infra'
     };
     if (versionMap[version]) return versionMap[version];
     return version.includes('-') ? version.replace(/-/g, '_') : version;
@@ -66,10 +162,10 @@ class CVVersionController {
     // Initialize Firebase first
     await this.initializeFirebase();
 
-    // Apply URL version before loading data
-    this.loadVersionFromURL();
+    // Resolve the version again once the page DOM is available
+    this.currentVersion = this.resolveInitialVersion() || this.currentVersion;
 
-    // Load CV data from Firebase or local
+    // Load CV data from local JSON first, then Firebase fallback
     await this.loadVersions();
 
     // Get DOM elements after data is loaded
@@ -93,83 +189,190 @@ class CVVersionController {
     }
   }
 
-  async initializeFirebase() {
+async initializeFirebase() {
     try {
       if (typeof firebase === 'undefined') {
-        console.warn('Firebase SDK not loaded, will use local fallback');
+        console.warn('Firebase SDK not loaded. Ensure Firebase Scripts are in your HTML head.');
         return false;
       }
 
-      // Firebase config
+      // REAL DATA INTEGRATED HERE
       const firebaseConfig = {
         apiKey: "AIzaSyBHw7K6HMLa2W_PmN9Yctq4XO3Zsng5PXI",
         authDomain: "jobsearch-a3a6c.firebaseapp.com",
+        databaseURL: "https://jobsearch-a3a6c-default-rtdb.firebaseio.com",
         projectId: "jobsearch-a3a6c",
-        storageBucket: "jobsearch-a3a6c.appspot.com",
-        messagingSenderId: "123456789",
-        appId: "1:123456789:web:abcdef123456"
+        storageBucket: "jobsearch-a3a6c.firebasestorage.app",
+        messagingSenderId: "63177029478",
+        appId: "1:63177029478:web:29682710bea4d3d194faa7",
+        measurementId: "G-X7F3CZK48G"
       };
 
+
+      // Initialize if not already active
       if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
+        
+        // Initialize Analytics if needed
+        if (typeof firebase.analytics === 'function') {
+          firebase.analytics();
+        }
       }
       
       this.db = firebase.firestore();
       this.firebaseInitialized = true;
-      console.log('Firebase initialized successfully for CV loading');
+      
+      console.log('✅ Firebase Live: Connected to jobsearch-a3a6c');
       return true;
     } catch (error) {
-      console.error('Firebase initialization failed:', error);
+      console.error('❌ Firebase connection error:', error);
       return false;
     }
   }
 
   async loadVersions() {
-    // Only load from Firebase - no local fallback
-    if (this.firebaseInitialized) {
-      const loaded = await this.loadFromFirebase();
-      if (!loaded) {
-        console.error('Failed to load CV data from Firebase for version:', this.currentVersion);
-      }
-    } else {
-      console.error('Firebase not initialized - cannot load CV data');
+    const loaded = await this.loadVersionData(this.currentVersion);
+    if (!loaded) {
+      console.error('Failed to load CV data for version:', this.currentVersion);
     }
   }
 
-  async loadFromFirebase() {
+  getImportBasePath() {
+    const path = decodeURIComponent(window.location.pathname);
+    const segments = path.split('/').filter(Boolean);
+    return segments.length > 1 ? '../admin/firebase-import' : 'admin/firebase-import';
+  }
+
+  getVersionFileName(versionKey) {
+    const normalizedVersion = this.normalizeVersionKey(versionKey);
+    return this.versionFileMap[normalizedVersion] || `${normalizedVersion}.json`;
+  }
+
+  getVersionImportUrl(versionKey) {
+    return `${this.getImportBasePath()}/${this.getVersionFileName(versionKey)}`;
+  }
+
+  parseCvPayload(docData) {
+    if (!docData) return null;
+
+    if (docData.cvData) {
+      return typeof docData.cvData === 'string'
+        ? JSON.parse(docData.cvData)
+        : docData.cvData;
+    }
+
+    return docData;
+  }
+
+  isProjectPageActive(data) {
+    const flag = data?.isProjectPageActive ?? data?.projectPageActive ?? data?.cvData?.isProjectPageActive ?? data?.cvData?.projectPageActive;
+
+    if (typeof flag === 'string') {
+      return flag.trim().toLowerCase() === 'yes';
+    }
+
+    return flag === true;
+  }
+
+  isEnabledFlag(flag) {
+    if (typeof flag === 'string') {
+      return flag.trim().toLowerCase() === 'yes';
+    }
+
+    return flag === true;
+  }
+
+  getContactVisibilityFlags(data) {
+    const contact = data?.contact || {};
+
+    return {
+      showWebsite: this.isEnabledFlag(contact.showWebsite ?? contact.websiteVisible ?? contact.showPersonalWebsite),
+      showGithub: this.isEnabledFlag(contact.showGithub ?? contact.githubVisible)
+    };
+  }
+
+  setProjectPageVisibility(isActive) {
+    const projectsSection = document.querySelector('.projects, #projects-content');
+    const projectsNavItem = document.getElementById('nav-projects');
+
+    if (projectsSection) {
+      projectsSection.style.display = isActive ? '' : 'none';
+    }
+
+    if (projectsNavItem) {
+      projectsNavItem.style.display = isActive ? '' : 'none';
+    }
+  }
+
+async loadVersionData(versionKey) {
+    const normalizedVersion = this.normalizeVersionKey(versionKey);
+
+    // 1. Try Firebase First (for real-time updates)
+    if (this.firebaseInitialized) {
+      const firebaseData = await this.loadFromFirebase(normalizedVersion);
+      if (firebaseData) {
+        console.log('Using data from: Firebase');
+        this.cvData = firebaseData;
+        this.populatePageWithData(firebaseData);
+        this.applyVersion(normalizedVersion);
+        return true;
+      }
+    }
+
+    const localData = await this.loadFromLocal(normalizedVersion);
+    if (localData) {
+      console.log('Using data from: local JSON');
+      this.cvData = localData;
+      this.populatePageWithData(localData);
+      this.applyVersion(normalizedVersion);
+      return true;
+    }
+
+    console.error('No data source returned data for version:', normalizedVersion);
+
+    return false;
+  }
+
+  async loadFromLocal(versionKey) {
+    try {
+      const url = this.getVersionImportUrl(versionKey);
+      console.log('Loading CV data from local JSON:', url);
+      const response = await fetch(url, { cache: 'no-store' });
+
+      if (!response.ok) {
+        console.warn('No local JSON found for version:', versionKey, response.status);
+        return null;
+      }
+
+      const docData = await response.json();
+      const cvData = this.parseCvPayload(docData);
+      console.log('Local JSON data loaded for version:', versionKey);
+      return cvData;
+    } catch (error) {
+      console.error('Failed to load local JSON for version:', versionKey, error);
+      return null;
+    }
+  }
+
+  async loadFromFirebase(versionKey) {
     try {
       console.log('Loading CV data from Firebase...');
-      const firebaseVersion = this.normalizeVersionKey(this.currentVersion);
-      const docRef = this.db.collection('cv-data').doc(firebaseVersion);
+      const docRef = this.db.collection('cv-data').doc(versionKey);
       const doc = await docRef.get();
 
       if (doc.exists) {
         const docData = doc.data();
         console.log('Firebase data loaded:', docData);
-
-        // Parse cvData
-        let cvData;
-        if (docData.cvData) {
-          cvData = typeof docData.cvData === 'string'
-            ? JSON.parse(docData.cvData)
-            : docData.cvData;
-        } else {
-          cvData = docData;
-        }
-
-        this.cvData = cvData;
-        this.populatePageWithData(cvData);
-        console.log('CV populated from Firebase successfully');
-        // Now safe to call applyVersion
-        this.applyVersion(this.currentVersion);
-        return true;
-      } else {
-        console.log('No Firebase data found for version:', firebaseVersion);
-        return false;
+        const cvData = this.parseCvPayload(docData);
+        console.log('CV data loaded from Firebase successfully');
+        return cvData;
       }
+
+      console.log('No Firebase data found for version:', versionKey);
+      return null;
     } catch (error) {
       console.error('Failed to load from Firebase:', error);
-      return false;
+      return null;
     }
   }
 
@@ -192,6 +395,8 @@ class CVVersionController {
 
     // Update contact info
     if (data.contact) {
+      const { showWebsite, showGithub } = this.getContactVisibilityFlags(data);
+
       if (data.contact.phone) {
         const phoneEl = document.querySelector('.call a');
         if (phoneEl) {
@@ -219,6 +424,16 @@ class CVVersionController {
           websiteEl.href = data.contact.website;
           websiteEl.querySelector('.website-text').textContent = 'Online CV';
         }
+
+        const websiteWrap = document.querySelector('.website-link');
+        if (websiteWrap) {
+          websiteWrap.style.display = showWebsite ? '' : 'none';
+        }
+      }
+
+      const githubLink = document.querySelector('.follow .github-social');
+      if (githubLink) {
+        githubLink.style.display = showGithub ? '' : 'none';
       }
     }
 
@@ -229,12 +444,11 @@ class CVVersionController {
         eduList.innerHTML = '';
         data.education.forEach(edu => {
           const li = document.createElement('li');
+          const educationText = edu.description || (edu.coursework && edu.coursework.length ? edu.coursework.join(' ') : '');
           li.innerHTML = `
             <span>${edu.degree || ''}<br>${edu.school || ''}</span>
             <small>${edu.dates || ''}</small>
-            ${edu.coursework && edu.coursework.length ? edu.coursework.map(c => 
-              `<h6 class="coursework">${c}</h6>`
-            ).join('') : ''}
+            ${educationText ? `<p class="coursework">${educationText}</p>` : ''}
           `;
           eduList.appendChild(li);
         });
@@ -306,23 +520,32 @@ class CVVersionController {
           li.setAttribute('data-active', project.active !== false ? 'true' : 'false');
           
           const links = project.links || [];
-          const mainLink = links[0] || { url: '#', text: 'View Project' };
-          
-          li.innerHTML = `
-            <figure class="project-img">
+          const hasLinks = links.length > 0;
+          const mainLink = hasLinks ? links[0] : null;
+          const imageMarkup = hasLinks ? `
               <a href="${mainLink.url}" class="project-eye-link" target="_blank">
                 <div class="project-item-icon-box">
                   <i class="fas fa-eye"></i>
                 </div>
-                <img src="../assets/images/${project.image || 'placeholder.png'}" alt="${project.title}" loading="lazy">
+                <img src="../assets/images/${project.image || 'project1.PNG'}" alt="${project.title}" loading="lazy">
               </a>
+          ` : `
+              <div class="project-item-image">
+                <img src="../assets/images/${project.image || 'project1.PNG'}" alt="${project.title}" loading="lazy">
+              </div>
+          `;
+          const linkMarkup = hasLinks ? links.map(link => `<a href="${link.url}" class="project-link" target="_blank">${link.text}</a>`).join('') : '';
+          
+          li.innerHTML = `
+            <figure class="project-img">
+              ${imageMarkup}
             </figure>
             <div class="project-info">
               <h3 class="project-title">
-                <a href="${mainLink.url}" target="_blank">${project.title || ''}</a>
+                ${hasLinks ? `<a href="${mainLink.url}" target="_blank">${project.title || ''}</a>` : `${project.title || ''}`}
               </h3>
               <p class="project-description">${project.description || ''}</p>
-              ${links.map(link => `<a href="${link.url}" class="project-link" target="_blank">${link.text}</a>`).join('')}
+              ${linkMarkup}
               <p class="project-category">${project.category || ''}</p>
             </div>
           `;
@@ -351,11 +574,7 @@ class CVVersionController {
   }
 
   loadVersionFromURL() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const version = urlParams.get('version');
-    if (version) {
-      this.currentVersion = this.normalizeVersionKey(version);
-    }
+    this.currentVersion = this.resolveInitialVersion() || this.currentVersion;
   }
 
   setupEventListeners() {
@@ -377,78 +596,73 @@ class CVVersionController {
   }
 
   switchVersion(version) {
-    const displayVersion = version;
     const normalizedVersion = this.normalizeVersionKey(version);
-    if (!this.versions) {
-      console.error('CVVersionController: versions data is not loaded. Cannot switch version.');
-      return;
-    }
-    if (!this.versions[normalizedVersion] && !this.versions[displayVersion]) {
-      console.error('Version not found:', version);
-      return;
-    }
-
     this.currentVersion = normalizedVersion;
-    this.applyVersion(normalizedVersion);
+    if (document.body) {
+      document.body.dataset.version = normalizedVersion;
+    }
+    this.loadVersionData(normalizedVersion);
 
     // Update URL without reload
     const url = new URL(window.location);
-    url.searchParams.set('version', displayVersion);
+    url.searchParams.set('version', normalizedVersion);
     window.history.pushState({}, '', url);
 
     // Update selector
     const selector = document.getElementById('version-selector');
     if (selector) {
-      selector.value = displayVersion;
+      selector.value = normalizedVersion;
     }
 
-    // Auto-refresh PDF preview if function exists
-    if (typeof window.generatePDF === 'function') {
-      setTimeout(() => {
-        window.generatePDF();
-      }, 300); // slight delay to ensure DOM is updated
-    }
+    // PDF export is user-driven from the download button.
   }
 
   applyVersion(versionKey) {
-    if (!this.versions) {
-      console.error('CVVersionController: versions data is not loaded.');
-      return;
+    const version = this.versions && this.versions[versionKey];
+    const dataSource = version || this.cvData || {};
+    const projectPageActive = this.isProjectPageActive(dataSource);
+
+    this.setProjectPageVisibility(projectPageActive);
+
+    if (version) {
+      document.title = `Alejandro Moral Aranda - ${version.title}`;
+
+      const jobTitle = document.querySelector('.job');
+      if (jobTitle) {
+        jobTitle.textContent = version.jobTitle;
+      }
+
+      const aboutText = document.querySelector('.about p');
+      if (aboutText) {
+        aboutText.textContent = version.about;
+      }
+
+      this.updateExperiences(version.experienceOrder);
+      this.updateProjects(version.projectsToShow);
+      this.applyFormalismTheme(version.formalism);
+      this.highlightSkills(version.highlightedSkills);
+    } else if (this.cvData) {
+      const title = this.cvData.personal?.jobTitle || versionKey.replace(/_/g, ' ');
+      document.title = `Alejandro Moral Aranda - ${title}`;
+
+      const jobTitle = document.querySelector('.job');
+      if (jobTitle && this.cvData.personal?.jobTitle) {
+        jobTitle.textContent = this.cvData.personal.jobTitle;
+      }
+
+      const aboutText = document.querySelector('.about p');
+      if (aboutText && this.cvData.personal?.about) {
+        aboutText.textContent = this.cvData.personal.about;
+      }
     }
-    const version = this.versions[versionKey];
-    if (!version) {
-      console.error(`CVVersionController: version '${versionKey}' not found in versions data. Available keys:`, Object.keys(this.versions));
-      return;
+
+    if (!projectPageActive) {
+      const projectList = document.querySelector('.project-list');
+      if (projectList) {
+        projectList.innerHTML = '';
+      }
     }
 
-    // Update document title
-    document.title = `Alejandro Moral Aranda - ${version.title}`;
-
-    // Update job title
-    const jobTitle = document.querySelector('.job');
-    if (jobTitle) {
-      jobTitle.textContent = version.jobTitle;
-    }
-
-    // Update about section
-    const aboutText = document.querySelector('.about p');
-    if (aboutText) {
-      aboutText.textContent = version.about;
-    }
-
-    // Reorder and filter experiences
-    this.updateExperiences(version.experienceOrder);
-
-    // Filter projects
-    this.updateProjects(version.projectsToShow);
-
-    // Apply formalism theme
-    this.applyFormalismTheme(version.formalism);
-
-    // Highlight relevant skills
-    this.highlightSkills(version.highlightedSkills);
-
-    // Update PDF download link
     this.updatePDFLink(versionKey);
   }
 
@@ -558,9 +772,14 @@ class CVVersionController {
   updatePDFLink(versionKey) {
     const downloadBtn = document.querySelector('.download-btn');
     if (downloadBtn) {
-      const fileName = `alejandro_moral_aranda_${versionKey.replace(/-/g, '_')}.pdf`;
-      downloadBtn.setAttribute('href', fileName);
-      downloadBtn.setAttribute('download', fileName);
+      const current = this.getCurrentVersion();
+      const jobTitle = current?.data?.personal?.jobTitle || this.cvData?.personal?.jobTitle || versionKey.replace(/_/g, ' ');
+      downloadBtn.removeAttribute('href');
+      downloadBtn.removeAttribute('download');
+      downloadBtn.setAttribute('title', `Download ${jobTitle} PDF`);
+      downloadBtn.setAttribute('aria-label', `Download ${jobTitle} PDF`);
+      downloadBtn.dataset.version = versionKey;
+      downloadBtn.dataset.jobTitle = jobTitle;
     }
   }
 
@@ -570,8 +789,10 @@ class CVVersionController {
     const fileName = `alejandro_moral_aranda_${versionKey.replace(/-/g, '_')}.pdf`;
     
     // Trigger PDF generation (assuming pdf-generator.js is loaded)
-    if (window.generatePDF) {
-      window.generatePDF(fileName);
+    if (typeof window.generateResumePDF === 'function') {
+      window.generateResumePDF(fileName, { includeProjects: true, mode: 'normal' });
+    } else if (typeof window.generatePDF === 'function') {
+      window.generatePDF(fileName, { includeProjects: true, mode: 'normal' });
     }
   }
 
@@ -579,12 +800,20 @@ class CVVersionController {
   getCurrentVersion() {
     return {
       key: this.currentVersion,
-      data: this.versions[this.currentVersion]
+      data: (this.versions && this.versions[this.currentVersion]) || this.cvData
     };
   }
 
   // Get all available versions
   getAvailableVersions() {
+    if (!this.versions) {
+      return [{
+        key: this.currentVersion,
+        title: this.cvData?.personal?.jobTitle || this.currentVersion,
+        formalism: 'balanced'
+      }];
+    }
+
     return Object.keys(this.versions).map(key => ({
       key,
       title: this.versions[key].title,
@@ -597,6 +826,7 @@ class CVVersionController {
 let cvController;
 document.addEventListener('DOMContentLoaded', function() {
   cvController = new CVVersionController();
+  window.cvController = cvController;
 });
 
 // Make it globally accessible

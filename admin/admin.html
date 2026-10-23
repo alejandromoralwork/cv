@@ -258,15 +258,10 @@
 
             <div class="form-group">
                 <label for="versionSelect">Select CV Version</label>
-                <select id="versionSelect" onchange="loadVersion()">
-                    <option value="neutral_finance">Finance Professional</option>
-                    <option value="fund_accounting">Fund Accounting</option>
-                    <option value="reporting_analyst">Finance and Programming</option>
-                    <option value="investment_analysis">Investment Analysis</option>
-                    <option value="fintech">FinTech Developer</option>
-                    <option value="data_science">Data Science</option>
-                    <option value="pure_coding">Software Developer</option>
+                <select id="versionSelect" onchange="loadVersion()" disabled>
+                    <option value="">Loading CV versions...</option>
                 </select>
+                <small id="versionHint" style="display:block;margin-top:8px;color:#666;">CV versions are loaded from Firestore documents.</small>
             </div>
 
             <div class="tabs">
@@ -400,15 +395,107 @@
     <script>
         let currentVersion = 'neutral_finance';
         let currentData = null;
+        let availableVersions = {};
+
+        const previewFolderMap = {
+            ai_data_engineer: 'AI&DataEngineer',
+            backend_systems_architect: 'Backend&Systems',
+            cloud_platform: 'Cloud&Platform',
+            mobile_frontend_architect: 'Mobile&Frontend',
+            personal_blockchain: 'PersonalBlockchain',
+            personal_data_analyst: 'PersonalDataAnalyst',
+            personal_fintech: 'PersonalFintech',
+            rust_market_infra: 'PersonalBlockchain',
+            neutral_finance: 'finance',
+            fund_accounting: 'fund-accounting',
+            reporting_analyst: 'reporting-analyst',
+            investment_analysis: 'investment',
+            fintech: 'fintech',
+            data_science: 'data-science',
+            pure_coding: 'developer'
+        };
 
         // Initialize Firebase on page load
-        window.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('DOMContentLoaded', async () => {
             initializeFirebase();
             // Skip login and go directly to admin panel
             document.getElementById('loginPanel').style.display = 'none';
             document.getElementById('adminPanel').style.display = 'block';
-            loadVersion();
+            await loadAvailableVersions();
         });
+
+        function formatVersionLabel(versionId, docData = {}) {
+            const rawLabel = docData.displayName || docData.title || docData.version || versionId || '';
+            return String(rawLabel)
+                .replace(/[_-]+/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .replace(/\b\w/g, character => character.toUpperCase());
+        }
+
+        function resolvePreviewFolder(versionId) {
+            const direct = previewFolderMap[versionId];
+            if (direct) return direct;
+
+            const normalized = String(versionId || '').trim().toLowerCase().replace(/\s+/g, '_').replace(/-/g, '_');
+            return previewFolderMap[normalized] || null;
+        }
+
+        function setVersionSelectState(isDisabled, placeholderText) {
+            const versionSelect = document.getElementById('versionSelect');
+            versionSelect.disabled = isDisabled;
+            if (placeholderText !== undefined) {
+                versionSelect.innerHTML = '';
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = placeholderText;
+                versionSelect.appendChild(option);
+            }
+        }
+
+        async function loadAvailableVersions() {
+            try {
+                showStatus('status', 'Loading CV versions from Firestore...', 'info');
+                setVersionSelectState(true, 'Loading CV versions...');
+
+                const versions = await CVDatabase.loadAllVersions();
+                availableVersions = versions || {};
+
+                const versionEntries = Object.entries(availableVersions)
+                    .sort((firstEntry, secondEntry) => formatVersionLabel(firstEntry[0], firstEntry[1]).localeCompare(formatVersionLabel(secondEntry[0], secondEntry[1])));
+
+                const versionSelect = document.getElementById('versionSelect');
+                versionSelect.innerHTML = '';
+
+                if (!versionEntries.length) {
+                    const emptyOption = document.createElement('option');
+                    emptyOption.value = '';
+                    emptyOption.textContent = 'No CV versions found';
+                    versionSelect.appendChild(emptyOption);
+                    document.getElementById('versionHint').textContent = 'No cv-data documents were found in Firestore.';
+                    showStatus('status', 'No CV versions found in Firestore.', 'error');
+                    return;
+                }
+
+                versionEntries.forEach(([versionId, docData]) => {
+                    const option = document.createElement('option');
+                    option.value = versionId;
+                    option.textContent = formatVersionLabel(versionId, docData);
+                    versionSelect.appendChild(option);
+                });
+
+                const preferredVersion = availableVersions[currentVersion] ? currentVersion : versionEntries[0][0];
+                currentVersion = preferredVersion;
+                versionSelect.value = currentVersion;
+                versionSelect.disabled = false;
+                document.getElementById('versionHint').textContent = `${versionEntries.length} CV version${versionEntries.length === 1 ? '' : 's'} loaded from Firestore.`;
+                await loadVersion(currentVersion);
+            } catch (error) {
+                setVersionSelectState(true, 'Failed to load versions');
+                document.getElementById('versionHint').textContent = 'Could not load Firestore CV versions.';
+                showStatus('status', 'Error loading version list: ' + error.message, 'error');
+            }
+        }
 
         // Logout function
         function logout() {
@@ -417,8 +504,18 @@
         }
 
         // Load CV version data
-        async function loadVersion() {
-            currentVersion = document.getElementById('versionSelect').value;
+        async function loadVersion(versionId = null) {
+            const versionSelect = document.getElementById('versionSelect');
+            currentVersion = versionId || versionSelect.value;
+
+            if (currentVersion && versionSelect.value !== currentVersion) {
+                versionSelect.value = currentVersion;
+            }
+
+            if (!currentVersion) {
+                showStatus('status', 'Select a CV version to load.', 'error');
+                return;
+            }
             
             try {
                 showStatus('status', 'Loading CV data...', 'info');
@@ -688,23 +785,20 @@
             const iframe = document.getElementById('previewFrame');
             const loading = document.getElementById('previewLoading');
             
+            loading.innerHTML = '<div class="spinner"></div><p>Loading preview...</p>';
             loading.style.display = 'block';
             iframe.style.display = 'none';
-            
-            // Map version to directory
-            const versionDirMap = {
-                'neutral_finance': 'finance',
-                'fund_accounting': 'fund-accounting',
-                'reporting_analyst': 'reporting-analyst',
-                'investment_analysis': 'investment',
-                'fintech': 'fintech',
-                'data_science': 'data-science',
-                'pure_coding': 'developer'
-            };
-            
-            const dir = versionDirMap[currentVersion];
-            iframe.src = `../${dir}/index.html`;
-            
+
+            const dir = resolvePreviewFolder(currentVersion);
+
+            if (!dir) {
+                loading.innerHTML = '<p>No preview route is mapped for this CV version.</p>';
+                return;
+            }
+
+            const previewPath = '/cv/' + dir.split('/').map(segment => encodeURIComponent(segment)).join('/') + '/index.html';
+            iframe.src = previewPath;
+
             iframe.onload = () => {
                 loading.style.display = 'none';
                 iframe.style.display = 'block';

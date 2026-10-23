@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "python_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Python Engineer",
+      "photo": "yo.png",
+      "about": "Python engineer specialising in automation, backend services and data processing. I build reliable scripts and services to automate workflows and power data-driven features."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/PythonDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master coursework covering scalable systems, data engineering patterns and backend architectures."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Undergraduate training covering programming, data structures and databases."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Python Engineer",
+        "company": "Freelancer",
+        "description": "Delivered automation platforms, ETL pipelines and backend services using Python. Implemented monitoring, testing and deployment automation for reliable delivery."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Python Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Built data pipelines and backend integrations, supported ML model deployment and productionisation tasks."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Software Engineer",
+        "company": "Accenture Spain",
+        "description": "Implemented backend services, integration scripts and data processing components for enterprise solutions."
+      }
+    ],
+    "skills": [
+      { "name": "Python", "percent": 95, "years": 6, "tags": ["Automation", "Data"] },
+      { "name": "FastAPI", "percent": 85, "years": 4, "tags": ["APIs", "Services"] },
+      { "name": "SQL", "percent": 88, "years": 6, "tags": ["Data", "Queries"] },
+      { "name": "Pandas", "percent": 83, "years": 5, "tags": ["Analysis", "ETL"] },
+      { "name": "Testing", "percent": 82, "years": 4, "tags": ["Quality", "Reliability"] }
+    ],
+    "projects": [
+      {
+        "title": "Automation and Data Toolkit",
+        "category": "Python / Data",
+        "filterCategory": "python",
+        "image": "project1.PNG",
+        "description": "A Python toolkit for automation, ETL and lightweight services used as reference for data operations.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Data", "icon": "fas fa-chart-line" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "backend_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Backend Engineer",
+      "photo": "yo.png",
+      "about": "Backend engineer specialising in APIs, data modelling, and reliable service delivery. I focus on clean contracts, observability, and robust data handling."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/BackendDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master level study with emphasis on scalable services, databases and system design."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Undergraduate foundation in algorithms, databases, operating systems and software engineering."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Backend Engineer",
+        "company": "Freelancer",
+        "description": "Designed and implemented scalable APIs and data pipelines, improved observability and fault tolerance, and automated operational tasks using Docker and CI/CD."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Backend Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Built backend services and integrated machine learning model endpoints, managed data persistence and collaborated on deployment strategies."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Backend Engineer",
+        "company": "Accenture Spain",
+        "description": "Implemented service endpoints, data access layers and automation scripts for enterprise clients. Improved reliability and performance of backend components."
+      }
+    ],
+    "skills": [
+      { "name": "Node.js", "percent": 90, "years": 5, "tags": ["API", "Services"] },
+      { "name": "SQL", "percent": 89, "years": 6, "tags": ["Data", "Queries"] },
+      { "name": "REST APIs", "percent": 91, "years": 5, "tags": ["Contracts", "Integration"] },
+      { "name": "Docker", "percent": 80, "years": 4, "tags": ["Runtime", "Delivery"] },
+      { "name": "Observability", "percent": 76, "years": 4, "tags": ["Logs", "Metrics"] }
+    ],
+    "projects": [
+      {
+        "title": "Service Layer Prototype",
+        "category": "Backend",
+        "filterCategory": "backend",
+        "image": "project1.PNG",
+        "description": "A reference backend project providing stable endpoints, data storage and maintainable service boundaries.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Systems", "icon": "fas fa-server" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

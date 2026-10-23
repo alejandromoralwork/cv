@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "java_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Java Engineer",
+      "photo": "yo.png",
+      "about": "Java engineer experienced in JVM-based backend systems, APIs and enterprise services. I build maintainable, well-tested server-side code and focus on delivery stability and performance."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/JavaDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master courses focused on software architecture, distributed systems and performance engineering."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Undergraduate foundation in algorithms, databases and software engineering."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Java Engineer",
+        "company": "Freelancer",
+        "description": "Designed and implemented JVM services, improved observability and performance, and delivered reliable API-driven products."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Java Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Implemented backend services and integrations using Spring Boot and enterprise patterns, focusing on reliability and testability."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Software Engineer",
+        "company": "Accenture Spain",
+        "description": "Built server-side components and APIs for enterprise clients, improving stability and delivery processes."
+      }
+    ],
+    "skills": [
+      { "name": "Java", "percent": 92, "years": 6, "tags": ["JVM", "Backend"] },
+      { "name": "Spring Boot", "percent": 88, "years": 5, "tags": ["API", "Enterprise"] },
+      { "name": "SQL", "percent": 85, "years": 6, "tags": ["Data", "Persistence"] },
+      { "name": "REST APIs", "percent": 90, "years": 5, "tags": ["Contracts", "Services"] },
+      { "name": "Testing", "percent": 82, "years": 5, "tags": ["Quality", "Reliability"] }
+    ],
+    "projects": [
+      {
+        "title": "JVM Service Platform",
+        "category": "Backend",
+        "filterCategory": "java",
+        "image": "project1.PNG",
+        "description": "A reference Java project for enterprise APIs, persistence and structured service layers.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Architecture", "icon": "fas fa-cubes" },
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}

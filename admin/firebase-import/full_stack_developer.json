@@ -1,0 +1,84 @@
+{
+  "lastUpdated": "2026-05-22T00:00:00Z",
+  "version": "full_stack_developer",
+  "cvData": {
+    "personal": {
+      "name": "Alejandro Moral Aranda",
+      "jobTitle": "Full Stack Engineer",
+      "photo": "yo.png",
+      "about": "Full stack engineer delivering end-to-end web applications: frontend, APIs, databases, and deployment automation. I focus on maintainable architectures and fast iteration cycles with pragmatic product thinking."
+    },
+    "contact": {
+      "phone": "+34 675949628",
+      "email": "alejandro.moral.dev@proton.me",
+      "location": "Remote / Europe",
+      "website": "https://alejandromoralwork.github.io/cv/FullStackDeveloper/",
+      "github": "https://www.github.com/alejandromwork",
+      "linkedin": "",
+      "showWebsite": "No",
+      "showGithub": "No"
+    },
+    "education": [
+      {
+        "dates": "Sept 2019 - Sept 2020",
+        "degree": "Master in Computer Science",
+        "school": "University of Luxembourg",
+        "description": "Master in Computer Science with focus on scalable systems, cloud computing, and software engineering practices. Thesis work covered distributed application patterns and deployment automation."
+      },
+      {
+        "dates": "Sept 2015 - Sept 2019",
+        "degree": "Bachelor in Computer Science",
+        "school": "University of Malaga",
+        "description": "Bachelor covering algorithms, operating systems, databases, networks and software engineering with practical project work across full-stack topics."
+      }
+    ],
+    "workExperience": [
+      {
+        "dates": "September 2025 - Present",
+        "title": "Senior Full Stack Engineer",
+        "company": "Freelancer",
+        "description": "Delivered production web products end-to-end: designed frontend architectures (React), implemented backend APIs (Node.js/Python), modelled persistence (SQL/NoSQL), and automated delivery using Docker and CI/CD. Collaborated with product and design to ship features and ensure maintainability."
+      },
+      {
+        "dates": "May 2024 - August 2025",
+        "title": "Senior Full Stack Engineer",
+        "company": "ARHS Group (Luxembourg)",
+        "description": "Built and integrated web interfaces with backend services, contributed to data pipelines and deployment automation. Worked with React, TypeScript, Node.js, and cloud services to deliver end-to-end features."
+      },
+      {
+        "dates": "February 2021 - March 2024",
+        "title": "Full Stack Engineer",
+        "company": "Accenture Spain",
+        "description": "Implemented web applications and data-driven solutions, integrating frontend and backend components, testing, and deployment. Contributed to API design, performance tuning, and cross-team delivery."
+      }
+    ],
+    "skills": [
+      { "name": "JavaScript", "percent": 92, "years": 6, "tags": ["Frontend", "Backend"] },
+      { "name": "React", "percent": 88, "years": 5, "tags": ["UI", "SPA"] },
+      { "name": "Node.js", "percent": 86, "years": 5, "tags": ["API", "Automation"] },
+      { "name": "SQL", "percent": 84, "years": 6, "tags": ["Database", "Reporting"] },
+      { "name": "Docker", "percent": 80, "years": 4, "tags": ["Delivery", "Containers"] }
+    ],
+    "projects": [
+      {
+        "title": "End-to-End Product Builder",
+        "category": "Full Stack",
+        "filterCategory": "fullstack",
+        "image": "project1.PNG",
+        "description": "A full stack reference project combining responsive UI, API layer, persistence, and CI/CD deployment automation.",
+        "active": true
+      }
+    ],
+    "languages": [
+      { "name": "Spanish (Native)", "flag": "spain.png" },
+      { "name": "English (Fluent)", "flag": "uk.png" },
+      { "name": "French (Medium)", "flag": "france.png" }
+    ],
+    "interests": [
+      { "name": "Coding", "icon": "fas fa-code" },
+      { "name": "Chess", "icon": "fas fa-chess" },
+      { "name": "Maths", "icon": "fas fa-calculator" }
+    ],
+    "isProjectPageActive": "No"
+  }
+}
